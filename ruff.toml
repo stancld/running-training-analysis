@@ -1,8 +1,6 @@
 # A trimmed version of cogni's ruff.toml: the same formatter settings, a smaller rule set.
 line-length = 100
 target-version = "py314"
-# The data/*.py scripts are one-off analyses superseded by `tl` (see AGENTS.md).
-extend-exclude = ["data/*.py"]
 # pre-commit hands ruff explicit filenames, and an explicit path defeats `exclude` unless forced.
 force-exclude = true
 

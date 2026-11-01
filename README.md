@@ -50,6 +50,3 @@ R1 week-over-week running hours ≤ 1.25×. R2 ACWR ≤ 1.30. R3 ≥ 300 m/h of 
 on weeks over 8 h. R4 no *flat* interval or repetition work (uphill reps carry
 the intent of the rule and are not flagged). R6 ≤ 100 km per week. Dec–Apr big
 weeks are called out separately — six of nine overuse onsets fall in that window.
-
-`data/progress.py` is the earlier one-file dashboard, kept for reference; `tl`
-supersedes it and fixes the bike-hours column, which was always zero there.

@@ -27,9 +27,6 @@ settings live in `ruff.toml`.
 - `data/*.csv` is the cache and the source of truth. It is personal data, gitignored and
   kept on Dan's machine only — never commit it. `data/diary.json` and
   `web/diary.html` are generated: regenerate them, never hand-edit them.
-- `data/*.py` and `data/progress.py` are earlier one-off analyses superseded by `tl`.
-  Do not extend or cite them as patterns; several hardcode the old
-  `~/projects/training` path.
 
 ## Boundaries
 
