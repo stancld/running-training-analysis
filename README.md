@@ -36,7 +36,8 @@ stays on Dan's machine; it is gitignored, so a fresh clone has no data.
 
 ### Use
 
-Set up once with `uv sync`, which installs Python 3.14 and the dev tools.
+Set up once with `uv sync`, which installs Python 3.14 and the dev tools
+(pre-commit with Ruff, and the ty type checker: `uv run ty check`).
 
     uv run tl                     status + weeks + plan + diary
     uv run tl status              where the prep stands today

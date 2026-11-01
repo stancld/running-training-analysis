@@ -35,7 +35,7 @@ def _pair(runs, rows, cost=None):
         if cost:
             runs = min(
                 itertools.permutations(runs),
-                key=lambda p: sum(cost(a, r) for a, r in zip(p, rows, strict=True)),
+                key=lambda p: sum(map(cost, p, rows, strict=True)),
             )
         return zip(runs, rows, strict=True)
     return [(max(runs, key=lambda a: a.mins), rows[-1])] if rows else []

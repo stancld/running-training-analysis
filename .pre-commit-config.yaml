@@ -1,5 +1,5 @@
 # Modelled on the cogni / cogni-utils configs, cut to what a stdlib-only repo needs:
-# no lockfile or type-checker hooks. Install with `uv run pre-commit install`.
+# no lockfile hook. Install with `uv run pre-commit install`.
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -45,6 +45,13 @@ repos:
 
   - repo: local
     hooks:
+      # ty from the locked dev group, so the hook and `uv run ty check` agree.
+      - id: ty
+        name: ty check
+        entry: uv run --locked ty check
+        language: system
+        types: [python]
+        pass_filenames: false
       # The global git identity is the work address; this repo is personal.
       - id: enforce-personal-email
         name: Enforce personal email in git author

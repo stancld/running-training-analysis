@@ -17,4 +17,7 @@ build-backend = "uv_build"
 module-root = ""
 
 [dependency-groups]
-dev = ["pre-commit"]
+dev = [
+    "pre-commit",
+    "ty>=0.0.95",
+]

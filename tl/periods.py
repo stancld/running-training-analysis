@@ -23,6 +23,13 @@ def iso_label(d):
 class Period:
     """Shared aggregation over a list of activities."""
 
+    # Set per sport group in __init__; declared so the type checker knows them.
+    run_h: float
+    run_km: float
+    run_vert: float
+    bike_h: float
+    gym_h: float
+
     def __init__(self, start, end, acts):
         self.start, self.end, self.acts = start, end, acts
         for name, _ in config.GROUPS:
