@@ -12,6 +12,7 @@ macrocycle and renders the diary page in `web/`. Read `README.md` before changin
 | Full report | `uv run tl` |
 | JSON dump | `uv run tl export` (writes `data/diary.json`) |
 | Rebuild the diary page | `uv run tl site` (renders `web/diary.tmpl.html` → `web/diary.html`) |
+| Publish the diary page | commit and push `web/diary.html`; `.github/workflows/pages.yml` deploys it |
 | Lint, format and hygiene | `uv run pre-commit run --all-files` (install once with `uv run pre-commit install`) |
 
 There is no test suite. CI (`.github/workflows/ci.yml`) runs pre-commit and smoke-tests
@@ -46,7 +47,8 @@ against the data. Run pre-commit before every commit; Ruff settings live in `ruf
 
 **Never**
 - Re-pull full history from Strava/COROS; fetch only the missing days.
-- Publish or republish the diary artifact without Dan's go-ahead.
+- Publish the diary anywhere but GitHub Pages. Pushing `web/diary.html` to `master`
+  deploys it to https://stancld.github.io/running-training-analysis/; Dan has approved that.
 
 ## Code style
 
