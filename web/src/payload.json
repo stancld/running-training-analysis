@@ -1,5 +1,5 @@
 {
- "generated": "01 November 2026, 16:07",
+ "generated": "01 November 2026, 16:16",
  "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
@@ -4728,15 +4728,15 @@
     "end": "2026-10-18",
     "current": false,
     "minutes": [
-     756,
-     2123,
-     0,
-     0,
-     0
+     1113,
+     1448,
+     199,
+     115,
+     4
     ],
-    "stream": 0,
-    "measured": 2696,
-    "modelled": 183,
+    "stream": 2879,
+    "measured": 0,
+    "modelled": 0,
     "no_hr": 0,
     "weeks": [
      {
@@ -4745,13 +4745,13 @@
       "end": "2026-09-06",
       "current": false,
       "minutes": [
-       81,
-       341,
-       0,
-       0,
+       176,
+       209,
+       18,
+       19,
        0
       ],
-      "stream": 0
+      "stream": 422
      },
      {
       "index": 2,
@@ -4759,13 +4759,13 @@
       "end": "2026-09-13",
       "current": false,
       "minutes": [
-       143,
-       271,
-       0,
-       0,
-       0
+       190,
+       185,
+       20,
+       16,
+       2
       ],
-      "stream": 0
+      "stream": 414
      },
      {
       "index": 3,
@@ -4773,13 +4773,13 @@
       "end": "2026-09-20",
       "current": false,
       "minutes": [
-       99,
-       367,
-       0,
-       0,
+       150,
+       270,
+       27,
+       18,
        0
       ],
-      "stream": 0
+      "stream": 466
      },
      {
       "index": 4,
@@ -4787,13 +4787,13 @@
       "end": "2026-09-27",
       "current": false,
       "minutes": [
-       130,
-       306,
-       0,
-       0,
-       0
+       205,
+       180,
+       27,
+       22,
+       1
       ],
-      "stream": 0
+      "stream": 436
      },
      {
       "index": 5,
@@ -4801,13 +4801,13 @@
       "end": "2026-10-04",
       "current": false,
       "minutes": [
-       169,
-       270,
-       0,
-       0,
+       180,
+       223,
+       16,
+       20,
        0
       ],
-      "stream": 0
+      "stream": 439
      },
      {
       "index": 6,
@@ -4815,13 +4815,13 @@
       "end": "2026-10-11",
       "current": false,
       "minutes": [
-       52,
-       354,
-       0,
-       0,
+       111,
+       221,
+       61,
+       13,
        0
       ],
-      "stream": 0
+      "stream": 406
      },
      {
       "index": 7,
@@ -4829,13 +4829,13 @@
       "end": "2026-10-18",
       "current": false,
       "minutes": [
-       82,
-       214,
-       0,
-       0,
-       0
+       100,
+       159,
+       29,
+       7,
+       1
       ],
-      "stream": 0
+      "stream": 296
      }
     ]
    },
@@ -4846,14 +4846,14 @@
     "end": "2026-11-29",
     "current": true,
     "minutes": [
-     254,
-     311,
-     0,
-     0,
+     221,
+     229,
+     112,
+     3,
      0
     ],
-    "stream": 0,
-    "measured": 565,
+    "stream": 565,
+    "measured": 0,
     "modelled": 0,
     "no_hr": 0,
     "weeks": [
@@ -4863,13 +4863,13 @@
       "end": "2026-10-25",
       "current": false,
       "minutes": [
-       40,
-       311,
-       0,
-       0,
+       51,
+       185,
+       112,
+       3,
        0
       ],
-      "stream": 0
+      "stream": 351
      },
      {
       "index": 9,
@@ -4877,13 +4877,13 @@
       "end": "2026-11-01",
       "current": true,
       "minutes": [
-       214,
-       0,
+       170,
+       44,
        0,
        0,
        0
       ],
-      "stream": 0
+      "stream": 214
      }
     ]
    }
