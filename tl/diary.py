@@ -24,7 +24,6 @@ class Entry:
     ) -> None:
         self.week = week
         self.plan = plan.week_for(week.start)
-        self.cmp = plan.compare(week, self.plan)
         self.flags = week.flags()
         self.mono = monotony(load, week)
         f = fitness.get(min(week.end, config.TODAY))
@@ -56,28 +55,23 @@ class Entry:
 
     def _plan_notes(self) -> list[str]:
         """How the finished week read against its plan targets."""
-        out, w, c = [], self.week, self.cmp
-        if c and not w.partial:
-            r = c["run_h"][2]
-            if r is not None:
+        out, w, p = [], self.week, self.plan
+        if p and not w.partial:
+            if p.run_h:
+                r = w.run_h / p.run_h
                 if r < 0.85:
-                    out.append(
-                        f"Running {(1 - r) * 100:.0f}% under the {c['run_h'][1]:.1f} h target."
-                    )
+                    out.append(f"Running {(1 - r) * 100:.0f}% under the {p.run_h:.1f} h target.")
                 elif r > 1.15:
-                    out.append(
-                        f"Running {(r - 1) * 100:.0f}% over the {c['run_h'][1]:.1f} h target."
-                    )
+                    out.append(f"Running {(r - 1) * 100:.0f}% over the {p.run_h:.1f} h target.")
                 else:
-                    out.append(f"Running on target ({w.run_h:.1f} vs {c['run_h'][1]:.1f} h).")
-            if c["bike_h"][1] and c["bike_h"][2] is not None and c["bike_h"][2] < 0.6:
+                    out.append(f"Running on target ({w.run_h:.1f} vs {p.run_h:.1f} h).")
+            if p.bike_h and w.bike_h / p.bike_h < 0.6:
                 out.append(
-                    f"Bike well short — {w.bike_h:.1f} of "
-                    f"{c['bike_h'][1]:.1f} h. That is the plan's aerobic "
-                    f"ballast; running cannot absorb it instead."
+                    f"Bike well short — {w.bike_h:.1f} of {p.bike_h:.1f} h. That is the plan's "
+                    f"aerobic ballast; running cannot absorb it instead."
                 )
-            if c["gym_h"][1] and w.gym_h < 0.4:
-                out.append(f"No gym logged against a {c['gym_h'][1]:.1f} h target (R5).")
+            if p.gym_h and w.gym_h < 0.4:
+                out.append(f"No gym logged against a {p.gym_h:.1f} h target (R5).")
         return out
 
     def notes(self) -> list[str]:

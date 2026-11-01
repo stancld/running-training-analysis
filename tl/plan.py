@@ -7,12 +7,9 @@ invented per week. Dan's later changes, with the reasons, are in LOG.md.
 """
 
 import datetime as dt
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 from tl import config
-
-if TYPE_CHECKING:
-    from tl.periods import Week
 
 # Weeks written week by week; beyond that a phase carries a band, not a number.
 HORIZON_WEEKS = 8
@@ -252,19 +249,6 @@ def week_for(d: dt.date) -> PlanWeek | None:
         if w.start <= d <= w.end:
             return w
     return None
-
-
-def compare(
-    actual: Week, planned: PlanWeek | None
-) -> dict[str, tuple[float, float, float | None]] | None:
-    """(actual, planned, actual/planned) per discipline, or None outside the plan."""
-    if planned is None:
-        return None
-    out = {}
-    for f in ("run_h", "bike_h", "gym_h"):
-        a, p = getattr(actual, f), getattr(planned, f)
-        out[f] = (a, p, a / p if p else None)
-    return out
 
 
 def weeks_to_race() -> float:
