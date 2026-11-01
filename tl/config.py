@@ -40,6 +40,15 @@ KM_CEILING = 100.0  # R6 — hard weekly running-kilometre ceiling
 RISK_MONTHS = (12, 1, 2, 3, 4)  # Dec-Apr: 6 of 9 overuse onsets
 BANNED_TYPES = {"I", "R"}  # R4 — no interval/repetition work this season
 
+# Dan's running HR zones from Strava, as set in zonelens: (code, name, top bpm, inclusive).
+HR_ZONES = (
+    ("Z1", "Recovery", 139),
+    ("Z2", "Endurance", 163),
+    ("Z3", "Tempo", 173),
+    ("Z4", "Threshold", 181),
+    ("Z5", "Anaerobic", None),
+)
+
 # HR = 81.2 + 21.1*ln(relative_effort per hour); r=0.91, +-3.5 bpm, n=46
 HR_A, HR_B = 81.2, 21.1
 

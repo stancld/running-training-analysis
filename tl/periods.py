@@ -79,6 +79,27 @@ class Period:
     def partial(self):
         return self.end > config.TODAY
 
+    def zone_minutes(self):
+        """Running minutes per HR zone. The cache keeps one HR per run, not a stream,
+        so each run counts whole in the zone of its average (measured, else modelled)."""
+        out = {
+            "minutes": [0.0] * len(config.HR_ZONES),
+            "measured": 0.0,
+            "modelled": 0.0,
+            "no_hr": 0.0,
+        }
+        for a in self.runs:
+            hr = a.est_hr()
+            if hr is None:
+                out["no_hr"] += a.mins
+                continue
+            out["measured" if a.hr else "modelled"] += a.mins
+            zone = next(
+                i for i, (*_, top) in enumerate(config.HR_ZONES) if top is None or hr <= top
+            )
+            out["minutes"][zone] += a.mins
+        return out
+
     def hr_at_pace(self):
         """Mean easy/long HR and pace — the aerobic-drift read."""
         rows = []

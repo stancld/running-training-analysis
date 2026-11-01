@@ -5,6 +5,7 @@ import { day, hm, phaseShort, raceOf, useWide } from './format';
 import { Heatmap, Ledger } from './History';
 import { PlanChart } from './Plan';
 import { Fitness, Guardrails, RailChips, ThisWeek } from './Week';
+import { Zones } from './Zones';
 
 const P = DATA.plan;
 const curIdx = P.findIndex(p => p.start === DATA.weeks.find(w => w.current)?.start);
@@ -95,7 +96,7 @@ export default function App() {
       <div className="app wide">
         <TopBar wide />
         <div className="row r1"><ThisWeek /><Guardrails /><Fitness /></div>
-        <div className="row r2"><PlanChart /><Diary /></div>
+        <div className="row r2"><div className="stack"><PlanChart /><Zones /></div><Diary /></div>
         <div className="row r3"><Heatmap /><Ledger /></div>
         <Footer />
       </div>
@@ -106,7 +107,7 @@ export default function App() {
       <TopBar wide={false} />
       <main>
         {tab === 'today' && <><LastRace /><ThisWeek><RailChips /></ThisWeek><Fitness compact /></>}
-        {tab === 'plan' && <><section className="card"><Track /></section><PlanChart /></>}
+        {tab === 'plan' && <><section className="card"><Track /></section><PlanChart /><Zones /></>}
         {tab === 'diary' && <Diary />}
         {tab === 'history' && <><Heatmap /><Ledger /><Footer /></>}
       </main>

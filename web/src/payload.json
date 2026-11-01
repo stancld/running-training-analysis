@@ -1,5 +1,5 @@
 {
- "generated": "01 November 2026, 15:13",
+ "generated": "01 November 2026, 15:34",
  "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
@@ -4687,6 +4687,76 @@
    "tsb": 7.2
   }
  ],
+ "zones": {
+  "bands": [
+   {
+    "code": "Z1",
+    "name": "Recovery",
+    "lo": 0,
+    "hi": 139
+   },
+   {
+    "code": "Z2",
+    "name": "Endurance",
+    "lo": 139,
+    "hi": 163
+   },
+   {
+    "code": "Z3",
+    "name": "Tempo",
+    "lo": 163,
+    "hi": 173
+   },
+   {
+    "code": "Z4",
+    "name": "Threshold",
+    "lo": 173,
+    "hi": 181
+   },
+   {
+    "code": "Z5",
+    "name": "Anaerobic",
+    "lo": 181,
+    "hi": null
+   }
+  ],
+  "phases": [
+   {
+    "phase": "P1",
+    "name": "Slapy build",
+    "start": "2026-08-31",
+    "end": "2026-10-18",
+    "current": false,
+    "minutes": [
+     756,
+     2123,
+     0,
+     0,
+     0
+    ],
+    "measured": 2696,
+    "modelled": 183,
+    "no_hr": 0
+   },
+   {
+    "phase": "P2",
+    "name": "Recovery & gym on-ramp",
+    "start": "2026-10-19",
+    "end": "2026-11-29",
+    "current": true,
+    "minutes": [
+     254,
+     311,
+     0,
+     0,
+     0
+    ],
+    "measured": 565,
+    "modelled": 0,
+    "no_hr": 0
+   }
+  ]
+ },
  "guardrails": {
   "wow": 1.25,
   "acwr": 1.3,

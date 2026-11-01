@@ -3,7 +3,7 @@
 import datetime as dt
 import json
 
-from tl import config, plan
+from tl import config, periods, plan
 
 
 def _week(e):
@@ -96,6 +96,37 @@ def _period(p):
         "pace": (round(a["pace"], 3) if a else None),
         "longest": (round(p.longest_run.mins) if p.longest_run else 0),
     }
+
+
+def _zones(ds):
+    """Running time per HR zone for each phase that has started."""
+    out = []
+    for code, name, *_ in plan.PHASES:
+        weeks = plan.PHASE_WEEKS[code]
+        start, end = weeks[0].start, weeks[-1].start + dt.timedelta(days=6)
+        if start > config.TODAY:
+            break
+        acts = [a for a in ds.activities if start <= a.date <= end]
+        z = periods.Period(start, end, acts).zone_minutes()
+        out.append(
+            {
+                "phase": code,
+                "name": name,
+                "start": start.isoformat(),
+                "end": end.isoformat(),
+                "current": start <= config.TODAY <= end,
+                "minutes": [round(m) for m in z["minutes"]],
+                "measured": round(z["measured"]),
+                "modelled": round(z["modelled"]),
+                "no_hr": round(z["no_hr"]),
+            }
+        )
+    lo = 0
+    bands = []
+    for code, name, top in config.HR_ZONES:
+        bands.append({"code": code, "name": name, "lo": lo, "hi": top})
+        lo = top
+    return {"bands": bands, "phases": out}
 
 
 def payload(ds, entries, months, seasons):
@@ -228,6 +259,7 @@ def web_payload(ds, weeks, entries, months, seasons, fitness, diary_from=None):
             for d, f in fitness.items()
             if config.TODAY - dt.timedelta(days=83) <= d <= config.TODAY
         ],
+        "zones": _zones(ds),
         "guardrails": {
             "wow": config.WOW_CAP,
             "acwr": config.ACWR_CAP,

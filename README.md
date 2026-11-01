@@ -22,6 +22,7 @@ dashboard grid; on a phone it is an app with Today, Plan, Diary and History tabs
 | Training guardrails | the five guardrails (WoW, ACWR, climb density, no flat intervals, weekly km) for the current week, each with its last six weeks |
 | Fitness & form | fitness (CTL), fatigue (ATL) and form (CTL − ATL) day by day over the last 12 weeks |
 | The 29-week plan | planned against actual running hours for every week of the macrocycle, its five phases, race weeks, and the 8-week horizon: weeks beyond it are bands, not numbers |
+| Heart-rate zones by phase | running time per HR zone (Dan's Strava zones, `HR_ZONES` in `tl/config.py`) for each phase so far; each run counts whole in the zone of its average HR, since the cache has no HR streams |
 | Weekly diary | one collapsible entry per week since the plan started: day-by-day sessions, Dan's notes, the plan comparison and the derived verdicts |
 | Every month since 2023 | a heatmap of monthly running hours; hover or tap a month for its volume, climb, longest run, easy/long HR and pace, and feel |
 | Week ledger | the last 26 weeks with ratios and guardrail flags |

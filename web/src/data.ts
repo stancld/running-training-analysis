@@ -41,6 +41,11 @@ export type Provisional = {
   km: [number, number]; vert: [number, number]; total_km: number; total_vert: number;
 };
 export type Fit = { date: string; ctl: number; atl: number; tsb: number };
+export type ZoneBand = { code: string; name: string; lo: number; hi: number | null };
+export type PhaseZones = {
+  phase: string; name: string; start: string; end: string; current: boolean;
+  minutes: number[]; measured: number; modelled: number; no_hr: number;
+};
 export type Payload = {
   generated: string; today: string;
   race: { name: string; date: string; weeks_to_go: number };
@@ -48,6 +53,7 @@ export type Payload = {
   seasons: Period[]; months: Period[]; weeks: LedgerWeek[];
   horizon: { weeks: number; date: string; committed: number };
   plan: PlanWeek[]; provisional: Provisional[]; diary: DiaryWeek[]; fitness: Fit[];
+  zones: { bands: ZoneBand[]; phases: PhaseZones[] };
   guardrails: { wow: number; acwr: number; vert_floor: number; big_week_h: number; km: number };
 };
 
