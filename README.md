@@ -69,6 +69,22 @@ GitHub Pages cannot run `tl`, so it builds the app from the committed payload.
    one, the agent checks it against the guardrails, and his volume changes go into
    `tl/plan.py`.
 
+### From an Amp orb
+
+GitHub Actions cannot recalculate the page because the cache never leaves Dan's
+machine. An Amp orb can run the same workflow on a copy of the cache:
+
+1. Append the session to the CSVs locally (steps 1–2 above) and upload the whole
+   cache into the orb's `data/`. A fresh orb has no CSVs.
+2. `uv run python scripts/fetch_zones.py` reads `STRAVA_CLIENT_ID`,
+   `STRAVA_CLIENT_SECRET` and `STRAVA_REFRESH_TOKEN` from the orb's environment,
+   set as Amp secrets. If Strava rotates the token, the new one lands only in
+   the orb's `~/.config/tl/strava_refresh_token`, so update the secret with it.
+3. `uv run tl status`, `uv run tl site`, `uv run pytest`, then commit and push
+   only `web/src/payload.json`; the CSVs stay gitignored.
+4. Download the updated `zones.csv` and `ride_zones.csv` back to Dan's machine;
+   the orb's copy of the cache is not kept anywhere else.
+
 ## Guardrails encoded
 
 Every threshold is a constant in `tl/config.py`, drawn from Dan's own injury
