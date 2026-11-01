@@ -34,7 +34,9 @@ macrocycle, and renders the diary page in `web/`.
 ## Workflow after a session
 
 1. Append to `data/activities.csv`, `labels.csv`, `re.csv`, `hr.csv` — never
-   re-pull history, it costs ~12k tokens per 100 activities.
+   re-pull history, it costs ~12k tokens per 100 activities. On a day with
+   several runs, write one `labels.csv` / `re.csv` row per run in the same order
+   as `activities.csv`; `hr.csv` rows are matched to runs by duration.
 2. Session notes worth keeping go in `data/notes.csv` (`date,name,note`);
    rows for one day are matched to that day's activities runs-first, then by
    duration.

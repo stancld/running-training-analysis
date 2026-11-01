@@ -6,12 +6,9 @@ from . import config as C
 from . import plan
 from .data import runs_first
 from .periods import monotony
+from .render import hmm
 
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-
-
-def _fmt_h(x):
-    return f"{int(x)}:{round((x % 1) * 60):02d}"
 
 
 class Entry:
@@ -35,13 +32,13 @@ class Entry:
         if not w.acts:
             return "No training recorded."
         bits = [
-            f"{_fmt_h(w.total_h)} total · {_fmt_h(w.run_h)} run "
+            f"{hmm(w.total_h)} total · {hmm(w.run_h)} run "
             f"({w.run_km:.0f} km, {w.run_vert:.0f} m, {w.density:.0f} m/h)"
         ]
         if w.bike_h >= 0.5:
-            bits.append(f"{_fmt_h(w.bike_h)} bike")
+            bits.append(f"{hmm(w.bike_h)} bike")
         if w.gym_h >= 0.4:
-            bits.append(f"{_fmt_h(w.gym_h)} gym")
+            bits.append(f"{hmm(w.gym_h)} gym")
         return " · ".join(bits)
 
     def notes(self):
@@ -71,13 +68,13 @@ class Entry:
         lr = w.longest_run
         if lr:
             out.append(
-                f"Longest run {_fmt_h(lr.mins / 60)} / {lr.km:.1f} km / "
+                f"Longest run {hmm(lr.mins / 60)} / {lr.km:.1f} km / "
                 f"{lr.vert:.0f} m on {DAYS[lr.date.weekday()]}."
             )
         if w.back_to_back:
-            out.append("Back-to-back weekend achieved — the Chianti-specific stimulus.")
+            out.append("Back-to-back long days achieved — the Chianti-specific stimulus.")
         elif self.plan and self.plan.weekend.startswith(("A", "C")) and not w.partial:
-            out.append("Weekend was a single long run; the plan called for a back-to-back.")
+            out.append("No back-to-back long days; the plan called for them.")
 
         q = w.quality
         if q:

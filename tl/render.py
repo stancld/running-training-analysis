@@ -11,15 +11,17 @@ def title(text, ch="="):
 
 
 def mmss(s):
-    return f"{int(s) // 60}:{round(s) % 60:02d}"
+    t = round(s)
+    return f"{t // 60}:{t % 60:02d}"
+
+
+def hmm(hours):
+    m = round(hours * 60)
+    return f"{m // 60}:{m % 60:02d}"
 
 
 def _h(x):
-    return f"{int(x)}:{round((x % 1) * 60):02d}" if x else "   -"
-
-
-def _n(x, fmt="{:.1f}", dash="-"):
-    return fmt.format(x) if x else dash
+    return hmm(x) if x else "   -"
 
 
 def rng(bands, f, fmt="{:.1f}"):
@@ -47,8 +49,8 @@ def weeks_table(weeks):
         row = (
             f"{w.label:11} {w.start!s:11} {w.run_h:6.1f} {w.run_km:6.1f} "
             f"{w.run_vert:6.0f} {w.density:5.0f} {w.bike_h:5.1f} {w.gym_h:4.1f} "
-            f"{w.total_h:5.1f} {_n(w.wow, '{:5.2f}', '    -')} "
-            f"{_n(w.acwr, '{:5.2f}', '    -')} {w.run_days:2d}"
+            f"{w.total_h:5.1f} {_opt(w.wow, '{:.2f}', width=5)} "
+            f"{_opt(w.acwr, '{:.2f}', width=5)} {w.run_days:2d}"
         )
         if p:
             pct = w.run_h / p.run_h * 100 if p.run_h else 0

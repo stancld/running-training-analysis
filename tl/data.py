@@ -20,6 +20,21 @@ def runs_first(acts):
     return sorted(acts, key=lambda a: (a.group != "run", -a.mins))
 
 
+def _by_day(name, parse):
+    out = defaultdict(list)
+    for r in _rows(name):
+        out[_date(r["date"])].append(parse(r))
+    return out
+
+
+def _pair(runs, rows):
+    """Rows pair with the day's runs in file order when there is one per run;
+    otherwise the day's last row describes its longest run."""
+    if len(rows) == len(runs):
+        return zip(runs, rows, strict=True)
+    return [(max(runs, key=lambda a: a.mins), rows[-1])] if rows else []
+
+
 def _rows(name):
     """Yield dict rows, skipping stray repeated headers and blank lines."""
     try:
@@ -103,32 +118,34 @@ class Dataset:
                 )
             )
 
-        labels, re_, hr = {}, {}, {}
-        for r in _rows("labels.csv"):
-            labels[_date(r["date"])] = (
-                r["type"] or None,
-                float(r["feel"]) if r.get("feel") else None,
-            )
-        for r in _rows("re.csv"):
-            re_[_date(r["date"])] = float(r["re"])
-        for r in _rows("hr.csv"):
-            hr[_date(r["date"])] = float(r["hr"])
+        labels = _by_day(
+            "labels.csv",
+            lambda r: (r["type"] or None, float(r["feel"]) if r.get("feel") else None),
+        )
+        re_ = _by_day("re.csv", lambda r: float(r["re"]))
+        hr = _by_day("hr.csv", lambda r: (float(r["min"]), float(r["hr"])))
 
         notes = defaultdict(list)
         for r in _rows("notes.csv"):
             notes[_date(r["date"])].append((r.get("name") or "", r.get("note") or ""))
 
-        # Labels/RE/HR are one-per-day and describe the day's *main* run, so
-        # attach them to the longest run of that day and nothing else.
-        main = {}
+        runs = defaultdict(list)
         for a in acts:
             if a.is_run:
-                cur = main.get(a.date)
-                if cur is None or a.mins > cur.mins:
-                    main[a.date] = a
-        for d, a in main.items():
-            a.type, a.feel = labels.get(d, (None, None))
-            a.re, a.hr = re_.get(d), hr.get(d)
+                runs[a.date].append(a)
+        for d, day in runs.items():
+            for a, (typ, feel) in _pair(day, labels.get(d, [])):
+                a.type, a.feel = typ, feel
+            for a, v in _pair(day, re_.get(d, [])):
+                a.re = v
+            # hr.csv carries minutes, so each row goes to the run closest in duration.
+            free = list(day)
+            for mins, v in hr.get(d, []):
+                if not free:
+                    break
+                a = min(free, key=lambda a: abs(a.mins - mins))
+                free.remove(a)
+                a.hr = v
 
         for d, items in notes.items():
             same_day = runs_first(a for a in acts if a.date == d)
