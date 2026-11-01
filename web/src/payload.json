@@ -1,5 +1,5 @@
 {
- "generated": "01 November 2026, 16:01",
+ "generated": "01 November 2026, 16:07",
  "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
@@ -4737,7 +4737,107 @@
     "stream": 0,
     "measured": 2696,
     "modelled": 183,
-    "no_hr": 0
+    "no_hr": 0,
+    "weeks": [
+     {
+      "index": 1,
+      "start": "2026-08-31",
+      "end": "2026-09-06",
+      "current": false,
+      "minutes": [
+       81,
+       341,
+       0,
+       0,
+       0
+      ],
+      "stream": 0
+     },
+     {
+      "index": 2,
+      "start": "2026-09-07",
+      "end": "2026-09-13",
+      "current": false,
+      "minutes": [
+       143,
+       271,
+       0,
+       0,
+       0
+      ],
+      "stream": 0
+     },
+     {
+      "index": 3,
+      "start": "2026-09-14",
+      "end": "2026-09-20",
+      "current": false,
+      "minutes": [
+       99,
+       367,
+       0,
+       0,
+       0
+      ],
+      "stream": 0
+     },
+     {
+      "index": 4,
+      "start": "2026-09-21",
+      "end": "2026-09-27",
+      "current": false,
+      "minutes": [
+       130,
+       306,
+       0,
+       0,
+       0
+      ],
+      "stream": 0
+     },
+     {
+      "index": 5,
+      "start": "2026-09-28",
+      "end": "2026-10-04",
+      "current": false,
+      "minutes": [
+       169,
+       270,
+       0,
+       0,
+       0
+      ],
+      "stream": 0
+     },
+     {
+      "index": 6,
+      "start": "2026-10-05",
+      "end": "2026-10-11",
+      "current": false,
+      "minutes": [
+       52,
+       354,
+       0,
+       0,
+       0
+      ],
+      "stream": 0
+     },
+     {
+      "index": 7,
+      "start": "2026-10-12",
+      "end": "2026-10-18",
+      "current": false,
+      "minutes": [
+       82,
+       214,
+       0,
+       0,
+       0
+      ],
+      "stream": 0
+     }
+    ]
    },
    {
     "phase": "P2",
@@ -4755,7 +4855,37 @@
     "stream": 0,
     "measured": 565,
     "modelled": 0,
-    "no_hr": 0
+    "no_hr": 0,
+    "weeks": [
+     {
+      "index": 8,
+      "start": "2026-10-19",
+      "end": "2026-10-25",
+      "current": false,
+      "minutes": [
+       40,
+       311,
+       0,
+       0,
+       0
+      ],
+      "stream": 0
+     },
+     {
+      "index": 9,
+      "start": "2026-10-26",
+      "end": "2026-11-01",
+      "current": true,
+      "minutes": [
+       214,
+       0,
+       0,
+       0,
+       0
+      ],
+      "stream": 0
+     }
+    ]
    }
   ]
  },

@@ -45,6 +45,7 @@ export type ZoneBand = { code: string; name: string; lo: number; hi: number | nu
 export type PhaseZones = {
   phase: string; name: string; start: string; end: string; current: boolean;
   minutes: number[]; stream: number; measured: number; modelled: number; no_hr: number;
+  weeks: { index: number; start: string; end: string; current: boolean; minutes: number[]; stream: number }[];
 };
 export type Payload = {
   generated: string; today: string;

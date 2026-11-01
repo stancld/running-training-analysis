@@ -115,6 +115,23 @@ def _zones(ds: Dataset) -> dict[str, Any]:
             break
         acts = [a for a in ds.activities if start <= a.date <= end]
         z = periods.Period(start, end, acts).zone_minutes()
+        week_rows = []
+        for w in weeks:
+            if w.start > config.TODAY:
+                break
+            wz = periods.Period(
+                w.start, w.end, [a for a in acts if w.start <= a.date <= w.end]
+            ).zone_minutes()
+            week_rows.append(
+                {
+                    "index": w.index,
+                    "start": w.start.isoformat(),
+                    "end": w.end.isoformat(),
+                    "current": w.start <= config.TODAY <= w.end,
+                    "minutes": [round(m) for m in wz["minutes"]],
+                    "stream": round(wz["stream"]),
+                }
+            )
         out.append(
             {
                 "phase": code,
@@ -127,6 +144,7 @@ def _zones(ds: Dataset) -> dict[str, Any]:
                 "measured": round(z["measured"]),
                 "modelled": round(z["modelled"]),
                 "no_hr": round(z["no_hr"]),
+                "weeks": week_rows,
             }
         )
     lo = 0
