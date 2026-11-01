@@ -55,5 +55,6 @@ settings live in `ruff.toml`.
 
 ## Commits
 
-Subject plus a short body carrying the why. Branches use the `ds/` prefix.
+One logical change per commit, committed and pushed straight to `master` — no branches
+or PRs. Subject plus a short body carrying the why.
 Commit as `stancld <daniel.stancl@gmail.com>` (set in the local git config).
