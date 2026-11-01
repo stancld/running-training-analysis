@@ -47,8 +47,18 @@ export function ThisWeek({ children }: { children?: React.ReactNode }) {
 
 function Dots({ rail }: { rail: Rail }) {
   return (
-    <span className="dots" aria-label={`last ${rail.history.length} weeks: ${rail.history.join(', ')}`}>
-      {rail.history.map((s, i) => <i key={i} className={s} />)}
+    // The empty title stops the row's native tooltip from covering the hover card.
+    <span className="dots" title="" aria-label={`last ${rail.history.length} weeks: ${rail.history.map(h => `${h.week} ${h.value}`).join(', ')}`}>
+      {rail.history.map(h => (
+        <i key={h.week} className={h.status}>
+          <span className="tip" aria-hidden="true">
+            <small>{h.week}{h.current ? ' · this week' : ''}</small>
+            <em>{h.dates}</em>
+            <b>{h.value}</b>
+            <span>{h.note}</span>
+          </span>
+        </i>
+      ))}
     </span>
   );
 }
