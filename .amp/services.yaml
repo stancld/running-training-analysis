@@ -1,0 +1,8 @@
+services:
+  diary:
+    command: python3 -m http.server "$PORT" --bind 0.0.0.0 --directory web
+    health: /diary.html
+    portal:
+      url: /diary.html
+      title: Chianti logbook
+      description: Static diary page; rebuild with `python3 -m tl site` and reload.
