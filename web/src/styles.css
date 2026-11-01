@@ -1438,6 +1438,15 @@ footer {
   overflow-y: auto;
 }
 @media (max-width: 1279px) {
+  /* The 29-week track needs ~440 px; below 1280 it gets its own row instead of
+     painting under the countdown and GitHub link. */
+  .topbar {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+  }
+  .topbar .track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
   .r1 {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
