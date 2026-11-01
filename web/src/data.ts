@@ -42,10 +42,13 @@ export type Provisional = {
 };
 export type Fit = { date: string; ctl: number; atl: number; tsb: number };
 export type ZoneBand = { code: string; name: string; lo: number; hi: number | null };
+export type ZoneSplit = {
+  minutes: number[]; power: number[]; stream: number; measured: number; modelled: number; no_hr: number;
+};
+export type WeekZones = { index: number; start: string; end: string; current: boolean; run: ZoneSplit; bike: ZoneSplit };
 export type PhaseZones = {
-  phase: string; name: string; start: string; end: string; current: boolean;
-  minutes: number[]; stream: number; measured: number; modelled: number; no_hr: number;
-  weeks: { index: number; start: string; end: string; current: boolean; minutes: number[]; stream: number }[];
+  phase: string; name: string; start: string; end: string; current: boolean; run: ZoneSplit; bike: ZoneSplit;
+  weeks: WeekZones[];
 };
 export type Payload = {
   generated: string; today: string;
@@ -54,7 +57,7 @@ export type Payload = {
   seasons: Period[]; months: Period[]; weeks: LedgerWeek[];
   horizon: { weeks: number; date: string; committed: number };
   plan: PlanWeek[]; provisional: Provisional[]; diary: DiaryWeek[]; fitness: Fit[];
-  zones: { bands: ZoneBand[]; phases: PhaseZones[] };
+  zones: { bands: ZoneBand[]; bike_bands: ZoneBand[]; power_bands: ZoneBand[]; phases: PhaseZones[] };
   guardrails: { wow: number; acwr: number; vert_floor: number; big_week_h: number; km: number };
 };
 

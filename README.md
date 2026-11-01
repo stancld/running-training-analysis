@@ -20,7 +20,7 @@ it is derived from the cache except Dan's own session notes.
 | Training guardrails | the five guardrails for the current week, each with its last six weeks |
 | Fitness & form | fitness (CTL), fatigue (ATL) and form (CTL − ATL) over the last 12 weeks |
 | The 29-week plan | planned against actual running hours for every week, its phases and race weeks; beyond 8 weeks, bands instead of numbers |
-| Heart-rate zones by phase | running time per HR zone for each phase so far, opening into its weeks |
+| Heart-rate zones by phase | time per HR zone for each phase, opening into weekly columns; Running or Total (runs plus rides, with ride power zones) |
 | Weekly diary | one entry per week since the plan started: sessions, notes, plan comparison and verdicts |
 | Every month since 2023 | a heatmap of monthly running hours, with details per month |
 | Week ledger | the last 26 weeks with ratios and guardrail flags |
