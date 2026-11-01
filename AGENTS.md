@@ -32,6 +32,9 @@ Code must pass ty; declare attributes the checker cannot infer instead of silenc
   put new behaviour in the module that already owns it.
 - `tl/config.py` holds every threshold and model constant. Change numbers there, not inline.
 - `tl/plan.py` holds the macrocycle as data — week-level targets only.
+- `LOG.md` holds the weekly decisions: the close week's review, the agreed day-by-day
+  for the next week and why plan volumes changed. Before any training advice, get today's
+  date with `TZ=Europe/Prague date`, read `LOG.md`, and follow its rules.
 - `data/*.csv` is the cache and the source of truth. It is personal data, gitignored and
   kept on Dan's machine only — never commit it. `data/diary.json` and
   `web/src/payload.json` are generated: regenerate them, never hand-edit them.
