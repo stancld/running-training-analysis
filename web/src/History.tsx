@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { DATA } from './data';
 import { MON, hm, n, ratio } from './format';
+import { About, place } from './Week';
 
 const byKey = Object.fromEntries(DATA.months.map(m => [m.label, m]));
 const years = [...new Set(DATA.months.map(m => +m.label.slice(0, 4)))].reverse();
@@ -100,6 +101,35 @@ export function Heatmap() {
   );
 }
 
+/* The table scrolls, so its cards are popovers in the top layer: a mouse opens one on
+   hover and a tap toggles it. Cancelling a mouse click keeps the hovered card open. */
+function FlagChip({ code, id }: { code: string; id: string }) {
+  const mouse = (e: React.PointerEvent) => e.pointerType === 'mouse';
+  return (
+    <>
+      <button
+        type="button"
+        className="chip bad"
+        popoverTarget={id}
+        onPointerEnter={e => {
+          if (!mouse(e)) return;
+          document.getElementById(id)?.showPopover();
+          place(e, id);
+        }}
+        onPointerLeave={e => mouse(e) && document.getElementById(id)?.hidePopover()}
+        onClick={e =>
+          'pointerType' in e.nativeEvent && e.nativeEvent.pointerType === 'mouse' ? e.preventDefault() : place(e, id)
+        }
+      >
+        {code}
+      </button>
+      <span id={id} popover="auto" className="tip about">
+        <About code={code} />
+      </span>
+    </>
+  );
+}
+
 export function Ledger() {
   const planBy = Object.fromEntries(DATA.plan.map(p => [p.start, p]));
   const rows = DATA.weeks.slice(-26).reverse();
@@ -151,11 +181,7 @@ export function Ledger() {
                   <td className="n">{ratio(w.acwr)}</td>
                   <td>
                     {w.flags.length ? (
-                      w.flags.map(f => (
-                        <span key={f} className="chip bad">
-                          {f}
-                        </span>
-                      ))
+                      w.flags.map(f => <FlagChip key={f} code={f} id={`flag-${w.start}-${f}`} />)
                     ) : (
                       <span className="chip ok">ok</span>
                     )}

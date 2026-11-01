@@ -1,6 +1,17 @@
 import { DATA, type Fit } from './data';
-import { MON, current as w, day, n, phaseShort, rails, signed, span, type Rail, type RailWeek } from './format';
-import { useEffect } from 'react';
+import {
+  GUARDRAIL,
+  MON,
+  current as w,
+  day,
+  n,
+  phaseShort,
+  rails,
+  signed,
+  span,
+  type Rail,
+  type RailWeek,
+} from './format';
 
 const MARK = { ok: '✓', watch: '!', bad: '✕' };
 
@@ -106,19 +117,20 @@ function TipBody({ h }: { h: RailWeek }) {
   );
 }
 
-function About({ rail }: { rail: Rail }) {
+export function About({ code }: { code: string }) {
+  const [name, about] = GUARDRAIL[code];
   return (
     <>
-      <small>{rail.code} · guardrail</small>
-      <strong>{rail.name}</strong>
-      <span>{rail.about}</span>
+      <small>{code} · guardrail</small>
+      <strong>{name}</strong>
+      <span>{about}</span>
     </>
   );
 }
 
 /* The card goes above its trigger, or below it near the top of the screen, clamped to the
    viewport. It is measured after the popover opens, in the frame before it paints. */
-function place(e: React.MouseEvent<HTMLButtonElement>, id: string) {
+export function place(e: React.MouseEvent<HTMLButtonElement>, id: string) {
   const d = e.currentTarget.getBoundingClientRect();
   requestAnimationFrame(() => {
     const p = document.getElementById(id);
@@ -193,7 +205,7 @@ export function Guardrails() {
                 {r.code} · {r.rule}
               </span>
               <span className="tip about" aria-hidden="true">
-                <About rail={r} />
+                <About code={r.code} />
               </span>
             </div>
             <Dots rail={r} />
@@ -207,14 +219,6 @@ export function Guardrails() {
 /* Phone: one swipeable row of chips inside the this-week card. */
 export function RailChips() {
   const list = rails();
-  // A fixed popover would drift off its trigger, so any scroll closes it.
-  useEffect(() => {
-    const close = () => {
-      for (const p of document.querySelectorAll<HTMLElement>('.tip:popover-open')) p.hidePopover();
-    };
-    addEventListener('scroll', close, { capture: true, passive: true });
-    return () => removeEventListener('scroll', close, { capture: true });
-  }, []);
   const ok = list.filter(r => r.status === 'ok').length;
   return (
     <div className="chips-wrap">
@@ -240,7 +244,7 @@ export function RailChips() {
               </span>
             </button>
             <span id={`about-${r.code}`} popover="auto" className="tip about">
-              <About rail={r} />
+              <About code={r.code} />
             </span>
             <Dots rail={r} tap />
           </div>

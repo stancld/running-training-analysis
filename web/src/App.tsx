@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DATA } from './data';
 import { Diary } from './Diary';
 import { day, hm, phaseShort, raceOf, useWide } from './format';
@@ -108,6 +108,14 @@ function Footer() {
 
 export default function App() {
   const wide = useWide();
+  // Card popovers are fixed and would drift off their trigger, so any scroll closes it.
+  useEffect(() => {
+    const close = () => {
+      for (const p of document.querySelectorAll<HTMLElement>('.tip:popover-open')) p.hidePopover();
+    };
+    addEventListener('scroll', close, { capture: true, passive: true });
+    return () => removeEventListener('scroll', close, { capture: true });
+  }, []);
   const [tab, setTab] = useState<Tab>('today');
   const go = (t: Tab) => {
     setTab(t);

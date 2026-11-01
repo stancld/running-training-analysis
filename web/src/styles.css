@@ -662,6 +662,7 @@ svg text {
   box-shadow: var(--shadow);
   text-align: left;
   font-style: normal;
+  white-space: normal;
 }
 .tip::after {
   content: "";
