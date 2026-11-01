@@ -16,7 +16,9 @@ async function open(page: Page) {
 }
 
 const noOverflow = async (page: Page) =>
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(
+    true,
+  );
 
 test('laptop: diary weeks expand into sessions with ratios and durations', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
@@ -49,7 +51,12 @@ test.describe('phone', () => {
     await expect(page.getByRole('heading', { name: 'This week' })).toBeVisible();
     await noOverflow(page);
 
-    for (const [tab, heading] of [['Diary', 'Weekly diary'], ['Plan', /-week plan/], ['History', 'Week ledger'], ['Today', 'This week']] as const) {
+    for (const [tab, heading] of [
+      ['Diary', 'Weekly diary'],
+      ['Plan', /-week plan/],
+      ['History', 'Week ledger'],
+      ['Today', 'This week'],
+    ] as const) {
       await tabs.getByRole('button', { name: tab }).tap();
       await expect(tabs.getByRole('button', { name: tab })).toHaveAttribute('aria-current', 'page');
       await expect(page.getByRole('heading', { name: heading })).toBeVisible();
