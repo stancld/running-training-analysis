@@ -14,7 +14,7 @@ const HURT = new Set(['2024-02', '2024-03', '2025-04', '2026-01', '2026-02']);
 // Mirrors tl/config.py RISK_MONTHS (Dec–Apr): six of nine overuse onsets.
 const RISK = new Set([12, 1, 2, 3, 4]);
 
-type Metric = 'h' | 'mh';
+type Metric = 'h' | 't' | 'mh';
 const METRIC: Record<
   Metric,
   { label: string; of: (p: Period) => number; step: (v: number) => number; ramp: string[]; unit: string }
@@ -25,6 +25,13 @@ const METRIC: Record<
     unit: 'h',
     step: v => (v === 0 ? 0 : v < 10 ? 1 : v < 18 ? 2 : v < 26 ? 3 : v < 33 ? 4 : 5),
     ramp: ['0', '<10', '10–18', '18–26', '26–33', '33+'],
+  },
+  t: {
+    label: 'Total h',
+    of: p => p.total_h,
+    unit: 'h',
+    step: v => (v === 0 ? 0 : v < 20 ? 1 : v < 30 ? 2 : v < 40 ? 3 : v < 50 ? 4 : 5),
+    ramp: ['0', '<20', '20–30', '30–40', '40–50', '50+'],
   },
   mh: {
     label: 'm/h',
@@ -37,14 +44,15 @@ const METRIC: Record<
 
 /* The current year compares only its completed months with the same months a year earlier;
    the month in progress would make every year look like a collapse. */
-function yoy(y: number): { pct: number; span: string } | null {
+function yoy(y: number, of: (p: Period) => number): { pct: number; span: string } | null {
   const prev = seasons[y - 1],
     cur = seasons[y];
   if (!prev || !cur) return null;
-  if (y !== +nowKey.slice(0, 4)) return { pct: cur.run_h / prev.run_h - 1, span: '' };
+  if (y !== +nowKey.slice(0, 4)) return { pct: of(cur) / of(prev) - 1, span: '' };
   const done = +nowKey.slice(5, 7) - 1;
   if (done < 1) return null;
-  const sum = (yy: number) => MON.slice(0, done).reduce((s, _, i) => s + (byKey[keyOf(yy, i)]?.run_h ?? 0), 0);
+  const sum = (yy: number) =>
+    MON.slice(0, done).reduce((s, _, i) => s + (byKey[keyOf(yy, i)] ? of(byKey[keyOf(yy, i)]) : 0), 0);
   return { pct: sum(y) / sum(y - 1) - 1, span: `Jan–${MON[done - 1]}` };
 }
 const pctText = (p: number) => `${p > 0 ? '+' : ''}${Math.round(p * 100)}%`;
@@ -59,7 +67,7 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
     slot = iw / months.length;
   const { of, unit } = METRIC[metric];
   const vals = months.map(of);
-  const top = metric === 'h' ? Math.ceil(Math.max(...vals, 1) / 10) * 10 : Math.ceil(Math.max(...vals, 1) / 100) * 100;
+  const top = metric !== 'mh' ? Math.ceil(Math.max(...vals, 1) / 10) * 10 : Math.ceil(Math.max(...vals, 1) / 100) * 100;
   const x = (i: number) => m.l + (i + 0.5) * slot;
   const y = (v: number) => m.t + ih - (v / top) * ih;
   // The month in progress is a hollow dot outside the line and the average.
@@ -78,13 +86,13 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
     else bands.push([i, i]);
   });
   const si = months.findIndex(p => p.label === sel);
-  const grid = metric === 'h' ? [0, top / 2, top] : [0, 300, top];
+  const grid = metric !== 'mh' ? [0, top / 2, top] : [0, 300, top];
   return (
     <svg
       className="trend"
       viewBox={`0 0 ${W} ${H}`}
       role="img"
-      aria-label={`Monthly ${metric === 'h' ? 'running hours' : 'climb per running hour'} since ${months[0].label}, with a three-month average and injury periods`}
+      aria-label={`Monthly ${{ h: 'running hours', t: 'total training hours', mh: 'climb per running hour' }[metric]} since ${months[0].label}, with a three-month average and injury periods`}
     >
       {bands.map(([a, b]) => (
         <g key={a}>
@@ -106,7 +114,7 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
           />
           <text x={m.l - 5} y={y(g) + 3} textAnchor="end" fontSize="9" fill="var(--muted)">
             {g}
-            {g === top ? (metric === 'h' ? 'h' : '') : ''}
+            {g === top && metric !== 'mh' ? 'h' : ''}
           </text>
         </g>
       ))}
@@ -139,7 +147,7 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
             fontSize="9"
             fill="var(--ink)"
           >
-            {metric === 'h' ? vals[si].toFixed(1) : vals[si]} {unit}
+            {metric !== 'mh' ? vals[si].toFixed(1) : vals[si]} {unit}
           </text>
         </>
       )}
@@ -200,7 +208,7 @@ function SameMonth({ sel, metric }: { sel: string; metric: Metric }) {
           <li key={r.y} className={r.key === sel ? 'on' : ''}>
             <i style={{ height: `${(of(r.p) / top) * 100}%` }} />
             <b>
-              {metric === 'h' ? of(r.p).toFixed(0) : of(r.p)}
+              {metric !== 'mh' ? of(r.p).toFixed(0) : of(r.p)}
               {r.key === nowKey ? '*' : ''}
             </b>
             <small>{r.y}</small>
@@ -224,13 +232,13 @@ export function Heatmap() {
   const prev = i > 0 ? months[i - 1] : null;
   const ramp = m && prev && prev.run_h > 0 && sel !== nowKey ? m.run_h / prev.run_h : null;
   const sy = +sel.slice(0, 4),
-    yc = yoy(sy);
+    yc = yoy(sy, metric === 't' ? M.of : METRIC.h.of);
   return (
     <section className="card heat" aria-labelledby="map-h">
       <div className="ch">
         <h2 id="map-h">Every month since {years[years.length - 1]}</h2>
         <div className="mode push" role="group" aria-label="Metric">
-          {(['h', 'mh'] as const).map(k => (
+          {(['h', 't', 'mh'] as const).map(k => (
             <button
               key={k}
               aria-pressed={metric === k}
@@ -259,7 +267,7 @@ export function Heatmap() {
         <span className="hd">Year</span>
         {years.map(y => {
           const s = seasons[y],
-            d = yoy(y);
+            d = yoy(y, M.of);
           return [
             <span key={y} className="yr">
               {y}
@@ -278,10 +286,10 @@ export function Heatmap() {
                   onClick={() => setSel(key)}
                 >
                   {mm &&
-                    (metric === 'h' ? (
+                    (metric !== 'mh' ? (
                       <>
-                        <b>{mm.run_h.toFixed(0)}</b>
-                        <i>{Math.round(mm.run_km)} km</i>
+                        <b>{M.of(mm).toFixed(0)}</b>
+                        <i>{metric === 'h' ? `${Math.round(mm.run_km)} km` : `${mm.run_h.toFixed(0)} run`}</i>
                       </>
                     ) : (
                       <>
@@ -298,9 +306,9 @@ export function Heatmap() {
               title={d?.span ? `${y} to date; change compares ${d.span}` : undefined}
             >
               {s &&
-                (metric === 'h' ? (
+                (metric !== 'mh' ? (
                   <>
-                    <b>{s.run_h.toFixed(0)}</b>
+                    <b>{M.of(s).toFixed(0)}</b>
                     {d && <i className={d.pct < 0 ? 'dn' : ''}>{pctText(d.pct)}</i>}
                   </>
                 ) : (
@@ -328,7 +336,10 @@ export function Heatmap() {
           <i className="risk-key" />
           Dec–Apr risk months
         </span>
-        <span>· garnet outline: this month, to date{metric === 'mh' && ' · small: thousand metres climbed'}</span>
+        <span>
+          · garnet outline: this month, to date{metric === 't' && ' · small: run hours'}
+          {metric === 'mh' && ' · small: thousand metres climbed'}
+        </span>
       </div>
       <div className="week-detail month-detail" aria-live="polite">
         <b>
@@ -360,8 +371,10 @@ export function Heatmap() {
               {seasons[sy] && (
                 <span>
                   {sy}
-                  {yc?.span ? ' to date' : ''}: {seasons[sy].run_h.toFixed(0)} h run
-                  {yc && ` · ${pctText(yc.pct)} vs ${sy - 1}${yc.span ? ` (${yc.span})` : ''}`}
+                  {yc?.span ? ' to date' : ''}: {seasons[sy].run_h.toFixed(0)} h run · {seasons[sy].total_h.toFixed(0)}{' '}
+                  h total
+                  {yc &&
+                    ` · ${pctText(yc.pct)} ${metric === 't' ? 'total' : 'run'} vs ${sy - 1}${yc.span ? ` (${yc.span})` : ''}`}
                 </span>
               )}
               <Split p={m} />
