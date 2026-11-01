@@ -26,10 +26,6 @@ def hmm(hours: float) -> str:
     return f"{m // 60}:{m % 60:02d}"
 
 
-def _h(x: float) -> str:
-    return hmm(x) if x else "   -"
-
-
 def rng(bands: dict[str, tuple[float, float]], f: str, fmt: str = "{:.1f}") -> str:
     lo, hi = bands[f]
     return f"{fmt.format(lo)}–{fmt.format(hi)}"
@@ -84,7 +80,7 @@ def months_table(months: list[Month]) -> str:
         lr = m.longest_run
         lines.append(
             f"{m.label:9} {m.run_h:6.1f} {m.run_km:7.1f} {m.run_vert:7.0f} "
-            f"{m.density:5.0f} {m.run_days:5d} {_h(lr.mins / 60) if lr else '   -':>6} "
+            f"{m.density:5.0f} {m.run_days:5d} {hmm(lr.mins / 60) if lr else '-':>6} "
             f"{m.bike_h:7.1f} {m.gym_h:6.1f} {m.total_h:6.1f} "
             f"{_opt(a['hr'] if a else None, '{:.1f}', width=7)} "
             f"{(mmss(a['pace'] * 60) if a else '-'):>6} "
@@ -130,18 +126,11 @@ def plan_table(weeks_by_start: dict[dt.date, Week]) -> str:
     )
     for p in plan.committed_weeks():
         a = weeks_by_start.get(p.start)
-
-        def pair(pv: float | None, av: float | None, fmt: str = "{:5.1f}") -> tuple[str, str]:
-            def f(v: float | None) -> str:
-                return "    -" if v is None else fmt.format(v)
-
-            return f(pv), f(av)
-
-        ph, ah = pair(p.run_h, a.run_h if a else None)
-        pb, ab = pair(p.bike_h, a.bike_h if a else None)
-        pg, ag = pair(p.gym_h, a.gym_h if a else None, "{:4.1f}")
-        pk, ak = pair(p.run_km, a.run_km if a else None, "{:5.0f}")
-        pv, av = pair(p.run_vert, a.run_vert if a else None, "{:5.0f}")
+        ph, ah = _opt(p.run_h, "{:.1f}", width=5), _opt(a.run_h if a else None, "{:.1f}", width=5)
+        pb, ab = _opt(p.bike_h, "{:.1f}", width=5), _opt(a.bike_h if a else None, "{:.1f}", width=5)
+        pg, ag = _opt(p.gym_h, "{:.1f}", width=4), _opt(a.gym_h if a else None, "{:.1f}", width=4)
+        pk, ak = _opt(p.run_km, width=5), _opt(a.run_km if a else None, width=5)
+        pv, av = _opt(p.run_vert, width=5), _opt(a.run_vert if a else None, width=5)
         pct = f"{a.run_h / p.run_h * 100:4.0f}%" if a and p.run_h else "    -"
         mark = " <" if a and a.current else ""
         lines.append(

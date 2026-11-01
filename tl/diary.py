@@ -31,11 +31,11 @@ class Entry:
         self.fitness = {**f, "tsb": f["ctl"] - f["atl"]} if f and week.end < config.TODAY else f
 
     def days(self) -> list[tuple[str, dt.date, list[Activity]]]:
-        out = []
-        for i in range(7):
-            d = self.week.start + dt.timedelta(days=i)
-            out.append((DAYS[i], d, runs_first(a for a in self.week.acts if a.date == d)))
-        return out
+        dates = [self.week.start + dt.timedelta(days=i) for i in range(7)]
+        return [
+            (DAYS[d.weekday()], d, runs_first(a for a in self.week.acts if a.date == d))
+            for d in dates
+        ]
 
     def headline(self) -> str:
         w = self.week
@@ -117,9 +117,3 @@ class Entry:
         return [
             (a.date, a.name, a.note) for a in sorted(self.week.acts, key=lambda a: a.date) if a.note
         ]
-
-
-def build(
-    weeks: list[Week], fitness: dict[dt.date, dict[str, float]], load: dict[dt.date, float]
-) -> list[Entry]:
-    return [Entry(w, fitness, load) for w in weeks]

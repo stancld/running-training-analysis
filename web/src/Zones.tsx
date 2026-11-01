@@ -11,10 +11,9 @@ const sum = (xs: number[]) => xs.reduce((s, x) => s + x, 0);
 // Total adds runs and rides zone by zone; each sport keeps its own limits (Strava running, Garmin cycling).
 const hrMinutes = (z: Split, mode: Mode) =>
   mode === 'run' ? z.run.minutes : z.run.minutes.map((m, i) => m + z.bike.minutes[i]);
-const streamShare = (z: Split, mode: Mode) => {
-  const parts = mode === 'run' ? [z.run] : [z.run, z.bike];
-  return pct(sum(parts.map(p => p.stream)), sum(parts.map(p => p.stream + p.measured + p.modelled)));
-};
+const parts = (zs: Split[], mode: Mode) => zs.flatMap(z => (mode === 'run' ? [z.run] : [z.run, z.bike]));
+const streamShare = (ps: ZoneSplit[]) =>
+  pct(sum(ps.map(p => p.stream)), sum(ps.map(p => p.stream + p.measured + p.modelled)));
 
 function Key({ title, bands, kind, unit }: { title: string; bands: ZoneBand[]; kind: 'z' | 'p'; unit: string }) {
   return (
@@ -123,7 +122,7 @@ function PhaseRow({ p, mode }: { p: PhaseZones; mode: Mode }) {
   const [open, setOpen] = useState(p.current);
   const hr = hrMinutes(p, mode),
     total = sum(hr),
-    share = streamShare(p, mode);
+    share = streamShare(parts([p], mode));
   const watts = sum(p.bike.power);
   return (
     <div className={`zone-phase${open ? ' open' : ''}`}>
@@ -174,9 +173,9 @@ export function Zones() {
   const { bands, bike_bands, power_bands, phases } = DATA.zones;
   const [mode, setMode] = useState<Mode>('run');
   if (!phases.length) return null;
-  const parts = phases.flatMap(p => (mode === 'run' ? [p.run] : [p.run, p.bike]));
-  const share = pct(sum(parts.map(p => p.stream)), sum(parts.map(p => p.stream + p.measured + p.modelled)));
-  const noHr = sum(parts.map(p => p.no_hr));
+  const all = parts(phases, mode);
+  const share = streamShare(all);
+  const noHr = sum(all.map(p => p.no_hr));
   return (
     <section className="card zones" aria-labelledby="zones-h">
       <div className="ch">

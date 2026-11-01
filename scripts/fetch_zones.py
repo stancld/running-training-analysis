@@ -17,7 +17,7 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-from tl import config, plan
+from tl import config, data, plan
 
 API = "https://www.strava.com/api/v3"
 TOKEN_FILE = Path.home() / ".config" / "tl" / "strava_refresh_token"
@@ -91,13 +91,8 @@ def _row(kind: str, streams: dict[str, Any]) -> list[int | str] | None:
     return [*(hr or [""] * 5), *(watts or [""] * 7)]
 
 
-def _have(path: Path) -> set[tuple[str, int]]:
-    if not path.exists():
-        return set()
-    with path.open() as fh:
-        return {
-            (r["date"], round(float(r["min"]))) for r in csv.DictReader(fh) if r["date"] != "date"
-        }
+def _have(kind: str) -> set[tuple[str, int]]:
+    return {(d.isoformat(), round(float(r["min"]))) for d, r in data.read_rows(kind)}
 
 
 def main() -> int:
@@ -110,7 +105,7 @@ def main() -> int:
 
     for kind, sports, keys, header in KINDS:
         path = config.path(kind)
-        have = _have(path)
+        have = _have(kind)
         todo = [
             a
             for a in acts

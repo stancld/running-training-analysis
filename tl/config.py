@@ -17,9 +17,9 @@ RUN = {"Run", "TrailRun", "RACE_Run"}
 BIKE = {"Ride", "VirtualRide"}
 STRENGTH = {"Gym", "Workout", "Yoga"}
 HIKE = {"Hike", "Snowshoe", "Climb", "AlpineSki", "NordicSki"}
-OTHER = {"Walk", "Other", "Swim"}
 
-GROUPS = [("run", RUN), ("bike", BIKE), ("gym", STRENGTH), ("hike", HIKE), ("other", OTHER)]
+# Anything else (walks, swims) groups as "other".
+GROUPS = [("run", RUN), ("bike", BIKE), ("gym", STRENGTH), ("hike", HIKE)]
 
 
 def group_of(sport: str) -> str:

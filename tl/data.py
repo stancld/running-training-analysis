@@ -25,7 +25,7 @@ def runs_first(acts: Iterable[Activity]) -> list[Activity]:
 
 def _by_day[T](name: str, parse: Callable[[dict[str, str]], T]) -> dict[dt.date, list[T]]:
     out = defaultdict(list)
-    for d, r in _rows(name):
+    for d, r in read_rows(name):
         out[d].append(parse(r))
     return out
 
@@ -48,7 +48,7 @@ def _pair[R](
     return [(max(runs, key=lambda a: a.mins), rows[-1])] if rows else []
 
 
-def _rows(name: str) -> Iterator[tuple[dt.date, dict[str, str]]]:
+def read_rows(name: str) -> Iterator[tuple[dt.date, dict[str, str]]]:
     """Yield (date, row) pairs, skipping stray repeated headers and blank lines."""
     try:
         fh = open(config.path(name))
@@ -165,7 +165,7 @@ class Dataset:
                 float(r["min"] or 0),
                 float(r["vert"] or 0),
             )
-            for d, r in _rows("activities.csv")
+            for d, r in read_rows("activities.csv")
         ]
         if not acts:
             # The cache is personal data kept out of git, so a fresh checkout has none.
@@ -180,7 +180,7 @@ class Dataset:
         re_ = _by_day("re.csv", lambda r: float(r["re"]))
         hr = _by_day("hr.csv", lambda r: (float(r["min"]), float(r["hr"])))
         notes = defaultdict(list)
-        for d, r in _rows("notes.csv"):
+        for d, r in read_rows("notes.csv"):
             notes[d].append((r.get("name") or "", r.get("note") or ""))
 
         runs = defaultdict(list)
@@ -202,7 +202,9 @@ class Dataset:
             for a, (name, note) in zip(same_day, items, strict=False):
                 a.name, a.note = name, note
 
-        return cls(acts, [r for _, r in _rows("hills.csv")], [r for _, r in _rows("segments.csv")])
+        return cls(
+            acts, [r for _, r in read_rows("hills.csv")], [r for _, r in read_rows("segments.csv")]
+        )
 
     def daily_load(self) -> dict[dt.date, float]:
         """Load units per date: RE where Strava has it, else a scaled minute."""

@@ -32,7 +32,7 @@ class Lab:
         self.months = build_months(self.ds)
         self.seasons = build_seasons(self.ds)
         self.fitness = fitness_curve(self.ds, load)
-        self.entries = diary.build(self.weeks, self.fitness, load)
+        self.entries = [diary.Entry(w, self.fitness, load) for w in self.weeks]
         self.by_start = {w.start: w for w in self.weeks}
 
 
