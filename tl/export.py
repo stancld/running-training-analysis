@@ -124,6 +124,17 @@ def _bands(zones: tuple[tuple[str, str, int | None], ...]) -> list[dict[str, Any
     return out
 
 
+def _quality() -> dict[str, Any]:
+    return {
+        code: {
+            "sessions": [{"name": a, "detail": b} for a, b in sessions],
+            "notes": notes,
+            "sources": [{"label": a, "url": b} for a, b in sources],
+        }
+        for code, (sessions, notes, sources) in plan.QUALITY.items()
+    }
+
+
 def _zones(ds: Dataset) -> dict[str, Any]:
     """Run and ride time per zone for each phase that has started, and its weeks."""
     out = []
@@ -299,6 +310,7 @@ def web_payload(
             }
             for q in plan.provisional_phases()
         ],
+        "quality": _quality(),
         "diary": [_week(e) for e in entries if e.week.start >= diary_from],
         # Daily, not weekly: a 7-day ATL swings too much within a week to read from week ends.
         "fitness": [

@@ -73,6 +73,80 @@ PHASES = [
     ("P5", "Taper", 2, 97, 2550),
 ]
 
+_KILIAN_UPHILL = ("Kilian · uphill training", "https://mtnath.com/training-for-uphill-running/")
+_KILIAN_2022 = ("Kilian · 2022 season", "https://mtnath.com/training2022/")
+_KILIAN_2024 = ("Kilian · 2024 training", "https://mtnath.com/training2024")
+_KILIAN_WSER = ("Kilian · Western States 2025", "https://mtnath.com/wsertraining")
+_UA_TRAIL = (
+    "Uphill Athlete · trail running",
+    "https://uphillathlete.com/trail-running/training-for-trail-running/",
+)
+_UA_GYM = (
+    "Uphill Athlete · gym ME",
+    "https://uphillathlete.com/strength-training/at-home-muscular-endurance-workout-with-progression/",
+)
+
+# Quality sessions per phase in Kilian Jornet's style: threshold mostly uphill, no flat
+# speed in the Dec-Apr injury window. Advice beside the targets, not a target itself.
+# name, prescription; then notes; then (label, url) sources.
+QUALITY: dict[str, tuple[list[tuple[str, str]], list[str], list[tuple[str, str]]]] = {
+    "P2": (
+        [
+            ("Uphill tempo", "3×10′ · 6–8 % · HR 164–172 · from 9 Nov"),
+            (
+                "Gym strength-endurance",
+                "step-ups, lunges, jump squats 4×10 · +10 % BW from session 4",
+            ),
+            ("Hill sprints", "6–8×10″ · ≥ 20 % · 2–3′ walk down"),
+        ],
+        [
+            "No intervals in the two weeks after Slapy: Kilian's order is get healthy, get aerobic, get ready.",
+            "Keep jump height near 80 % at first; calves and shins are the history to respect.",
+        ],
+        [
+            ("Kilian · coming back", "https://mtnath.com/coming-back-from-injury/"),
+            _UA_GYM,
+            _UA_TRAIL,
+        ],
+    ),
+    "P3": (
+        [
+            ("Uphill threshold", "3×8′ → 2×12′ → 2×15′ · 8–15 % · HR 172–178"),
+            ("Strength-endurance hill", "400–600 m at Z3 on Petřín 15 % · +3–6 kg from week 4"),
+            ("Hill sprints", "6–8×10″ · ≥ 20 % · 2–3′ walk down"),
+        ],
+        [
+            "Weeks 1–4: the hill session is the only quality; from week 5 alternate it with uphill threshold.",
+            "No flat T or speed: Kilian's flat speed in his own Chianti winter gave him a TFL tendonitis.",
+            "Add weight or vertical each week, never both; three easy days after a weighted session.",
+        ],
+        [_KILIAN_UPHILL, _KILIAN_WSER, _UA_TRAIL],
+    ),
+    "P4": (
+        [
+            (
+                "Uphill + rolling",
+                "20–30′ uphill threshold, then 30–40′ rolling Z2–Z3 · run the descents",
+            ),
+            ("Race simulation", "C weekends: 2:00 high Z2, then race effort and race fuelling"),
+            ("Hill sprints", "6–8×10″ · keep weekly"),
+        ],
+        [
+            "Drop the strength-endurance sessions; back-to-backs carry the neuromuscular load.",
+            "Flat T at most every other week, and only while the legs are quiet.",
+        ],
+        [_KILIAN_2022, _KILIAN_2024, _UA_TRAIL],
+    ),
+    "P5": (
+        [
+            ("Uphill threshold", "3×6′ · 8–15 % · week 28 only"),
+            ("Activation", "3×1′ T → VO2max two days out · otherwise 30–60′ Z1"),
+        ],
+        ["Keep the intensity, cut the volume about 25 % a week."],
+        [_KILIAN_2022, _UA_TRAIL],
+    ),
+}
+
 
 class PlanWeek:
     run_km: float  # set by _build from the phase totals or OWN_KM

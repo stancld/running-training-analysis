@@ -3,10 +3,11 @@ import { MON, current as w, day, n, phaseShort, rails, signed, span, type Rail }
 
 const MARK = { ok: '✓', watch: '!', bad: '✕' };
 
-export function ThisWeek({ children }: { children?: React.ReactNode }) {
+export function ThisWeek({ children, toPlan }: { children?: React.ReactNode; toPlan?: () => void }) {
   if (!w) return null;
   const p = w.plan,
     G = DATA.guardrails;
+  const q = p && DATA.quality[p.phase];
   const r = p?.run_h ? w.run_h / p.run_h : null;
   const R = 74,
     C = 2 * Math.PI * R;
@@ -74,6 +75,17 @@ export function ThisWeek({ children }: { children?: React.ReactNode }) {
           ))}
         </div>
       </div>
+      {q && (
+        <button
+          type="button"
+          className="tw-quality"
+          onClick={toPlan ?? (() => document.getElementById('plan-h')?.scrollIntoView({ behavior: 'smooth' }))}
+        >
+          <span className="eyebrow">Quality</span>
+          {q.sessions.map(s => s.name).join(' · ')}
+          <i aria-hidden="true">›</i>
+        </button>
+      )}
       {children}
     </section>
   );

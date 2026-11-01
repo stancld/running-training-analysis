@@ -119,6 +119,11 @@ export type Provisional = {
   total_km: number;
   total_vert: number;
 };
+export type Quality = {
+  sessions: { name: string; detail: string }[];
+  notes: string[];
+  sources: { label: string; url: string }[];
+};
 export type Fit = { date: string; ctl: number; atl: number; tsb: number };
 export type ZoneBand = { code: string; name: string; lo: number; hi: number | null };
 export type ZoneSplit = {
@@ -158,6 +163,7 @@ export type Payload = {
   horizon: { weeks: number; date: string; committed: number };
   plan: PlanWeek[];
   provisional: Provisional[];
+  quality: Record<string, Quality>;
   diary: DiaryWeek[];
   fitness: Fit[];
   zones: { bands: ZoneBand[]; bike_bands: ZoneBand[]; power_bands: ZoneBand[]; phases: PhaseZones[] };

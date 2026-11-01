@@ -2311,6 +2311,136 @@
    "total_vert": 2550
   }
  ],
+ "quality": {
+  "P2": {
+   "sessions": [
+    {
+     "name": "Uphill tempo",
+     "detail": "3×10′ · 6–8 % · HR 164–172 · from 9 Nov"
+    },
+    {
+     "name": "Gym strength-endurance",
+     "detail": "step-ups, lunges, jump squats 4×10 · +10 % BW from session 4"
+    },
+    {
+     "name": "Hill sprints",
+     "detail": "6–8×10″ · ≥ 20 % · 2–3′ walk down"
+    }
+   ],
+   "notes": [
+    "No intervals in the two weeks after Slapy: Kilian's order is get healthy, get aerobic, get ready.",
+    "Keep jump height near 80 % at first; calves and shins are the history to respect."
+   ],
+   "sources": [
+    {
+     "label": "Kilian · coming back",
+     "url": "https://mtnath.com/coming-back-from-injury/"
+    },
+    {
+     "label": "Uphill Athlete · gym ME",
+     "url": "https://uphillathlete.com/strength-training/at-home-muscular-endurance-workout-with-progression/"
+    },
+    {
+     "label": "Uphill Athlete · trail running",
+     "url": "https://uphillathlete.com/trail-running/training-for-trail-running/"
+    }
+   ]
+  },
+  "P3": {
+   "sessions": [
+    {
+     "name": "Uphill threshold",
+     "detail": "3×8′ → 2×12′ → 2×15′ · 8–15 % · HR 172–178"
+    },
+    {
+     "name": "Strength-endurance hill",
+     "detail": "400–600 m at Z3 on Petřín 15 % · +3–6 kg from week 4"
+    },
+    {
+     "name": "Hill sprints",
+     "detail": "6–8×10″ · ≥ 20 % · 2–3′ walk down"
+    }
+   ],
+   "notes": [
+    "Weeks 1–4: the hill session is the only quality; from week 5 alternate it with uphill threshold.",
+    "No flat T or speed: Kilian's flat speed in his own Chianti winter gave him a TFL tendonitis.",
+    "Add weight or vertical each week, never both; three easy days after a weighted session."
+   ],
+   "sources": [
+    {
+     "label": "Kilian · uphill training",
+     "url": "https://mtnath.com/training-for-uphill-running/"
+    },
+    {
+     "label": "Kilian · Western States 2025",
+     "url": "https://mtnath.com/wsertraining"
+    },
+    {
+     "label": "Uphill Athlete · trail running",
+     "url": "https://uphillathlete.com/trail-running/training-for-trail-running/"
+    }
+   ]
+  },
+  "P4": {
+   "sessions": [
+    {
+     "name": "Uphill + rolling",
+     "detail": "20–30′ uphill threshold, then 30–40′ rolling Z2–Z3 · run the descents"
+    },
+    {
+     "name": "Race simulation",
+     "detail": "C weekends: 2:00 high Z2, then race effort and race fuelling"
+    },
+    {
+     "name": "Hill sprints",
+     "detail": "6–8×10″ · keep weekly"
+    }
+   ],
+   "notes": [
+    "Drop the strength-endurance sessions; back-to-backs carry the neuromuscular load.",
+    "Flat T at most every other week, and only while the legs are quiet."
+   ],
+   "sources": [
+    {
+     "label": "Kilian · 2022 season",
+     "url": "https://mtnath.com/training2022/"
+    },
+    {
+     "label": "Kilian · 2024 training",
+     "url": "https://mtnath.com/training2024"
+    },
+    {
+     "label": "Uphill Athlete · trail running",
+     "url": "https://uphillathlete.com/trail-running/training-for-trail-running/"
+    }
+   ]
+  },
+  "P5": {
+   "sessions": [
+    {
+     "name": "Uphill threshold",
+     "detail": "3×6′ · 8–15 % · week 28 only"
+    },
+    {
+     "name": "Activation",
+     "detail": "3×1′ T → VO2max two days out · otherwise 30–60′ Z1"
+    }
+   ],
+   "notes": [
+    "Keep the intensity, cut the volume about 25 % a week."
+   ],
+   "sources": [
+    {
+     "label": "Kilian · 2022 season",
+     "url": "https://mtnath.com/training2022/"
+    },
+    {
+     "label": "Uphill Athlete · trail running",
+     "url": "https://uphillathlete.com/trail-running/training-for-trail-running/"
+    }
+   ]
+  }
+ },
  "diary": [
   {
    "label": "2026-W35",

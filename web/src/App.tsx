@@ -145,7 +145,7 @@ export default function App() {
         {tab === 'today' && (
           <>
             <LastRace />
-            <ThisWeek>
+            <ThisWeek toPlan={() => go('plan')}>
               <RailChips />
             </ThisWeek>
             <Fitness compact />

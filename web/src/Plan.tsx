@@ -34,6 +34,42 @@ function detail(i: number) {
   ].filter(Boolean);
 }
 
+/* Suggested sessions for the selected week's phase; the reasoning stays folded away. */
+function PhaseQuality({ phase }: { phase: string }) {
+  const q = DATA.quality[phase];
+  if (!q) return null;
+  return (
+    <div className="wq">
+      <p className="eyebrow">Quality this phase</p>
+      <ul>
+        {q.sessions.map(s => (
+          <li key={s.name}>
+            <b>{s.name}</b> {s.detail}
+          </li>
+        ))}
+      </ul>
+      <details>
+        <summary>Why &amp; sources</summary>
+        <ul>
+          {q.notes.map(t => (
+            <li key={t}>{t}</li>
+          ))}
+        </ul>
+        <p>
+          {q.sources.map((s, i) => (
+            <span key={s.url}>
+              {i ? ' · ' : ''}
+              <a href={s.url} target="_blank" rel="noreferrer">
+                {s.label}
+              </a>
+            </span>
+          ))}
+        </p>
+      </details>
+    </div>
+  );
+}
+
 export function PlanChart() {
   const [sel, setSel] = useState(Math.max(0, curIdx));
   // A phone gets a narrower canvas with larger type, so the whole macrocycle fits without scrolling.
@@ -267,6 +303,7 @@ export function PlanChart() {
       </div>
       <div className="week-detail" aria-live="polite">
         {detail(sel).map((l, i) => (i === 0 ? <b key={i}>{l}</b> : <span key={i}>{l}</span>))}
+        <PhaseQuality phase={P[sel].phase} />
       </div>
       <div className="legend">
         <span>

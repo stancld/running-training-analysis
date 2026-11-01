@@ -253,6 +253,84 @@ svg text {
   color: var(--ink);
   font-weight: 600;
 }
+/* Phase advice: muted, below the numbers, reasoning folded away. */
+.wq {
+  flex-basis: 100%;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.wq ul {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+.wq li {
+  padding: 1px 0;
+}
+.wq li b {
+  color: var(--ink-2);
+  font-weight: 600;
+  margin-right: 6px;
+}
+.wq summary {
+  cursor: pointer;
+  color: var(--muted);
+  margin-top: 6px;
+  padding: 2px 0;
+  width: max-content;
+}
+.wq summary:hover {
+  color: var(--ink-2);
+}
+.wq details ul {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 12.5px;
+}
+.wq details li {
+  padding-left: 12px;
+  position: relative;
+}
+.wq details li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+.wq details p {
+  margin-top: 6px;
+  font-size: 11.5px;
+}
+.wq a {
+  color: var(--teal);
+}
+.tw-quality {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.tw-quality .eyebrow {
+  flex: 0 0 auto;
+}
+.tw-quality i {
+  margin-left: auto;
+  font-style: normal;
+  color: var(--muted);
+}
+.tw-quality:hover {
+  color: var(--teal);
+}
 
 /* ---------- top bar ---------- */
 .topbar {
