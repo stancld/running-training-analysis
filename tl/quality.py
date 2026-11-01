@@ -1,13 +1,6 @@
 """Quality-session analysis: uphill reps, repeated segments, flat 1k reps."""
 
-import csv
 from collections import defaultdict
-
-from . import config as C
-
-
-def _mmss(s):
-    return f"{int(s) // 60}:{round(s) % 60:02d}"
 
 
 def hill_sessions(ds):
@@ -97,31 +90,23 @@ def segment_history(ds):
     return out
 
 
-def rep_sessions():
+def rep_sessions(ds):
     """Flat 1k-rep sessions from reps.csv — the threshold-pace record."""
     out = []
-    try:
-        fh = open(C.path("reps.csv"))
-    except FileNotFoundError:
-        return out
-    with fh:
-        for r in csv.DictReader(fh):
-            s = [float(x) for x in r["secs"].split(",")]
-            out.append(
-                {
-                    "date": r["date"],
-                    "name": r["session"],
-                    "rest": r["rest"],
-                    "secs": s,
-                    "n": len(s),
-                    "avg": sum(s) / len(s),
-                    "last3": sum(s[-3:]) / 3,
-                    "best": min(s),
-                    "fade": s[0] - s[-1],
-                }
-            )
+    for r in ds.reps:
+        s = [float(x) for x in r["secs"].split(",")]
+        out.append(
+            {
+                "date": r["date"],
+                "name": r["session"],
+                "rest": r["rest"],
+                "secs": s,
+                "n": len(s),
+                "avg": sum(s) / len(s),
+                "last3": sum(s[-3:]) / 3,
+                "best": min(s),
+                "fade": s[0] - s[-1],
+            }
+        )
     out.sort(key=lambda x: x["date"])
     return out
-
-
-mmss = _mmss

@@ -31,21 +31,13 @@ class Lab:
 
     def __init__(self):
         self.ds = Dataset.load()
+        load = self.ds.daily_load()
         self.weeks = build_weeks(self.ds)
-        self.months = build_months(self.ds, self.weeks)
-        self.seasons = build_seasons(self.ds, self.months)
-        self.fitness = fitness_curve(self.ds)
-        self.entries = diary_mod.build(self.ds, self.weeks, self.fitness)
+        self.months = build_months(self.ds)
+        self.seasons = build_seasons(self.ds)
+        self.fitness = fitness_curve(self.ds, load)
+        self.entries = diary_mod.build(self.weeks, self.fitness, load)
         self.by_start = {w.start: w for w in self.weeks}
-        self.entry_by_start = {e.week.start: e for e in self.entries}
-
-    def plan_weeks_done(self):
-        return [w for w in self.weeks if w.start >= plan.PLAN_START and w.start <= C.TODAY]
-
-
-def _diary_start():
-    """The diary leads in one week before the macrocycle opens."""
-    return plan.PLAN_START - dt.timedelta(days=7)
 
 
 def _tail(seq, arg, default):
@@ -142,13 +134,13 @@ def cmd_diary(lab, arg=None):
             d = dt.date.fromisoformat(arg)
             entries = [e for e in lab.entries if e.week.start <= d <= e.week.end]
         except ValueError:
-            entries = _tail([e for e in lab.entries if e.week.start >= _diary_start()], arg, 4)
+            entries = _tail([e for e in lab.entries if e.week.start >= plan.DIARY_START], arg, 4)
     elif arg in ("all", "full"):
         entries = lab.entries
     else:
-        entries = [e for e in lab.entries if e.week.start >= _diary_start()]
+        entries = [e for e in lab.entries if e.week.start >= plan.DIARY_START]
     head = render.title("TRAINING DIARY")
-    body = [render.diary_entry(e, lab.ds) for e in entries]
+    body = [render.diary_entry(e) for e in entries]
     return head + "\n" + "\n".join(body)
 
 
@@ -161,7 +153,7 @@ def cmd_segments(lab, arg=None):
 
 
 def cmd_reps(lab, arg=None):
-    return render.reps_block(quality.rep_sessions())
+    return render.reps_block(quality.rep_sessions(lab.ds))
 
 
 def cmd_site(lab, arg=None):
@@ -196,7 +188,7 @@ def cmd_site(lab, arg=None):
 
 def cmd_export(lab, arg=None):
     path = arg or C.path("diary.json")
-    obj = export_mod.payload(lab.ds, lab.weeks, lab.entries, lab.months, lab.seasons)
+    obj = export_mod.payload(lab.ds, lab.entries, lab.months, lab.seasons)
     export_mod.write(obj, path)
     return f"wrote {path}  ({len(obj['weeks'])} weeks, {len(obj['months'])} months)"
 

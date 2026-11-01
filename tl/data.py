@@ -1,9 +1,8 @@
-"""Loading and normalising the local cache into one queryable dataset."""
+"""Loads the CSV cache into one Dataset."""
 
 import csv
 import datetime as dt
 import math
-import pathlib
 from collections import defaultdict
 
 from . import config as C
@@ -14,6 +13,11 @@ def _date(s):
         return dt.date.fromisoformat(s.strip())
     except ValueError, AttributeError:
         return None
+
+
+def runs_first(acts):
+    """Runs before other sports, longest first."""
+    return sorted(acts, key=lambda a: (a.group != "run", -a.mins))
 
 
 def _rows(name):
@@ -52,10 +56,6 @@ class Activity:
         self.name = self.note = None
 
     @property
-    def hours(self):
-        return self.mins / 60
-
-    @property
     def vert_per_km(self):
         return self.vert / self.km if self.km else 0.0
 
@@ -71,30 +71,24 @@ class Activity:
     def est_hr(self):
         """Measured HR when COROS has it, else the relative-effort model."""
         if self.hr:
-            return self.hr, True
+            return self.hr
         if self.re and self.mins:
             per_h = self.re / (self.mins / 60)
             if per_h > 0:
-                return C.HR_A + C.HR_B * math.log(per_h), False
-        return None, False
+                return C.HR_A + C.HR_B * math.log(per_h)
+        return None
 
     def __repr__(self):
         return f"<{self.date} {self.sport} {self.km:.1f}km {self.mins:.0f}min>"
 
 
 class Dataset:
-    """Everything the local cache knows, indexed by date."""
-
-    def __init__(self, activities, hills, segments, weather):
+    def __init__(self, activities, hills, segments, reps):
         self.activities = sorted(activities, key=lambda a: (a.date, a.sport))
-        self.hills, self.segments, self.weather = hills, segments, weather
-        self.by_date = defaultdict(list)
-        for a in self.activities:
-            self.by_date[a.date].append(a)
+        self.hills, self.segments, self.reps = hills, segments, reps
         self.first = self.activities[0].date
         self.last = self.activities[-1].date
 
-    # -------------------------------------------------------------- loading
     @classmethod
     def load(cls):
         acts = []
@@ -137,28 +131,13 @@ class Dataset:
             a.re, a.hr = re_.get(d), hr.get(d)
 
         for d, items in notes.items():
-            for a, (name, note) in zip(cls._runs_first(acts, d), items, strict=False):
+            same_day = runs_first(a for a in acts if a.date == d)
+            for a, (name, note) in zip(same_day, items, strict=False):
                 a.name, a.note = name, note
 
-        hills = list(_rows("hills.csv"))
-        segs = list(_rows("segments.csv"))
-        return cls(acts, hills, segs, _weather())
-
-    @staticmethod
-    def _runs_first(acts, d):
-        same = [a for a in acts if a.date == d]
-        return sorted(same, key=lambda a: (a.group != "run", -a.mins))
-
-    # ------------------------------------------------------------- querying
-    def between(self, start, end, groups=None):
-        return [
-            a
-            for a in self.activities
-            if start <= a.date <= end and (groups is None or a.group in groups)
-        ]
-
-    def runs(self, start=None, end=None):
-        return self.between(start or self.first, end or self.last, {"run"})
+        return cls(
+            acts, list(_rows("hills.csv")), list(_rows("segments.csv")), list(_rows("reps.csv"))
+        )
 
     def daily_load(self):
         """date -> load units. RE where Strava has it, else a scaled minute."""
@@ -170,35 +149,4 @@ class Dataset:
                 out[a.date] += a.re
             else:
                 out[a.date] += a.mins * rate * C.LOAD_RATIO[a.group]
-        return dict(out), rate
-
-
-def _weather():
-    """Open-Meteo archive export for Prague; header row is found, not assumed."""
-    try:
-        lines = pathlib.Path(C.path("weather_raw.csv")).read_text().splitlines()
-    except FileNotFoundError:
-        return {}
-    head = next((i for i, line in enumerate(lines) if line.startswith("time,")), None)
-    if head is None:
-        return {}
-    out = {}
-    for line in lines[head + 1 :]:
-        if not line.strip():
-            continue
-        p = line.split(",")
-        d = _date(p[0])
-        if not d:
-            continue
-        try:
-            out[d] = {
-                "tmean": float(p[1]),
-                "tmax": float(p[2]),
-                "tapp": float(p[4]),
-                "prcp": float(p[5]),
-                "rh": float(p[6]),
-                "wind": float(p[7]),
-            }
-        except ValueError, IndexError:
-            continue
-    return out
+        return dict(out)

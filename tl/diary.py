@@ -1,15 +1,10 @@
-"""The training diary: one entry per week, built from the cache, not by hand.
-
-An entry is the week's day-by-day log, its plan comparison, its guardrail
-flags, and a short verdict assembled from whichever of those actually said
-something. Nothing here is written prose from a human — it is derived, so it
-stays true when the data is topped up.
-"""
+"""The training diary: one derived entry per week — day log, plan comparison, verdicts."""
 
 import datetime as dt
 
 from . import config as C
 from . import plan
+from .data import runs_first
 from .periods import monotony
 
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -20,28 +15,21 @@ def _fmt_h(x):
 
 
 class Entry:
-    def __init__(self, ds, week, fitness):
+    def __init__(self, week, fitness, load):
         self.week = week
         self.plan = plan.week_for(week.start)
         self.cmp = plan.compare(week, self.plan)
         self.flags = week.flags()
-        self.mono, self.strain = monotony(ds, week)
+        self.mono = monotony(load, week)
         self.fitness = fitness.get(min(week.end, C.TODAY))
-        self.aero = week.hr_at_pace()
 
-    # ------------------------------------------------------------- day view
     def days(self):
         out = []
         for i in range(7):
             d = self.week.start + dt.timedelta(days=i)
-            acts = sorted(
-                [a for a in self.week.acts if a.date == d],
-                key=lambda a: (a.group != "run", -a.mins),
-            )
-            out.append((DAYS[i], d, acts))
+            out.append((DAYS[i], d, runs_first(a for a in self.week.acts if a.date == d)))
         return out
 
-    # ------------------------------------------------------------- verdicts
     def headline(self):
         w = self.week
         if not w.acts:
@@ -57,7 +45,7 @@ class Entry:
         return " · ".join(bits)
 
     def notes(self):
-        """The verdict lines — each one earns its place or is not emitted."""
+        """Verdict lines; each is emitted only when it has something to say."""
         out, w, c = [], self.week, self.cmp
         if c and not w.partial:
             r = c["run_h"][2]
@@ -118,11 +106,11 @@ class Entry:
         return out
 
     def highlights(self):
-        """Session notes worth keeping — the human texture, from Strava."""
+        """Dan's session notes for the week."""
         return [
             (a.date, a.name, a.note) for a in sorted(self.week.acts, key=lambda a: a.date) if a.note
         ]
 
 
-def build(ds, weeks, fitness):
-    return [Entry(ds, w, fitness) for w in weeks]
+def build(weeks, fitness, load):
+    return [Entry(w, fitness, load) for w in weeks]

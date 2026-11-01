@@ -1,8 +1,6 @@
-"""Mapping the whole history onto weeks, months and seasons.
+"""Weeks, months and seasons over the whole history, plus the fitness curve.
 
-Every Monday between the first and last activity gets a Week object, whether
-anything was trained in it or not — an empty week is a fact about the season,
-not a gap in the table.
+Every Monday between the first and last activity gets a Week, trained or not.
 """
 
 import datetime as dt
@@ -25,9 +23,8 @@ def iso_label(d):
 class Period:
     """Shared aggregation over a list of activities."""
 
-    def __init__(self, start, end, acts, load=None):
+    def __init__(self, start, end, acts):
         self.start, self.end, self.acts = start, end, acts
-        self.load = load or {}
         for name, _ in C.GROUPS:
             sel = [a for a in acts if a.group == name]
             setattr(self, name + "_h", sum(a.mins for a in sel) / 60)
@@ -36,9 +33,7 @@ class Period:
             setattr(self, name + "_n", len(sel))
         self.runs = [a for a in acts if a.is_run]
         self.total_h = sum(a.mins for a in acts) / 60
-        self.load_units = sum(v for d, v in self.load.items() if start <= d <= end)
 
-    # ---------------------------------------------------------------- shape
     @property
     def days(self):
         return (self.end - self.start).days + 1
@@ -83,28 +78,20 @@ class Period:
         for a in self.runs:
             if a.type not in ("E", "L") or a.mins < 25 or not a.km:
                 continue
-            hr, meas = a.est_hr()
+            hr = a.est_hr()
             if hr:
-                rows.append((hr, a.pace, a.vert_per_km, a.km, meas))
+                rows.append((hr, a.pace))
         if not rows:
             return None
-        n = len(rows)
         return {
-            "hr": sum(r[0] for r in rows) / n,
-            "pace": sum(r[1] for r in rows) / n,
-            "vpk": sum(r[2] for r in rows) / n,
-            "km": sum(r[3] for r in rows),
-            "n": n,
-            "measured": sum(1 for r in rows if r[4]),
-            "m_per_beat": sum(r[3] * 1000 / (r[0] * r[1] * r[3]) for r in rows) / n,
+            "hr": sum(r[0] for r in rows) / len(rows),
+            "pace": sum(r[1] for r in rows) / len(rows),
         }
 
 
 class Week(Period):
-    kind = "week"
-
-    def __init__(self, start, acts, load=None):
-        super().__init__(start, start + dt.timedelta(days=6), acts, load)
+    def __init__(self, start, acts):
+        super().__init__(start, start + dt.timedelta(days=6), acts)
         self.label = iso_label(start)
         self.prev = None  # wired up by build_weeks
         self.chronic = None  # mean running hours of the 4 weeks ending here
@@ -158,36 +145,26 @@ class Week(Period):
 
 
 class Month(Period):
-    kind = "month"
-
-    def __init__(self, year, month, acts, load=None, weeks=()):
+    def __init__(self, year, month, acts):
         last = dt.date(year + month // 12, month % 12 + 1, 1) - dt.timedelta(days=1)
-        super().__init__(dt.date(year, month, 1), last, acts, load)
-        self.year, self.month = year, month
+        super().__init__(dt.date(year, month, 1), last, acts)
         self.label = f"{year}-{month:02d}"
-        self.weeks = list(weeks)
 
 
 class Season(Period):
-    kind = "season"
-
-    def __init__(self, year, acts, load=None, months=()):
-        super().__init__(dt.date(year, 1, 1), dt.date(year, 12, 31), acts, load)
-        self.year, self.label = year, str(year)
-        self.months = list(months)
+    def __init__(self, year, acts):
+        super().__init__(dt.date(year, 1, 1), dt.date(year, 12, 31), acts)
+        self.label = str(year)
 
 
-# ------------------------------------------------------------------ builders
-def build_weeks(ds, start=None, end=None):
-    load, _ = ds.daily_load()
-    start = week_start(start or ds.first)
-    end = week_start(min(end or ds.last, ds.last))
+def build_weeks(ds):
+    start, end = week_start(ds.first), week_start(ds.last)
     by_week = defaultdict(list)
     for a in ds.activities:
         by_week[week_start(a.date)].append(a)
     weeks, w = [], start
     while w <= end:
-        weeks.append(Week(w, by_week.get(w, []), load))
+        weeks.append(Week(w, by_week.get(w, [])))
         w += dt.timedelta(days=7)
     for i, wk in enumerate(weeks):
         wk.prev = weeks[i - 1] if i else None
@@ -196,39 +173,27 @@ def build_weeks(ds, start=None, end=None):
     return weeks
 
 
-def build_months(ds, weeks=None):
-    load, _ = ds.daily_load()
-    weeks = weeks or build_weeks(ds)
+def build_months(ds):
     by_month = defaultdict(list)
     for a in ds.activities:
         by_month[(a.date.year, a.date.month)].append(a)
-    out = []
-    for y, m in sorted(by_month):
-        wk = [w for w in weeks if (w.start.year, w.start.month) == (y, m)]
-        out.append(Month(y, m, by_month[(y, m)], load, wk))
-    return out
+    return [Month(y, m, by_month[(y, m)]) for y, m in sorted(by_month)]
 
 
-def build_seasons(ds, months=None):
-    load, _ = ds.daily_load()
-    months = months or build_months(ds)
+def build_seasons(ds):
     by_year = defaultdict(list)
     for a in ds.activities:
         by_year[a.date.year].append(a)
-    return [
-        Season(y, by_year[y], load, [m for m in months if m.year == y]) for y in sorted(by_year)
-    ]
+    return [Season(y, by_year[y]) for y in sorted(by_year)]
 
 
-# ------------------------------------------------------------ fitness curves
-def fitness_curve(ds):
+def fitness_curve(ds, load):
     """Exponential CTL/ATL/TSB over daily load units.
 
     CTL tau=42 d (fitness), ATL tau=7 d (fatigue), TSB = CTL - ATL (form).
     Absolute numbers depend on the load model in config.LOAD_RATIO; the shape
     is what carries information.
     """
-    load, _ = ds.daily_load()
     ctl = atl = 0.0
     kc, ka = 1 - math.exp(-1 / C.CTL_TAU), 1 - math.exp(-1 / C.ATL_TAU)
     out, d = {}, ds.first
@@ -241,11 +206,9 @@ def fitness_curve(ds):
     return out
 
 
-def monotony(ds, week):
-    """Foster monotony and strain for one week."""
-    load, _ = ds.daily_load()
+def monotony(load, week):
+    """Foster monotony: mean daily load over its standard deviation."""
     vals = [load.get(week.start + dt.timedelta(days=i), 0.0) for i in range(7)]
     mean = sum(vals) / 7
     sd = math.sqrt(sum((v - mean) ** 2 for v in vals) / 7)
-    mono = mean / sd if sd > 0.01 else None
-    return mono, (sum(vals) * mono if mono else None)
+    return mean / sd if sd > 0.01 else None

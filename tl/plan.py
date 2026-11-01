@@ -8,14 +8,16 @@ invented per week.
 
 import datetime as dt
 
-# How far ahead the plan is written week by week. Beyond this the phase carries
-# a band, not a number — a specific hour target four months out is precision the
-# evidence cannot support, and it invites false compliance scoring.
+from . import config as C
+
+# Weeks written week by week; beyond that a phase carries a band, not a number.
 HORIZON_WEEKS = 8
 
 RACE = dt.date(2027, 3, 20)
 RACE_NAME = "Chianti 120K"
 PLAN_START = dt.date(2026, 8, 31)
+# The diary leads in one week early: week 1 only reads against the week before it.
+DIARY_START = PLAN_START - dt.timedelta(days=7)
 
 # (monday, total_h, run_h, bike_h, gym_h, weekend format, race)
 _W = [
@@ -69,7 +71,7 @@ class PlanWeek:
         self.total_h, self.run_h, self.bike_h, self.gym_h = h, r, b, g
         self.weekend, self.race = we, race
         self.phase = phase
-        self.run_km = self.run_vert = None  # filled by _derive
+        self.run_km = self.run_vert = None  # filled by _build
 
     @property
     def to_race(self):
@@ -80,9 +82,6 @@ class PlanWeek:
         """Inside the detail horizon — a real weekly target, not a placeholder."""
         return self.start <= horizon_date()
 
-    def band(self, field="run_h"):
-        return PHASE_BANDS[self.phase][field]
-
     def __repr__(self):
         return f"<plan wk{self.index} {self.start} {self.run_h}h run>"
 
@@ -92,7 +91,7 @@ def _build():
     for code, _name, n, km, vert in PHASES:
         rows = _W[i : i + n]
         block = [PlanWeek(i + j, r, code) for j, r in enumerate(rows)]
-        run_h = sum(w.run_h for w in block) or 1
+        run_h = sum(w.run_h for w in block)
         for w in block:
             share = w.run_h / run_h
             w.run_km = km * share
@@ -122,19 +121,18 @@ def _bands():
 PHASE_BANDS = _bands()
 
 
-def horizon_date(today=None):
+def horizon_date():
     """Last Monday still written week by week."""
-    today = today or dt.date.today()
-    return today + dt.timedelta(weeks=HORIZON_WEEKS)
+    return C.TODAY + dt.timedelta(weeks=HORIZON_WEEKS)
 
 
-def committed_weeks(today=None):
-    return [w for w in WEEKS if w.start <= horizon_date(today)]
+def committed_weeks():
+    return [w for w in WEEKS if w.start <= horizon_date()]
 
 
-def provisional_phases(today=None):
+def provisional_phases():
     """Phases with any week beyond the horizon, with their bands."""
-    h = horizon_date(today)
+    h = horizon_date()
     out = []
     for code, name, _n, km, vert in PHASES:
         block = [w for w in PHASE_WEEKS[code] if w.start > h]
@@ -163,31 +161,15 @@ def week_for(d):
 
 
 def compare(actual, planned):
-    """Score one actual Week against its PlanWeek. Ratios, not verdicts."""
+    """(actual, planned, actual/planned) per discipline, or None outside the plan."""
     if planned is None:
         return None
-
-    def ratio(a, p):
-        return (a / p) if p else None
-
-    return {
-        "index": planned.index,
-        "phase": planned.phase,
-        "weekend": planned.weekend,
-        "race": planned.race,
-        "partial": actual.partial,
-        "committed": planned.committed,
-        "band": planned.band("run_h"),
-        "run_h": (actual.run_h, planned.run_h, ratio(actual.run_h, planned.run_h)),
-        "bike_h": (actual.bike_h, planned.bike_h, ratio(actual.bike_h, planned.bike_h)),
-        "gym_h": (actual.gym_h, planned.gym_h, ratio(actual.gym_h, planned.gym_h)),
-        "total_h": (actual.total_h, planned.total_h, ratio(actual.total_h, planned.total_h)),
-        "run_km": (actual.run_km, planned.run_km, ratio(actual.run_km, planned.run_km)),
-        "vert": (actual.run_vert, planned.run_vert, ratio(actual.run_vert, planned.run_vert)),
-        "density": (actual.density, planned.run_vert / planned.run_h if planned.run_h else 0),
-    }
+    out = {}
+    for f in ("run_h", "bike_h", "gym_h"):
+        a, p = getattr(actual, f), getattr(planned, f)
+        out[f] = (a, p, a / p if p else None)
+    return out
 
 
-def weeks_to_race(d=None):
-    d = d or dt.date.today()
-    return (RACE - d).days / 7
+def weeks_to_race():
+    return (RACE - C.TODAY).days / 7
