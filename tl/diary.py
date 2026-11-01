@@ -107,7 +107,8 @@ class Entry:
                 f"Foster's threshold for trouble is 2.0."
             )
         if w.mean_feel is not None:
-            out.append(f"Self-reported feel {w.mean_feel:+.1f} over {len(w.feels)} scored runs.")
+            runs = "run" if len(w.feels) == 1 else "runs"
+            out.append(f"Self-reported feel {w.mean_feel:+.1f} over {len(w.feels)} scored {runs}.")
         for code, msg in self.flags:
             out.append(f"[{code}] {msg}")
         return out
