@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode, useState } from 'react';
 import { DATA, type Fit } from './data';
 import {
   GUARDRAIL,
@@ -323,7 +323,7 @@ function FitChart({ F, tall }: { F: Fit[]; tall: number }) {
   const H = (tall * W) / px;
   // 11 px on screen, whatever the column width.
   const fs = (11 * W) / px;
-  const m = { t: 8, r: 6, b: 8 + 1.4 * fs, l: 2.8 * fs };
+  const m = { t: 6 + 1.4 * fs, r: 6, b: 8 + 1.4 * fs, l: 2.8 * fs };
   const lo = Math.floor(Math.min(0, ...F.map(d => d.tsb)) / 10) * 10;
   const hi = Math.ceil(Math.max(...F.map(d => Math.max(d.ctl, d.atl))) / 10) * 10;
   const x = (i: number) => m.l + (i / (F.length - 1)) * (W - m.l - m.r);
@@ -333,12 +333,23 @@ function FitChart({ F, tall }: { F: Fit[]; tall: number }) {
   const grid = [];
   for (let g = Math.ceil(lo / step) * step; g <= hi; g += step) grid.push(g);
   const line = (k: 'ctl' | 'atl' | 'tsb') => F.map((d, i) => `${x(i).toFixed(1)},${y(d[k]).toFixed(1)}`).join(' ');
+  // Hover or tap reads out the nearest day; the numbers above show the latest.
+  const [at, setAt] = useState<number | null>(null);
+  const pick = (e: React.PointerEvent<SVGSVGElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const u = ((e.clientX - r.left) / r.width) * W;
+    setAt(Math.max(0, Math.min(F.length - 1, Math.round(((u - m.l) / (W - m.l - m.r)) * (F.length - 1)))));
+  };
+  const d = at === null ? null : F[at];
   return (
     <svg
       ref={ref}
       viewBox={`0 0 ${W} ${H}`}
       role="img"
       aria-label="Daily fitness, fatigue and form over the last 12 weeks"
+      onPointerMove={pick}
+      onPointerDown={pick}
+      onPointerLeave={e => e.pointerType === 'mouse' && setAt(null)}
     >
       {grid.map(g => (
         <g key={g}>
@@ -380,6 +391,24 @@ function FitChart({ F, tall }: { F: Fit[]; tall: number }) {
         points={line('tsb')}
       />
       <polyline fill="none" stroke="var(--teal)" strokeWidth="2.4" strokeLinejoin="round" points={line('ctl')} />
+      {d && at !== null && (
+        <g>
+          <line x1={x(at)} x2={x(at)} y1={m.t} y2={H - m.b} stroke="var(--ink)" strokeWidth="0.8" opacity=".5" />
+          <circle cx={x(at)} cy={y(d.ctl)} r={fs / 3.5} fill="var(--teal)" />
+          <text
+            x={Math.min(Math.max(x(at), m.l + 9 * fs), W - m.r - 9 * fs)}
+            y={m.t - fs / 2}
+            textAnchor="middle"
+            fontSize={fs}
+            fill="var(--ink)"
+            stroke="var(--surface)"
+            strokeWidth={fs / 3}
+            paintOrder="stroke"
+          >
+            {day(d.date)} · CTL {d.ctl.toFixed(0)} · ATL {d.atl.toFixed(0)} · form {signed(d.tsb)}
+          </text>
+        </g>
+      )}
     </svg>
   );
 }
