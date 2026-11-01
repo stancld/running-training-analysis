@@ -59,5 +59,5 @@ against the data. Run pre-commit before every commit; Ruff settings live in `ruf
 ## Commits
 
 One logical change per commit, committed and pushed straight to `master` — no branches
-or PRs. Subject plus a short body carrying the why.
+or PRs. Commits in this repo need not be signed. Subject plus a short body carrying the why.
 Commit as `stancld <daniel.stancl@gmail.com>` (set in the local git config).
