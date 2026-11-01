@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01T17:50:15",
+ "generated": "2026-11-01T17:56:37",
  "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
@@ -24,8 +24,8 @@
    "code": "P2",
    "name": "Recovery & gym on-ramp",
    "weeks": 6,
-   "km": 371,
-   "vert": 10850
+   "km": 372,
+   "vert": 8550
   },
   {
    "code": "P3",
@@ -149,7 +149,7 @@
    "run_h": 4.5,
    "bike_h": 2.5,
    "gym_h": 0,
-   "run_km": 50.6,
+   "run_km": 50.5,
    "run_vert": 1480,
    "weekend": "Race",
    "race": "Slapy Trailmaniacs 47K \u00b7 24 Oct"
@@ -158,26 +158,26 @@
    "index": 9,
    "phase": "P2",
    "start": "2026-10-26",
-   "total_h": 3.5,
-   "run_h": 3.5,
+   "total_h": 4,
+   "run_h": 4.0,
    "bike_h": 0,
    "gym_h": 0,
-   "run_km": 39.3,
-   "run_vert": 1151,
-   "weekend": "Off-season \u00b7 easy",
+   "run_km": 40.0,
+   "run_vert": null,
+   "weekend": "Off-season \u00b7 no long run",
    "race": null
   },
   {
    "index": 10,
    "phase": "P2",
    "start": "2026-11-02",
-   "total_h": 3.5,
-   "run_h": 3.5,
+   "total_h": 4,
+   "run_h": 4.0,
    "bike_h": 0,
    "gym_h": 0,
-   "run_km": 39.3,
-   "run_vert": 1151,
-   "weekend": "Off-season \u00b7 easy",
+   "run_km": 40.0,
+   "run_vert": null,
+   "weekend": "Off-season \u00b7 no long run",
    "race": null
   },
   {
@@ -188,7 +188,7 @@
    "run_h": 7.0,
    "bike_h": 2.0,
    "gym_h": 2.0,
-   "run_km": 78.7,
+   "run_km": 78.6,
    "run_vert": 2302,
    "weekend": "A \u00b7 2:30+2:00",
    "race": null
@@ -201,7 +201,7 @@
    "run_h": 7.5,
    "bike_h": 2.5,
    "gym_h": 2.0,
-   "run_km": 84.3,
+   "run_km": 84.2,
    "run_vert": 2466,
    "weekend": "A \u00b7 3:00+2:15",
    "race": null
@@ -214,7 +214,7 @@
    "run_h": 7.0,
    "bike_h": 2.0,
    "gym_h": 2.0,
-   "run_km": 78.7,
+   "run_km": 78.6,
    "run_vert": 2302,
    "weekend": "Long 2:45",
    "race": null
@@ -449,7 +449,7 @@
    "longest_vert": 207,
    "back_to_back": false,
    "wow": null,
-   "acwr": 1.0,
+   "acwr": null,
    "feel": null,
    "monotony": 0.62,
    "ctl": 0.7,
@@ -542,7 +542,7 @@
    "longest_vert": 134,
    "back_to_back": false,
    "wow": 1.07,
-   "acwr": 1.04,
+   "acwr": 1.07,
    "feel": null,
    "monotony": 0.63,
    "ctl": 1.4,
@@ -635,7 +635,7 @@
    "longest_vert": 371,
    "back_to_back": false,
    "wow": 1.83,
-   "acwr": 1.46,
+   "acwr": 1.89,
    "feel": null,
    "monotony": 0.86,
    "ctl": 2.6,
@@ -648,13 +648,13 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.46 > 1.3"
+     "msg": "ACWR 1.89 > 1.44"
     }
    ],
    "notes": [
     "Longest run 1:19 / 15.0 km / 371 m on Sun.",
     "[R1] week-over-week 1.83x > 1.25",
-    "[R2] ACWR 1.46 > 1.3"
+    "[R2] ACWR 1.89 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -751,7 +751,7 @@
    "longest_vert": 204,
    "back_to_back": false,
    "wow": 0.19,
-   "acwr": 0.34,
+   "acwr": 0.28,
    "feel": null,
    "monotony": 0.41,
    "ctl": 2.5,
@@ -832,7 +832,7 @@
    "longest_vert": 72,
    "back_to_back": false,
    "wow": 5.8,
-   "acwr": 1.56,
+   "acwr": 1.98,
    "feel": null,
    "monotony": 1.36,
    "ctl": 4.4,
@@ -845,14 +845,14 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.56 > 1.3"
+     "msg": "ACWR 1.98 > 1.44"
     }
    ],
    "notes": [
     "Longest run 1:11 / 15.1 km / 72 m on Tue.",
     "Quality: T on Wed",
     "[R1] week-over-week 5.80x > 1.25",
-    "[R2] ACWR 1.56 > 1.3"
+    "[R2] ACWR 1.98 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -973,7 +973,7 @@
    "longest_vert": 162,
    "back_to_back": false,
    "wow": 0.26,
-   "acwr": 0.44,
+   "acwr": 0.4,
    "feel": null,
    "monotony": 0.55,
    "ctl": 4.6,
@@ -1102,7 +1102,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.55 > 1.3"
+     "msg": "ACWR 1.55 > 1.44"
     }
    ],
    "notes": [
@@ -1110,7 +1110,7 @@
     "Quality: F on Fri",
     "Self-reported feel -1.0 over 1 scored runs.",
     "[R1] week-over-week 3.51x > 1.25",
-    "[R2] ACWR 1.55 > 1.3"
+    "[R2] ACWR 1.55 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -1207,7 +1207,7 @@
    "longest_vert": 702,
    "back_to_back": false,
    "wow": 1.32,
-   "acwr": 1.42,
+   "acwr": 2.04,
    "feel": null,
    "monotony": 1.43,
    "ctl": 6.5,
@@ -1220,7 +1220,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.42 > 1.3"
+     "msg": "ACWR 2.04 > 1.44"
     },
     {
      "code": "R4",
@@ -1232,7 +1232,7 @@
     "Quality: R on Tue",
     "Vert density 221 m/h \u2014 below the 300 m/h floor.",
     "[R1] week-over-week 1.32x > 1.25",
-    "[R2] ACWR 1.42 > 1.3",
+    "[R2] ACWR 2.04 > 1.44",
     "[R4] flat R session this season"
    ],
    "plan": null,
@@ -1365,7 +1365,7 @@
    "longest_vert": 292,
    "back_to_back": false,
    "wow": 0.7,
-   "acwr": 1.05,
+   "acwr": 0.99,
    "feel": 1.0,
    "monotony": 1.46,
    "ctl": 7.6,
@@ -1507,7 +1507,7 @@
    "longest_vert": 565,
    "back_to_back": false,
    "wow": 1.59,
-   "acwr": 1.24,
+   "acwr": 1.66,
    "feel": 1.0,
    "monotony": 1.35,
    "ctl": 8.5,
@@ -1517,6 +1517,10 @@
     {
      "code": "R1",
      "msg": "week-over-week 1.59x > 1.25"
+    },
+    {
+     "code": "R2",
+     "msg": "ACWR 1.66 > 1.44"
     }
    ],
    "notes": [
@@ -1524,7 +1528,8 @@
     "Quality: M on Wed",
     "Vert density 233 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel +1.0 over 3 scored runs.",
-    "[R1] week-over-week 1.59x > 1.25"
+    "[R1] week-over-week 1.59x > 1.25",
+    "[R2] ACWR 1.66 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -1645,7 +1650,7 @@
    "longest_vert": 1538,
    "back_to_back": false,
    "wow": 1.15,
-   "acwr": 1.25,
+   "acwr": 1.43,
    "feel": null,
    "monotony": 1.26,
    "ctl": 9.7,
@@ -1799,7 +1804,7 @@
    "longest_vert": 208,
    "back_to_back": false,
    "wow": 0.42,
-   "acwr": 0.59,
+   "acwr": 0.52,
    "feel": -1.0,
    "monotony": 1.87,
    "ctl": 10.1,
@@ -1948,7 +1953,7 @@
    "longest_vert": 588,
    "back_to_back": false,
    "wow": 2.16,
-   "acwr": 1.13,
+   "acwr": 1.28,
    "feel": -2.0,
    "monotony": 1.3,
    "ctl": 10.7,
@@ -2086,7 +2091,7 @@
    "longest_vert": 176,
    "back_to_back": false,
    "wow": 0.32,
-   "acwr": 0.44,
+   "acwr": 0.36,
    "feel": 2.0,
    "monotony": 0.62,
    "ctl": 9.8,
@@ -2203,7 +2208,7 @@
    "longest_vert": 199,
    "back_to_back": false,
    "wow": 1.03,
-   "acwr": 0.62,
+   "acwr": 0.46,
    "feel": -1.0,
    "monotony": 0.83,
    "ctl": 9.0,
@@ -2309,7 +2314,7 @@
    "longest_vert": 364,
    "back_to_back": false,
    "wow": 1.34,
-   "acwr": 0.84,
+   "acwr": 0.83,
    "feel": 1.0,
    "monotony": 1.79,
    "ctl": 10.2,
@@ -2452,7 +2457,7 @@
    "longest_vert": 581,
    "back_to_back": false,
    "wow": 1.67,
-   "acwr": 1.61,
+   "acwr": 1.41,
    "feel": -1.0,
    "monotony": 1.87,
    "ctl": 12.0,
@@ -2462,18 +2467,13 @@
     {
      "code": "R1",
      "msg": "week-over-week 1.67x > 1.25"
-    },
-    {
-     "code": "R2",
-     "msg": "ACWR 1.61 > 1.3"
     }
    ],
    "notes": [
     "Longest run 1:30 / 18.1 km / 581 m on Sat.",
     "Quality: I on Wed",
     "Self-reported feel -1.0 over 1 scored runs.",
-    "[R1] week-over-week 1.67x > 1.25",
-    "[R2] ACWR 1.61 > 1.3"
+    "[R1] week-over-week 1.67x > 1.25"
    ],
    "plan": null,
    "days": [
@@ -2639,7 +2639,7 @@
    "longest_vert": 521,
    "back_to_back": false,
    "wow": 1.08,
-   "acwr": 1.39,
+   "acwr": 1.75,
    "feel": null,
    "monotony": 1.91,
    "ctl": 13.7,
@@ -2648,14 +2648,14 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.39 > 1.3"
+     "msg": "ACWR 1.75 > 1.44"
     }
    ],
    "notes": [
     "Longest run 1:50 / 21.1 km / 521 m on Sat.",
     "Quality: T on Tue",
     "Vert density 307 m/h \u2014 above the 300 m/h floor.",
-    "[R2] ACWR 1.39 > 1.3"
+    "[R2] ACWR 1.75 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -2799,7 +2799,7 @@
    "longest_vert": 1090,
    "back_to_back": true,
    "wow": 1.57,
-   "acwr": 1.55,
+   "acwr": 2.17,
    "feel": 2.0,
    "monotony": 1.35,
    "ctl": 18.1,
@@ -2812,7 +2812,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.55 > 1.3"
+     "msg": "ACWR 2.17 > 1.44"
     }
    ],
    "notes": [
@@ -2822,7 +2822,7 @@
     "Vert density 407 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +2.0 over 1 scored runs.",
     "[R1] week-over-week 1.57x > 1.25",
-    "[R2] ACWR 1.55 > 1.3"
+    "[R2] ACWR 2.17 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -3010,7 +3010,7 @@
    "longest_vert": 26,
    "back_to_back": false,
    "wow": 0.55,
-   "acwr": 0.79,
+   "acwr": 0.85,
    "feel": 0.0,
    "monotony": 1.41,
    "ctl": 18.9,
@@ -3219,7 +3219,7 @@
    "longest_vert": 266,
    "back_to_back": false,
    "wow": 1.08,
-   "acwr": 0.85,
+   "acwr": 0.86,
    "feel": null,
    "monotony": 2.66,
    "ctl": 19.3,
@@ -3441,7 +3441,7 @@
    "longest_vert": 68,
    "back_to_back": false,
    "wow": 0.75,
-   "acwr": 0.69,
+   "acwr": 0.64,
    "feel": 1.0,
    "monotony": 2.75,
    "ctl": 18.6,
@@ -3641,7 +3641,7 @@
    "longest_vert": 1841,
    "back_to_back": false,
    "wow": 1.49,
-   "acwr": 1.18,
+   "acwr": 1.02,
    "feel": -1.0,
    "monotony": 0.61,
    "ctl": 21.4,
@@ -3790,7 +3790,7 @@
    "longest_vert": 442,
    "back_to_back": false,
    "wow": 0.37,
-   "acwr": 0.51,
+   "acwr": 0.44,
    "feel": null,
    "monotony": 1.43,
    "ctl": 21.4,
@@ -3974,7 +3974,7 @@
    "longest_vert": 620,
    "back_to_back": false,
    "wow": 2.33,
-   "acwr": 1.19,
+   "acwr": 1.18,
    "feel": 1.0,
    "monotony": 1.26,
    "ctl": 21.7,
@@ -4143,7 +4143,7 @@
    "longest_vert": 625,
    "back_to_back": false,
    "wow": 1.27,
-   "acwr": 1.32,
+   "acwr": 1.52,
    "feel": 1.5,
    "monotony": 1.77,
    "ctl": 22.4,
@@ -4156,7 +4156,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.32 > 1.3"
+     "msg": "ACWR 1.52 > 1.44"
     }
    ],
    "notes": [
@@ -4165,7 +4165,7 @@
     "Vert density 214 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel +1.5 over 2 scored runs.",
     "[R1] week-over-week 1.27x > 1.25",
-    "[R2] ACWR 1.32 > 1.3"
+    "[R2] ACWR 1.52 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -4342,7 +4342,7 @@
    "longest_vert": 115,
    "back_to_back": false,
    "wow": 0.32,
-   "acwr": 0.52,
+   "acwr": 0.42,
    "feel": null,
    "monotony": 1.18,
    "ctl": 21.1,
@@ -4516,7 +4516,7 @@
    "longest_vert": 735,
    "back_to_back": false,
    "wow": 3.05,
-   "acwr": 1.27,
+   "acwr": 1.6,
    "feel": null,
    "monotony": 1.7,
    "ctl": 20.6,
@@ -4528,6 +4528,10 @@
      "msg": "week-over-week 3.05x > 1.25"
     },
     {
+     "code": "R2",
+     "msg": "ACWR 1.60 > 1.44"
+    },
+    {
      "code": "R4",
      "msg": "flat R session this season"
     }
@@ -4537,6 +4541,7 @@
     "Quality: R on Thu",
     "Vert density 251 m/h \u2014 below the 300 m/h floor.",
     "[R1] week-over-week 3.05x > 1.25",
+    "[R2] ACWR 1.60 > 1.44",
     "[R4] flat R session this season"
    ],
    "plan": null,
@@ -4703,7 +4708,7 @@
    "longest_vert": 438,
    "back_to_back": false,
    "wow": 1.08,
-   "acwr": 1.26,
+   "acwr": 1.36,
    "feel": null,
    "monotony": 1.56,
    "ctl": 21.3,
@@ -4863,23 +4868,17 @@
    "longest_vert": 350,
    "back_to_back": false,
    "wow": 1.08,
-   "acwr": 1.31,
+   "acwr": 1.36,
    "feel": null,
    "monotony": 1.17,
    "ctl": 21.3,
    "atl": 23.4,
    "tsb": -2.1,
-   "flags": [
-    {
-     "code": "R2",
-     "msg": "ACWR 1.31 > 1.3"
-    }
-   ],
+   "flags": [],
    "notes": [
     "Longest run 1:50 / 21.9 km / 350 m on Sat.",
     "Quality: T on Fri",
-    "Vert density 101 m/h \u2014 below the 300 m/h floor.",
-    "[R2] ACWR 1.31 > 1.3"
+    "Vert density 101 m/h \u2014 below the 300 m/h floor."
    ],
    "plan": null,
    "days": [
@@ -5045,7 +5044,7 @@
    "longest_vert": 51,
    "back_to_back": false,
    "wow": 0.77,
-   "acwr": 0.87,
+   "acwr": 1.01,
    "feel": 1.0,
    "monotony": 1.2,
    "ctl": 20.3,
@@ -5200,7 +5199,7 @@
    "longest_vert": 25,
    "back_to_back": false,
    "wow": 1.23,
-   "acwr": 1.04,
+   "acwr": 1.07,
    "feel": -0.5,
    "monotony": 1.57,
    "ctl": 20.7,
@@ -5416,7 +5415,7 @@
    "longest_vert": 598,
    "back_to_back": false,
    "wow": 1.28,
-   "acwr": 1.23,
+   "acwr": 1.33,
    "feel": 2.0,
    "monotony": 1.85,
    "ctl": 21.2,
@@ -5637,7 +5636,7 @@
    "longest_vert": 239,
    "back_to_back": false,
    "wow": 1.0,
-   "acwr": 1.17,
+   "acwr": 1.23,
    "feel": 0.33,
    "monotony": 1.53,
    "ctl": 21.1,
@@ -5804,7 +5803,7 @@
    "longest_vert": 151,
    "back_to_back": false,
    "wow": 0.52,
-   "acwr": 0.63,
+   "acwr": 0.6,
    "feel": null,
    "monotony": 1.33,
    "ctl": 19.8,
@@ -5934,7 +5933,7 @@
    "longest_vert": 518,
    "back_to_back": false,
    "wow": 1.34,
-   "acwr": 0.86,
+   "acwr": 0.84,
    "feel": 0.5,
    "monotony": 1.5,
    "ctl": 19.7,
@@ -6151,7 +6150,7 @@
    "longest_vert": 703,
    "back_to_back": false,
    "wow": 1.42,
-   "acwr": 1.23,
+   "acwr": 1.22,
    "feel": -1.0,
    "monotony": 1.8,
    "ctl": 19.8,
@@ -6357,7 +6356,7 @@
    "longest_vert": 834,
    "back_to_back": false,
    "wow": 0.85,
-   "acwr": 1.1,
+   "acwr": 1.04,
    "feel": 0.33,
    "monotony": 1.36,
    "ctl": 20.9,
@@ -6567,7 +6566,7 @@
    "longest_vert": 203,
    "back_to_back": false,
    "wow": 1.11,
-   "acwr": 1.08,
+   "acwr": 1.22,
    "feel": 0.0,
    "monotony": 1.39,
    "ctl": 22.7,
@@ -6789,7 +6788,7 @@
    "longest_vert": 181,
    "back_to_back": false,
    "wow": 0.71,
-   "acwr": 0.77,
+   "acwr": 0.76,
    "feel": 0.0,
    "monotony": 1.9,
    "ctl": 22.0,
@@ -6994,7 +6993,7 @@
    "longest_vert": 38,
    "back_to_back": false,
    "wow": 0.9,
-   "acwr": 0.78,
+   "acwr": 0.69,
    "feel": -1.0,
    "monotony": 1.17,
    "ctl": 21.0,
@@ -7125,7 +7124,7 @@
    "longest_vert": 1084,
    "back_to_back": false,
    "wow": 1.03,
-   "acwr": 0.88,
+   "acwr": 0.81,
    "feel": 0.0,
    "monotony": 0.45,
    "ctl": 25.0,
@@ -7257,7 +7256,7 @@
    "longest_vert": 426,
    "back_to_back": false,
    "wow": 0.95,
-   "acwr": 0.95,
+   "acwr": 0.83,
    "feel": 0.0,
    "monotony": 1.67,
    "ctl": 23.5,
@@ -7455,7 +7454,7 @@
    "longest_vert": 280,
    "back_to_back": false,
    "wow": 1.17,
-   "acwr": 1.11,
+   "acwr": 1.12,
    "feel": -1.0,
    "monotony": 1.18,
    "ctl": 23.5,
@@ -7676,7 +7675,7 @@
    "longest_vert": 19,
    "back_to_back": false,
    "wow": 0.58,
-   "acwr": 0.69,
+   "acwr": 0.64,
    "feel": 1.5,
    "monotony": 1.56,
    "ctl": 21.4,
@@ -7885,7 +7884,7 @@
    "longest_vert": 25,
    "back_to_back": false,
    "wow": 0.21,
-   "acwr": 0.19,
+   "acwr": 0.14,
    "feel": null,
    "monotony": 0.41,
    "ctl": 18.4,
@@ -8123,7 +8122,7 @@
    "longest_vert": 99,
    "back_to_back": false,
    "wow": null,
-   "acwr": 3.35,
+   "acwr": 3.56,
    "feel": -0.5,
    "monotony": 1.15,
    "ctl": 12.2,
@@ -8241,7 +8240,7 @@
    "longest_vert": 373,
    "back_to_back": false,
    "wow": 1.48,
-   "acwr": 2.39,
+   "acwr": 4.96,
    "feel": 0.0,
    "monotony": 1.43,
    "ctl": 12.0,
@@ -8254,7 +8253,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 2.39 > 1.3"
+     "msg": "ACWR 4.96 > 1.44"
     }
    ],
    "notes": [
@@ -8262,7 +8261,7 @@
     "Vert density 212 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel +0.0 over 1 scored runs.",
     "[R1] week-over-week 1.48x > 1.25",
-    "[R2] ACWR 2.39 > 1.3"
+    "[R2] ACWR 4.96 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -8383,7 +8382,7 @@
    "longest_vert": 147,
    "back_to_back": false,
    "wow": 0.64,
-   "acwr": 1.11,
+   "acwr": 1.54,
    "feel": 0.0,
    "monotony": 1.11,
    "ctl": 11.3,
@@ -8512,7 +8511,7 @@
    "longest_vert": 224,
    "back_to_back": false,
    "wow": 1.41,
-   "acwr": 1.13,
+   "acwr": 1.57,
    "feel": 1.0,
    "monotony": 1.36,
    "ctl": 12.8,
@@ -8522,12 +8521,17 @@
     {
      "code": "R1",
      "msg": "week-over-week 1.41x > 1.25"
+    },
+    {
+     "code": "R2",
+     "msg": "ACWR 1.57 > 1.44"
     }
    ],
    "notes": [
     "Longest run 1:05 / 13.0 km / 224 m on Tue.",
     "Self-reported feel +1.0 over 1 scored runs.",
-    "[R1] week-over-week 1.41x > 1.25"
+    "[R1] week-over-week 1.41x > 1.25",
+    "[R2] ACWR 1.57 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -8715,7 +8719,7 @@
    "longest_vert": 645,
    "back_to_back": false,
    "wow": 1.71,
-   "acwr": 1.51,
+   "acwr": 1.92,
    "feel": -0.33,
    "monotony": 1.63,
    "ctl": 13.5,
@@ -8728,7 +8732,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.51 > 1.3"
+     "msg": "ACWR 1.92 > 1.44"
     }
    ],
    "notes": [
@@ -8736,7 +8740,7 @@
     "Vert density 240 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel -0.3 over 3 scored runs.",
     "[R1] week-over-week 1.71x > 1.25",
-    "[R2] ACWR 1.51 > 1.3"
+    "[R2] ACWR 1.92 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -8869,7 +8873,7 @@
    "longest_vert": 320,
    "back_to_back": false,
    "wow": 0.88,
-   "acwr": 1.22,
+   "acwr": 1.32,
    "feel": 0.0,
    "monotony": 1.98,
    "ctl": 13.8,
@@ -9013,7 +9017,7 @@
    "longest_vert": 443,
    "back_to_back": false,
    "wow": 1.09,
-   "acwr": 1.12,
+   "acwr": 1.32,
    "feel": 2.0,
    "monotony": 1.98,
    "ctl": 14.1,
@@ -9156,7 +9160,7 @@
    "longest_vert": 646,
    "back_to_back": false,
    "wow": 0.96,
-   "acwr": 0.98,
+   "acwr": 1.07,
    "feel": -0.5,
    "monotony": 1.7,
    "ctl": 14.9,
@@ -9322,7 +9326,7 @@
    "longest_vert": 681,
    "back_to_back": false,
    "wow": 0.99,
-   "acwr": 0.99,
+   "acwr": 0.96,
    "feel": 0.0,
    "monotony": 1.26,
    "ctl": 15.4,
@@ -9472,7 +9476,7 @@
    "longest_vert": 1016,
    "back_to_back": false,
    "wow": 1.08,
-   "acwr": 1.04,
+   "acwr": 1.07,
    "feel": -1.0,
    "monotony": 1.65,
    "ctl": 16.7,
@@ -9667,7 +9671,7 @@
    "longest_vert": 621,
    "back_to_back": false,
    "wow": 1.05,
-   "acwr": 1.08,
+   "acwr": 1.1,
    "feel": 0.0,
    "monotony": 2.04,
    "ctl": 18.4,
@@ -9874,7 +9878,7 @@
    "longest_vert": 458,
    "back_to_back": false,
    "wow": 0.67,
-   "acwr": 0.76,
+   "acwr": 0.72,
    "feel": 1.0,
    "monotony": 0.97,
    "ctl": 18.5,
@@ -10072,7 +10076,7 @@
    "longest_vert": 985,
    "back_to_back": false,
    "wow": 1.6,
-   "acwr": 1.16,
+   "acwr": 1.22,
    "feel": 0.0,
    "monotony": 1.22,
    "ctl": 18.8,
@@ -10249,7 +10253,7 @@
    "longest_vert": 939,
    "back_to_back": false,
    "wow": 0.87,
-   "acwr": 1.02,
+   "acwr": 1.01,
    "feel": 0.67,
    "monotony": 1.18,
    "ctl": 18.9,
@@ -10393,7 +10397,7 @@
    "longest_vert": 78,
    "back_to_back": false,
    "wow": 0.07,
-   "acwr": 0.09,
+   "acwr": 0.07,
    "feel": 0.0,
    "monotony": 0.91,
    "ctl": 18.2,
@@ -10544,7 +10548,7 @@
    "longest_vert": 116,
    "back_to_back": false,
    "wow": 3.6,
-   "acwr": 0.39,
+   "acwr": 0.33,
    "feel": 0.0,
    "monotony": 1.76,
    "ctl": 17.9,
@@ -10720,7 +10724,7 @@
    "longest_vert": 142,
    "back_to_back": false,
    "wow": 0.44,
-   "acwr": 0.3,
+   "acwr": 0.17,
    "feel": null,
    "monotony": 1.69,
    "ctl": 19.2,
@@ -10883,7 +10887,7 @@
    "longest_vert": 348,
    "back_to_back": false,
    "wow": 5.25,
-   "acwr": 2.3,
+   "acwr": 1.58,
    "feel": 1.5,
    "monotony": 1.31,
    "ctl": 21.2,
@@ -10896,7 +10900,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 2.30 > 1.3"
+     "msg": "ACWR 1.58 > 1.44"
     }
    ],
    "notes": [
@@ -10904,7 +10908,7 @@
     "Quality: F on Sun",
     "Self-reported feel +1.5 over 2 scored runs.",
     "[R1] week-over-week 5.25x > 1.25",
-    "[R2] ACWR 2.30 > 1.3"
+    "[R2] ACWR 1.58 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -11070,7 +11074,7 @@
    "longest_vert": 1439,
    "back_to_back": false,
    "wow": 1.2,
-   "acwr": 1.71,
+   "acwr": 2.77,
    "feel": -2.0,
    "monotony": 0.55,
    "ctl": 25.8,
@@ -11079,7 +11083,7 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.71 > 1.3"
+     "msg": "ACWR 2.77 > 1.44"
     },
     {
      "code": "R4",
@@ -11091,7 +11095,7 @@
     "Quality: T on Tue, R on Fri, RACE on Sat",
     "Vert density 388 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -2.0 over 1 scored runs.",
-    "[R2] ACWR 1.71 > 1.3",
+    "[R2] ACWR 2.77 > 1.44",
     "[R4] flat R session this season"
    ],
    "plan": null,
@@ -11237,7 +11241,7 @@
    "longest_vert": 870,
    "back_to_back": false,
    "wow": 1.62,
-   "acwr": 1.79,
+   "acwr": 2.76,
    "feel": -1.0,
    "monotony": 0.95,
    "ctl": 25.1,
@@ -11250,7 +11254,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.79 > 1.3"
+     "msg": "ACWR 2.76 > 1.44"
     }
    ],
    "notes": [
@@ -11258,7 +11262,7 @@
     "Vert density 320 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -1.0 over 2 scored runs.",
     "[R1] week-over-week 1.62x > 1.25",
-    "[R2] ACWR 1.79 > 1.3"
+    "[R2] ACWR 2.76 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -11402,18 +11406,24 @@
    "longest_vert": 1026,
    "back_to_back": false,
    "wow": 0.98,
-   "acwr": 1.26,
+   "acwr": 1.75,
    "feel": 0.5,
    "monotony": 1.34,
    "ctl": 25.1,
    "atl": 28.1,
    "tsb": -3.0,
-   "flags": [],
+   "flags": [
+    {
+     "code": "R2",
+     "msg": "ACWR 1.75 > 1.44"
+    }
+   ],
    "notes": [
     "Longest run 2:35 / 28.1 km / 1026 m on Sat.",
     "Quality: T on Tue",
     "Vert density 327 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +0.5 over 2 scored runs."
+    "Self-reported feel +0.5 over 2 scored runs.",
+    "[R2] ACWR 1.75 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -11568,7 +11578,7 @@
    "longest_vert": 1047,
    "back_to_back": false,
    "wow": 0.68,
-   "acwr": 0.82,
+   "acwr": 0.86,
    "feel": null,
    "monotony": 0.73,
    "ctl": 25.3,
@@ -11754,7 +11764,7 @@
    "longest_vert": 834,
    "back_to_back": false,
    "wow": 1.6,
-   "acwr": 1.15,
+   "acwr": 1.31,
    "feel": null,
    "monotony": 1.85,
    "ctl": 25.0,
@@ -11970,7 +11980,7 @@
    "longest_vert": 948,
    "back_to_back": false,
    "wow": 1.04,
-   "acwr": 1.17,
+   "acwr": 1.2,
    "feel": 0.5,
    "monotony": 1.26,
    "ctl": 24.3,
@@ -12136,7 +12146,7 @@
    "longest_vert": 279,
    "back_to_back": false,
    "wow": 0.37,
-   "acwr": 0.5,
+   "acwr": 0.43,
    "feel": null,
    "monotony": 1.02,
    "ctl": 21.7,
@@ -12253,7 +12263,7 @@
    "longest_vert": 652,
    "back_to_back": false,
    "wow": 2.11,
-   "acwr": 1.0,
+   "acwr": 1.05,
    "feel": 2.0,
    "monotony": 1.52,
    "ctl": 20.9,
@@ -12391,7 +12401,7 @@
    "longest_vert": 1383,
    "back_to_back": true,
    "wow": 1.37,
-   "acwr": 1.32,
+   "acwr": 1.36,
    "feel": -1.0,
    "monotony": 1.24,
    "ctl": 21.0,
@@ -12401,10 +12411,6 @@
     {
      "code": "R1",
      "msg": "week-over-week 1.37x > 1.25"
-    },
-    {
-     "code": "R2",
-     "msg": "ACWR 1.32 > 1.3"
     }
    ],
    "notes": [
@@ -12413,8 +12419,7 @@
     "Quality: F on Tue",
     "Vert density 375 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -1.0 over 1 scored runs.",
-    "[R1] week-over-week 1.37x > 1.25",
-    "[R2] ACWR 1.32 > 1.3"
+    "[R1] week-over-week 1.37x > 1.25"
    ],
    "plan": null,
    "days": [
@@ -12535,7 +12540,7 @@
    "longest_vert": 1178,
    "back_to_back": true,
    "wow": 0.98,
-   "acwr": 1.28,
+   "acwr": 1.29,
    "feel": 1.0,
    "monotony": 0.99,
    "ctl": 24.5,
@@ -12702,7 +12707,7 @@
    "longest_vert": 1039,
    "back_to_back": true,
    "wow": 1.06,
-   "acwr": 1.11,
+   "acwr": 1.36,
    "feel": null,
    "monotony": 2.1,
    "ctl": 24.9,
@@ -12920,7 +12925,7 @@
    "longest_vert": 515,
    "back_to_back": false,
    "wow": 0.47,
-   "acwr": 0.56,
+   "acwr": 0.52,
    "feel": null,
    "monotony": 2.48,
    "ctl": 24.0,
@@ -13141,7 +13146,7 @@
    "longest_vert": 978,
    "back_to_back": true,
    "wow": 2.17,
-   "acwr": 1.19,
+   "acwr": 1.22,
    "feel": 0.67,
    "monotony": 1.43,
    "ctl": 26.5,
@@ -13392,7 +13397,7 @@
    "longest_vert": 1454,
    "back_to_back": true,
    "wow": 1.07,
-   "acwr": 1.22,
+   "acwr": 1.28,
    "feel": -0.5,
    "monotony": 1.68,
    "ctl": 28.5,
@@ -13610,7 +13615,7 @@
    "longest_vert": 316,
    "back_to_back": false,
    "wow": 0.26,
-   "acwr": 0.4,
+   "acwr": 0.32,
    "feel": 0.0,
    "monotony": 1.35,
    "ctl": 27.6,
@@ -13853,7 +13858,7 @@
    "longest_vert": 353,
    "back_to_back": false,
    "wow": 1.36,
-   "acwr": 0.56,
+   "acwr": 0.55,
    "feel": 1.0,
    "monotony": 1.18,
    "ctl": 26.4,
@@ -14112,7 +14117,7 @@
    "longest_vert": 3056,
    "back_to_back": false,
    "wow": 2.22,
-   "acwr": 1.32,
+   "acwr": 1.25,
    "feel": 1.5,
    "monotony": 0.54,
    "ctl": 27.7,
@@ -14122,10 +14127,6 @@
     {
      "code": "R1",
      "msg": "week-over-week 2.22x > 1.25"
-    },
-    {
-     "code": "R2",
-     "msg": "ACWR 1.32 > 1.3"
     }
    ],
    "notes": [
@@ -14133,8 +14134,7 @@
     "Quality: F on Wed, RACE on Sat",
     "Vert density 440 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +1.5 over 2 scored runs.",
-    "[R1] week-over-week 2.22x > 1.25",
-    "[R2] ACWR 1.32 > 1.3"
+    "[R1] week-over-week 2.22x > 1.25"
    ],
    "plan": null,
    "days": [
@@ -14321,7 +14321,7 @@
    "longest_vert": 191,
    "back_to_back": false,
    "wow": 0.17,
-   "acwr": 0.36,
+   "acwr": 0.23,
    "feel": -1.0,
    "monotony": 1.69,
    "ctl": 26.1,
@@ -14530,7 +14530,7 @@
    "longest_vert": 167,
    "back_to_back": false,
    "wow": 0.45,
-   "acwr": 0.19,
+   "acwr": 0.16,
    "feel": null,
    "monotony": 1.58,
    "ctl": 23.1,
@@ -14703,7 +14703,7 @@
    "longest_vert": 630,
    "back_to_back": false,
    "wow": 9.51,
-   "acwr": 1.5,
+   "acwr": 1.77,
    "feel": null,
    "monotony": 1.25,
    "ctl": 23.0,
@@ -14716,14 +14716,14 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.50 > 1.3"
+     "msg": "ACWR 1.77 > 1.44"
     }
    ],
    "notes": [
     "Longest run 2:13 / 25.4 km / 630 m on Sun.",
     "Vert density 340 m/h \u2014 above the 300 m/h floor.",
     "[R1] week-over-week 9.51x > 1.25",
-    "[R2] ACWR 1.50 > 1.3"
+    "[R2] ACWR 1.77 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -14857,7 +14857,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 2.00 > 1.3"
+     "msg": "ACWR 2.00 > 1.44"
     }
    ],
    "notes": [
@@ -14866,7 +14866,7 @@
     "Vert density 359 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.0 over 1 scored runs.",
     "[R1] week-over-week 1.33x > 1.25",
-    "[R2] ACWR 2.00 > 1.3"
+    "[R2] ACWR 2.00 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -15110,7 +15110,7 @@
    "longest_vert": 416,
    "back_to_back": false,
    "wow": 0.71,
-   "acwr": 1.12,
+   "acwr": 1.41,
    "feel": null,
    "monotony": 1.6,
    "ctl": 26.1,
@@ -15341,7 +15341,7 @@
    "longest_vert": 645,
    "back_to_back": false,
    "wow": 0.56,
-   "acwr": 0.56,
+   "acwr": 0.63,
    "feel": -1.0,
    "monotony": 1.27,
    "ctl": 30.1,
@@ -15494,7 +15494,7 @@
    "longest_vert": 216,
    "back_to_back": false,
    "wow": 1.08,
-   "acwr": 0.68,
+   "acwr": 0.6,
    "feel": null,
    "monotony": 1.45,
    "ctl": 28.7,
@@ -15723,7 +15723,7 @@
    "longest_vert": 815,
    "back_to_back": true,
    "wow": 2.44,
-   "acwr": 1.62,
+   "acwr": 1.65,
    "feel": -1.0,
    "monotony": 1.84,
    "ctl": 28.9,
@@ -15736,7 +15736,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.62 > 1.3"
+     "msg": "ACWR 1.65 > 1.44"
     }
    ],
    "notes": [
@@ -15746,7 +15746,7 @@
     "Vert density 330 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -1.0 over 1 scored runs.",
     "[R1] week-over-week 2.44x > 1.25",
-    "[R2] ACWR 1.62 > 1.3"
+    "[R2] ACWR 1.65 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -15945,7 +15945,7 @@
    "longest_vert": 1143,
    "back_to_back": true,
    "wow": 0.95,
-   "acwr": 1.38,
+   "acwr": 1.53,
    "feel": null,
    "monotony": 1.77,
    "ctl": 29.3,
@@ -15954,7 +15954,7 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.38 > 1.3"
+     "msg": "ACWR 1.53 > 1.44"
     },
     {
      "code": "R4",
@@ -15966,7 +15966,7 @@
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: I on Wed",
     "Vert density 287 m/h \u2014 below the 300 m/h floor.",
-    "[R2] ACWR 1.38 > 1.3",
+    "[R2] ACWR 1.53 > 1.44",
     "[R4] flat I session this season"
    ],
    "plan": null,
@@ -16375,7 +16375,7 @@
    "longest_vert": 1492,
    "back_to_back": false,
    "wow": 2.03,
-   "acwr": 0.94,
+   "acwr": 1.04,
    "feel": 2.0,
    "monotony": 0.54,
    "ctl": 29.2,
@@ -16590,7 +16590,7 @@
    "longest_vert": 347,
    "back_to_back": false,
    "wow": 0.56,
-   "acwr": 0.66,
+   "acwr": 0.53,
    "feel": null,
    "monotony": 1.05,
    "ctl": 26.9,
@@ -16774,7 +16774,7 @@
    "longest_vert": 567,
    "back_to_back": false,
    "wow": 1.19,
-   "acwr": 0.98,
+   "acwr": 0.78,
    "feel": 0.5,
    "monotony": 1.59,
    "ctl": 26.9,
@@ -16979,7 +16979,7 @@
    "longest_vert": 24,
    "back_to_back": false,
    "wow": 0.51,
-   "acwr": 0.53,
+   "acwr": 0.5,
    "feel": 1.5,
    "monotony": 1.1,
    "ctl": 25.0,
@@ -17335,7 +17335,7 @@
    "longest_vert": 301,
    "back_to_back": false,
    "wow": null,
-   "acwr": 1.04,
+   "acwr": 0.9,
    "feel": null,
    "monotony": 1.7,
    "ctl": 20.1,
@@ -17531,7 +17531,7 @@
    "longest_vert": 496,
    "back_to_back": false,
    "wow": 2.26,
-   "acwr": 2.14,
+   "acwr": 2.35,
    "feel": -1.0,
    "monotony": 3.16,
    "ctl": 19.5,
@@ -17544,7 +17544,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 2.14 > 1.3"
+     "msg": "ACWR 2.35 > 1.44"
     }
    ],
    "notes": [
@@ -17553,7 +17553,7 @@
     "Monotony 3.2 \u2014 the week was too evenly hard; Foster's threshold for trouble is 2.0.",
     "Self-reported feel -1.0 over 1 scored runs.",
     "[R1] week-over-week 2.26x > 1.25",
-    "[R2] ACWR 2.14 > 1.3"
+    "[R2] ACWR 2.35 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -17742,7 +17742,7 @@
    "longest_vert": 251,
    "back_to_back": false,
    "wow": 0.92,
-   "acwr": 1.56,
+   "acwr": 1.98,
    "feel": null,
    "monotony": 1.26,
    "ctl": 18.7,
@@ -17751,12 +17751,12 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.56 > 1.3"
+     "msg": "ACWR 1.98 > 1.44"
     }
    ],
    "notes": [
     "Longest run 1:00 / 11.6 km / 251 m on Sun.",
-    "[R2] ACWR 1.56 > 1.3"
+    "[R2] ACWR 1.98 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -17922,7 +17922,7 @@
    "longest_vert": 727,
    "back_to_back": true,
    "wow": 1.65,
-   "acwr": 1.57,
+   "acwr": 2.58,
    "feel": null,
    "monotony": 1.55,
    "ctl": 20.4,
@@ -17935,7 +17935,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.57 > 1.3"
+     "msg": "ACWR 2.58 > 1.44"
     },
     {
      "code": "R4",
@@ -17948,7 +17948,7 @@
     "Quality: R on Thu",
     "Vert density 276 m/h \u2014 below the 300 m/h floor.",
     "[R1] week-over-week 1.65x > 1.25",
-    "[R2] ACWR 1.57 > 1.3",
+    "[R2] ACWR 2.58 > 1.44",
     "[R4] flat R session this season"
    ],
    "plan": null,
@@ -18127,13 +18127,17 @@
    "longest_vert": 1127,
    "back_to_back": false,
    "wow": 0.93,
-   "acwr": 1.16,
+   "acwr": 1.46,
    "feel": -1.0,
    "monotony": 1.0,
    "ctl": 20.9,
    "atl": 25.6,
    "tsb": -4.7,
    "flags": [
+    {
+     "code": "R2",
+     "msg": "ACWR 1.46 > 1.44"
+    },
     {
      "code": "R4",
      "msg": "flat R session this season"
@@ -18144,6 +18148,7 @@
     "Quality: R on Wed",
     "Vert density 316 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -1.0 over 1 scored runs.",
+    "[R2] ACWR 1.46 > 1.44",
     "[R4] flat R session this season"
    ],
    "plan": null,
@@ -18309,7 +18314,7 @@
    "longest_vert": 564,
    "back_to_back": false,
    "wow": 1.29,
-   "acwr": 1.28,
+   "acwr": 1.5,
    "feel": 0.0,
    "monotony": 1.94,
    "ctl": 21.6,
@@ -18319,6 +18324,10 @@
     {
      "code": "R1",
      "msg": "week-over-week 1.29x > 1.25"
+    },
+    {
+     "code": "R2",
+     "msg": "ACWR 1.50 > 1.44"
     },
     {
      "code": "R4",
@@ -18331,6 +18340,7 @@
     "Vert density 264 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel +0.0 over 1 scored runs.",
     "[R1] week-over-week 1.29x > 1.25",
+    "[R2] ACWR 1.50 > 1.44",
     "[R4] flat R session this season"
    ],
    "plan": null,
@@ -18642,7 +18652,7 @@
    "longest_vert": 1105,
    "back_to_back": false,
    "wow": 1.67,
-   "acwr": 1.1,
+   "acwr": 1.11,
    "feel": 1.0,
    "monotony": 1.17,
    "ctl": 21.5,
@@ -18803,7 +18813,7 @@
    "longest_vert": 1113,
    "back_to_back": false,
    "wow": 1.04,
-   "acwr": 1.1,
+   "acwr": 1.15,
    "feel": 1.0,
    "monotony": 1.29,
    "ctl": 21.2,
@@ -18980,7 +18990,7 @@
    "longest_vert": 1075,
    "back_to_back": true,
    "wow": 1.06,
-   "acwr": 1.18,
+   "acwr": 1.16,
    "feel": 0.0,
    "monotony": 1.68,
    "ctl": 22.4,
@@ -19355,7 +19365,7 @@
    "longest_vert": 850,
    "back_to_back": true,
    "wow": 1.77,
-   "acwr": 1.1,
+   "acwr": 1.11,
    "feel": -0.25,
    "monotony": 1.22,
    "ctl": 20.7,
@@ -19529,7 +19539,7 @@
    "longest_vert": 718,
    "back_to_back": false,
    "wow": 1.18,
-   "acwr": 1.24,
+   "acwr": 1.3,
    "feel": -0.2,
    "monotony": 1.72,
    "ctl": 21.0,
@@ -19702,7 +19712,7 @@
    "longest_vert": 195,
    "back_to_back": false,
    "wow": 0.23,
-   "acwr": 0.36,
+   "acwr": 0.29,
    "feel": -0.5,
    "monotony": 0.86,
    "ctl": 19.3,
@@ -19849,7 +19859,7 @@
    "longest_vert": 137,
    "back_to_back": false,
    "wow": 1.84,
-   "acwr": 0.68,
+   "acwr": 0.67,
    "feel": 0.5,
    "monotony": 1.52,
    "ctl": 17.6,
@@ -19997,7 +20007,7 @@
    "longest_vert": 819,
    "back_to_back": false,
    "wow": 1.85,
-   "acwr": 1.29,
+   "acwr": 1.26,
    "feel": -0.5,
    "monotony": 1.64,
    "ctl": 19.7,
@@ -20202,7 +20212,7 @@
    "longest_vert": 1848,
    "back_to_back": false,
    "wow": 1.3,
-   "acwr": 1.66,
+   "acwr": 1.68,
    "feel": 1.5,
    "monotony": 0.87,
    "ctl": 22.1,
@@ -20215,7 +20225,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.66 > 1.3"
+     "msg": "ACWR 1.68 > 1.44"
     },
     {
      "code": "--",
@@ -20228,7 +20238,7 @@
     "Vert density 418 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +1.5 over 2 scored runs.",
     "[R1] week-over-week 1.30x > 1.25",
-    "[R2] ACWR 1.66 > 1.3",
+    "[R2] ACWR 1.68 > 1.44",
     "[--] big week inside the Dec-Apr injury window"
    ],
    "plan": null,
@@ -20396,7 +20406,7 @@
    "longest_vert": 405,
    "back_to_back": false,
    "wow": 0.44,
-   "acwr": 0.67,
+   "acwr": 0.73,
    "feel": null,
    "monotony": 1.97,
    "ctl": 21.4,
@@ -20581,7 +20591,7 @@
    "longest_vert": 926,
    "back_to_back": true,
    "wow": 2.11,
-   "acwr": 1.18,
+   "acwr": 1.41,
    "feel": 2.0,
    "monotony": 1.36,
    "ctl": 22.3,
@@ -20760,7 +20770,7 @@
    "longest_vert": 657,
    "back_to_back": false,
    "wow": 0.55,
-   "acwr": 0.71,
+   "acwr": 0.65,
    "feel": -0.5,
    "monotony": 1.55,
    "ctl": 23.8,
@@ -20938,7 +20948,7 @@
    "longest_vert": 312,
    "back_to_back": false,
    "wow": 0.27,
-   "acwr": 0.28,
+   "acwr": 0.2,
    "feel": 0.0,
    "monotony": 1.69,
    "ctl": 26.6,
@@ -21103,7 +21113,7 @@
    "longest_vert": 397,
    "back_to_back": false,
    "wow": 3.45,
-   "acwr": 0.94,
+   "acwr": 0.96,
    "feel": 0.25,
    "monotony": 1.17,
    "ctl": 25.4,
@@ -21301,7 +21311,7 @@
    "longest_vert": 178,
    "back_to_back": false,
    "wow": 0.66,
-   "acwr": 0.88,
+   "acwr": 0.62,
    "feel": 2.0,
    "monotony": 1.84,
    "ctl": 23.4,
@@ -21466,7 +21476,7 @@
    "longest_vert": 677,
    "back_to_back": false,
    "wow": 2.77,
-   "acwr": 1.93,
+   "acwr": 2.43,
    "feel": 2.0,
    "monotony": 1.61,
    "ctl": 24.6,
@@ -21479,7 +21489,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.93 > 1.3"
+     "msg": "ACWR 2.43 > 1.44"
     }
    ],
    "notes": [
@@ -21488,7 +21498,7 @@
     "Vert density 417 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +2.0 over 1 scored runs.",
     "[R1] week-over-week 2.77x > 1.25",
-    "[R2] ACWR 1.93 > 1.3"
+    "[R2] ACWR 2.43 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -21643,7 +21653,7 @@
    "longest_vert": 1157,
    "back_to_back": false,
    "wow": 1.07,
-   "acwr": 1.44,
+   "acwr": 2.07,
    "feel": -0.33,
    "monotony": 1.16,
    "ctl": 24.9,
@@ -21652,7 +21662,7 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.44 > 1.3"
+     "msg": "ACWR 2.07 > 1.44"
     }
    ],
    "notes": [
@@ -21660,7 +21670,7 @@
     "Quality: T on Wed, I on Sat",
     "Vert density 386 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -0.3 over 6 scored runs.",
-    "[R2] ACWR 1.44 > 1.3"
+    "[R2] ACWR 2.07 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -21837,13 +21847,17 @@
    "longest_vert": 1372,
    "back_to_back": false,
    "wow": 1.07,
-   "acwr": 1.28,
+   "acwr": 1.54,
    "feel": -0.5,
    "monotony": 1.15,
    "ctl": 25.8,
    "atl": 32.3,
    "tsb": -6.5,
    "flags": [
+    {
+     "code": "R2",
+     "msg": "ACWR 1.54 > 1.44"
+    },
     {
      "code": "R6",
      "msg": "100 km > 100 km ceiling"
@@ -21854,6 +21868,7 @@
     "Quality: T on Tue, I on Fri",
     "Vert density 386 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -0.5 over 6 scored runs.",
+    "[R2] ACWR 1.54 > 1.44",
     "[R6] 100 km > 100 km ceiling"
    ],
    "plan": null,
@@ -22042,7 +22057,7 @@
    "longest_vert": 262,
    "back_to_back": false,
    "wow": 0.37,
-   "acwr": 0.47,
+   "acwr": 0.48,
    "feel": -1.0,
    "monotony": 2.62,
    "ctl": 24.4,
@@ -22248,7 +22263,7 @@
    "longest_vert": 2299,
    "back_to_back": false,
    "wow": 1.58,
-   "acwr": 0.82,
+   "acwr": 0.74,
    "feel": -1.0,
    "monotony": 0.58,
    "ctl": 22.9,
@@ -22384,7 +22399,7 @@
    "longest_vert": 144,
    "back_to_back": false,
    "wow": 0.13,
-   "acwr": 0.15,
+   "acwr": 0.1,
    "feel": -2.0,
    "monotony": 0.63,
    "ctl": 20.6,
@@ -22523,7 +22538,7 @@
    "longest_vert": 624,
    "back_to_back": false,
    "wow": 7.9,
-   "acwr": 1.46,
+   "acwr": 1.17,
    "feel": -0.33,
    "monotony": 1.6,
    "ctl": 23.1,
@@ -22533,18 +22548,13 @@
     {
      "code": "R1",
      "msg": "week-over-week 7.90x > 1.25"
-    },
-    {
-     "code": "R2",
-     "msg": "ACWR 1.46 > 1.3"
     }
    ],
    "notes": [
     "Longest run 1:55 / 22.1 km / 624 m on Fri.",
     "Vert density 311 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -0.3 over 3 scored runs.",
-    "[R1] week-over-week 7.90x > 1.25",
-    "[R2] ACWR 1.46 > 1.3"
+    "[R1] week-over-week 7.90x > 1.25"
    ],
    "plan": null,
    "days": [
@@ -22688,7 +22698,7 @@
    "longest_vert": 218,
    "back_to_back": false,
    "wow": 0.35,
-   "acwr": 0.57,
+   "acwr": 0.51,
    "feel": -1.5,
    "monotony": 0.7,
    "ctl": 21.5,
@@ -22828,7 +22838,7 @@
    "longest_vert": 1527,
    "back_to_back": true,
    "wow": 3.59,
-   "acwr": 1.84,
+   "acwr": 2.05,
    "feel": -0.67,
    "monotony": 1.44,
    "ctl": 23.0,
@@ -22841,7 +22851,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.84 > 1.3"
+     "msg": "ACWR 2.05 > 1.44"
     }
    ],
    "notes": [
@@ -22851,7 +22861,7 @@
     "Vert density 362 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -0.7 over 3 scored runs.",
     "[R1] week-over-week 3.59x > 1.25",
-    "[R2] ACWR 1.84 > 1.3"
+    "[R2] ACWR 2.05 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -23050,7 +23060,7 @@
    "longest_vert": 1669,
    "back_to_back": false,
    "wow": 0.74,
-   "acwr": 1.05,
+   "acwr": 1.36,
    "feel": 0.5,
    "monotony": 2.01,
    "ctl": 25.2,
@@ -23240,7 +23250,7 @@
    "longest_vert": 2277,
    "back_to_back": true,
    "wow": 1.81,
-   "acwr": 1.59,
+   "acwr": 1.9,
    "feel": 0.5,
    "monotony": 0.86,
    "ctl": 30.0,
@@ -23253,7 +23263,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.59 > 1.3"
+     "msg": "ACWR 1.90 > 1.44"
     },
     {
      "code": "R4",
@@ -23267,7 +23277,7 @@
     "Vert density 441 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.5 over 4 scored runs.",
     "[R1] week-over-week 1.81x > 1.25",
-    "[R2] ACWR 1.59 > 1.3",
+    "[R2] ACWR 1.90 > 1.44",
     "[R4] flat I session this season"
    ],
    "plan": null,
@@ -23434,7 +23444,7 @@
    "longest_vert": 159,
    "back_to_back": false,
    "wow": 0.28,
-   "acwr": 0.43,
+   "acwr": 0.44,
    "feel": 0.0,
    "monotony": 1.04,
    "ctl": 27.5,
@@ -23599,7 +23609,7 @@
    "longest_vert": 2163,
    "back_to_back": true,
    "wow": 2.4,
-   "acwr": 1.07,
+   "acwr": 1.03,
    "feel": 1.0,
    "monotony": 0.56,
    "ctl": 28.6,
@@ -23761,7 +23771,7 @@
    "longest_vert": 994,
    "back_to_back": true,
    "wow": 1.21,
-   "acwr": 1.17,
+   "acwr": 1.29,
    "feel": 0.0,
    "monotony": 1.11,
    "ctl": 27.4,
@@ -23894,7 +23904,7 @@
    "longest_vert": 395,
    "back_to_back": false,
    "wow": 0.79,
-   "acwr": 1.07,
+   "acwr": 0.93,
    "feel": null,
    "monotony": 1.69,
    "ctl": 26.1,
@@ -24252,7 +24262,7 @@
    "longest_vert": 101,
    "back_to_back": false,
    "wow": null,
-   "acwr": 0.29,
+   "acwr": 0.21,
    "feel": 0.0,
    "monotony": 1.74,
    "ctl": 25.7,
@@ -24450,7 +24460,7 @@
    "longest_vert": 797,
    "back_to_back": false,
    "wow": 6.73,
-   "acwr": 2.01,
+   "acwr": 1.95,
    "feel": 0.0,
    "monotony": 1.45,
    "ctl": 26.3,
@@ -24463,7 +24473,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 2.01 > 1.3"
+     "msg": "ACWR 1.95 > 1.44"
     }
    ],
    "notes": [
@@ -24472,7 +24482,7 @@
     "Vert density 344 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.0 over 3 scored runs.",
     "[R1] week-over-week 6.73x > 1.25",
-    "[R2] ACWR 2.01 > 1.3"
+    "[R2] ACWR 1.95 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -24683,7 +24693,7 @@
    "longest_vert": 1099,
    "back_to_back": false,
    "wow": 1.1,
-   "acwr": 1.96,
+   "acwr": 2.22,
    "feel": -1.0,
    "monotony": 1.41,
    "ctl": 26.1,
@@ -24692,7 +24702,7 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.96 > 1.3"
+     "msg": "ACWR 2.22 > 1.44"
     }
    ],
    "notes": [
@@ -24700,7 +24710,7 @@
     "Quality: T on Wed, I on Fri",
     "Vert density 302 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -1.0 over 2 scored runs.",
-    "[R2] ACWR 1.96 > 1.3"
+    "[R2] ACWR 2.22 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -24889,7 +24899,7 @@
    "longest_vert": 630,
    "back_to_back": false,
    "wow": 1.02,
-   "acwr": 1.34,
+   "acwr": 2.0,
    "feel": 0.5,
    "monotony": 1.86,
    "ctl": 25.5,
@@ -24898,7 +24908,7 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.34 > 1.3"
+     "msg": "ACWR 2.00 > 1.44"
     },
     {
      "code": "R4",
@@ -24910,7 +24920,7 @@
     "Quality: I on Wed, T on Sat",
     "Vert density 320 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.5 over 4 scored runs.",
-    "[R2] ACWR 1.34 > 1.3",
+    "[R2] ACWR 2.00 > 1.44",
     "[R4] flat I session this season"
    ],
    "plan": null,
@@ -25078,7 +25088,7 @@
    "longest_vert": 1763,
    "back_to_back": true,
    "wow": 1.06,
-   "acwr": 1.08,
+   "acwr": 1.42,
    "feel": 0.75,
    "monotony": 1.19,
    "ctl": 27.7,
@@ -25285,7 +25295,7 @@
    "longest_vert": 1040,
    "back_to_back": false,
    "wow": 1.02,
-   "acwr": 1.05,
+   "acwr": 1.1,
    "feel": -0.33,
    "monotony": 0.97,
    "ctl": 28.9,
@@ -25469,7 +25479,7 @@
    "longest_vert": 1151,
    "back_to_back": false,
    "wow": 1.02,
-   "acwr": 1.04,
+   "acwr": 1.07,
    "feel": 0.33,
    "monotony": 1.15,
    "ctl": 28.1,
@@ -25646,7 +25656,7 @@
    "longest_vert": 125,
    "back_to_back": false,
    "wow": 0.35,
-   "acwr": 0.42,
+   "acwr": 0.36,
    "feel": -0.5,
    "monotony": 1.09,
    "ctl": 24.8,
@@ -25764,7 +25774,7 @@
    "longest_vert": 3392,
    "back_to_back": false,
    "wow": 3.15,
-   "acwr": 1.28,
+   "acwr": 1.33,
    "feel": 0.67,
    "monotony": 0.5,
    "ctl": 24.7,
@@ -26106,7 +26116,7 @@
    "longest_vert": 644,
    "back_to_back": false,
    "wow": null,
-   "acwr": 1.58,
+   "acwr": 1.99,
    "feel": -1.0,
    "monotony": 1.44,
    "ctl": 20.4,
@@ -26115,14 +26125,14 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.58 > 1.3"
+     "msg": "ACWR 1.99 > 1.44"
     }
    ],
    "notes": [
     "Longest run 2:10 / 24.1 km / 644 m on Sat.",
     "Vert density 226 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel -1.0 over 2 scored runs.",
-    "[R2] ACWR 1.58 > 1.3"
+    "[R2] ACWR 1.99 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -26278,7 +26288,7 @@
    "longest_vert": 712,
    "back_to_back": false,
    "wow": 1.1,
-   "acwr": 2.1,
+   "acwr": 1.75,
    "feel": 0.33,
    "monotony": 1.63,
    "ctl": 20.3,
@@ -26287,14 +26297,14 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 2.10 > 1.3"
+     "msg": "ACWR 1.75 > 1.44"
     }
    ],
    "notes": [
     "Longest run 2:09 / 23.6 km / 712 m on Sat.",
     "Vert density 261 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel +0.3 over 3 scored runs.",
-    "[R2] ACWR 2.10 > 1.3"
+    "[R2] ACWR 1.75 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -26449,7 +26459,7 @@
    "longest_vert": 572,
    "back_to_back": false,
    "wow": 1.07,
-   "acwr": 1.44,
+   "acwr": 2.26,
    "feel": -0.5,
    "monotony": 1.83,
    "ctl": 21.0,
@@ -26458,7 +26468,7 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.44 > 1.3"
+     "msg": "ACWR 2.26 > 1.44"
     }
    ],
    "notes": [
@@ -26466,7 +26476,7 @@
     "Quality: F on Thu",
     "Vert density 191 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel -0.5 over 2 scored runs.",
-    "[R2] ACWR 1.44 > 1.3"
+    "[R2] ACWR 2.26 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -26622,7 +26632,7 @@
    "longest_vert": 564,
    "back_to_back": false,
    "wow": 0.57,
-   "acwr": 0.69,
+   "acwr": 0.83,
    "feel": null,
    "monotony": 1.34,
    "ctl": 21.2,
@@ -26775,7 +26785,7 @@
    "longest_vert": 791,
    "back_to_back": false,
    "wow": 1.79,
-   "acwr": 1.16,
+   "acwr": 1.23,
    "feel": 0.0,
    "monotony": 1.61,
    "ctl": 22.0,
@@ -26952,7 +26962,7 @@
    "longest_vert": 1067,
    "back_to_back": false,
    "wow": 1.01,
-   "acwr": 1.14,
+   "acwr": 1.17,
    "feel": -0.5,
    "monotony": 1.57,
    "ctl": 22.1,
@@ -27136,7 +27146,7 @@
    "longest_vert": 874,
    "back_to_back": false,
    "wow": 1.06,
-   "acwr": 1.18,
+   "acwr": 1.21,
    "feel": 0.0,
    "monotony": 1.18,
    "ctl": 22.3,
@@ -27353,7 +27363,7 @@
    "longest_vert": 648,
    "back_to_back": false,
    "wow": 0.57,
-   "acwr": 0.66,
+   "acwr": 0.67,
    "feel": 1.0,
    "monotony": 1.66,
    "ctl": 21.6,
@@ -27679,7 +27689,7 @@
    "longest_vert": 133,
    "back_to_back": false,
    "wow": 0.11,
-   "acwr": 0.16,
+   "acwr": 0.12,
    "feel": -2.0,
    "monotony": 0.82,
    "ctl": 19.2,
@@ -27785,7 +27795,7 @@
    "longest_vert": 151,
    "back_to_back": false,
    "wow": 4.16,
-   "acwr": 0.86,
+   "acwr": 0.68,
    "feel": -0.33,
    "monotony": 1.36,
    "ctl": 17.7,
@@ -27932,7 +27942,7 @@
    "longest_vert": 231,
    "back_to_back": false,
    "wow": 0.49,
-   "acwr": 0.51,
+   "acwr": 0.42,
    "feel": 1.0,
    "monotony": 1.06,
    "ctl": 16.1,
@@ -28051,7 +28061,7 @@
    "longest_vert": 101,
    "back_to_back": false,
    "wow": 0.39,
-   "acwr": 0.39,
+   "acwr": 0.2,
    "feel": 1.0,
    "monotony": 1.46,
    "ctl": 15.4,
@@ -28203,7 +28213,7 @@
    "longest_vert": 265,
    "back_to_back": false,
    "wow": 4.25,
-   "acwr": 1.3,
+   "acwr": 1.67,
    "feel": -1.0,
    "monotony": 1.41,
    "ctl": 14.7,
@@ -28355,7 +28365,7 @@
    "longest_vert": 215,
    "back_to_back": false,
    "wow": 0.95,
-   "acwr": 1.36,
+   "acwr": 1.23,
    "feel": -0.5,
    "monotony": 3.81,
    "ctl": 14.7,
@@ -28521,7 +28531,7 @@
    "longest_vert": 206,
    "back_to_back": false,
    "wow": 1.01,
-   "acwr": 1.22,
+   "acwr": 1.38,
    "feel": 0.0,
    "monotony": 0.92,
    "ctl": 14.4,
@@ -28663,7 +28673,7 @@
    "longest_vert": 218,
    "back_to_back": false,
    "wow": 1.98,
-   "acwr": 1.58,
+   "acwr": 2.42,
    "feel": -1.0,
    "monotony": 1.95,
    "ctl": 14.7,
@@ -28676,7 +28686,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.58 > 1.3"
+     "msg": "ACWR 2.42 > 1.44"
     }
    ],
    "notes": [
@@ -28684,7 +28694,7 @@
     "Vert density 184 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel -1.0 over 4 scored runs.",
     "[R1] week-over-week 1.98x > 1.25",
-    "[R2] ACWR 1.58 > 1.3"
+    "[R2] ACWR 2.42 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -28839,7 +28849,7 @@
    "longest_vert": 432,
    "back_to_back": false,
    "wow": 0.97,
-   "acwr": 1.3,
+   "acwr": 1.53,
    "feel": 1.0,
    "monotony": 1.51,
    "ctl": 16.0,
@@ -28848,7 +28858,7 @@
    "flags": [
     {
      "code": "R2",
-     "msg": "ACWR 1.30 > 1.3"
+     "msg": "ACWR 1.53 > 1.44"
     }
    ],
    "notes": [
@@ -28856,7 +28866,7 @@
     "Quality: T on Wed",
     "Vert density 230 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel +1.0 over 3 scored runs.",
-    "[R2] ACWR 1.30 > 1.3"
+    "[R2] ACWR 1.53 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -29012,7 +29022,7 @@
    "longest_vert": 168,
    "back_to_back": false,
    "wow": 0.94,
-   "acwr": 1.08,
+   "acwr": 1.23,
    "feel": 0.33,
    "monotony": 3.09,
    "ctl": 16.9,
@@ -29202,7 +29212,7 @@
    "longest_vert": 136,
    "back_to_back": false,
    "wow": 0.96,
-   "acwr": 0.93,
+   "acwr": 1.04,
    "feel": -1.0,
    "monotony": 2.39,
    "ctl": 19.7,
@@ -29403,7 +29413,7 @@
    "longest_vert": 375,
    "back_to_back": false,
    "wow": 0.9,
-   "acwr": 0.89,
+   "acwr": 0.84,
    "feel": 0.67,
    "monotony": 1.24,
    "ctl": 21.9,
@@ -29557,7 +29567,7 @@
    "longest_vert": 62,
    "back_to_back": false,
    "wow": 1.52,
-   "acwr": 1.27,
+   "acwr": 1.36,
    "feel": 0.5,
    "monotony": 1.87,
    "ctl": 21.4,
@@ -29730,7 +29740,7 @@
    "longest_vert": 122,
    "back_to_back": false,
    "wow": 0.91,
-   "acwr": 1.11,
+   "acwr": 1.16,
    "feel": -1.5,
    "monotony": 0.75,
    "ctl": 22.7,
@@ -29896,7 +29906,7 @@
    "longest_vert": 777,
    "back_to_back": false,
    "wow": 0.9,
-   "acwr": 0.97,
+   "acwr": 1.0,
    "feel": -1.0,
    "monotony": 1.25,
    "ctl": 23.2,
@@ -30073,7 +30083,7 @@
    "longest_vert": 794,
    "back_to_back": false,
    "wow": 0.91,
-   "acwr": 0.86,
+   "acwr": 0.89,
    "feel": 0.5,
    "monotony": 1.41,
    "ctl": 23.8,
@@ -30239,7 +30249,7 @@
    "longest_vert": 765,
    "back_to_back": true,
    "wow": 1.59,
-   "acwr": 1.3,
+   "acwr": 1.37,
    "feel": -1.0,
    "monotony": 1.35,
    "ctl": 24.8,
@@ -30457,7 +30467,7 @@
    "longest_vert": 794,
    "back_to_back": true,
    "wow": 0.91,
-   "acwr": 1.13,
+   "acwr": 1.18,
    "feel": 0.5,
    "monotony": 1.4,
    "ctl": 26.8,
@@ -30635,7 +30645,7 @@
    "longest_vert": 1652,
    "back_to_back": true,
    "wow": 1.26,
-   "acwr": 1.24,
+   "acwr": 1.42,
    "feel": 1.0,
    "monotony": 0.82,
    "ctl": 29.8,
@@ -30785,7 +30795,7 @@
    "longest_vert": 1554,
    "back_to_back": false,
    "wow": 0.93,
-   "acwr": 1.03,
+   "acwr": 1.15,
    "feel": 0.33,
    "monotony": 1.56,
    "ctl": 29.4,
@@ -30950,7 +30960,7 @@
    "longest_vert": 334,
    "back_to_back": false,
    "wow": 0.42,
-   "acwr": 0.5,
+   "acwr": 0.43,
    "feel": null,
    "monotony": 1.3,
    "ctl": 28.2,
@@ -31124,7 +31134,7 @@
    "longest_vert": 1780,
    "back_to_back": false,
    "wow": 2.53,
-   "acwr": 1.2,
+   "acwr": 1.27,
    "feel": null,
    "monotony": 1.58,
    "ctl": 28.0,
@@ -31317,7 +31327,7 @@
    "longest_vert": 1915,
    "back_to_back": true,
    "wow": 1.03,
-   "acwr": 1.22,
+   "acwr": 1.23,
    "feel": 2.0,
    "monotony": 0.83,
    "ctl": 29.1,
@@ -31483,7 +31493,7 @@
    "longest_vert": 393,
    "back_to_back": false,
    "wow": 0.42,
-   "acwr": 0.6,
+   "acwr": 0.51,
    "feel": -1.0,
    "monotony": 1.65,
    "ctl": 26.4,
@@ -31659,7 +31669,7 @@
    "longest_vert": 4278,
    "back_to_back": false,
    "wow": 3.04,
-   "acwr": 1.39,
+   "acwr": 1.83,
    "feel": 0.5,
    "monotony": 0.46,
    "ctl": 27.0,
@@ -31672,7 +31682,7 @@
     },
     {
      "code": "R2",
-     "msg": "ACWR 1.39 > 1.3"
+     "msg": "ACWR 1.83 > 1.44"
     }
    ],
    "notes": [
@@ -31681,7 +31691,7 @@
     "Vert density 397 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.5 over 2 scored runs.",
     "[R1] week-over-week 3.04x > 1.25",
-    "[R2] ACWR 1.39 > 1.3"
+    "[R2] ACWR 1.83 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -31790,7 +31800,7 @@
    "longest_vert": 155,
    "back_to_back": false,
    "wow": 0.06,
-   "acwr": 0.11,
+   "acwr": 0.08,
    "feel": null,
    "monotony": 0.89,
    "ctl": 25.3,
@@ -31941,7 +31951,7 @@
    "longest_vert": 161,
    "back_to_back": false,
    "wow": 3.05,
-   "acwr": 0.45,
+   "acwr": 0.33,
    "feel": -1.0,
    "monotony": 1.92,
    "ctl": 24.1,
@@ -32127,7 +32137,7 @@
    "longest_vert": 384,
    "back_to_back": false,
    "wow": 2.96,
-   "acwr": 1.19,
+   "acwr": 1.34,
    "feel": -1.0,
    "monotony": 1.48,
    "ctl": 24.0,
@@ -32333,24 +32343,18 @@
    "longest_vert": 804,
    "back_to_back": false,
    "wow": 1.15,
-   "acwr": 1.77,
+   "acwr": 1.37,
    "feel": 1.0,
    "monotony": 1.82,
    "ctl": 24.2,
    "atl": 26.1,
    "tsb": -1.8,
-   "flags": [
-    {
-     "code": "R2",
-     "msg": "ACWR 1.77 > 1.3"
-    }
-   ],
+   "flags": [],
    "notes": [
     "Longest run 2:24 / 21.4 km / 804 m on Sun.",
     "Quality: T on Tue",
     "Vert density 260 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +1.0 over 3 scored runs.",
-    "[R2] ACWR 1.77 > 1.3"
+    "Self-reported feel +1.0 over 3 scored runs."
    ],
    "plan": null,
    "days": [
@@ -32572,18 +32576,24 @@
    "longest_vert": 1033,
    "back_to_back": false,
    "wow": 0.94,
-   "acwr": 1.21,
+   "acwr": 1.66,
    "feel": -0.5,
    "monotony": 1.61,
    "ctl": 25.2,
    "atl": 31.4,
    "tsb": -6.1,
-   "flags": [],
+   "flags": [
+    {
+     "code": "R2",
+     "msg": "ACWR 1.66 > 1.44"
+    }
+   ],
    "notes": [
     "Longest run 2:49 / 30.9 km / 1033 m on Sun.",
     "Quality: T on Tue",
     "Vert density 295 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel -0.5 over 4 scored runs."
+    "Self-reported feel -0.5 over 4 scored runs.",
+    "[R2] ACWR 1.66 > 1.44"
    ],
    "plan": null,
    "days": [
@@ -32739,7 +32749,7 @@
    "longest_vert": 748,
    "back_to_back": false,
    "wow": 1.01,
-   "acwr": 1.01,
+   "acwr": 1.23,
    "feel": 0.0,
    "monotony": 0.96,
    "ctl": 26.4,
@@ -32950,7 +32960,7 @@
    "longest_vert": 1376,
    "back_to_back": false,
    "wow": 1.14,
-   "acwr": 1.09,
+   "acwr": 1.16,
    "feel": 1.0,
    "monotony": 2.17,
    "ctl": 27.1,
@@ -33184,7 +33194,7 @@
    "longest_vert": 1087,
    "back_to_back": false,
    "wow": 0.88,
-   "acwr": 0.98,
+   "acwr": 0.97,
    "feel": -1.0,
    "monotony": 1.47,
    "ctl": 26.8,
@@ -33361,7 +33371,7 @@
    "longest_vert": 722,
    "back_to_back": false,
    "wow": 1.02,
-   "acwr": 0.99,
+   "acwr": 1.0,
    "feel": 2.0,
    "monotony": 1.64,
    "ctl": 26.5,
@@ -33561,7 +33571,7 @@
    "longest_vert": 1305,
    "back_to_back": false,
    "wow": 1.03,
-   "acwr": 1.0,
+   "acwr": 1.02,
    "feel": 0.33,
    "monotony": 1.31,
    "ctl": 27.6,
@@ -33786,7 +33796,7 @@
    "longest_vert": 1294,
    "back_to_back": false,
    "wow": 0.98,
-   "acwr": 1.01,
+   "acwr": 0.99,
    "feel": 0.67,
    "monotony": 1.81,
    "ctl": 28.3,
@@ -33990,7 +34000,7 @@
    "longest_vert": 1183,
    "back_to_back": false,
    "wow": 1.13,
-   "acwr": 1.09,
+   "acwr": 1.13,
    "feel": 0.5,
    "monotony": 1.81,
    "ctl": 30.0,
@@ -34193,7 +34203,7 @@
    "longest_vert": 687,
    "back_to_back": false,
    "wow": 0.94,
-   "acwr": 1.0,
+   "acwr": 1.02,
    "feel": -0.33,
    "monotony": 1.06,
    "ctl": 29.6,
@@ -34374,7 +34384,7 @@
    "longest_vert": 1202,
    "back_to_back": false,
    "wow": 1.01,
-   "acwr": 1.0,
+   "acwr": 1.01,
    "feel": null,
    "monotony": 1.46,
    "ctl": 30.1,
@@ -34780,7 +34790,7 @@
    "longest_vert": 302,
    "back_to_back": false,
    "wow": 0.73,
-   "acwr": 0.75,
+   "acwr": 0.68,
    "feel": null,
    "monotony": 1.59,
    "ctl": 28.1,
@@ -34938,7 +34948,7 @@
    "longest_vert": 1924,
    "back_to_back": false,
    "wow": 1.19,
-   "acwr": 0.94,
+   "acwr": 0.89,
    "feel": 1.33,
    "monotony": 0.47,
    "ctl": 29.9,
@@ -34961,7 +34971,7 @@
     "bike_h": 2.5,
     "gym_h": 0,
     "total_h": 7,
-    "run_km": 50.6,
+    "run_km": 50.5,
     "run_vert": 1480,
     "weekend": "Race",
     "race": "Slapy Trailmaniacs 47K \u00b7 24 Oct",
@@ -35084,7 +35094,7 @@
    "longest_vert": 267,
    "back_to_back": false,
    "wow": 0.61,
-   "acwr": 0.68,
+   "acwr": 0.57,
    "feel": 1.0,
    "monotony": 1.07,
    "ctl": 26.3,
@@ -35092,7 +35102,7 @@
    "tsb": 6.8,
    "flags": [],
    "notes": [
-    "Running on target (3.6 vs 3.5 h).",
+    "Running on target (3.6 vs 4.0 h).",
     "Longest run 1:10 / 12.4 km / 267 m on Sat.",
     "Self-reported feel +1.0 over 1 scored runs."
    ],
@@ -35100,13 +35110,13 @@
     "index": 9,
     "phase": "P2",
     "phase_name": "Recovery & gym on-ramp",
-    "run_h": 3.5,
+    "run_h": 4.0,
     "bike_h": 0,
     "gym_h": 0,
-    "total_h": 3.5,
-    "run_km": 39.3,
-    "run_vert": 1151,
-    "weekend": "Off-season \u00b7 easy",
+    "total_h": 4,
+    "run_km": 40.0,
+    "run_vert": null,
+    "weekend": "Off-season \u00b7 no long run",
     "race": null,
     "to_race": 20
    },
