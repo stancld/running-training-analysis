@@ -1,6 +1,8 @@
 services:
   diary:
-    command: cd web && bun install --frozen-lockfile && exec bun run dev --host 0.0.0.0 --port "$PORT" --strictPort
+    # Full bundle mode: one script instead of ~20 modules in a 5-deep import waterfall,
+    # which is what makes the portal slow over a high-latency link. Builds are unaffected.
+    command: cd web && bun install --frozen-lockfile && exec bun run dev --host 0.0.0.0 --port "$PORT" --strictPort --experimentalBundle
     health: /
     portal:
       url: /
