@@ -6,10 +6,6 @@ from collections import defaultdict
 from . import config as C
 
 
-def _mmss(s):
-    return f"{int(s) // 60}:{round(s) % 60:02d}"
-
-
 def hill_sessions(ds):
     S = defaultdict(list)
     for r in ds.hills:
@@ -122,6 +118,3 @@ def rep_sessions():
             )
     out.sort(key=lambda x: x["date"])
     return out
-
-
-mmss = _mmss

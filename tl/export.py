@@ -7,8 +7,8 @@ from . import config as C
 from . import plan
 
 
-def _week(w, e):
-    p = e.plan
+def _week(e):
+    w, p = e.week, e.plan
     return {
         "label": w.label,
         "start": w.start.isoformat(),
@@ -99,7 +99,7 @@ def _period(p):
     }
 
 
-def payload(ds, weeks, entries, months, seasons):
+def payload(ds, entries, months, seasons):
     return {
         "generated": dt.datetime.now().isoformat(timespec="seconds"),
         "today": C.TODAY.isoformat(),
@@ -134,7 +134,7 @@ def payload(ds, weeks, entries, months, seasons):
             }
             for p in plan.WEEKS
         ],
-        "weeks": [_week(w, e) for w, e in zip(weeks, entries, strict=False)],
+        "weeks": [_week(e) for e in entries],
         "months": [_period(m) for m in months],
         "seasons": [_period(s) for s in seasons],
     }
@@ -143,16 +143,11 @@ def payload(ds, weeks, entries, months, seasons):
 def write(obj, path):
     with open(path, "w") as fh:
         json.dump(obj, fh, indent=1)
-    return path
 
 
 def web_payload(ds, weeks, entries, months, seasons, diary_from=None):
     """Trimmed payload for the diary page: enough to draw, not the whole cache."""
-    # Lead in one week before the macrocycle opens: week 1 is only readable
-    # against the week that preceded it.
-    diary_from = diary_from or (plan.PLAN_START - dt.timedelta(days=7))
-    ebs = {e.week.start: e for e in entries}
-    full = [w for w in weeks if w.start >= diary_from]
+    diary_from = diary_from or plan.DIARY_START
     return {
         "generated": dt.datetime.now().strftime("%d %B %Y, %H:%M"),
         "today": C.TODAY.isoformat(),
@@ -227,5 +222,5 @@ def web_payload(ds, weeks, entries, months, seasons, diary_from=None):
             }
             for q in plan.provisional_phases()
         ],
-        "diary": [_week(w, ebs[w.start]) for w in full],
+        "diary": [_week(e) for e in entries if e.week.start >= diary_from],
     }

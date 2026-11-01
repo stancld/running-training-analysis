@@ -2,17 +2,16 @@
 
 from . import config as C
 from . import plan
-from .quality import mmss
 
 W = 100
 
 
-def rule(ch="="):
-    return ch * W
-
-
 def title(text, ch="="):
-    return f"\n{rule(ch)}\n{text}\n{rule(ch)}"
+    return f"\n{ch * W}\n{text}\n{ch * W}"
+
+
+def mmss(s):
+    return f"{int(s) // 60}:{round(s) % 60:02d}"
 
 
 def _h(x):
@@ -33,17 +32,13 @@ def _opt(x, fmt="{:.0f}", dash="-", width=6):
     return f"{(fmt.format(x) if x is not None else dash):>{width}}"
 
 
-# ------------------------------------------------------------------- weeks
-def weeks_table(weeks, show_plan=True):
+def weeks_table(weeks):
     L = [title("WEEKS — Monday-start, every week in range")]
-    head = (
+    L.append(
         f"{'week':11} {'start':11} {'run h':>6} {'km':>6} {'vert':>6} {'m/h':>5} "
         f"{'bike':>5} {'gym':>4} {'tot':>5} {'WoW':>5} {'ACWR':>5} {'d':>2}"
+        f" {'plan':>5} {'%':>5}  flags"
     )
-    if show_plan:
-        head += f" {'plan':>5} {'%':>5}"
-    head += "  flags"
-    L.append(head)
     for w in weeks:
         p = plan.week_for(w.start)
         f = [f"{c}:{m}" for c, m in w.flags()]
@@ -55,12 +50,11 @@ def weeks_table(weeks, show_plan=True):
             f"{w.total_h:5.1f} {_n(w.wow, '{:5.2f}', '    -')} "
             f"{_n(w.acwr, '{:5.2f}', '    -')} {w.run_days:2d}"
         )
-        if show_plan:
-            if p:
-                pct = w.run_h / p.run_h * 100 if p.run_h else 0
-                row += f" {p.run_h:5.1f} {pct:4.0f}%"
-            else:
-                row += f" {'-':>5} {'-':>5}"
+        if p:
+            pct = w.run_h / p.run_h * 100 if p.run_h else 0
+            row += f" {p.run_h:5.1f} {pct:4.0f}%"
+        else:
+            row += f" {'-':>5} {'-':>5}"
         L.append(row + "  " + ("; ".join(f) if f else "ok"))
     L.append(
         f"\n  Guardrails: WoW <= {C.WOW_CAP}x, ACWR <= {C.ACWR_CAP}, "
@@ -70,7 +64,6 @@ def weeks_table(weeks, show_plan=True):
     return "\n".join(L)
 
 
-# ------------------------------------------------------------------ months
 def months_table(months):
     L = [title("MONTHS — the full history, one row per calendar month")]
     L.append(
@@ -98,7 +91,6 @@ def months_table(months):
     return "\n".join(L)
 
 
-# ----------------------------------------------------------------- seasons
 def seasons_table(seasons):
     L = [title("SEASONS — calendar years, as Dan counts them")]
     L.append(
@@ -116,7 +108,6 @@ def seasons_table(seasons):
     return "\n".join(L)
 
 
-# -------------------------------------------------------------------- plan
 def plan_table(weeks_by_start):
     L = [title(f"MACROCYCLE — {plan.RACE_NAME}, {plan.RACE:%d %b %Y}")]
     L.append(
@@ -181,8 +172,7 @@ def plan_table(weeks_by_start):
     return "\n".join(L)
 
 
-# ------------------------------------------------------------------- diary
-def diary_entry(e, ds):
+def diary_entry(e):
     w = e.week
     head = f"{w.label}   {w.start:%d %b} – {w.end:%d %b %Y}"
     if e.plan:
@@ -221,8 +211,7 @@ def diary_entry(e, ds):
     if hl:
         L.append("")
         for d, name, note in hl:
-            if note:
-                L.append(f"  “{note}”  — {name}, {d:%d %b}")
+            L.append(f"  “{note}”  — {name}, {d:%d %b}")
     if e.fitness:
         L.append("")
         L.append(
@@ -232,7 +221,6 @@ def diary_entry(e, ds):
     return "\n".join(L)
 
 
-# ------------------------------------------------------------------- hills
 def hills_block(sessions):
     L = [title("UPHILL QUALITY — vertical rate, HR drift and power:HR decoupling")]
     for s in sessions:
