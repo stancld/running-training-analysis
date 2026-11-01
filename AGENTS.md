@@ -14,8 +14,10 @@ macrocycle and renders the diary page in `web/`. Read `README.md` before changin
 | Rebuild the diary page | `uv run tl site` (writes `web/src/payload.json`) |
 | Preview / build the page | `cd web && bun run dev` / `bun run build` (Vite + React + TypeScript) |
 | Publish the diary page | commit and push `web/src/payload.json`; `.github/workflows/pages.yml` builds and deploys it |
-| Lint, format and hygiene | `uv run pre-commit run --all-files` (install once with `uv run pre-commit install`) |
+| Lint, format and hygiene | `uv run pre-commit run --all-files` |
 | Type-check | `uv run ty check` (also a pre-commit hook) |
+| Lint / type-check the page | `cd web && bun run lint` / `bun run typecheck` (Biome, tsc) |
+| Git hook | `cd web && bun install` installs husky; `web/.husky/pre-commit` runs pre-commit, plus Biome and tsc when web TypeScript is staged |
 
 There are no unit tests. CI (`.github/workflows/ci.yml`) runs pre-commit, smoke-tests
 every command on a synthetic cache, and runs two e2e suites: `tests/` (pytest: a

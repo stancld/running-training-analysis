@@ -47,6 +47,7 @@ GitHub Pages cannot run `tl`, so it builds the app from the committed payload.
 
     cd web && bun install && bun run dev    # live preview; reloads when tl site rewrites the payload
     cd web && bun run build                 # type-check and build web/dist, as Pages does
+    cd web && bun run lint                  # Biome lint; husky also runs it before each commit
     cd web && bunx playwright test          # e2e on the built page
 
 ## Workflow after a session
