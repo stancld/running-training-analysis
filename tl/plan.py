@@ -167,9 +167,6 @@ class PlanWeek:
         """Inside the detail horizon — a real weekly target, not a placeholder."""
         return self.start <= horizon_date()
 
-    def __repr__(self) -> str:
-        return f"<plan wk{self.index} {self.start} {self.run_h}h run>"
-
 
 def _build() -> list[PlanWeek]:
     weeks, i = [], 0

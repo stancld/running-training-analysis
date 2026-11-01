@@ -94,22 +94,6 @@ def _attach_streams(acts: list[Activity]) -> None:
 
 
 class Activity:
-    __slots__ = (
-        "date",
-        "feel",
-        "group",
-        "hr",
-        "km",
-        "mins",
-        "name",
-        "note",
-        "power",
-        "re",
-        "sport",
-        "type",
-        "vert",
-        "zones",
-    )
     date: dt.date
     sport: str
     group: str
@@ -157,9 +141,6 @@ class Activity:
             if per_h > 0:
                 return config.HR_A + config.HR_B * math.log(per_h)
         return None
-
-    def __repr__(self) -> str:
-        return f"<{self.date} {self.sport} {self.km:.1f}km {self.mins:.0f}min>"
 
 
 class Dataset:
