@@ -123,6 +123,9 @@ class Dataset:
                     float(r["vert"] or 0),
                 )
             )
+        if not acts:
+            # The cache is personal data kept out of git, so a fresh checkout has none.
+            raise SystemExit(f"no activities in {C.path('activities.csv')}; top up the cache first")
 
         labels = _by_day(
             "labels.csv",
