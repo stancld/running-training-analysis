@@ -216,16 +216,19 @@ export function Guardrails() {
   );
 }
 
-/* Phone: one swipeable row of chips inside the this-week card. */
+/* Phone: one swipeable row of chips inside the this-week card. Flagged rails lead and are
+   named in the header, so they are never scrolled out of view. */
+const SEVERITY = { bad: 0, watch: 1, ok: 2 };
 export function RailChips() {
-  const list = rails();
-  const ok = list.filter(r => r.status === 'ok').length;
+  const list = rails().sort((a, b) => SEVERITY[a.status] - SEVERITY[b.status]);
+  const off = list.filter(r => r.status !== 'ok').map(r => r.code);
   return (
     <div className="chips-wrap">
       <div className="ch">
         <p className="eyebrow">Training guardrails</p>
         <span className="meta push">
-          {ok} of {list.length} in range
+          {list.length - off.length} of {list.length} in range
+          {off.length > 0 && ` · check ${off.join(', ')}`}
         </span>
       </div>
       <div className="chips" role="list">
