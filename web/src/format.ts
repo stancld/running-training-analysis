@@ -35,6 +35,17 @@ export const tone = (w: DiaryWeek) =>
   w.flags.some(f => f.code !== '--') ? 'bad' : w.flags.length || offTarget(w) ? 'watch' : 'ok';
 
 export const current = DATA.diary.find(w => w.current) ?? DATA.diary[DATA.diary.length - 1];
+export const lastRace = DATA.diary.map(raceOf).filter(Boolean).pop();
+
+// The plan as the top-bar track and the plan chart both draw it: this week's index and
+// each phase's run of weeks.
+export const curIdx = DATA.plan.findIndex(p => p.start === DATA.weeks.find(w => w.current)?.start);
+export const phaseSpans: { phase: string; name: string; a: number; b: number }[] = [];
+DATA.plan.forEach((p, i) => {
+  const last = phaseSpans[phaseSpans.length - 1];
+  if (last?.phase === p.phase) last.b = i;
+  else phaseSpans.push({ phase: p.phase, name: p.phase_name, a: i, b: i });
+});
 
 // What each rule is and why it exists, after the README's guardrails table.
 const G = DATA.guardrails;

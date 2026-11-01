@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { DATA } from './data';
-import { day, n, phaseShort, raceOf, useWide } from './format';
+import { curIdx, day, lastRace, n, phaseShort, phaseSpans, useWide } from './format';
 
 const P = DATA.plan,
   PROV = DATA.provisional;
 const actual = Object.fromEntries(DATA.weeks.map(w => [w.start, w]));
-const cur = DATA.weeks.find(w => w.current);
-const curIdx = P.findIndex(p => p.start === cur?.start);
 
 function detail(i: number) {
   const p = P[i],
@@ -90,17 +88,10 @@ export function PlanChart() {
   const grid = Array.from({ length: MAXH / 2 + 1 }, (_, k) => k * 2);
   const firstProv = P.findIndex(p => !p.committed);
 
-  const bounds: { phase: string; name: string; a: number; b: number }[] = [];
-  P.forEach((p, i) => {
-    const b = bounds[bounds.length - 1];
-    if (!b || b.phase !== p.phase) bounds.push({ phase: p.phase, name: p.phase_name, a: i, b: i });
-    else b.b = i;
-  });
   const by = m.t + ih + 30 * f;
 
   const ran = P.filter(p => actual[p.start] && !actual[p.start].current);
   const hit = ran.length ? ran.reduce((s, p) => s + actual[p.start].run_h / p.run_h, 0) / ran.length : 0;
-  const race = DATA.diary.map(raceOf).filter(Boolean).pop();
   const hz = DATA.horizon;
 
   return (
@@ -276,7 +267,7 @@ export function PlanChart() {
             </g>
           ))}
 
-          {bounds.map(b => {
+          {phaseSpans.map(b => {
             const x0 = x(b.a) - slot / 2 + 1,
               x1 = x(b.b) + slot / 2 - 1;
             const now = curIdx >= b.a && curIdx <= b.b;
@@ -328,9 +319,9 @@ export function PlanChart() {
           <i className="swatch dashed" />
           Phase band (provisional)
         </span>
-        {race && (
+        {lastRace && (
           <span className="push">
-            Last race: <strong>{race.name}</strong> · {day(race.date, true)}
+            Last race: <strong>{lastRace.name}</strong> · {day(lastRace.date, true)}
           </span>
         )}
       </div>

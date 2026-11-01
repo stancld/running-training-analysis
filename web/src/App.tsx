@@ -1,22 +1,15 @@
 import { useEffect, useState } from 'react';
 import { DATA } from './data';
 import { Diary } from './Diary';
-import { day, hm, phaseShort, raceOf, useWide } from './format';
+import { curIdx, day, hm, lastRace, phaseShort, phaseSpans, useWide } from './format';
 import { Heatmap, Ledger } from './History';
 import { PlanChart } from './Plan';
 import { Fitness, Guardrails, RailChips, ThisWeek } from './Week';
 import { Zones } from './Zones';
 
 const P = DATA.plan;
-const curIdx = P.findIndex(p => p.start === DATA.weeks.find(w => w.current)?.start);
 
 function Track() {
-  const phases: { code: string; name: string; a: number; b: number }[] = [];
-  P.forEach((p, i) => {
-    const last = phases[phases.length - 1];
-    if (last?.code === p.phase) last.b = i;
-    else phases.push({ code: p.phase, name: p.phase_name, a: i, b: i });
-  });
   return (
     <div className="track">
       <p className="eyebrow">{curIdx >= 0 ? `Week ${curIdx + 1} of ${P.length}` : `${P.length}-week plan`}</p>
@@ -28,14 +21,14 @@ function Track() {
             title={`Week ${p.index} · ${day(p.start)}${p.race ? ` · ${p.race}` : ''}`}
           />
         ))}
-        {phases.map(ph => (
+        {phaseSpans.map(ph => (
           <span
-            key={ph.code}
+            key={ph.phase}
             className={curIdx >= ph.a && curIdx <= ph.b ? 'on' : ''}
             style={{ gridColumn: `${ph.a + 1} / ${ph.b + 2}` }}
             title={ph.name}
           >
-            <b>{ph.code}</b> <em>{phaseShort(ph.name)}</em>
+            <b>{ph.phase}</b> <em>{phaseShort(ph.name)}</em>
             <small>
               {P[ph.a].index}–{P[ph.b].index}
             </small>
@@ -72,15 +65,15 @@ function TopBar({ wide }: { wide: boolean }) {
 }
 
 function LastRace() {
-  const race = DATA.diary.map(raceOf).filter(Boolean).pop();
-  if (!race) return null;
+  if (!lastRace) return null;
   return (
     <div className="race-banner">
       <span aria-hidden="true">▲</span>
       <div>
-        <b>{race.name}</b>
+        <b>{lastRace.name}</b>
         <small>
-          {day(race.date, true)} · {hm(race.mins / 60)} · {race.km} km · {race.vert.toLocaleString('en-GB')} m
+          {day(lastRace.date, true)} · {hm(lastRace.mins / 60)} · {lastRace.km} km ·{' '}
+          {lastRace.vert.toLocaleString('en-GB')} m
         </small>
       </div>
     </div>
