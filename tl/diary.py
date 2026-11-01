@@ -45,7 +45,6 @@ class Entry:
         return " · ".join(bits)
 
     def notes(self):
-        """Verdict lines; each is emitted only when it has something to say."""
         out, w, c = [], self.week, self.cmp
         if c and not w.partial:
             r = c["run_h"][2]

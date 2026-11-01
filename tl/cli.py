@@ -153,7 +153,7 @@ def cmd_segments(lab, arg=None):
 
 
 def cmd_reps(lab, arg=None):
-    return render.reps_block(quality.rep_sessions(lab.ds))
+    return render.reps_block(quality.rep_sessions())
 
 
 def cmd_site(lab, arg=None):
