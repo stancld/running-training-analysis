@@ -14,9 +14,10 @@ macrocycle and renders the diary page in `web/`. Read `README.md` before changin
 | Rebuild the diary page | `uv run tl site` (renders `web/diary.tmpl.html` → `web/diary.html`) |
 | Lint, format and hygiene | `uv run pre-commit run --all-files` (install once with `uv run pre-commit install`) |
 
-There is no test suite. Verify a change by running the commands it affects and checking
-that the numbers make sense against the data. Run pre-commit before every commit; Ruff
-settings live in `ruff.toml`.
+There is no test suite. CI (`.github/workflows/ci.yml`) runs pre-commit and smoke-tests
+every command on a synthetic cache, so it catches crashes, not wrong numbers. Verify a
+change by running the commands it affects and checking that the numbers make sense
+against the data. Run pre-commit before every commit; Ruff settings live in `ruff.toml`.
 
 ## Where things live
 
