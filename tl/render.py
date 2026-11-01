@@ -1,39 +1,46 @@
 """Terminal rendering. Plain ASCII tables, tabular numbers, no dependencies."""
 
+import datetime as dt
+from typing import TYPE_CHECKING, Any
+
 from tl import config, plan
+
+if TYPE_CHECKING:
+    from tl.diary import Entry
+    from tl.periods import Month, Season, Week
 
 W = 100
 
 
-def title(text, ch="="):
+def title(text: str, ch: str = "=") -> str:
     return f"\n{ch * W}\n{text}\n{ch * W}"
 
 
-def mmss(s):
+def mmss(s: float) -> str:
     t = round(s)
     return f"{t // 60}:{t % 60:02d}"
 
 
-def hmm(hours):
+def hmm(hours: float) -> str:
     m = round(hours * 60)
     return f"{m // 60}:{m % 60:02d}"
 
 
-def _h(x):
+def _h(x: float) -> str:
     return hmm(x) if x else "   -"
 
 
-def rng(bands, f, fmt="{:.1f}"):
+def rng(bands: dict[str, tuple[float, float]], f: str, fmt: str = "{:.1f}") -> str:
     lo, hi = bands[f]
     return f"{fmt.format(lo)}–{fmt.format(hi)}"
 
 
-def _opt(x, fmt="{:.0f}", dash="-", width=6):
+def _opt(x: float | None, fmt: str = "{:.0f}", dash: str = "-", width: int = 6) -> str:
     """Format a value that may be absent, right-aligned to `width`."""
     return f"{(fmt.format(x) if x is not None else dash):>{width}}"
 
 
-def weeks_table(weeks):
+def weeks_table(weeks: list[Week]) -> str:
     lines = [title("WEEKS — Monday-start, every week in range")]
     lines.append(
         f"{'week':11} {'start':11} {'run h':>6} {'km':>6} {'vert':>6} {'m/h':>5} "
@@ -65,7 +72,7 @@ def weeks_table(weeks):
     return "\n".join(lines)
 
 
-def months_table(months):
+def months_table(months: list[Month]) -> str:
     lines = [title("MONTHS — the full history, one row per calendar month")]
     lines.append(
         f"{'month':9} {'run h':>6} {'km':>7} {'vert':>7} {'m/h':>5} {'days':>5} "
@@ -92,7 +99,7 @@ def months_table(months):
     return "\n".join(lines)
 
 
-def seasons_table(seasons):
+def seasons_table(seasons: list[Season]) -> str:
     lines = [title("SEASONS — calendar years, as Dan counts them")]
     lines.append(
         f"{'season':7} {'run h':>7} {'km':>8} {'vert':>8} {'m/h':>5} "
@@ -109,7 +116,7 @@ def seasons_table(seasons):
     return "\n".join(lines)
 
 
-def plan_table(weeks_by_start):
+def plan_table(weeks_by_start: dict[dt.date, Week]) -> str:
     lines = [title(f"MACROCYCLE — {plan.RACE_NAME}, {plan.RACE:%d %b %Y}")]
     lines.append(
         f"  Written week by week to {plan.horizon_date():%d %b %Y} "
@@ -124,7 +131,7 @@ def plan_table(weeks_by_start):
     for p in plan.committed_weeks():
         a = weeks_by_start.get(p.start)
 
-        def pair(pv, av, fmt="{:5.1f}"):
+        def pair(pv: float, av: float | None, fmt: str = "{:5.1f}") -> tuple[str, str]:
             return (fmt.format(pv), "    -" if av is None else fmt.format(av))
 
         ph, ah = pair(p.run_h, a.run_h if a else None)
@@ -173,7 +180,7 @@ def plan_table(weeks_by_start):
     return "\n".join(lines)
 
 
-def diary_entry(e):
+def diary_entry(e: Entry) -> str:
     w = e.week
     head = f"{w.label}   {w.start:%d %b} – {w.end:%d %b %Y}"
     if e.plan:
@@ -221,7 +228,7 @@ def diary_entry(e):
     return "\n".join(lines)
 
 
-def hills_block(sessions):
+def hills_block(sessions: list[dict[str, Any]]) -> str:
     lines = [title("UPHILL QUALITY — vertical rate, HR drift and power:HR decoupling")]
     for s in sessions:
         lines.append(f"\n  {s['date']}  {s['name']}")
@@ -247,7 +254,7 @@ def hills_block(sessions):
     return "\n".join(lines)
 
 
-def segments_block(segs):
+def segments_block(segs: list[dict[str, Any]]) -> str:
     lines = [title("SAME-SEGMENT BENCHMARKS — identical hill, different days")]
     for s in segs:
         lines.append(
@@ -273,7 +280,7 @@ def segments_block(segs):
     return "\n".join(lines)
 
 
-def reps_block(rows):
+def reps_block(rows: list[dict[str, Any]]) -> str:
     lines = [title("FLAT THRESHOLD PROGRESSION — every logged 1k-rep session")]
     lines.append(
         f"{'date':11} {'session':24} {'rest':6} {'n':>3} {'avg':>7} "

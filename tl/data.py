@@ -5,30 +5,34 @@ import datetime as dt
 import itertools
 import math
 from collections import defaultdict
+from collections.abc import Callable, Iterable, Iterator, Sequence
+from typing import Self
 
 from tl import config
 
 
-def _date(s):
+def _date(s: str | None) -> dt.date | None:
     try:
-        return dt.date.fromisoformat(s.strip())
-    except ValueError, AttributeError:
+        return dt.date.fromisoformat(s.strip()) if s else None
+    except ValueError:
         return None
 
 
-def runs_first(acts):
+def runs_first(acts: Iterable[Activity]) -> list[Activity]:
     """Runs before other sports, longest first."""
     return sorted(acts, key=lambda a: (a.group != "run", -a.mins))
 
 
-def _by_day(name, parse):
+def _by_day[T](name: str, parse: Callable[[dict[str, str]], T]) -> dict[dt.date, list[T]]:
     out = defaultdict(list)
-    for r in _rows(name):
-        out[_date(r["date"])].append(parse(r))
+    for d, r in _rows(name):
+        out[d].append(parse(r))
     return out
 
 
-def _pair(runs, rows, cost=None):
+def _pair[R](
+    runs: Sequence[Activity], rows: list[R], cost: Callable[[Activity, R], float] | None = None
+) -> Iterable[tuple[Activity, R]]:
     """Pair a day's runs with that day's rows from one CSV.
 
     With one row per run, rows pair in file order, or by the lowest total `cost`
@@ -44,16 +48,17 @@ def _pair(runs, rows, cost=None):
     return [(max(runs, key=lambda a: a.mins), rows[-1])] if rows else []
 
 
-def _rows(name):
-    """Yield dict rows, skipping stray repeated headers and blank lines."""
+def _rows(name: str) -> Iterator[tuple[dt.date, dict[str, str]]]:
+    """Yield (date, row) pairs, skipping stray repeated headers and blank lines."""
     try:
         fh = open(config.path(name))
     except FileNotFoundError:
         return
     with fh:
         for r in csv.DictReader(fh):
-            if r.get("date") and _date(r["date"]):
-                yield r
+            d = _date(r.get("date"))
+            if d:
+                yield d, r
 
 
 class Activity:
@@ -71,8 +76,21 @@ class Activity:
         "type",
         "vert",
     )
+    date: dt.date
+    sport: str
+    group: str
+    km: float
+    mins: float
+    vert: float
+    # Attached from the side CSVs by Dataset.load.
+    type: str | None
+    feel: float | None
+    re: float | None
+    hr: float | None
+    name: str | None
+    note: str | None
 
-    def __init__(self, date, sport, km, mins, vert):
+    def __init__(self, date: dt.date, sport: str, km: float, mins: float, vert: float) -> None:
         self.date, self.sport = date, sport
         self.group = config.group_of(sport)
         self.km, self.mins, self.vert = km, mins, vert
@@ -80,19 +98,19 @@ class Activity:
         self.name = self.note = None
 
     @property
-    def vert_per_km(self):
+    def vert_per_km(self) -> float:
         return self.vert / self.km if self.km else 0.0
 
     @property
-    def pace(self):
+    def pace(self) -> float | None:
         """min/km."""
         return self.mins / self.km if self.km else None
 
     @property
-    def is_run(self):
+    def is_run(self) -> bool:
         return self.group == "run"
 
-    def est_hr(self):
+    def est_hr(self) -> float | None:
         """Measured HR when COROS has it, else the relative-effort model."""
         if self.hr:
             return self.hr
@@ -102,28 +120,33 @@ class Activity:
                 return config.HR_A + config.HR_B * math.log(per_h)
         return None
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"<{self.date} {self.sport} {self.km:.1f}km {self.mins:.0f}min>"
 
 
 class Dataset:
-    def __init__(self, activities, hills, segments):
+    def __init__(
+        self,
+        activities: list[Activity],
+        hills: list[dict[str, str]],
+        segments: list[dict[str, str]],
+    ) -> None:
         self.activities = sorted(activities, key=lambda a: (a.date, a.sport))
         self.hills, self.segments = hills, segments
         self.first = self.activities[0].date
         self.last = self.activities[-1].date
 
     @classmethod
-    def load(cls):
+    def load(cls) -> Self:
         acts = [
             Activity(
-                _date(r["date"]),
+                d,
                 r["sport"],
                 float(r["km"] or 0),
                 float(r["min"] or 0),
                 float(r["vert"] or 0),
             )
-            for r in _rows("activities.csv")
+            for d, r in _rows("activities.csv")
         ]
         if not acts:
             # The cache is personal data kept out of git, so a fresh checkout has none.
@@ -139,8 +162,8 @@ class Dataset:
         hr = _by_day("hr.csv", lambda r: (float(r["min"]), float(r["hr"])))
 
         notes = defaultdict(list)
-        for r in _rows("notes.csv"):
-            notes[_date(r["date"])].append((r.get("name") or "", r.get("note") or ""))
+        for d, r in _rows("notes.csv"):
+            notes[d].append((r.get("name") or "", r.get("note") or ""))
 
         runs = defaultdict(list)
         for a in acts:
@@ -160,12 +183,12 @@ class Dataset:
             for a, (name, note) in zip(same_day, items, strict=False):
                 a.name, a.note = name, note
 
-        return cls(acts, list(_rows("hills.csv")), list(_rows("segments.csv")))
+        return cls(acts, [r for _, r in _rows("hills.csv")], [r for _, r in _rows("segments.csv")])
 
-    def daily_load(self):
+    def daily_load(self) -> dict[dt.date, float]:
         """Load units per date: RE where Strava has it, else a scaled minute."""
-        runs = [a for a in self.activities if a.is_run and a.re and a.mins > 5]
-        rate = (sorted(a.re / a.mins for a in runs)[len(runs) // 2]) if runs else 0.35
+        rates = sorted(a.re / a.mins for a in self.activities if a.is_run and a.re and a.mins > 5)
+        rate = rates[len(rates) // 2] if rates else 0.35
         out = defaultdict(float)
         for a in self.activities:
             if a.is_run and a.re:

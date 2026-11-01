@@ -9,7 +9,7 @@ from pathlib import Path
 DATA = Path(__file__).absolute().parent.parent / "data"
 
 
-def path(name):
+def path(name: str) -> Path:
     return DATA / name
 
 
@@ -22,7 +22,7 @@ OTHER = {"Walk", "Other", "Swim"}
 GROUPS = [("run", RUN), ("bike", BIKE), ("gym", STRENGTH), ("hike", HIKE), ("other", OTHER)]
 
 
-def group_of(sport):
+def group_of(sport: str) -> str:
     for name, members in GROUPS:
         if sport in members:
             return name

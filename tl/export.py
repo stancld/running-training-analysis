@@ -2,11 +2,18 @@
 
 import datetime as dt
 import json
+from pathlib import Path
+from typing import TYPE_CHECKING, Any
 
 from tl import config, periods, plan
 
+if TYPE_CHECKING:
+    from tl.data import Dataset
+    from tl.diary import Entry
+    from tl.periods import Month, Period, Season, Week
 
-def _week(e):
+
+def _week(e: Entry) -> dict[str, Any]:
     w, p = e.week, e.plan
     return {
         "label": w.label,
@@ -78,7 +85,7 @@ def _week(e):
     }
 
 
-def _period(p):
+def _period(p: Period) -> dict[str, Any]:
     a = p.hr_at_pace()
     return {
         "label": p.label,
@@ -98,7 +105,7 @@ def _period(p):
     }
 
 
-def _zones(ds):
+def _zones(ds: Dataset) -> dict[str, Any]:
     """Running time per HR zone for each phase that has started."""
     out = []
     for code, name, *_ in plan.PHASES:
@@ -129,7 +136,9 @@ def _zones(ds):
     return {"bands": bands, "phases": out}
 
 
-def payload(ds, entries, months, seasons):
+def payload(
+    ds: Dataset, entries: list[Entry], months: list[Month], seasons: list[Season]
+) -> dict[str, Any]:
     return {
         # Local wall time without an offset, as the export has always written it.
         "generated": dt.datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S"),
@@ -171,12 +180,20 @@ def payload(ds, entries, months, seasons):
     }
 
 
-def write(obj, path):
+def write(obj: dict[str, Any], path: str | Path) -> None:
     with open(path, "w") as fh:
         json.dump(obj, fh, indent=1)
 
 
-def web_payload(ds, weeks, entries, months, seasons, fitness, diary_from=None):
+def web_payload(
+    ds: Dataset,
+    weeks: list[Week],
+    entries: list[Entry],
+    months: list[Month],
+    seasons: list[Season],
+    fitness: dict[dt.date, dict[str, float]],
+    diary_from: dt.date | None = None,
+) -> dict[str, Any]:
     """Trimmed payload for the diary page: enough to draw, not the whole cache."""
     diary_from = diary_from or plan.DIARY_START
     return {

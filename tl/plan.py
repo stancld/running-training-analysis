@@ -7,8 +7,12 @@ invented per week.
 """
 
 import datetime as dt
+from typing import TYPE_CHECKING, Any
 
 from tl import config
+
+if TYPE_CHECKING:
+    from tl.periods import Week
 
 # Weeks written week by week; beyond that a phase carries a band, not a number.
 HORIZON_WEEKS = 8
@@ -20,7 +24,8 @@ PLAN_START = dt.date(2026, 8, 31)
 DIARY_START = PLAN_START - dt.timedelta(days=7)
 
 # (monday, total_h, run_h, bike_h, gym_h, weekend format, race)
-_W = [
+type _Row = tuple[str, float, float, float, float, str, str | None]
+_W: list[_Row] = [
     ("2026-08-31", 11, 7.5, 3.5, 0, "Long 3:00", None),
     ("2026-09-07", 12, 8.0, 4.0, 0, "A · 3:00+2:30", None),
     ("2026-09-14", 11, 7.5, 3.5, 0, "Long 3:00", None),
@@ -63,7 +68,10 @@ PHASES = [
 
 
 class PlanWeek:
-    def __init__(self, i, row, phase):
+    run_km: float  # set by _build from the phase totals
+    run_vert: float
+
+    def __init__(self, i: int, row: _Row, phase: str) -> None:
         (d, h, r, b, g, we, race) = row
         self.index = i + 1
         self.start = dt.date.fromisoformat(d)
@@ -71,22 +79,21 @@ class PlanWeek:
         self.total_h, self.run_h, self.bike_h, self.gym_h = h, r, b, g
         self.weekend, self.race = we, race
         self.phase = phase
-        self.run_km = self.run_vert = None  # filled by _build
 
     @property
-    def to_race(self):
+    def to_race(self) -> int:
         return (RACE - self.start).days // 7
 
     @property
-    def committed(self):
+    def committed(self) -> bool:
         """Inside the detail horizon — a real weekly target, not a placeholder."""
         return self.start <= horizon_date()
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"<plan wk{self.index} {self.start} {self.run_h}h run>"
 
 
-def _build():
+def _build() -> list[PlanWeek]:
     weeks, i = [], 0
     for code, _name, n, km, vert in PHASES:
         rows = _W[i : i + n]
@@ -106,7 +113,7 @@ PHASE_NAME = {c: n for c, n, *_ in PHASES}
 PHASE_WEEKS = {c: [w for w in WEEKS if w.phase == c] for c, *_ in PHASES}
 
 
-def _bands():
+def _bands() -> dict[str, dict[str, tuple[float, float]]]:
     """Each phase's range, read off its own weeks.
 
     A band the plan already implies rather than a new set of invented numbers.
@@ -123,16 +130,16 @@ def _bands():
 PHASE_BANDS = _bands()
 
 
-def horizon_date():
+def horizon_date() -> dt.date:
     """Last Monday still written week by week."""
     return config.TODAY + dt.timedelta(weeks=HORIZON_WEEKS)
 
 
-def committed_weeks():
+def committed_weeks() -> list[PlanWeek]:
     return [w for w in WEEKS if w.start <= horizon_date()]
 
 
-def provisional_phases():
+def provisional_phases() -> list[dict[str, Any]]:
     """Phases with any week beyond the horizon, with their bands."""
     h = horizon_date()
     out = []
@@ -154,7 +161,7 @@ def provisional_phases():
     return out
 
 
-def week_for(d):
+def week_for(d: dt.date) -> PlanWeek | None:
     """The plan week containing date d, or None if outside the macrocycle."""
     for w in WEEKS:
         if w.start <= d <= w.end:
@@ -162,7 +169,9 @@ def week_for(d):
     return None
 
 
-def compare(actual, planned):
+def compare(
+    actual: Week, planned: PlanWeek | None
+) -> dict[str, tuple[float, float, float | None]] | None:
     """(actual, planned, actual/planned) per discipline, or None outside the plan."""
     if planned is None:
         return None
@@ -173,5 +182,5 @@ def compare(actual, planned):
     return out
 
 
-def weeks_to_race():
+def weeks_to_race() -> float:
     return (RACE - config.TODAY).days / 7

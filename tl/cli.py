@@ -25,7 +25,7 @@ from tl.periods import build_months, build_seasons, build_weeks, fitness_curve
 class Lab:
     """One load of the cache, everything derived from it."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.ds = Dataset.load()
         load = self.ds.daily_load()
         self.weeks = build_weeks(self.ds)
@@ -36,16 +36,16 @@ class Lab:
         self.by_start = {w.start: w for w in self.weeks}
 
 
-def _tail(seq, arg, default):
+def _tail[T](seq: list[T], arg: str | None, default: int) -> list[T]:
     if arg in ("all", "full"):
         return seq
     try:
-        return seq[-int(arg) :]
-    except TypeError, ValueError:
+        return seq[-int(arg) :] if arg else seq[-default:]
+    except ValueError:
         return seq[-default:]
 
 
-def cmd_status(lab, _arg=None):
+def cmd_status(lab: Lab, _arg: str | None = None) -> str:
     ds, out = lab.ds, []
     done = [w for w in lab.weeks if not w.partial]
     cur = next((w for w in lab.weeks if w.current), None)
@@ -108,23 +108,23 @@ def cmd_status(lab, _arg=None):
     return "\n".join(out)
 
 
-def cmd_weeks(lab, arg=None):
+def cmd_weeks(lab: Lab, arg: str | None = None) -> str:
     return render.weeks_table(_tail(lab.weeks, arg, 16))
 
 
-def cmd_months(lab, arg=None):
+def cmd_months(lab: Lab, arg: str | None = None) -> str:
     return render.months_table(_tail(lab.months, arg, len(lab.months)))
 
 
-def cmd_seasons(lab, _arg=None):
+def cmd_seasons(lab: Lab, _arg: str | None = None) -> str:
     return render.seasons_table(lab.seasons)
 
 
-def cmd_plan(lab, _arg=None):
+def cmd_plan(lab: Lab, _arg: str | None = None) -> str:
     return render.plan_table(lab.by_start)
 
 
-def cmd_diary(lab, arg=None):
+def cmd_diary(lab: Lab, arg: str | None = None) -> str:
     if arg and arg not in ("all", "full"):
         try:
             d = dt.date.fromisoformat(arg)
@@ -140,19 +140,19 @@ def cmd_diary(lab, arg=None):
     return head + "\n" + "\n".join(body)
 
 
-def cmd_hills(lab, _arg=None):
+def cmd_hills(lab: Lab, _arg: str | None = None) -> str:
     return render.hills_block(quality.hill_sessions(lab.ds))
 
 
-def cmd_segments(lab, _arg=None):
+def cmd_segments(lab: Lab, _arg: str | None = None) -> str:
     return render.segments_block(quality.segment_history(lab.ds))
 
 
-def cmd_reps(_lab, _arg=None):
+def cmd_reps(_lab: Lab, _arg: str | None = None) -> str:
     return render.reps_block(quality.rep_sessions())
 
 
-def cmd_site(lab, arg=None):
+def cmd_site(lab: Lab, arg: str | None = None) -> str:
     """Write the diary page's payload to web/src/payload.json.
 
     Pages cannot run tl (the CSVs never leave this machine), so the React app
@@ -179,7 +179,7 @@ def cmd_site(lab, arg=None):
     )
 
 
-def cmd_export(lab, arg=None):
+def cmd_export(lab: Lab, arg: str | None = None) -> str:
     path = arg or config.path("diary.json")
     obj = export.payload(lab.ds, lab.entries, lab.months, lab.seasons)
     export.write(obj, path)
@@ -203,7 +203,7 @@ COMMANDS = {
 DEFAULT = ["status", "weeks", "plan", "diary"]
 
 
-def main(argv=None):
+def main(argv: list[str] | None = None) -> int:
     argv = list(argv if argv is not None else sys.argv[1:])
     if argv and argv[0] in ("-h", "--help", "help"):
         print(__doc__)

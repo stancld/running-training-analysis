@@ -6,7 +6,9 @@ Expected values are worked out by hand from the rows, not read back from tl.
 
 import json
 import subprocess
+from collections.abc import Callable
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -16,11 +18,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.fixture
-def site(tmp_path, monkeypatch):
+def site(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Callable[[], dict[str, Any]]:
     """Run `tl site` on the cache in tmp_path and return the payload."""
     monkeypatch.setattr(config, "DATA", tmp_path)
 
-    def run():
+    def run() -> dict[str, Any]:
         out = tmp_path / "payload.json"
         assert cli.main(["site", str(out)]) == 0
         return json.loads(out.read_text())
@@ -28,7 +30,7 @@ def site(tmp_path, monkeypatch):
     return run
 
 
-def test_payload_carries_the_cache(tmp_path, site):
+def test_payload_carries_the_cache(tmp_path: Path, site: Callable[[], dict[str, Any]]) -> None:
     # The cache CI and the Playwright tests use, plus a stray header from hand-appending.
     subprocess.run([ROOT / "scripts" / "synthetic_cache.sh", tmp_path], check=True)
     with (tmp_path / "activities.csv").open("a") as fh:
@@ -53,7 +55,9 @@ def test_payload_carries_the_cache(tmp_path, site):
     assert (p1["minutes"], p1["measured"], p1["modelled"]) == ([0, 365, 0, 0, 0], 240, 125)
 
 
-def test_guardrails_fire_past_the_limit_not_at_it(tmp_path, site):
+def test_guardrails_fire_past_the_limit_not_at_it(
+    tmp_path: Path, site: Callable[[], dict[str, Any]]
+) -> None:
     # 4 h -> 5 h (WoW exactly 1.25, exactly 100 km) -> 6.5 h (WoW 1.30, 101 km).
     # ACWR on the last week is 6.5 / 5.17 = 1.26, under its 1.30 cap. June is outside Dec-Apr.
     (tmp_path / "activities.csv").write_text(

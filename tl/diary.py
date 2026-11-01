@@ -1,17 +1,27 @@
 """The training diary: one derived entry per week — day log, plan comparison, verdicts."""
 
 import datetime as dt
+from typing import TYPE_CHECKING
 
 from tl import config, plan
 from tl.data import runs_first
 from tl.periods import monotony
 from tl.render import hmm
 
+if TYPE_CHECKING:
+    from tl.data import Activity
+    from tl.periods import Week
+
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 
 class Entry:
-    def __init__(self, week, fitness, load):
+    def __init__(
+        self,
+        week: Week,
+        fitness: dict[dt.date, dict[str, float]],
+        load: dict[dt.date, float],
+    ) -> None:
         self.week = week
         self.plan = plan.week_for(week.start)
         self.cmp = plan.compare(week, self.plan)
@@ -19,14 +29,14 @@ class Entry:
         self.mono = monotony(load, week)
         self.fitness = fitness.get(min(week.end, config.TODAY))
 
-    def days(self):
+    def days(self) -> list[tuple[str, dt.date, list[Activity]]]:
         out = []
         for i in range(7):
             d = self.week.start + dt.timedelta(days=i)
             out.append((DAYS[i], d, runs_first(a for a in self.week.acts if a.date == d)))
         return out
 
-    def headline(self):
+    def headline(self) -> str:
         w = self.week
         if not w.acts:
             return "No training recorded."
@@ -42,7 +52,7 @@ class Entry:
             bits.append(f"{hmm(w.gym_h)} gym")
         return " · ".join(bits)
 
-    def _plan_notes(self):
+    def _plan_notes(self) -> list[str]:
         """How the finished week read against its plan targets."""
         out, w, c = [], self.week, self.cmp
         if c and not w.partial:
@@ -68,7 +78,7 @@ class Entry:
                 out.append(f"No gym logged against a {c['gym_h'][1]:.1f} h target (R5).")
         return out
 
-    def notes(self):
+    def notes(self) -> list[str]:
         out, w = self._plan_notes(), self.week
         lr = w.longest_run
         if lr:
@@ -106,12 +116,14 @@ class Entry:
             out.append(f"[{code}] {msg}")
         return out
 
-    def highlights(self):
+    def highlights(self) -> list[tuple[dt.date, str | None, str]]:
         """Dan's session notes for the week."""
         return [
             (a.date, a.name, a.note) for a in sorted(self.week.acts, key=lambda a: a.date) if a.note
         ]
 
 
-def build(weeks, fitness, load):
+def build(
+    weeks: list[Week], fitness: dict[dt.date, dict[str, float]], load: dict[dt.date, float]
+) -> list[Entry]:
     return [Entry(w, fitness, load) for w in weeks]

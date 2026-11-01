@@ -2,11 +2,15 @@
 
 import csv
 from collections import defaultdict
+from typing import TYPE_CHECKING, Any
 
 from tl import config
 
+if TYPE_CHECKING:
+    from tl.data import Dataset
 
-def hill_sessions(ds):
+
+def hill_sessions(ds: Dataset) -> list[dict[str, Any]]:
     sessions = defaultdict(list)
     for r in ds.hills:
         sessions[(r["date"], r["session"])].append(r)
@@ -53,7 +57,7 @@ def hill_sessions(ds):
     return out
 
 
-def segment_history(ds):
+def segment_history(ds: Dataset) -> list[dict[str, Any]]:
     rows_by_segment = defaultdict(list)
     for r in ds.segments:
         rows_by_segment[r["segment"]].append(r)
@@ -93,7 +97,7 @@ def segment_history(ds):
     return out
 
 
-def rep_sessions():
+def rep_sessions() -> list[dict[str, Any]]:
     """Flat 1k-rep sessions from reps.csv — the threshold-pace record."""
     out = []
     try:
