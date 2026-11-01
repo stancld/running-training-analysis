@@ -6,7 +6,7 @@ import itertools
 import math
 from collections import defaultdict
 
-from . import config as C
+from tl import config
 
 
 def _date(s):
@@ -44,7 +44,7 @@ def _pair(runs, rows, cost=None):
 def _rows(name):
     """Yield dict rows, skipping stray repeated headers and blank lines."""
     try:
-        fh = open(C.path(name))
+        fh = open(config.path(name))
     except FileNotFoundError:
         return
     with fh:
@@ -71,7 +71,7 @@ class Activity:
 
     def __init__(self, date, sport, km, mins, vert):
         self.date, self.sport = date, sport
-        self.group = C.group_of(sport)
+        self.group = config.group_of(sport)
         self.km, self.mins, self.vert = km, mins, vert
         self.type = self.feel = self.re = self.hr = None
         self.name = self.note = None
@@ -96,7 +96,7 @@ class Activity:
         if self.re and self.mins:
             per_h = self.re / (self.mins / 60)
             if per_h > 0:
-                return C.HR_A + C.HR_B * math.log(per_h)
+                return config.HR_A + config.HR_B * math.log(per_h)
         return None
 
     def __repr__(self):
@@ -125,7 +125,9 @@ class Dataset:
             )
         if not acts:
             # The cache is personal data kept out of git, so a fresh checkout has none.
-            raise SystemExit(f"no activities in {C.path('activities.csv')}; top up the cache first")
+            raise SystemExit(
+                f"no activities in {config.path('activities.csv')}; top up the cache first"
+            )
 
         labels = _by_day(
             "labels.csv",
@@ -167,5 +169,5 @@ class Dataset:
             if a.is_run and a.re:
                 out[a.date] += a.re
             else:
-                out[a.date] += a.mins * rate * C.LOAD_RATIO[a.group]
+                out[a.date] += a.mins * rate * config.LOAD_RATIO[a.group]
         return dict(out)

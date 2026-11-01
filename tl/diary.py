@@ -2,11 +2,10 @@
 
 import datetime as dt
 
-from . import config as C
-from . import plan
-from .data import runs_first
-from .periods import monotony
-from .render import hmm
+from tl import config, plan
+from tl.data import runs_first
+from tl.periods import monotony
+from tl.render import hmm
 
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
@@ -18,7 +17,7 @@ class Entry:
         self.cmp = plan.compare(week, self.plan)
         self.flags = week.flags()
         self.mono = monotony(load, week)
-        self.fitness = fitness.get(min(week.end, C.TODAY))
+        self.fitness = fitness.get(min(week.end, config.TODAY))
 
     def days(self):
         out = []
@@ -86,9 +85,9 @@ class Entry:
                 )
             )
         if w.density and w.run_h > 4:
-            verdict = "above" if w.density >= C.VERT_FLOOR else "below"
+            verdict = "above" if w.density >= config.VERT_FLOOR else "below"
             out.append(
-                f"Vert density {w.density:.0f} m/h — {verdict} the {C.VERT_FLOOR} m/h floor."
+                f"Vert density {w.density:.0f} m/h — {verdict} the {config.VERT_FLOOR} m/h floor."
             )
         if self.mono and self.mono > 2.0:
             out.append(

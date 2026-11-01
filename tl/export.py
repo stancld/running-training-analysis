@@ -3,8 +3,7 @@
 import datetime as dt
 import json
 
-from . import config as C
-from . import plan
+from tl import config, plan
 
 
 def _week(e):
@@ -102,7 +101,7 @@ def _period(p):
 def payload(ds, entries, months, seasons):
     return {
         "generated": dt.datetime.now().isoformat(timespec="seconds"),
-        "today": C.TODAY.isoformat(),
+        "today": config.TODAY.isoformat(),
         "race": {
             "name": plan.RACE_NAME,
             "date": plan.RACE.isoformat(),
@@ -112,7 +111,7 @@ def payload(ds, entries, months, seasons):
             "first": ds.first.isoformat(),
             "last": ds.last.isoformat(),
             "activities": len(ds.activities),
-            "stale_days": (C.TODAY - ds.last).days,
+            "stale_days": (config.TODAY - ds.last).days,
         },
         "phases": [
             {"code": c, "name": n, "weeks": k, "km": km, "vert": v}
@@ -150,7 +149,7 @@ def web_payload(ds, weeks, entries, months, seasons, fitness, diary_from=None):
     diary_from = diary_from or plan.DIARY_START
     return {
         "generated": dt.datetime.now().strftime("%d %B %Y, %H:%M"),
-        "today": C.TODAY.isoformat(),
+        "today": config.TODAY.isoformat(),
         "race": {
             "name": plan.RACE_NAME,
             "date": plan.RACE.isoformat(),
@@ -160,7 +159,7 @@ def web_payload(ds, weeks, entries, months, seasons, fitness, diary_from=None):
             "first": ds.first.isoformat(),
             "last": ds.last.isoformat(),
             "n": len(ds.activities),
-            "stale": (C.TODAY - ds.last).days,
+            "stale": (config.TODAY - ds.last).days,
         },
         "seasons": [_period(s) for s in seasons],
         "months": [_period(m) for m in months],
@@ -227,13 +226,13 @@ def web_payload(ds, weeks, entries, months, seasons, fitness, diary_from=None):
         "fitness": [
             {"date": d.isoformat(), **{k: round(v, 1) for k, v in f.items()}}
             for d, f in fitness.items()
-            if C.TODAY - dt.timedelta(days=83) <= d <= C.TODAY
+            if config.TODAY - dt.timedelta(days=83) <= d <= config.TODAY
         ],
         "guardrails": {
-            "wow": C.WOW_CAP,
-            "acwr": C.ACWR_CAP,
-            "vert_floor": C.VERT_FLOOR,
-            "big_week_h": C.BIG_WEEK_H,
-            "km": C.KM_CEILING,
+            "wow": config.WOW_CAP,
+            "acwr": config.ACWR_CAP,
+            "vert_floor": config.VERT_FLOOR,
+            "big_week_h": config.BIG_WEEK_H,
+            "km": config.KM_CEILING,
         },
     }

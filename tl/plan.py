@@ -8,7 +8,7 @@ invented per week.
 
 import datetime as dt
 
-from . import config as C
+from tl import config
 
 # Weeks written week by week; beyond that a phase carries a band, not a number.
 HORIZON_WEEKS = 8
@@ -123,7 +123,7 @@ PHASE_BANDS = _bands()
 
 def horizon_date():
     """Last Monday still written week by week."""
-    return C.TODAY + dt.timedelta(weeks=HORIZON_WEEKS)
+    return config.TODAY + dt.timedelta(weeks=HORIZON_WEEKS)
 
 
 def committed_weeks():
@@ -172,4 +172,4 @@ def compare(actual, planned):
 
 
 def weeks_to_race():
-    return (RACE - C.TODAY).days / 7
+    return (RACE - config.TODAY).days / 7

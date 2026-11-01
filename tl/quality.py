@@ -3,7 +3,7 @@
 import csv
 from collections import defaultdict
 
-from . import config as C
+from tl import config
 
 
 def hill_sessions(ds):
@@ -97,7 +97,7 @@ def rep_sessions():
     """Flat 1k-rep sessions from reps.csv — the threshold-pace record."""
     out = []
     try:
-        fh = open(C.path("reps.csv"))
+        fh = open(config.path("reps.csv"))
     except FileNotFoundError:
         return out
     with fh:

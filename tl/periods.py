@@ -8,7 +8,7 @@ import itertools
 import math
 from collections import defaultdict
 
-from . import config as C
+from tl import config
 
 
 def week_start(d):
@@ -25,7 +25,7 @@ class Period:
 
     def __init__(self, start, end, acts):
         self.start, self.end, self.acts = start, end, acts
-        for name, _ in C.GROUPS:
+        for name, _ in config.GROUPS:
             sel = [a for a in acts if a.group == name]
             setattr(self, name + "_h", sum(a.mins for a in sel) / 60)
             setattr(self, name + "_km", sum(a.km for a in sel))
@@ -57,7 +57,7 @@ class Period:
 
     @property
     def quality(self):
-        return [a for a in self.runs if a.type in C.QUALITY]
+        return [a for a in self.runs if a.type in config.QUALITY]
 
     @property
     def feels(self):
@@ -70,7 +70,7 @@ class Period:
 
     @property
     def partial(self):
-        return self.end > C.TODAY
+        return self.end > config.TODAY
 
     def hr_at_pace(self):
         """Mean easy/long HR and pace — the aerobic-drift read."""
@@ -98,7 +98,7 @@ class Week(Period):
 
     @property
     def current(self):
-        return self.start <= C.TODAY <= self.end
+        return self.start <= config.TODAY <= self.end
 
     @property
     def wow(self):
@@ -125,21 +125,21 @@ class Week(Period):
         out = []
         if self.partial:
             return out
-        if self.wow and self.wow > C.WOW_CAP and self.run_h > 3:
-            out.append(("R1", f"week-over-week {self.wow:.2f}x > {C.WOW_CAP}"))
-        if self.acwr and self.acwr > C.ACWR_CAP and self.run_h > 3:
-            out.append(("R2", f"ACWR {self.acwr:.2f} > {C.ACWR_CAP}"))
-        if self.run_h > C.BIG_WEEK_H and self.density < C.VERT_FLOOR:
+        if self.wow and self.wow > config.WOW_CAP and self.run_h > 3:
+            out.append(("R1", f"week-over-week {self.wow:.2f}x > {config.WOW_CAP}"))
+        if self.acwr and self.acwr > config.ACWR_CAP and self.run_h > 3:
+            out.append(("R2", f"ACWR {self.acwr:.2f} > {config.ACWR_CAP}"))
+        if self.run_h > config.BIG_WEEK_H and self.density < config.VERT_FLOOR:
             out.append(("R3", f"{self.density:.0f} m/h on a {self.run_h:.1f} h week — flat volume"))
         # R4 bans I/R, but the ban exists to keep hard running off flat ground.
         # An uphill rep session carries the intent, so only flat ones are flagged.
-        flat_hard = [a for a in self.runs if a.type in C.BANNED_TYPES and a.vert_per_km < 20]
+        flat_hard = [a for a in self.runs if a.type in config.BANNED_TYPES and a.vert_per_km < 20]
         if flat_hard:
             kinds = sorted({a.type for a in flat_hard})
             out.append(("R4", f"flat {'/'.join(kinds)} session this season"))
-        if self.run_km > C.KM_CEILING:
-            out.append(("R6", f"{self.run_km:.0f} km > {C.KM_CEILING:.0f} km ceiling"))
-        if self.start.month in C.RISK_MONTHS and self.run_h > C.BIG_WEEK_H:
+        if self.run_km > config.KM_CEILING:
+            out.append(("R6", f"{self.run_km:.0f} km > {config.KM_CEILING:.0f} km ceiling"))
+        if self.start.month in config.RISK_MONTHS and self.run_h > config.BIG_WEEK_H:
             out.append(("--", "big week inside the Dec-Apr injury window"))
         return out
 
@@ -195,9 +195,9 @@ def fitness_curve(ds, load):
     is what carries information.
     """
     ctl = atl = 0.0
-    kc, ka = 1 - math.exp(-1 / C.CTL_TAU), 1 - math.exp(-1 / C.ATL_TAU)
+    kc, ka = 1 - math.exp(-1 / config.CTL_TAU), 1 - math.exp(-1 / config.ATL_TAU)
     out, d = {}, ds.first
-    while d <= max(ds.last, C.TODAY):
+    while d <= max(ds.last, config.TODAY):
         v = load.get(d, 0.0)
         ctl += (v - ctl) * kc
         atl += (v - atl) * ka

@@ -17,12 +17,9 @@ import json
 import os
 import sys
 
-from . import config as C
-from . import diary as diary_mod
-from . import export as export_mod
-from . import plan, quality, render
-from .data import Dataset
-from .periods import build_months, build_seasons, build_weeks, fitness_curve
+from tl import config, diary, export, plan, quality, render
+from tl.data import Dataset
+from tl.periods import build_months, build_seasons, build_weeks, fitness_curve
 
 
 class Lab:
@@ -35,7 +32,7 @@ class Lab:
         self.months = build_months(self.ds)
         self.seasons = build_seasons(self.ds)
         self.fitness = fitness_curve(self.ds, load)
-        self.entries = diary_mod.build(self.weeks, self.fitness, load)
+        self.entries = diary.build(self.weeks, self.fitness, load)
         self.by_start = {w.start: w for w in self.weeks}
 
 
@@ -52,8 +49,8 @@ def cmd_status(lab, arg=None):
     ds, out = lab.ds, []
     done = [w for w in lab.weeks if not w.partial]
     cur = next((w for w in lab.weeks if w.current), None)
-    p = plan.week_for(C.TODAY)
-    out.append(render.title(f"CHIANTI PREP — {C.TODAY:%A %d %B %Y}"))
+    p = plan.week_for(config.TODAY)
+    out.append(render.title(f"CHIANTI PREP — {config.TODAY:%A %d %B %Y}"))
     out.append(
         f"  {plan.RACE_NAME}, {plan.RACE:%d %B %Y} — "
         f"{plan.weeks_to_race():.1f} weeks out"
@@ -61,7 +58,7 @@ def cmd_status(lab, arg=None):
     )
     out.append(
         f"  Cache: {len(ds.activities)} activities, {ds.first} → {ds.last} "
-        f"({(C.TODAY - ds.last).days} d behind today)"
+        f"({(config.TODAY - ds.last).days} d behind today)"
     )
     last4 = done[-4:]
     prev4 = done[-8:-4]
@@ -79,15 +76,15 @@ def cmd_status(lab, arg=None):
     )
     out.append(
         f"  4-week vert density   {dens:.0f} m/h   "
-        + ("above" if dens >= C.VERT_FLOOR else "BELOW")
-        + f" the {C.VERT_FLOOR} m/h floor"
+        + ("above" if dens >= config.VERT_FLOOR else "BELOW")
+        + f" the {config.VERT_FLOOR} m/h floor"
     )
-    f = lab.fitness.get(C.TODAY) or lab.fitness[max(lab.fitness)]
+    f = lab.fitness.get(config.TODAY) or lab.fitness[max(lab.fitness)]
     out.append(
         f"  Fitness / fatigue     CTL {f['ctl']:.0f} · ATL {f['atl']:.0f} · form {f['tsb']:+.0f}"
     )
     if cur and p:
-        elapsed = (min(C.TODAY, cur.end) - cur.start).days + 1
+        elapsed = (min(config.TODAY, cur.end) - cur.start).days + 1
         out.append("")
         out.append(
             f"  This week ({cur.label}, {elapsed}/7 days): "
@@ -106,7 +103,7 @@ def cmd_status(lab, arg=None):
                 out.append(f"    {w.label}  [{c}] {m}")
     else:
         out.append("  No guardrail flags in the last six completed weeks.")
-    if C.TODAY.month in C.RISK_MONTHS:
+    if config.TODAY.month in config.RISK_MONTHS:
         out.append("  Calendar is inside the Dec–Apr injury window — hold R1 hard.")
     return "\n".join(out)
 
@@ -164,13 +161,13 @@ def cmd_site(lab, arg=None):
     week before the macrocycle opens, so the entries lead in with week 1's setup.
     """
     since = None
-    out = os.path.join(os.path.dirname(C.DATA), "web", "src", "payload.json")
+    out = os.path.join(os.path.dirname(config.DATA), "web", "src", "payload.json")
     if arg:
         try:
             since = dt.date.fromisoformat(arg)
         except ValueError:
             out = arg
-    obj = export_mod.web_payload(
+    obj = export.web_payload(
         lab.ds, lab.weeks, lab.entries, lab.months, lab.seasons, lab.fitness, diary_from=since
     )
     with open(out, "w") as fh:
@@ -183,9 +180,9 @@ def cmd_site(lab, arg=None):
 
 
 def cmd_export(lab, arg=None):
-    path = arg or C.path("diary.json")
-    obj = export_mod.payload(lab.ds, lab.entries, lab.months, lab.seasons)
-    export_mod.write(obj, path)
+    path = arg or config.path("diary.json")
+    obj = export.payload(lab.ds, lab.entries, lab.months, lab.seasons)
+    export.write(obj, path)
     return f"wrote {path}  ({len(obj['weeks'])} weeks, {len(obj['months'])} months)"
 
 

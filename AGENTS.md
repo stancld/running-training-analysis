@@ -53,7 +53,10 @@ against the data. Run pre-commit before every commit; Ruff settings live in `ruf
 
 ## Code style
 
-- Small modules, plain functions and classes; inside `tl`, keep the existing relative imports.
+- Small modules, plain functions and classes.
+- Absolute imports under real module names: `from tl import config`, then `config.WOW_CAP`;
+  no relative imports or aliases like `config as C`. Ruff enforces both (TID252, ICN001);
+  a new module also goes in `ruff.toml`'s import-conventions list.
 - Comments and docstrings say *why* in 2–3 lines; skip narration the code already states.
 - No dead code, compatibility shims or speculative configuration.
 

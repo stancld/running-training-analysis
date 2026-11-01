@@ -1,7 +1,6 @@
 """Terminal rendering. Plain ASCII tables, tabular numbers, no dependencies."""
 
-from . import config as C
-from . import plan
+from tl import config, plan
 
 W = 100
 
@@ -45,7 +44,7 @@ def weeks_table(weeks):
         p = plan.week_for(w.start)
         f = [f"{c}:{m}" for c, m in w.flags()]
         if w.current:
-            f.insert(0, f"current, through {C.TODAY}")
+            f.insert(0, f"current, through {config.TODAY}")
         row = (
             f"{w.label:11} {w.start!s:11} {w.run_h:6.1f} {w.run_km:6.1f} "
             f"{w.run_vert:6.0f} {w.density:5.0f} {w.bike_h:5.1f} {w.gym_h:4.1f} "
@@ -59,9 +58,9 @@ def weeks_table(weeks):
             row += f" {'-':>5} {'-':>5}"
         L.append(row + "  " + ("; ".join(f) if f else "ok"))
     L.append(
-        f"\n  Guardrails: WoW <= {C.WOW_CAP}x, ACWR <= {C.ACWR_CAP}, "
-        f">= {C.VERT_FLOOR} m/h above {C.BIG_WEEK_H} h, "
-        f"<= {C.KM_CEILING:.0f} km/wk, no flat I/R."
+        f"\n  Guardrails: WoW <= {config.WOW_CAP}x, ACWR <= {config.ACWR_CAP}, "
+        f">= {config.VERT_FLOOR} m/h above {config.BIG_WEEK_H} h, "
+        f"<= {config.KM_CEILING:.0f} km/wk, no flat I/R."
     )
     return "\n".join(L)
 
