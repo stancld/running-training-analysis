@@ -1,16 +1,16 @@
 {
- "generated": "2026-09-06T08:49:29",
- "today": "2026-09-06",
+ "generated": "2026-11-01T14:36:18",
+ "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
   "date": "2027-03-20",
-  "weeks_to_go": 27.9
+  "weeks_to_go": 19.9
  },
  "cache": {
   "first": "2023-01-04",
-  "last": "2026-09-05",
-  "activities": 1619,
-  "stale_days": 1
+  "last": "2026-11-01",
+  "activities": 1684,
+  "stale_days": 0
  },
  "phases": [
   {
@@ -639,7 +639,7 @@
    "feel": null,
    "monotony": 0.86,
    "ctl": 2.6,
-   "atl": 8.2,
+   "atl": 8.3,
    "tsb": -5.6,
    "flags": [
     {
@@ -1210,7 +1210,7 @@
    "acwr": 1.42,
    "feel": null,
    "monotony": 1.43,
-   "ctl": 6.5,
+   "ctl": 6.6,
    "atl": 11.5,
    "tsb": -5.0,
    "flags": [
@@ -1368,7 +1368,7 @@
    "acwr": 1.05,
    "feel": 1.0,
    "monotony": 1.46,
-   "ctl": 7.6,
+   "ctl": 7.7,
    "atl": 13.0,
    "tsb": -5.4,
    "flags": [],
@@ -1510,8 +1510,8 @@
    "acwr": 1.24,
    "feel": 1.0,
    "monotony": 1.35,
-   "ctl": 8.5,
-   "atl": 13.7,
+   "ctl": 8.6,
+   "atl": 13.8,
    "tsb": -5.2,
    "flags": [
     {
@@ -1649,8 +1649,8 @@
    "feel": null,
    "monotony": 1.26,
    "ctl": 9.7,
-   "atl": 15.0,
-   "tsb": -5.3,
+   "atl": 15.1,
+   "tsb": -5.4,
    "flags": [],
    "notes": [
     "Longest run 2:11 / 19.3 km / 1538 m on Sat.",
@@ -2313,7 +2313,7 @@
    "feel": 1.0,
    "monotony": 1.79,
    "ctl": 10.3,
-   "atl": 13.7,
+   "atl": 13.8,
    "tsb": -3.5,
    "flags": [],
    "notes": [
@@ -2642,7 +2642,7 @@
    "acwr": 1.39,
    "feel": null,
    "monotony": 1.91,
-   "ctl": 13.7,
+   "ctl": 13.8,
    "atl": 23.1,
    "tsb": -9.4,
    "flags": [
@@ -3014,8 +3014,8 @@
    "feel": 0.0,
    "monotony": 1.41,
    "ctl": 18.9,
-   "atl": 30.5,
-   "tsb": -11.6,
+   "atl": 30.6,
+   "tsb": -11.7,
    "flags": [],
    "notes": [
     "Longest run 0:57 / 11.7 km / 26 m on Sat.",
@@ -3222,7 +3222,7 @@
    "acwr": 0.85,
    "feel": null,
    "monotony": 2.66,
-   "ctl": 19.3,
+   "ctl": 19.4,
    "atl": 25.4,
    "tsb": -6.1,
    "flags": [],
@@ -3444,8 +3444,8 @@
    "acwr": 0.69,
    "feel": 1.0,
    "monotony": 2.75,
-   "ctl": 18.6,
-   "atl": 18.7,
+   "ctl": 18.7,
+   "atl": 18.8,
    "tsb": -0.1,
    "flags": [],
    "notes": [
@@ -3644,8 +3644,8 @@
    "acwr": 1.18,
    "feel": -1.0,
    "monotony": 0.61,
-   "ctl": 21.4,
-   "atl": 35.1,
+   "ctl": 21.5,
+   "atl": 35.2,
    "tsb": -13.7,
    "flags": [
     {
@@ -3793,8 +3793,8 @@
    "acwr": 0.51,
    "feel": null,
    "monotony": 1.43,
-   "ctl": 21.4,
-   "atl": 27.9,
+   "ctl": 21.5,
+   "atl": 28.0,
    "tsb": -6.5,
    "flags": [],
    "notes": [
@@ -3977,8 +3977,8 @@
    "acwr": 1.19,
    "feel": 1.0,
    "monotony": 1.26,
-   "ctl": 21.7,
-   "atl": 26.4,
+   "ctl": 21.8,
+   "atl": 26.5,
    "tsb": -4.7,
    "flags": [
     {
@@ -4344,9 +4344,9 @@
    "wow": 0.32,
    "acwr": 0.52,
    "feel": null,
-   "monotony": 1.18,
+   "monotony": 1.17,
    "ctl": 21.2,
-   "atl": 19.5,
+   "atl": 19.6,
    "tsb": 1.6,
    "flags": [],
    "notes": [
@@ -4707,7 +4707,7 @@
    "feel": null,
    "monotony": 1.56,
    "ctl": 21.4,
-   "atl": 24.7,
+   "atl": 24.8,
    "tsb": -3.3,
    "flags": [
     {
@@ -4867,8 +4867,8 @@
    "feel": null,
    "monotony": 1.17,
    "ctl": 21.3,
-   "atl": 23.4,
-   "tsb": -2.1,
+   "atl": 23.5,
+   "tsb": -2.2,
    "flags": [
     {
      "code": "R2",
@@ -5048,9 +5048,9 @@
    "acwr": 0.87,
    "feel": 1.0,
    "monotony": 1.2,
-   "ctl": 20.3,
+   "ctl": 20.4,
    "atl": 18.5,
-   "tsb": 1.8,
+   "tsb": 1.9,
    "flags": [],
    "notes": [
     "Longest run 1:25 / 17.4 km / 51 m on Tue.",
@@ -5204,7 +5204,7 @@
    "feel": -0.5,
    "monotony": 1.57,
    "ctl": 20.8,
-   "atl": 22.9,
+   "atl": 23.0,
    "tsb": -2.2,
    "flags": [
     {
@@ -5642,7 +5642,7 @@
    "monotony": 1.53,
    "ctl": 21.2,
    "atl": 22.6,
-   "tsb": -1.5,
+   "tsb": -1.4,
    "flags": [],
    "notes": [
     "Longest run 2:00 / 25.4 km / 239 m on Sun.",
@@ -5937,7 +5937,7 @@
    "acwr": 0.86,
    "feel": 0.5,
    "monotony": 1.5,
-   "ctl": 19.7,
+   "ctl": 19.8,
    "atl": 18.1,
    "tsb": 1.6,
    "flags": [
@@ -6154,7 +6154,7 @@
    "acwr": 1.23,
    "feel": -1.0,
    "monotony": 1.81,
-   "ctl": 19.8,
+   "ctl": 19.9,
    "atl": 19.9,
    "tsb": -0.1,
    "flags": [
@@ -6997,7 +6997,7 @@
    "acwr": 0.78,
    "feel": -1.0,
    "monotony": 1.17,
-   "ctl": 21.0,
+   "ctl": 21.1,
    "atl": 19.7,
    "tsb": 1.4,
    "flags": [],
@@ -7992,7 +7992,7 @@
    "acwr": null,
    "feel": null,
    "monotony": null,
-   "ctl": 15.5,
+   "ctl": 15.6,
    "atl": 2.3,
    "tsb": 13.2,
    "flags": [],
@@ -8244,7 +8244,7 @@
    "acwr": 2.39,
    "feel": 0.0,
    "monotony": 1.43,
-   "ctl": 12.0,
+   "ctl": 12.1,
    "atl": 8.6,
    "tsb": 3.5,
    "flags": [
@@ -8386,7 +8386,7 @@
    "acwr": 1.11,
    "feel": 0.0,
    "monotony": 1.11,
-   "ctl": 11.3,
+   "ctl": 11.4,
    "atl": 7.1,
    "tsb": 4.2,
    "flags": [],
@@ -8515,8 +8515,8 @@
    "acwr": 1.13,
    "feel": 1.0,
    "monotony": 1.36,
-   "ctl": 12.8,
-   "atl": 14.1,
+   "ctl": 12.9,
+   "atl": 14.2,
    "tsb": -1.3,
    "flags": [
     {
@@ -9016,9 +9016,9 @@
    "acwr": 1.12,
    "feel": 2.0,
    "monotony": 1.98,
-   "ctl": 14.1,
+   "ctl": 14.2,
    "atl": 16.6,
-   "tsb": -2.4,
+   "tsb": -2.5,
    "flags": [],
    "notes": [
     "Longest run 1:40 / 19.4 km / 443 m on Sat.",
@@ -9160,7 +9160,7 @@
    "feel": -0.5,
    "monotony": 1.7,
    "ctl": 15.0,
-   "atl": 18.4,
+   "atl": 18.5,
    "tsb": -3.5,
    "flags": [],
    "notes": [
@@ -9325,7 +9325,7 @@
    "acwr": 0.99,
    "feel": 0.0,
    "monotony": 1.26,
-   "ctl": 15.4,
+   "ctl": 15.5,
    "atl": 18.6,
    "tsb": -3.2,
    "flags": [
@@ -9474,7 +9474,7 @@
    "wow": 1.08,
    "acwr": 1.04,
    "feel": -1.0,
-   "monotony": 1.65,
+   "monotony": 1.66,
    "ctl": 16.8,
    "atl": 22.3,
    "tsb": -5.5,
@@ -9669,7 +9669,7 @@
    "wow": 1.05,
    "acwr": 1.08,
    "feel": 0.0,
-   "monotony": 2.04,
+   "monotony": 2.05,
    "ctl": 18.4,
    "atl": 26.4,
    "tsb": -8.0,
@@ -9877,7 +9877,7 @@
    "acwr": 0.76,
    "feel": 1.0,
    "monotony": 0.97,
-   "ctl": 18.5,
+   "ctl": 18.6,
    "atl": 23.0,
    "tsb": -4.5,
    "flags": [],
@@ -10396,8 +10396,8 @@
    "acwr": 0.09,
    "feel": 0.0,
    "monotony": 0.91,
-   "ctl": 18.2,
-   "atl": 18.0,
+   "ctl": 18.3,
+   "atl": 18.1,
    "tsb": 0.2,
    "flags": [],
    "notes": [
@@ -10886,8 +10886,8 @@
    "acwr": 2.3,
    "feel": 1.5,
    "monotony": 1.31,
-   "ctl": 21.2,
-   "atl": 32.4,
+   "ctl": 21.3,
+   "atl": 32.5,
    "tsb": -11.2,
    "flags": [
     {
@@ -11074,7 +11074,7 @@
    "feel": -2.0,
    "monotony": 0.55,
    "ctl": 25.9,
-   "atl": 49.5,
+   "atl": 49.6,
    "tsb": -23.7,
    "flags": [
     {
@@ -11240,7 +11240,7 @@
    "acwr": 1.79,
    "feel": -1.0,
    "monotony": 0.95,
-   "ctl": 25.1,
+   "ctl": 25.2,
    "atl": 33.6,
    "tsb": -8.4,
    "flags": [
@@ -11571,7 +11571,7 @@
    "acwr": 0.82,
    "feel": null,
    "monotony": 0.73,
-   "ctl": 25.3,
+   "ctl": 25.4,
    "atl": 29.6,
    "tsb": -4.3,
    "flags": [],
@@ -11973,8 +11973,8 @@
    "acwr": 1.17,
    "feel": 0.5,
    "monotony": 1.26,
-   "ctl": 24.3,
-   "atl": 22.3,
+   "ctl": 24.4,
+   "atl": 22.4,
    "tsb": 2.0,
    "flags": [],
    "notes": [
@@ -12140,7 +12140,7 @@
    "feel": null,
    "monotony": 1.02,
    "ctl": 21.8,
-   "atl": 13.9,
+   "atl": 14.0,
    "tsb": 7.8,
    "flags": [],
    "notes": [
@@ -12394,8 +12394,8 @@
    "acwr": 1.32,
    "feel": -1.0,
    "monotony": 1.24,
-   "ctl": 21.0,
-   "atl": 21.7,
+   "ctl": 21.1,
+   "atl": 21.8,
    "tsb": -0.7,
    "flags": [
     {
@@ -12703,7 +12703,7 @@
    "wow": 1.06,
    "acwr": 1.11,
    "feel": null,
-   "monotony": 2.1,
+   "monotony": 2.11,
    "ctl": 25.0,
    "atl": 33.0,
    "tsb": -8.0,
@@ -13854,8 +13854,8 @@
    "wow": 1.36,
    "acwr": 0.56,
    "feel": 1.0,
-   "monotony": 1.18,
-   "ctl": 26.4,
+   "monotony": 1.19,
+   "ctl": 26.5,
    "atl": 24.9,
    "tsb": 1.5,
    "flags": [
@@ -14115,7 +14115,7 @@
    "feel": 1.5,
    "monotony": 0.54,
    "ctl": 27.8,
-   "atl": 34.4,
+   "atl": 34.5,
    "tsb": -6.7,
    "flags": [
     {
@@ -14324,7 +14324,7 @@
    "feel": -1.0,
    "monotony": 1.68,
    "ctl": 26.1,
-   "atl": 24.4,
+   "atl": 24.5,
    "tsb": 1.7,
    "flags": [],
    "notes": [
@@ -14532,9 +14532,9 @@
    "acwr": 0.19,
    "feel": null,
    "monotony": 1.58,
-   "ctl": 23.1,
+   "ctl": 23.2,
    "atl": 13.2,
-   "tsb": 9.9,
+   "tsb": 10.0,
    "flags": [],
    "notes": [
     "Longest run 0:35 / 6.8 km / 167 m on Sun."
@@ -14704,7 +14704,7 @@
    "wow": 9.51,
    "acwr": 1.5,
    "feel": null,
-   "monotony": 1.25,
+   "monotony": 1.26,
    "ctl": 23.0,
    "atl": 20.0,
    "tsb": 3.0,
@@ -14846,8 +14846,8 @@
    "acwr": 2.0,
    "feel": 0.0,
    "monotony": 1.25,
-   "ctl": 25.5,
-   "atl": 32.8,
+   "ctl": 25.6,
+   "atl": 32.9,
    "tsb": -7.3,
    "flags": [
     {
@@ -15496,9 +15496,9 @@
    "acwr": 0.68,
    "feel": null,
    "monotony": 1.45,
-   "ctl": 28.7,
+   "ctl": 28.8,
    "atl": 31.1,
-   "tsb": -2.3,
+   "tsb": -2.4,
    "flags": [],
    "notes": [
     "Longest run 1:06 / 12.5 km / 216 m on Sun."
@@ -15947,8 +15947,8 @@
    "acwr": 1.38,
    "feel": null,
    "monotony": 1.77,
-   "ctl": 29.3,
-   "atl": 33.5,
+   "ctl": 29.4,
+   "atl": 33.6,
    "tsb": -4.2,
    "flags": [
     {
@@ -16202,7 +16202,7 @@
    "acwr": 0.51,
    "feel": null,
    "monotony": 2.32,
-   "ctl": 26.2,
+   "ctl": 26.3,
    "atl": 18.0,
    "tsb": 8.3,
    "flags": [],
@@ -16593,7 +16593,7 @@
    "feel": null,
    "monotony": 1.05,
    "ctl": 26.9,
-   "atl": 24.2,
+   "atl": 24.3,
    "tsb": 2.7,
    "flags": [],
    "notes": [
@@ -16777,7 +16777,7 @@
    "feel": 0.5,
    "monotony": 1.59,
    "ctl": 26.9,
-   "atl": 25.6,
+   "atl": 25.7,
    "tsb": 1.2,
    "flags": [
     {
@@ -17336,10 +17336,10 @@
    "wow": null,
    "acwr": 1.04,
    "feel": null,
-   "monotony": 1.7,
+   "monotony": 1.71,
    "ctl": 20.1,
    "atl": 11.0,
-   "tsb": 9.1,
+   "tsb": 9.2,
    "flags": [],
    "notes": [
     "Longest run 1:05 / 12.8 km / 301 m on Sun."
@@ -17532,9 +17532,9 @@
    "wow": 2.26,
    "acwr": 2.14,
    "feel": -1.0,
-   "monotony": 3.16,
-   "ctl": 19.5,
-   "atl": 14.7,
+   "monotony": 3.17,
+   "ctl": 19.6,
+   "atl": 14.8,
    "tsb": 4.8,
    "flags": [
     {
@@ -17744,7 +17744,7 @@
    "acwr": 1.56,
    "feel": null,
    "monotony": 1.26,
-   "ctl": 18.7,
+   "ctl": 18.8,
    "atl": 14.3,
    "tsb": 4.4,
    "flags": [
@@ -18311,9 +18311,9 @@
    "acwr": 1.28,
    "feel": 0.0,
    "monotony": 1.94,
-   "ctl": 21.6,
+   "ctl": 21.7,
    "atl": 26.5,
-   "tsb": -4.8,
+   "tsb": -4.9,
    "flags": [
     {
      "code": "R1",
@@ -18645,7 +18645,7 @@
    "feel": 1.0,
    "monotony": 1.17,
    "ctl": 21.5,
-   "atl": 26.2,
+   "atl": 26.3,
    "tsb": -4.8,
    "flags": [
     {
@@ -18981,9 +18981,9 @@
    "wow": 1.06,
    "acwr": 1.18,
    "feel": 0.0,
-   "monotony": 1.68,
+   "monotony": 1.69,
    "ctl": 22.4,
-   "atl": 27.7,
+   "atl": 27.8,
    "tsb": -5.4,
    "flags": [],
    "notes": [
@@ -20000,7 +20000,7 @@
    "feel": -0.5,
    "monotony": 1.65,
    "ctl": 19.7,
-   "atl": 24.9,
+   "atl": 25.0,
    "tsb": -5.3,
    "flags": [
     {
@@ -20582,9 +20582,9 @@
    "wow": 2.11,
    "acwr": 1.18,
    "feel": 2.0,
-   "monotony": 1.36,
-   "ctl": 22.3,
-   "atl": 29.0,
+   "monotony": 1.37,
+   "ctl": 22.4,
+   "atl": 29.1,
    "tsb": -6.7,
    "flags": [
     {
@@ -20761,7 +20761,7 @@
    "wow": 0.55,
    "acwr": 0.71,
    "feel": -0.5,
-   "monotony": 1.55,
+   "monotony": 1.54,
    "ctl": 23.9,
    "atl": 33.6,
    "tsb": -9.7,
@@ -20941,7 +20941,7 @@
    "feel": 0.0,
    "monotony": 1.69,
    "ctl": 26.7,
-   "atl": 37.0,
+   "atl": 37.1,
    "tsb": -10.4,
    "flags": [],
    "notes": [
@@ -21469,7 +21469,7 @@
    "feel": 2.0,
    "monotony": 1.61,
    "ctl": 24.6,
-   "atl": 25.2,
+   "atl": 25.3,
    "tsb": -0.6,
    "flags": [
     {
@@ -21839,8 +21839,8 @@
    "acwr": 1.28,
    "feel": -0.5,
    "monotony": 1.15,
-   "ctl": 25.8,
-   "atl": 32.3,
+   "ctl": 25.9,
+   "atl": 32.4,
    "tsb": -6.5,
    "flags": [
     {
@@ -22043,7 +22043,7 @@
    "wow": 0.37,
    "acwr": 0.47,
    "feel": -1.0,
-   "monotony": 2.62,
+   "monotony": 2.61,
    "ctl": 24.4,
    "atl": 22.9,
    "tsb": 1.5,
@@ -22251,7 +22251,7 @@
    "feel": -1.0,
    "monotony": 0.58,
    "ctl": 23.0,
-   "atl": 18.9,
+   "atl": 19.0,
    "tsb": 4.0,
    "flags": [
     {
@@ -22831,7 +22831,7 @@
    "feel": -0.67,
    "monotony": 1.44,
    "ctl": 23.1,
-   "atl": 29.6,
+   "atl": 29.7,
    "tsb": -6.6,
    "flags": [
     {
@@ -23052,9 +23052,9 @@
    "acwr": 1.05,
    "feel": 0.5,
    "monotony": 2.01,
-   "ctl": 25.2,
-   "atl": 36.1,
-   "tsb": -10.8,
+   "ctl": 25.3,
+   "atl": 36.2,
+   "tsb": -10.9,
    "flags": [],
    "notes": [
     "Longest run 2:15 / 19.8 km / 1669 m on Sat.",
@@ -23436,7 +23436,7 @@
    "acwr": 0.43,
    "feel": 0.0,
    "monotony": 1.04,
-   "ctl": 27.5,
+   "ctl": 27.6,
    "atl": 30.6,
    "tsb": -3.1,
    "flags": [],
@@ -23894,8 +23894,8 @@
    "wow": 0.79,
    "acwr": 1.07,
    "feel": null,
-   "monotony": 1.69,
-   "ctl": 26.1,
+   "monotony": 1.7,
+   "ctl": 26.2,
    "atl": 23.1,
    "tsb": 3.0,
    "flags": [],
@@ -24116,7 +24116,7 @@
    "acwr": null,
    "feel": null,
    "monotony": 1.04,
-   "ctl": 26.1,
+   "ctl": 26.2,
    "atl": 27.1,
    "tsb": -0.9,
    "flags": [],
@@ -24253,8 +24253,8 @@
    "acwr": 0.29,
    "feel": 0.0,
    "monotony": 1.74,
-   "ctl": 25.7,
-   "atl": 26.2,
+   "ctl": 25.8,
+   "atl": 26.3,
    "tsb": -0.5,
    "flags": [],
    "notes": [
@@ -24452,7 +24452,7 @@
    "feel": 0.0,
    "monotony": 1.45,
    "ctl": 26.4,
-   "atl": 29.2,
+   "atl": 29.3,
    "tsb": -2.9,
    "flags": [
     {
@@ -24683,7 +24683,7 @@
    "wow": 1.1,
    "acwr": 1.96,
    "feel": -1.0,
-   "monotony": 1.41,
+   "monotony": 1.42,
    "ctl": 26.1,
    "atl": 27.4,
    "tsb": -1.3,
@@ -24892,7 +24892,7 @@
    "monotony": 1.87,
    "ctl": 25.5,
    "atl": 24.4,
-   "tsb": 1.1,
+   "tsb": 1.2,
    "flags": [
     {
      "code": "R2",
@@ -25470,7 +25470,7 @@
    "acwr": 1.04,
    "feel": 0.33,
    "monotony": 1.15,
-   "ctl": 28.1,
+   "ctl": 28.2,
    "atl": 30.6,
    "tsb": -2.5,
    "flags": [],
@@ -25765,9 +25765,9 @@
    "acwr": 1.28,
    "feel": 0.67,
    "monotony": 0.5,
-   "ctl": 24.7,
+   "ctl": 24.8,
    "atl": 23.7,
-   "tsb": 1.1,
+   "tsb": 1.0,
    "flags": [
     {
      "code": "R1",
@@ -25892,7 +25892,7 @@
    "feel": null,
    "monotony": 0.55,
    "ctl": 21.8,
-   "atl": 11.5,
+   "atl": 11.6,
    "tsb": 10.2,
    "flags": [],
    "notes": [],
@@ -25993,7 +25993,7 @@
    "acwr": null,
    "feel": null,
    "monotony": 0.64,
-   "ctl": 19.6,
+   "ctl": 19.7,
    "atl": 9.8,
    "tsb": 9.8,
    "flags": [],
@@ -26107,7 +26107,7 @@
    "acwr": 1.58,
    "feel": -1.0,
    "monotony": 1.44,
-   "ctl": 20.4,
+   "ctl": 20.5,
    "atl": 20.2,
    "tsb": 0.2,
    "flags": [
@@ -26279,7 +26279,7 @@
    "acwr": 2.1,
    "feel": 0.33,
    "monotony": 1.63,
-   "ctl": 20.3,
+   "ctl": 20.4,
    "atl": 20.9,
    "tsb": -0.6,
    "flags": [
@@ -26449,8 +26449,8 @@
    "wow": 1.07,
    "acwr": 1.44,
    "feel": -0.5,
-   "monotony": 1.83,
-   "ctl": 21.0,
+   "monotony": 1.84,
+   "ctl": 21.1,
    "atl": 24.9,
    "tsb": -3.9,
    "flags": [
@@ -26623,8 +26623,8 @@
    "acwr": 0.69,
    "feel": null,
    "monotony": 1.34,
-   "ctl": 21.2,
-   "atl": 25.0,
+   "ctl": 21.3,
+   "atl": 25.1,
    "tsb": -3.8,
    "flags": [],
    "notes": [
@@ -26953,8 +26953,8 @@
    "acwr": 1.14,
    "feel": -0.5,
    "monotony": 1.58,
-   "ctl": 22.1,
-   "atl": 25.7,
+   "ctl": 22.2,
+   "atl": 25.8,
    "tsb": -3.6,
    "flags": [
     {
@@ -27518,7 +27518,7 @@
    "wow": 1.66,
    "acwr": 1.1,
    "feel": -0.5,
-   "monotony": 1.15,
+   "monotony": 1.16,
    "ctl": 22.1,
    "atl": 23.5,
    "tsb": -1.4,
@@ -27682,7 +27682,7 @@
    "monotony": 0.82,
    "ctl": 19.2,
    "atl": 10.7,
-   "tsb": 8.4,
+   "tsb": 8.5,
    "flags": [],
    "notes": [
     "Longest run 0:31 / 5.6 km / 133 m on Mon.",
@@ -28051,7 +28051,7 @@
    "wow": 0.39,
    "acwr": 0.39,
    "feel": 1.0,
-   "monotony": 1.46,
+   "monotony": 1.45,
    "ctl": 15.5,
    "atl": 10.6,
    "tsb": 4.9,
@@ -28204,7 +28204,7 @@
    "acwr": 1.3,
    "feel": -1.0,
    "monotony": 1.41,
-   "ctl": 14.7,
+   "ctl": 14.8,
    "atl": 11.2,
    "tsb": 3.5,
    "flags": [],
@@ -28355,9 +28355,9 @@
    "wow": 0.95,
    "acwr": 1.36,
    "feel": -0.5,
-   "monotony": 3.83,
+   "monotony": 3.84,
    "ctl": 14.8,
-   "atl": 13.6,
+   "atl": 13.7,
    "tsb": 1.1,
    "flags": [],
    "notes": [
@@ -28521,7 +28521,7 @@
    "wow": 1.01,
    "acwr": 1.22,
    "feel": 0.0,
-   "monotony": 0.92,
+   "monotony": 0.91,
    "ctl": 14.4,
    "atl": 12.5,
    "tsb": 1.9,
@@ -28664,7 +28664,7 @@
    "acwr": 1.58,
    "feel": -1.0,
    "monotony": 1.95,
-   "ctl": 14.7,
+   "ctl": 14.8,
    "atl": 15.5,
    "tsb": -0.8,
    "flags": [
@@ -28842,7 +28842,7 @@
    "monotony": 1.51,
    "ctl": 16.0,
    "atl": 22.3,
-   "tsb": -6.2,
+   "tsb": -6.3,
    "flags": [
     {
      "code": "R2",
@@ -29013,7 +29013,7 @@
    "acwr": 1.08,
    "feel": 0.33,
    "monotony": 3.09,
-   "ctl": 16.9,
+   "ctl": 17.0,
    "atl": 22.1,
    "tsb": -5.2,
    "flags": [],
@@ -29405,7 +29405,7 @@
    "feel": 0.67,
    "monotony": 1.25,
    "ctl": 22.0,
-   "atl": 32.1,
+   "atl": 32.2,
    "tsb": -10.2,
    "flags": [],
    "notes": [
@@ -29559,7 +29559,7 @@
    "feel": 0.5,
    "monotony": 1.87,
    "ctl": 21.5,
-   "atl": 24.1,
+   "atl": 24.2,
    "tsb": -2.7,
    "flags": [
     {
@@ -30075,7 +30075,7 @@
    "feel": 0.5,
    "monotony": 1.41,
    "ctl": 23.8,
-   "atl": 30.3,
+   "atl": 30.4,
    "tsb": -6.5,
    "flags": [],
    "notes": [
@@ -30456,7 +30456,7 @@
    "wow": 0.91,
    "acwr": 1.13,
    "feel": 0.5,
-   "monotony": 1.4,
+   "monotony": 1.41,
    "ctl": 26.9,
    "atl": 39.1,
    "tsb": -12.2,
@@ -30785,7 +30785,7 @@
    "acwr": 1.03,
    "feel": 0.33,
    "monotony": 1.56,
-   "ctl": 29.4,
+   "ctl": 29.5,
    "atl": 36.7,
    "tsb": -7.3,
    "flags": [],
@@ -30951,8 +30951,8 @@
    "feel": null,
    "monotony": 1.3,
    "ctl": 28.2,
-   "atl": 28.8,
-   "tsb": -0.6,
+   "atl": 28.9,
+   "tsb": -0.7,
    "flags": [],
    "notes": [
     "Longest run 1:42 / 18.0 km / 334 m on Sat."
@@ -31317,8 +31317,8 @@
    "acwr": 1.22,
    "feel": 2.0,
    "monotony": 0.83,
-   "ctl": 29.1,
-   "atl": 32.1,
+   "ctl": 29.2,
+   "atl": 32.2,
    "tsb": -3.0,
    "flags": [],
    "notes": [
@@ -31483,7 +31483,7 @@
    "acwr": 0.6,
    "feel": -1.0,
    "monotony": 1.65,
-   "ctl": 26.4,
+   "ctl": 26.5,
    "atl": 19.7,
    "tsb": 6.7,
    "flags": [],
@@ -31660,7 +31660,7 @@
    "feel": 0.5,
    "monotony": 0.46,
    "ctl": 27.1,
-   "atl": 30.1,
+   "atl": 30.2,
    "tsb": -3.1,
    "flags": [
     {
@@ -31942,7 +31942,7 @@
    "feel": -1.0,
    "monotony": 1.92,
    "ctl": 24.2,
-   "atl": 20.0,
+   "atl": 20.1,
    "tsb": 4.1,
    "flags": [],
    "notes": [
@@ -32128,8 +32128,8 @@
    "feel": -1.0,
    "monotony": 1.48,
    "ctl": 24.1,
-   "atl": 23.9,
-   "tsb": 0.2,
+   "atl": 24.0,
+   "tsb": 0.1,
    "flags": [
     {
      "code": "R1",
@@ -32333,7 +32333,7 @@
    "feel": 1.0,
    "monotony": 1.82,
    "ctl": 24.3,
-   "atl": 26.1,
+   "atl": 26.2,
    "tsb": -1.8,
    "flags": [
     {
@@ -32738,8 +32738,8 @@
    "acwr": 1.01,
    "feel": 0.0,
    "monotony": 0.96,
-   "ctl": 26.4,
-   "atl": 34.4,
+   "ctl": 26.5,
+   "atl": 34.5,
    "tsb": -8.0,
    "flags": [],
    "notes": [
@@ -33182,8 +33182,8 @@
    "wow": 0.88,
    "acwr": 0.98,
    "feel": -1.0,
-   "monotony": 1.47,
-   "ctl": 26.8,
+   "monotony": 1.48,
+   "ctl": 26.9,
    "atl": 30.2,
    "tsb": -3.3,
    "flags": [],
@@ -33366,7 +33366,7 @@
    "flags": [],
    "notes": [
     "Longest run 2:00 / 22.6 km / 722 m on Wed.",
-    "Quality: T on Sat",
+    "Quality: T on Sat \u2014 [PM] Pozna\u0144 - 10x1k T (1\u2019 rest)",
     "Vert density 206 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel +2.0 over 3 scored runs."
    ],
@@ -33380,8 +33380,8 @@
        "sport": "Run",
        "group": "run",
        "type": "E",
-       "name": null,
-       "note": null,
+       "name": "[AM] Vitkov Easy Hills 65",
+       "note": "",
        "mins": 65,
        "km": 10.3,
        "vert": 561,
@@ -33391,8 +33391,8 @@
        "sport": "Ride",
        "group": "bike",
        "type": null,
-       "name": null,
-       "note": null,
+       "name": "[PM] WU z prace + 1h power Z3/Z4 tempo + CD dom",
+       "note": "1 h @ 246 W (3.67 W/kg) \u2014 controlled, no heroics",
        "mins": 102,
        "km": 53.5,
        "vert": 498,
@@ -33402,8 +33402,8 @@
        "sport": "Ride",
        "group": "bike",
        "type": null,
-       "name": null,
-       "note": null,
+       "name": "Morning Ride",
+       "note": "Commute",
        "mins": 17,
        "km": 8.8,
        "vert": 16,
@@ -33419,8 +33419,8 @@
        "sport": "Run",
        "group": "run",
        "type": "E",
-       "name": null,
-       "note": null,
+       "name": "[AM] Easy 45",
+       "note": "Z1 down to the office",
        "mins": 45,
        "km": 9.3,
        "vert": 14,
@@ -33430,8 +33430,8 @@
        "sport": "Ride",
        "group": "bike",
        "type": null,
-       "name": null,
-       "note": null,
+       "name": "[PM] Protocit 1:10h za Ondrou",
+       "note": "",
        "mins": 70,
        "km": 34.6,
        "vert": 206,
@@ -33447,8 +33447,8 @@
        "sport": "Run",
        "group": "run",
        "type": "L",
-       "name": null,
-       "note": null,
+       "name": "Shorter Long 120",
+       "note": "\"Dnes to slapalo jak zvejkac na gymplu\"",
        "mins": 120,
        "km": 22.6,
        "vert": 722,
@@ -33464,8 +33464,8 @@
        "sport": "Run",
        "group": "run",
        "type": "E",
-       "name": null,
-       "note": null,
+       "name": "Easy 55",
+       "note": "",
        "mins": 54,
        "km": 10.5,
        "vert": 43,
@@ -33481,8 +33481,8 @@
        "sport": "Run",
        "group": "run",
        "type": "E",
-       "name": null,
-       "note": null,
+       "name": "Uwaga Easy 40 w/ 5x20\u201d ST",
+       "note": "Poznan, supporting a friend at 70.3 \u2014 \"be\u017eelo neskute\u010dn\u011b\"",
        "mins": 40,
        "km": 8.7,
        "vert": 36,
@@ -33498,8 +33498,8 @@
        "sport": "Run",
        "group": "run",
        "type": "T",
-       "name": null,
-       "note": null,
+       "name": "[PM] Pozna\u0144 - 10x1k T (1\u2019 rest)",
+       "note": "3:43,42,38,35,28,30,29,26,23,24 \u2014 started deliberately slow, finished 3:23. This is the session that set the working T pace",
        "mins": 69,
        "km": 16.5,
        "vert": 22,
@@ -33509,8 +33509,8 @@
        "sport": "Ride",
        "group": "bike",
        "type": null,
-       "name": null,
-       "note": null,
+       "name": "[AM] Pozna\u0144 - Very easy 1:30h",
+       "note": "Course recon on a borrowed bike",
        "mins": 87,
        "km": 36.5,
        "vert": 152,
@@ -33526,8 +33526,8 @@
        "sport": "Run",
        "group": "run",
        "type": null,
-       "name": null,
-       "note": null,
+       "name": "Povbuzovani",
+       "note": "Cheering, not training",
        "mins": 15,
        "km": 2.2,
        "vert": 0,
@@ -33542,16 +33542,16 @@
    "start": "2026-08-31",
    "end": "2026-09-06",
    "partial": false,
-   "current": true,
+   "current": false,
    "run_h": 7.03,
    "run_km": 79.7,
    "run_vert": 2499,
    "density": 355,
-   "bike_h": 2.83,
+   "bike_h": 5.35,
    "gym_h": 0.0,
-   "total_h": 10.8,
+   "total_h": 13.32,
    "run_days": 6,
-   "rest_days": 1,
+   "rest_days": 0,
    "longest": 166,
    "longest_km": 29.0,
    "longest_vert": 1305,
@@ -33559,15 +33559,15 @@
    "wow": 1.03,
    "acwr": 1.0,
    "feel": 0.33,
-   "monotony": 1.02,
-   "ctl": 26.8,
-   "atl": 27.8,
-   "tsb": -1.0,
+   "monotony": 1.31,
+   "ctl": 27.7,
+   "atl": 32.4,
+   "tsb": -4.7,
    "flags": [],
    "notes": [
     "Running on target (7.0 vs 7.5 h).",
     "Longest run 2:46 / 29.0 km / 1305 m on Sat.",
-    "Quality: I on Thu \u2014 CF Ride #1",
+    "Quality: T on Thu \u2014 5x5' uphill hard efforts",
     "Vert density 355 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.3 over 3 scored runs."
    ],
@@ -33611,8 +33611,8 @@
        "sport": "Run",
        "group": "run",
        "type": "E",
-       "name": "New beginnings",
-       "note": "Morning walk \u2014 \"uzit si ranni chilly Prahu\"",
+       "name": "Easy 40",
+       "note": "",
        "mins": 40,
        "km": 8.3,
        "vert": 101,
@@ -33622,8 +33622,8 @@
        "sport": "Walk",
        "group": "other",
        "type": null,
-       "name": "Easy 40",
-       "note": "",
+       "name": "New beginnings",
+       "note": "Morning walk \u2014 \"uzit si ranni chilly Prahu\"",
        "mins": 56,
        "km": 5.9,
        "vert": 15,
@@ -33655,9 +33655,9 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": "I",
-       "name": "CF Ride #1",
-       "note": "First club ride \u2014 53 km",
+       "type": "T",
+       "name": "5x5' uphill hard efforts",
+       "note": "T/VO2max \u2014 \"exactly that what works for me\". 464 m in 59'",
        "mins": 59,
        "km": 12.5,
        "vert": 464,
@@ -33667,8 +33667,8 @@
        "sport": "Ride",
        "group": "bike",
        "type": null,
-       "name": "5x5' uphill hard efforts",
-       "note": "T/VO2max \u2014 \"exactly that what works for me\". 464 m in 59'",
+       "name": "CF Ride #1",
+       "note": "First club ride \u2014 53 km",
        "mins": 128,
        "km": 53.2,
        "vert": 541,
@@ -33746,7 +33746,1462 @@
     {
      "day": "Sun",
      "date": "2026-09-06",
+     "acts": [
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Base Endurance 2:30h",
+       "note": "Sunday club base ride \u2014 75 km",
+       "mins": 151,
+       "km": 75.1,
+       "vert": 687,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W37",
+   "start": "2026-09-07",
+   "end": "2026-09-13",
+   "partial": false,
+   "current": false,
+   "run_h": 6.9,
+   "run_km": 80.6,
+   "run_vert": 2290,
+   "density": 332,
+   "bike_h": 3.15,
+   "gym_h": 0.0,
+   "total_h": 12.65,
+   "run_days": 5,
+   "rest_days": 0,
+   "longest": 166,
+   "longest_km": 30.0,
+   "longest_vert": 1294,
+   "back_to_back": false,
+   "wow": 0.98,
+   "acwr": 1.01,
+   "feel": 0.67,
+   "monotony": 1.82,
+   "ctl": 28.4,
+   "atl": 33.3,
+   "tsb": -4.9,
+   "flags": [],
+   "notes": [
+    "Running on target (6.9 vs 8.0 h).",
+    "Longest run 2:46 / 30.0 km / 1294 m on Sat.",
+    "Weekend was a single long run; the plan called for a back-to-back.",
+    "Quality: T on Wed \u2014 5x5\u2019 uphill hard efforts",
+    "Vert density 332 m/h \u2014 above the 300 m/h floor.",
+    "Self-reported feel +0.7 over 3 scored runs."
+   ],
+   "plan": {
+    "index": 2,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 8.0,
+    "bike_h": 4.0,
+    "gym_h": 0,
+    "total_h": 12,
+    "run_km": 86.7,
+    "run_vert": 3200,
+    "weekend": "A \u00b7 3:00+2:30",
+    "race": null,
+    "to_race": 27
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-09-07",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "[AM] \ud83d\udc0cEasy 35 (Z1)",
+       "note": "Flat Ladronka shakeout, 14-16C, avg HR 127 \u2014 genuine Z1",
+       "mins": 35,
+       "km": 7.1,
+       "vert": 21,
+       "feel": null
+      },
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": "[PM] Easy 35 w/ 4x20\u201d ST",
+       "note": "Strahov/Petrin, 177 m vert, 21-25C, avg HR 145; strides at the end, silver PR on Most Legii",
+       "mins": 35,
+       "km": 6.7,
+       "vert": 177,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Tue",
+     "date": "2026-09-08",
+     "acts": [
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Easy 1:50h",
+       "note": "Z1 endurance ride, 51.7 km / 468 m, RE 20 \u2014 held easy as intended",
+       "mins": 112,
+       "km": 51.7,
+       "vert": 468,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Dpnk za hovnocucem",
+       "note": "Commute \u2014 \"v 7:15 tu to je smrt. Miss you, Karlin\"",
+       "mins": 16,
+       "km": 7.7,
+       "vert": 18,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-09-09",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "5x5\u2019 uphill hard efforts",
+       "note": "Sarka, 5x5' on the Vokovicka climb (5.9%). Threshold: HR 171-178 vs LTHR 176, 350-359 W flat, rep 5 strongest. \"Krasny pocasi\"",
+       "mins": 70,
+       "km": 15.7,
+       "vert": 406,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-09-10",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 42 #CF Run 1",
+       "note": "Club run, 19-22C, 6:04/km \u2014 properly easy",
+       "mins": 43,
+       "km": 7.1,
+       "vert": 158,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-09-11",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "[P2] \ud83e\uddf1Easy 65",
+       "note": "Brick off the bike. 14 km @ 4:39/km, 234 m, avg HR 136 (Z1), 256 W. \"V posledni dobe to obcas fakt odsejpa\"",
+       "mins": 65,
+       "km": 14.0,
+       "vert": 234,
+       "feel": 1.0
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "[P1] Easy 1h",
+       "note": "Z1 spin into the brick \u2014 \"Jen ulevit noham a prejit do behu\"",
+       "mins": 61,
+       "km": 25.9,
+       "vert": 329,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-09-12",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "L",
+       "name": "Long 165 na Suchaku",
+       "note": "Suchy vrch \u2014 30 km / 1294 m, real mountain terrain (laps to 15%). Avg HR 149, max 169, no drift. Stiff first 10 km (\"neprotahl jsem se, pracoval z gauciku\"), then \"pohoda\". \"Navrat do mladych let\"",
+       "mins": 166,
+       "km": 30.0,
+       "vert": 1294,
+       "feel": 0.0
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-09-13",
+     "acts": [
+      {
+       "sport": "Hike",
+       "group": "hike",
+       "type": null,
+       "name": "Ze zmrzliny od budky dom",
+       "note": "14.9 km hike home from the ice cream stand \u2014 active recovery, no running",
+       "mins": 156,
+       "km": 14.9,
+       "vert": 349,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W38",
+   "start": "2026-09-14",
+   "end": "2026-09-20",
+   "partial": false,
+   "current": false,
+   "run_h": 7.77,
+   "run_km": 80.2,
+   "run_vert": 3321,
+   "density": 428,
+   "bike_h": 4.52,
+   "gym_h": 0.0,
+   "total_h": 14.28,
+   "run_days": 6,
+   "rest_days": 0,
+   "longest": 176,
+   "longest_km": 30.6,
+   "longest_vert": 1183,
+   "back_to_back": false,
+   "wow": 1.13,
+   "acwr": 1.09,
+   "feel": 0.5,
+   "monotony": 1.81,
+   "ctl": 30.1,
+   "atl": 39.3,
+   "tsb": -9.2,
+   "flags": [],
+   "notes": [
+    "Running on target (7.8 vs 7.5 h).",
+    "Longest run 2:56 / 30.6 km / 1183 m on Sat.",
+    "Quality: T on Wed \u2014 6x1.5k T (90\u201d rest)",
+    "Vert density 428 m/h \u2014 above the 300 m/h floor.",
+    "Self-reported feel +0.5 over 2 scored runs."
+   ],
+   "plan": {
+    "index": 3,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 7.5,
+    "bike_h": 3.5,
+    "gym_h": 0,
+    "total_h": 11,
+    "run_km": 81.3,
+    "run_vert": 3000,
+    "weekend": "Long 3:00",
+    "race": null,
+    "to_race": 26
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-09-14",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 60 w/ 4x20\" ST",
+       "note": "Petrin. 11.4 km / 316 m, avg HR 140, 241 W. Opening flat km 4:47 @ HR 127",
+       "mins": 59,
+       "km": 11.4,
+       "vert": 316,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Tue",
+     "date": "2026-09-15",
+     "acts": [
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Base 1:50h",
+       "note": "Base ride 54.4 km / 521 m. Avg 179 W (66% FTP, mid-Z2), avg HR 132 (Z1), max 159. Best 1h 195 W. Climbs 228-244 W @ HR 142-148",
+       "mins": 113,
+       "km": 54.4,
+       "vert": 521,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Morning Ride",
+       "note": "Commute",
+       "mins": 15,
+       "km": 7.7,
+       "vert": 19,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-09-16",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "6x1.5k T (90\u201d rest)",
+       "note": "Ladronka. Reps 312/320/316/313/316/312 s = 3:28-3:33/km (mean 3:30). HR 164/171/172/171/174/176, power 325/326/326/327/333/331 W. Jog rest after odd reps, walk after even. Finished exactly at LTHR 176. POD temp 21.9 C flat (vs 18.7 C falling on the 29 Aug 10x1k in Poznan). NOTE: not in reps.csv \u2014 that file is 1k reps only",
+       "mins": 51,
+       "km": 12.5,
+       "vert": 68,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-09-17",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Very easy sightseeing",
+       "note": "6:24/km through the crowds \u2014 \"Hrad nas vypekl, tak jsem si dal slalom mezi lidmo\"",
+       "mins": 50,
+       "km": 7.8,
+       "vert": 184,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-09-18",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 50 na klobasky pres hustnik",
+       "note": "8.6 km / 170 m easy",
+       "mins": 49,
+       "km": 8.6,
+       "vert": 170,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Base 2:20h s Prochym vyvolavat pocity",
+       "note": "64.3 km / 661 m, RE 28 \u2014 ran 2:23 against the 1:30 planned",
+       "mins": 143,
+       "km": 64.3,
+       "vert": 661,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-09-19",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "L",
+       "name": "Long 175",
+       "note": "Radic / Slapy Trailmaniacs terrain. 30.6 km / 1183 m in 2:56, avg HR 150, 229 W. Technical through km 13-16 (Albertovy skaly): power fell to 202-207 W while HR rose to 157-161 and cadence dropped to 77. \"Albertovky krasne, ale tezke\"",
+       "mins": 176,
+       "km": 30.6,
+       "vert": 1183,
+       "feel": 0.0
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-09-20",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "15% Treadmill 80' @ Z2",
+       "note": "Indoor: 9.3 km in 1:20:56 at 7.0-7.2 km/h on 15% incline = 1400 m up (1050 m/h). Avg HR 152, max 157 \u2014 Z2/low-Z3, no drift. Strava records vert 0 for treadmill; the 1400 m is from his own note and is entered by hand in activities.csv.",
+       "mins": 81,
+       "km": 9.3,
+       "vert": 1400,
+       "feel": null
+      },
+      {
+       "sport": "Hike",
+       "group": "hike",
+       "type": null,
+       "name": "Prochazka",
+       "note": "Horni Bezdekov, 9.0 km / 287 m walking, 2:07, avg HR 85. Recovery only.",
+       "mins": 120,
+       "km": 9.0,
+       "vert": 287,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W39",
+   "start": "2026-09-21",
+   "end": "2026-09-27",
+   "partial": false,
+   "current": false,
+   "run_h": 7.27,
+   "run_km": 84.8,
+   "run_vert": 2468,
+   "density": 340,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 9.33,
+   "run_days": 6,
+   "rest_days": 1,
+   "longest": 115,
+   "longest_km": 22.7,
+   "longest_vert": 687,
+   "back_to_back": false,
+   "wow": 0.94,
+   "acwr": 1.0,
+   "feel": -0.33,
+   "monotony": 1.09,
+   "ctl": 29.7,
+   "atl": 34.1,
+   "tsb": -4.4,
+   "flags": [],
+   "notes": [
+    "Running on target (7.3 vs 8.5 h).",
+    "Bike well short \u2014 0.0 of 3.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "Longest run 1:55 / 22.7 km / 687 m on Sun.",
+    "Quality: T on Wed \u2014 6x5' uphill hard->very hard efforts",
+    "Vert density 340 m/h \u2014 above the 300 m/h floor.",
+    "Self-reported feel -0.3 over 3 scored runs."
+   ],
+   "plan": {
+    "index": 4,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 8.5,
+    "bike_h": 3.5,
+    "gym_h": 0,
+    "total_h": 12,
+    "run_km": 92.1,
+    "run_vert": 3400,
+    "weekend": "Long 3:30",
+    "race": null,
+    "to_race": 25
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-09-21",
      "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-09-22",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 35 ke strojum",
+       "note": "7.4 km flat Z1, avg HR 132",
+       "mins": 36,
+       "km": 6.8,
+       "vert": 189,
+       "feel": null
+      },
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": null,
+       "name": "Easy 35 w/ 4x20\" ST",
+       "note": "6.8 km / 189 m, avg HR 143, strides peaked 177",
+       "mins": 35,
+       "km": 7.4,
+       "vert": 18,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-09-23",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "6x5' uphill hard->very hard efforts",
+       "note": "Petrin, 4 reps on the ~8.5% Hellichova line + 2 on the 15% line. 349-368 W (mean 360) vs 347 W on the 3 Sep 5x5' here; same-line reps 356 W vs 347 at equal avg HR (~173). End-of-rep HR climbed ~171 -> 177 -> 177 -> 179 -> 181 -> 181, max 183: first half T, last two reps above LTHR 176. POD 15-17 C. \"Fuck, to stiplo.\"",
+       "mins": 70,
+       "km": 14.4,
+       "vert": 640,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-09-24",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 45,
+       "km": 7.0,
+       "vert": 188,
+       "feel": -1.0
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-09-25",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 50",
+       "note": "10.1 km / 267 m, avg HR 139. Head cold but ran well; rolled an ankle on a stone ~400 m in while dodging dogs.",
+       "mins": 50,
+       "km": 10.1,
+       "vert": 267,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-09-26",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 85",
+       "note": "Planned long, cut to easy 85: still weak from the cold, sore stomach. 16.4 km / 479 m, avg HR 140.",
+       "mins": 85,
+       "km": 16.4,
+       "vert": 479,
+       "feel": -1.0
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-09-27",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "L",
+       "name": "Shorter Long 110 w/ 25\u2019 tempo",
+       "note": "22.7 km / 687 m in 1:55 with 25 min tempo, avg HR 150, RE 54. The long moved here from Saturday.",
+       "mins": 115,
+       "km": 22.7,
+       "vert": 687,
+       "feel": null
+      },
+      {
+       "sport": "Hike",
+       "group": "hike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 124,
+       "km": 9.0,
+       "vert": 203,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W40",
+   "start": "2026-09-28",
+   "end": "2026-10-04",
+   "partial": false,
+   "current": false,
+   "run_h": 7.32,
+   "run_km": 85.4,
+   "run_vert": 1876,
+   "density": 256,
+   "bike_h": 4.85,
+   "gym_h": 0.0,
+   "total_h": 12.17,
+   "run_days": 6,
+   "rest_days": 1,
+   "longest": 185,
+   "longest_km": 34.0,
+   "longest_vert": 1202,
+   "back_to_back": false,
+   "wow": 1.01,
+   "acwr": 1.0,
+   "feel": null,
+   "monotony": 1.5,
+   "ctl": 30.3,
+   "atl": 35.4,
+   "tsb": -5.1,
+   "flags": [],
+   "notes": [
+    "Running on target (7.3 vs 8.5 h).",
+    "Longest run 3:05 / 34.0 km / 1202 m on Sat.",
+    "Weekend was a single long run; the plan called for a back-to-back.",
+    "Quality: T on Wed \u2014 2x4k T (4\u2019 jg rest)",
+    "Vert density 256 m/h \u2014 below the 300 m/h floor."
+   ],
+   "plan": {
+    "index": 5,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 8.5,
+    "bike_h": 3.5,
+    "gym_h": 0,
+    "total_h": 12,
+    "run_km": 92.1,
+    "run_vert": 3400,
+    "weekend": "A \u00b7 3:30+2:00",
+    "race": null,
+    "to_race": 24
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-09-28",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-09-29",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 35,
+       "km": 7.4,
+       "vert": 20,
+       "feel": null
+      },
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 35,
+       "km": 6.7,
+       "vert": 183,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-09-30",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "2x4k T (4\u2019 jg rest)",
+       "note": "Flat threshold: 4k reps at 3:33 and 3:32 /km, avg HR 160, RE 48.",
+       "mins": 50,
+       "km": 12.6,
+       "vert": 65,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-01",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 46,
+       "km": 8.0,
+       "vert": 191,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 138,
+       "km": 52.1,
+       "vert": 169,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 16,
+       "km": 7.7,
+       "vert": 22,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-02",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 53,
+       "km": 10.0,
+       "vert": 143,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 22,
+       "km": 7.7,
+       "vert": 183,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-03",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "L",
+       "name": "Sunset Long 185",
+       "note": "34.0 km / 1202 m in 3:05, avg HR 150, 237 W. Longest run of the Slapy block.",
+       "mins": 185,
+       "km": 34.0,
+       "vert": 1202,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-10-04",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 35,
+       "km": 6.7,
+       "vert": 72,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 115,
+       "km": 52.2,
+       "vert": 584,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W41",
+   "start": "2026-10-05",
+   "end": "2026-10-11",
+   "partial": false,
+   "current": false,
+   "run_h": 6.77,
+   "run_km": 84.2,
+   "run_vert": 1838,
+   "density": 272,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 7.95,
+   "run_days": 6,
+   "rest_days": 1,
+   "longest": 69,
+   "longest_km": 12.4,
+   "longest_vert": 406,
+   "back_to_back": true,
+   "wow": 0.92,
+   "acwr": 0.93,
+   "feel": 0.5,
+   "monotony": 1.13,
+   "ctl": 30.0,
+   "atl": 32.5,
+   "tsb": -2.5,
+   "flags": [],
+   "notes": [
+    "Running on target (6.8 vs 7.0 h).",
+    "Bike well short \u2014 0.0 of 3.0 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "Longest run 1:09 / 12.4 km / 406 m on Sat.",
+    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Quality: F on Tue, M on Thu \u2014 3x4k M-like efforts (5\u2019 Z2 jg rest), M on Sat \u2014 [PM] 50 @ Z2/Z3",
+    "Vert density 272 m/h \u2014 below the 300 m/h floor.",
+    "Self-reported feel +0.5 over 2 scored runs."
+   ],
+   "plan": {
+    "index": 6,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 7.0,
+    "bike_h": 3.0,
+    "gym_h": 0,
+    "total_h": 10,
+    "run_km": 75.9,
+    "run_vert": 2800,
+    "weekend": "Long 2:30",
+    "race": null,
+    "to_race": 23
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-10-05",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 8.1,
+       "vert": 106,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Tue",
+     "date": "2026-10-06",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 8.1,
+       "vert": 232,
+       "feel": null
+      },
+      {
+       "sport": "Other",
+       "group": "other",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 71,
+       "km": 7.4,
+       "vert": 0,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-10-07",
+     "acts": []
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-08",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "M",
+       "name": "3x4k M-like efforts (5\u2019 Z2 jg rest)",
+       "note": "4k reps at 3:47, 3:45, 3:45 /km in wind and rain, avg HR 163, RE 69.",
+       "mins": 65,
+       "km": 16.3,
+       "vert": 67,
+       "feel": 0.0
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-09",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 52,
+       "km": 10.0,
+       "vert": 292,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-10",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "M",
+       "name": "[PM] 50 @ Z2/Z3",
+       "note": "11.5 km / 256 m steady Z2/Z3, avg HR 160, RE 45; second run of the day after an easy 70.",
+       "mins": 69,
+       "km": 12.4,
+       "vert": 406,
+       "feel": null
+      },
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 50,
+       "km": 11.5,
+       "vert": 256,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-10-11",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "S",
+       "name": null,
+       "note": null,
+       "mins": 55,
+       "km": 9.8,
+       "vert": 338,
+       "feel": null
+      },
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 35,
+       "km": 8.0,
+       "vert": 141,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W42",
+   "start": "2026-10-12",
+   "end": "2026-10-18",
+   "partial": false,
+   "current": false,
+   "run_h": 4.93,
+   "run_km": 60.3,
+   "run_vert": 1370,
+   "density": 278,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 4.93,
+   "run_days": 6,
+   "rest_days": 1,
+   "longest": 65,
+   "longest_km": 14.0,
+   "longest_vert": 302,
+   "back_to_back": false,
+   "wow": 0.73,
+   "acwr": 0.75,
+   "feel": null,
+   "monotony": 1.59,
+   "ctl": 28.1,
+   "atl": 24.2,
+   "tsb": 3.8,
+   "flags": [],
+   "notes": [
+    "Running on target (4.9 vs 5.5 h).",
+    "Bike well short \u2014 0.0 of 1.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "Longest run 1:05 / 14.0 km / 302 m on Sun.",
+    "Quality: F on Tue, F on Fri, F on Sun \u2014 Fartlek 65 (3x5\u2019 sup-race tempo + 1:15 up very hard)",
+    "Vert density 278 m/h \u2014 below the 300 m/h floor."
+   ],
+   "plan": {
+    "index": 7,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 5.5,
+    "bike_h": 1.5,
+    "gym_h": 0,
+    "total_h": 7,
+    "run_km": 59.6,
+    "run_vert": 2200,
+    "weekend": "Race",
+    "race": "Slapy Trailmaniacs 47K \u00b7 17 Oct",
+    "to_race": 22
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-10-12",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-10-13",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": null,
+       "note": null,
+       "mins": 51,
+       "km": 11.1,
+       "vert": 183,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-10-14",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 7.9,
+       "vert": 187,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-15",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 42,
+       "km": 7.9,
+       "vert": 110,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-16",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": null,
+       "note": null,
+       "mins": 42,
+       "km": 9.5,
+       "vert": 85,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-17",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 56,
+       "km": 9.9,
+       "vert": 503,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-10-18",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": "Fartlek 65 (3x5\u2019 sup-race tempo + 1:15 up very hard)",
+       "note": "Race tune-up a week out. His own tally: max 85 km/week but ~950 km of running and 142 h of sport over 12 weeks to early October, both all-time highs. Next goal: Chianti 120K without the usual winter injury.",
+       "mins": 65,
+       "km": 14.0,
+       "vert": 302,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W43",
+   "start": "2026-10-19",
+   "end": "2026-10-25",
+   "partial": false,
+   "current": false,
+   "run_h": 5.85,
+   "run_km": 70.3,
+   "run_vert": 2204,
+   "density": 377,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 5.85,
+   "run_days": 4,
+   "rest_days": 3,
+   "longest": 240,
+   "longest_km": 47.6,
+   "longest_vert": 1924,
+   "back_to_back": false,
+   "wow": 1.19,
+   "acwr": 0.94,
+   "feel": 1.33,
+   "monotony": 0.47,
+   "ctl": 29.8,
+   "atl": 38.7,
+   "tsb": -8.9,
+   "flags": [],
+   "notes": [
+    "Running 30% over the 4.5 h target.",
+    "Bike well short \u2014 0.0 of 2.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "Longest run 4:00 / 47.6 km / 1924 m on Sat.",
+    "Quality: F on Tue, F on Fri \u2014 Activation - 3x1\u2019 T->VO2max, RACE on Sat \u2014 Slapy Trailmaniacs 47k \ud83e\udd47",
+    "Vert density 377 m/h \u2014 above the 300 m/h floor.",
+    "Self-reported feel +1.3 over 3 scored runs."
+   ],
+   "plan": {
+    "index": 8,
+    "phase": "P2",
+    "phase_name": "Recovery & gym on-ramp",
+    "run_h": 4.5,
+    "bike_h": 2.5,
+    "gym_h": 0,
+    "total_h": 7,
+    "run_km": 50.6,
+    "run_vert": 1480,
+    "weekend": "Easy 90'",
+    "race": null,
+    "to_race": 21
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-10-19",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-10-20",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 8.7,
+       "vert": 120,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-10-21",
+     "acts": []
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-22",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 7.8,
+       "vert": 95,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-23",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": "Activation - 3x1\u2019 T->VO2max",
+       "note": "Pre-race opener, 4.3 km. Feels in good shape going in.",
+       "mins": 20,
+       "km": 4.3,
+       "vert": 15,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-24",
+     "acts": [
+      {
+       "sport": "RACE_Run",
+       "group": "run",
+       "type": "RACE",
+       "name": "Slapy Trailmaniacs 47k \ud83e\udd47",
+       "note": "WON. 47.6 km / 1924 m in 3:59:57 moving, avg HR 162, RE 235. Went hard from the start, took the speed premium too and held tempo through the KOM section rather than changing pace. Fuel: alternated GU macchiato and Hydrogel Iontmax gels every 30 min, plus Iontmax drink and Powerdrink+ with added maltodextrin.",
+       "mins": 240,
+       "km": 47.6,
+       "vert": 1924,
+       "feel": 2.0
+      },
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 11,
+       "km": 1.9,
+       "vert": 50,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-10-25",
+     "acts": []
+    }
+   ]
+  },
+  {
+   "label": "2026-W44",
+   "start": "2026-10-26",
+   "end": "2026-11-01",
+   "partial": false,
+   "current": true,
+   "run_h": 3.57,
+   "run_km": 38.9,
+   "run_vert": 653,
+   "density": 183,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 4.68,
+   "run_days": 4,
+   "rest_days": 3,
+   "longest": 70,
+   "longest_km": 12.4,
+   "longest_vert": 267,
+   "back_to_back": false,
+   "wow": 0.61,
+   "acwr": 0.68,
+   "feel": 1.0,
+   "monotony": 1.07,
+   "ctl": 26.3,
+   "atl": 19.0,
+   "tsb": 7.2,
+   "flags": [],
+   "notes": [
+    "Running 35% under the 5.5 h target.",
+    "Bike well short \u2014 0.0 of 2.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "No gym logged against a 1.0 h target (R5).",
+    "Longest run 1:10 / 12.4 km / 267 m on Sat.",
+    "Self-reported feel +1.0 over 1 scored runs."
+   ],
+   "plan": {
+    "index": 9,
+    "phase": "P2",
+    "phase_name": "Recovery & gym on-ramp",
+    "run_h": 5.5,
+    "bike_h": 2.5,
+    "gym_h": 1.0,
+    "total_h": 9,
+    "run_km": 61.8,
+    "run_vert": 1809,
+    "weekend": "Long 2:00",
+    "race": null,
+    "to_race": 20
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-10-26",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-10-27",
+     "acts": []
+    },
+    {
+     "day": "Wed",
+     "date": "2026-10-28",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 40",
+       "note": "First run after 3 days off post-race; surprisingly good, though Monday looked rough.",
+       "mins": 39,
+       "km": 7.4,
+       "vert": 47,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-29",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 7.4,
+       "vert": 39,
+       "feel": null
+      },
+      {
+       "sport": "Other",
+       "group": "other",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 67,
+       "km": 0.0,
+       "vert": 0,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-30",
+     "acts": []
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-31",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 70,
+       "km": 12.4,
+       "vert": 267,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-11-01",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 65",
+       "note": "Z1/Z2. No full off-season this year: two very easy weeks instead, then into the Chianti winter block.",
+       "mins": 65,
+       "km": 11.7,
+       "vert": 300,
+       "feel": null
+      }
+     ]
     }
    ]
   }
@@ -34458,19 +35913,51 @@
   },
   {
    "label": "2026-09",
-   "run_h": 5.9,
-   "run_km": 66.2,
-   "run_vert": 2165,
-   "density": 369,
-   "bike_h": 2.8,
+   "run_h": 29.8,
+   "run_km": 338.5,
+   "run_vert": 10512,
+   "density": 353,
+   "bike_h": 13.0,
    "gym_h": 0.0,
-   "total_h": 9.6,
-   "run_days": 5,
-   "quality": 1,
-   "feel": 0.33,
-   "hr": 140.8,
-   "pace": 5.299,
-   "longest": 166
+   "total_h": 50.4,
+   "run_days": 24,
+   "quality": 5,
+   "feel": 0.27,
+   "hr": 140.4,
+   "pace": 5.566,
+   "longest": 176
+  },
+  {
+   "label": "2026-10",
+   "run_h": 25.4,
+   "run_km": 300.7,
+   "run_vert": 7373,
+   "density": 291,
+   "bike_h": 4.8,
+   "gym_h": 0.0,
+   "total_h": 32.5,
+   "run_days": 23,
+   "quality": 9,
+   "feel": 1.0,
+   "hr": 136.2,
+   "pace": 5.334,
+   "longest": 240
+  },
+  {
+   "label": "2026-11",
+   "run_h": 1.1,
+   "run_km": 11.7,
+   "run_vert": 300,
+   "density": 277,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 1.1,
+   "run_days": 1,
+   "quality": 0,
+   "feel": null,
+   "hr": 135.0,
+   "pace": 5.556,
+   "longest": 65
   }
  ],
  "seasons": [
@@ -34524,18 +36011,18 @@
   },
   {
    "label": "2026",
-   "run_h": 191.0,
-   "run_km": 2075.4,
-   "run_vert": 60151,
-   "density": 315,
-   "bike_h": 119.3,
+   "run_h": 241.3,
+   "run_km": 2660.1,
+   "run_vert": 76171,
+   "density": 316,
+   "bike_h": 134.3,
    "gym_h": 22.0,
-   "total_h": 345.9,
-   "run_days": 161,
-   "quality": 24,
-   "feel": 0.05,
-   "hr": 141.4,
-   "pace": 5.448,
+   "total_h": 420.2,
+   "run_days": 204,
+   "quality": 37,
+   "feel": 0.12,
+   "hr": 140.8,
+   "pace": 5.458,
    "longest": 620
   }
  ]
