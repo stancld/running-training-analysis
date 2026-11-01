@@ -4,6 +4,7 @@ Each test points tl at its own cache in a temp dir, so Dan's real data/ is never
 Expected values are worked out by hand from the rows, not read back from tl.
 """
 
+import datetime as dt
 import json
 import subprocess
 from collections.abc import Callable
@@ -74,3 +75,18 @@ def test_guardrails_fire_past_the_limit_not_at_it(
     )
     flags = {w["start"]: w["flags"] for w in site()["weeks"]}
     assert flags == {"2026-06-01": [], "2026-06-08": [], "2026-06-15": ["R1", "R6"]}
+
+
+def test_form_is_freshness_going_into_the_day(
+    tmp_path: Path, site: Callable[[], dict[str, Any]], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    # No relative effort, so a running minute is 0.35 load units: 35 on Saturday, 70 on Sunday.
+    # CTL/ATL close each day with gains 1 - e^(-1/42) = 0.02353 and 1 - e^(-1/7) = 0.13312.
+    monkeypatch.setattr(config, "TODAY", dt.date(2026, 6, 8))
+    (tmp_path / "activities.csv").write_text(
+        "date,sport,km,min,vert\n2026-06-06,Run,20.0,100,500\n2026-06-07,Run,40.0,200,1000\n"
+    )
+    fit = {f["date"]: f for f in site()["fitness"]}
+    # Sunday's form is Saturday's close (0.82 - 4.66), not after Sunday's long run (2.45 - 13.36).
+    assert fit["2026-06-07"] == {"date": "2026-06-07", "ctl": 2.5, "atl": 13.4, "tsb": -3.8}
+    assert fit["2026-06-08"] == {"date": "2026-06-08", "ctl": 2.4, "atl": 11.6, "tsb": -10.9}

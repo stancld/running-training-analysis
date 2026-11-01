@@ -239,18 +239,19 @@ def build_seasons(ds: Dataset) -> list[Season]:
 def fitness_curve(ds: Dataset, load: dict[dt.date, float]) -> dict[dt.date, dict[str, float]]:
     """Exponential CTL/ATL/TSB over daily load units.
 
-    CTL tau=42 d (fitness), ATL tau=7 d (fatigue), TSB = CTL - ATL (form).
-    Absolute numbers depend on the load model in config.LOAD_RATIO; the shape
-    is what carries information.
+    CTL tau=42 d (fitness) and ATL tau=7 d (fatigue) close each day; TSB (form)
+    is the freshness going into the day, yesterday's CTL - ATL, as in Banister's
+    model and the TrainingPeaks PMC. Absolute numbers depend on the load model in
+    config.LOAD_RATIO; the shape is what carries information.
     """
     ctl = atl = 0.0
     kc, ka = 1 - math.exp(-1 / config.CTL_TAU), 1 - math.exp(-1 / config.ATL_TAU)
     out, d = {}, ds.first
     while d <= max(ds.last, config.TODAY):
-        v = load.get(d, 0.0)
+        v, tsb = load.get(d, 0.0), ctl - atl
         ctl += (v - ctl) * kc
         atl += (v - atl) * ka
-        out[d] = {"ctl": ctl, "atl": atl, "tsb": ctl - atl}
+        out[d] = {"ctl": ctl, "atl": atl, "tsb": tsb}
         d += dt.timedelta(days=1)
     return out
 

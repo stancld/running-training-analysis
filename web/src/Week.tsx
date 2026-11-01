@@ -135,7 +135,7 @@ export function Fitness({ compact = false }: { compact?: boolean }) {
       <dl className="fit-nums">
         <div><dt>CTL</dt><dd>{f.ctl.toFixed(0)}</dd><small>chronic load</small></div>
         <div><dt>ATL</dt><dd>{f.atl.toFixed(0)}</dd><small>acute load</small></div>
-        <div><dt>Form</dt><dd className={f.tsb >= 0 ? 'pos' : 'neg'}>{signed(f.tsb)}</dd><small>CTL − ATL</small></div>
+        <div><dt>Form</dt><dd className={f.tsb >= 0 ? 'pos' : 'neg'}>{signed(f.tsb)}</dd><small>into today</small></div>
       </dl>
       <div className="legend">
         <span><i className="swatch round" style={{ background: 'var(--teal)' }} />CTL</span>

@@ -27,7 +27,9 @@ class Entry:
         self.cmp = plan.compare(week, self.plan)
         self.flags = week.flags()
         self.mono = monotony(load, week)
-        self.fitness = fitness.get(min(week.end, config.TODAY))
+        f = fitness.get(min(week.end, config.TODAY))
+        # A finished week reports the form it hands to the next Monday: its closing CTL - ATL.
+        self.fitness = {**f, "tsb": f["ctl"] - f["atl"]} if f and week.end < config.TODAY else f
 
     def days(self) -> list[tuple[str, dt.date, list[Activity]]]:
         out = []
