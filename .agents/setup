@@ -4,6 +4,7 @@ set -euo pipefail
 # AGENTS.md: commit as Dan's personal identity; the pre-commit email hook rejects anything else.
 git config --local user.name stancld
 git config --local user.email daniel.stancl@gmail.com
+git config --local blame.ignoreRevsFile .git-blame-ignore-revs
 
 uv sync
 uv run pre-commit install-hooks

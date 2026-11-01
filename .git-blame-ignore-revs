@@ -1,0 +1,4 @@
+# Formatting-only commits, skipped by GitHub blame and `git blame` (git config blame.ignoreRevsFile .git-blame-ignore-revs).
+
+# Reformat web/ with Biome
+fe5778a6f312355df54b1c8f29154f98cbff0def
