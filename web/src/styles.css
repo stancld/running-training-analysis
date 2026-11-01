@@ -1083,7 +1083,7 @@ svg text {
 }
 .mapgrid .hd {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 10.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1118,7 +1118,7 @@ svg text {
   line-height: 1;
 }
 .ytot i {
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-style: normal;
   margin-top: 2px;
   color: var(--teal);
@@ -1167,7 +1167,7 @@ svg text {
 .tag {
   font-style: normal;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 10.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--garnet);
@@ -1241,7 +1241,7 @@ svg text {
 }
 .same li small {
   order: 2;
-  font-size: 10px;
+  font-size: 10.5px;
 }
 .same li.on i {
   background: var(--teal);
@@ -1251,7 +1251,7 @@ svg text {
   color: var(--ink);
 }
 .same .unit {
-  font-size: 10px;
+  font-size: 10.5px;
   color: var(--muted);
 }
 .mapgrid .yr {
@@ -1279,11 +1279,21 @@ svg text {
   line-height: 1;
 }
 .cell i {
-  font-size: 9px;
+  font-size: 10.5px;
   font-style: normal;
   opacity: 0.75;
   margin-top: 2px;
   white-space: nowrap;
+}
+/* "272 km" needs 37 px; narrower cells drop it rather than shrink it, and the month
+   detail still shows it. */
+.cell {
+  container-type: inline-size;
+}
+@container (width < 37px) {
+  .cell i {
+    display: none;
+  }
 }
 .cell.now {
   border-color: var(--garnet);
@@ -1718,8 +1728,14 @@ footer {
   font-size: 11px;
 }
 .phone .mapgrid .hd {
-  font-size: 8.5px;
+  font-size: 10.5px;
   letter-spacing: 0;
+}
+/* Three letters stop fitting a column below ~380 px; the initial stays. */
+@media (max-width: 379px) {
+  .mapgrid .hd span {
+    display: none;
+  }
 }
 /* bottom tabs */
 .tabbar {

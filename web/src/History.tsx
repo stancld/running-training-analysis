@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DATA, type Period } from './data';
 import { MON, hm, n, ratio, useWide } from './format';
 import { About, place } from './Week';
@@ -60,8 +60,18 @@ const pctText = (p: number) => `${p > 0 ? '+' : ''}${Math.round(p * 100)}%`;
 function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (k: string) => void }) {
   const wide = useWide();
   const W = wide ? 600 : 360,
-    H = wide ? 128 : 140,
-    m = { t: 22, r: 8, b: 18, l: wide ? 34 : 30 };
+    H = wide ? 128 : 140;
+  // The chart scales with its column (0.7× on a small phone, 2.7× just under laptop
+  // width), so labels are sized from its rendered width to always show at 10.5 px.
+  const ref = useRef<SVGSVGElement>(null);
+  const [px, setPx] = useState(W);
+  useEffect(() => {
+    const ro = new ResizeObserver(([e]) => setPx(e.contentRect.width));
+    if (ref.current) ro.observe(ref.current);
+    return () => ro.disconnect();
+  }, []);
+  const fs = (10.5 * W) / px;
+  const m = { t: 22, r: 8, b: 18, l: Math.max(wide ? 34 : 30, 2.4 * fs) };
   const iw = W - m.l - m.r,
     ih = H - m.t - m.b,
     slot = iw / months.length;
@@ -89,6 +99,7 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
   const grid = metric !== 'mh' ? [0, top / 2, top] : [0, 300, top];
   return (
     <svg
+      ref={ref}
       className="trend"
       viewBox={`0 0 ${W} ${H}`}
       role="img"
@@ -97,7 +108,7 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
       {bands.map(([a, b]) => (
         <g key={a}>
           <rect x={x(a) - slot / 2} y={m.t} width={(b - a + 1) * slot} height={ih} fill="var(--garnet-wash)" />
-          <text x={x(a) - slot / 2 + 2} y={m.t + 9} fontSize="8.5" fill="var(--garnet)">
+          <text x={x(a) - slot / 2 + 2} y={m.t + fs} fontSize={fs} fill="var(--garnet)">
             injury
           </text>
         </g>
@@ -112,7 +123,7 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
             stroke={metric === 'mh' && g === 300 ? 'var(--garnet)' : 'var(--line)'}
             strokeDasharray={metric === 'mh' && g === 300 ? '3 3' : undefined}
           />
-          <text x={m.l - 5} y={y(g) + 3} textAnchor="end" fontSize="9" fill="var(--muted)">
+          <text x={m.l - 5} y={y(g) + fs / 3} textAnchor="end" fontSize={fs} fill="var(--muted)">
             {g}
             {g === top && metric !== 'mh' ? 'h' : ''}
           </text>
@@ -121,7 +132,7 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
       {months.map(
         (p, i) =>
           p.label.endsWith('-01') && (
-            <text key={p.label} x={x(i) - slot / 2} y={H - 5} fontSize="9" fill="var(--muted)">
+            <text key={p.label} x={x(i) - slot / 2} y={H - 4} fontSize={fs} fill="var(--muted)">
               {p.label.slice(0, 4)}
             </text>
           ),
@@ -141,10 +152,10 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
           <line x1={x(si)} x2={x(si)} y1={m.t} y2={m.t + ih} stroke="var(--ink)" strokeWidth="1" opacity=".5" />
           <circle cx={x(si)} cy={y(vals[si])} r="3.2" fill="var(--ink)" />
           <text
-            x={Math.min(Math.max(x(si), m.l + 16), W - m.r - 16)}
+            x={Math.min(Math.max(x(si), m.l + 2 * fs), W - m.r - 2 * fs)}
             y={m.t - 7}
             textAnchor="middle"
-            fontSize="9"
+            fontSize={fs}
             fill="var(--ink)"
           >
             {metric !== 'mh' ? vals[si].toFixed(1) : vals[si]} {unit}
@@ -312,10 +323,13 @@ export function Heatmap() {
         <span />
         {MON.map((x, k) => (
           <span key={x} className={`hd${RISK.has(k + 1) ? ' risk' : ''}`}>
-            {x}
+            {x[0]}
+            <span>{x.slice(1)}</span>
           </span>
         ))}
-        <span className="hd">Year</span>
+        <span className="hd">
+          Y<span>ear</span>
+        </span>
         {years.map(y => {
           const s = seasons[y],
             d = yoy(y, M.of);
