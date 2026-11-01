@@ -1,11 +1,37 @@
-# tl — training analysis
+# Chianti Logbook
 
-A small, dependency-free library and CLI over the local Strava/COROS cache in
-`data/`. It maps the whole history onto weeks, months and seasons, scores every
-week against the injury guardrails, compares actuals to the Chianti 120K
-macrocycle, and renders the diary page in `web/`.
+Dan's training diary for the Chianti 120K (Ultra Trail Chianti Castles, 20 March
+2027), and `tl`, the dependency-free Python package that builds it from his local
+Strava/COROS cache.
 
-## Use
+**Read it:** https://stancld.github.io/running-training-analysis/. The page is
+public by link and marked `noindex`, so search engines don't list it.
+
+## The diary
+
+One self-contained page with the data built in, rebuilt every time the cache is
+topped up. Top to bottom:
+
+| section | what it shows |
+|---|---|
+| This week | running hours against the plan, km, climb, m/h of climb density, the weekend's planned long run, and the five guardrails (WoW, ACWR, climb density, weekly km, no flat intervals) for the current week |
+| Fitness & form | fitness (CTL), fatigue (ATL) and form (CTL − ATL) day by day over the last 12 weeks |
+| The 29-week plan | planned against actual running hours for every week of the macrocycle, its five phases, race weeks, and the 8-week horizon: weeks beyond it are bands, not numbers |
+| Weekly diary | one collapsible entry per week since the plan started: day-by-day sessions, Dan's notes, the plan comparison and the derived verdicts |
+| Every month since 2023 | a heatmap of monthly running hours plus a table of monthly volume, climb, longest run, easy/long HR and pace, and feel |
+| Week ledger | the last 26 weeks with ratios and guardrail flags |
+
+Everything on the page is derived from the cache. Nothing is written by hand
+except Dan's own session notes.
+
+## The package
+
+`tl` maps the whole history onto weeks, months and seasons, scores every week
+against the injury guardrails, compares actuals with the macrocycle and renders
+the page from `web/diary.tmpl.html`. The CSV cache in `data/` is personal and
+stays on Dan's machine; it is gitignored, so a fresh clone has no data.
+
+### Use
 
 Set up once with `uv sync`, which installs Python 3.14 and the dev tools.
 
@@ -19,7 +45,7 @@ Set up once with `uv sync`, which installs Python 3.14 and the dev tools.
     uv run tl export [path]       full JSON dump (data/diary.json)
     uv run tl site                render web/diary.html; pushing it publishes it
 
-## Layout
+### Layout
 
 | module | what it holds |
 |---|---|
