@@ -83,8 +83,8 @@ _UA_GYM = (
     "https://uphillathlete.com/strength-training/at-home-muscular-endurance-workout-with-progression/",
 )
 
-# Quality sessions per phase in Kilian Jornet's style: threshold mostly uphill, no flat
-# speed in the Dec-Apr injury window. Advice beside the targets, not a target itself.
+# Quality sessions per phase in Kilian Jornet's style: threshold mostly uphill, flat speed
+# rationed in the Dec-Apr injury window. Advice beside the targets, not a target itself.
 # name, prescription; then notes; then (label, url) sources.
 QUALITY: dict[str, tuple[list[tuple[str, str]], list[str], list[tuple[str, str]]]] = {
     "P2": (
@@ -114,10 +114,12 @@ QUALITY: dict[str, tuple[list[tuple[str, str]], list[str], list[tuple[str, str]]
         ],
         [
             "Weeks 1–4: the hill session is the only quality; from week 5 alternate it with uphill threshold.",
-            "No flat T or speed: Kilian's flat speed in his own Chianti winter gave him a TFL tendonitis.",
+            "One key session a week, hill sprints aside. From week 5 flat T may replace the uphill threshold at most every other week: ≤ 20′ at T (2×4k, 6×1.5k), never in or right after a week flagged R1 or R2. No R or I (R4).",
+            "The Feb–Mar 2024 and Jan 2026 injuries each followed 3+ straight weeks of two flat T/R/I/M sessions plus an R1 jump; Apr 2025 followed weeks of I and T, half of them uphill, with repeated R1 jumps. Aug–Sep 2026, one session a week alternating flat T and uphill 5×5′, stayed clean.",
+            "Kilian keeps one short flat threshold a week (10×400 m) because more flat speed injures him. His TFL tendonitis before Chianti 2025 came from weekly speed on a thin running base, kept up through the pain: stop a session type at the first localised pain.",
             "Add weight or vertical each week, never both; three easy days after a weighted session.",
         ],
-        [_KILIAN_UPHILL, _KILIAN_WSER, _UA_TRAIL],
+        [_KILIAN_UPHILL, _KILIAN_2024, _KILIAN_WSER, _UA_TRAIL],
     ),
     "P4": (
         [
