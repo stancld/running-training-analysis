@@ -33,7 +33,7 @@ jobs:
       # The real cache is personal and never pushed, so smoke-test on a tiny synthetic one.
       - name: Synthetic cache
         run: |
-          printf 'date,sport,km,min,vert\n2026-08-31,Run,10.0,55,300\n2026-09-02,TrailRun,12.0,70,600\n2026-09-05,Ride,40.0,90,400\n2026-09-06,RACE_Run,47.6,240,1924\n' > data/activities.csv
+          printf 'date,sport,km,min,vert\n2026-08-31,Run,10.0,55,300\n2026-09-02,TrailRun,12.0,70,600\n2026-09-05,Ride,40.0,90,400\n2026-09-06,RACE_Run,47.6,240,1924\n2026-09-08,Ride,30.0,60,200\n' > data/activities.csv
           printf 'date,type,feel\n2026-08-31,E,1\n2026-09-02,L,\n2026-09-06,RACE,2\n' > data/labels.csv
           printf 'date,re\n2026-08-31,20\n2026-09-02,40\n2026-09-06,235\n' > data/re.csv
           printf 'date,min,hr\n2026-09-06,240,162\n' > data/hr.csv
@@ -47,7 +47,18 @@ jobs:
           uv run tl site "$RUNNER_TEMP/payload.json"
       - run: uv build
 
-  # The diary page; Pages builds it the same way from the committed payload.
+      # End to end: the synthetic cache through `tl site` into the built page in Chromium.
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6  # v2.2.0
+      - name: e2e
+        working-directory: web
+        run: |
+          bun install --frozen-lockfile
+          bunx playwright install --with-deps chromium
+          uv run tl site
+          bun run build
+          bunx playwright test
+
+  # The committed payload, built the way Pages builds it.
   web:
     runs-on: ubuntu-latest
     timeout-minutes: 10

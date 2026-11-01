@@ -70,6 +70,7 @@ the app from the committed payload instead. To work on the page:
 
     cd web && bun install && bun run dev    # live preview; reloads when tl site rewrites the payload
     cd web && bun run build                 # type-check and build web/dist, as Pages does
+    cd web && bunx playwright test          # e2e on the built page; CI runs it on a synthetic cache
 
 ## Workflow after a session
 

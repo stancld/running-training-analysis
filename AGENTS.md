@@ -17,8 +17,10 @@ macrocycle and renders the diary page in `web/`. Read `README.md` before changin
 | Lint, format and hygiene | `uv run pre-commit run --all-files` (install once with `uv run pre-commit install`) |
 | Type-check | `uv run ty check` (also a pre-commit hook) |
 
-There is no test suite. CI (`.github/workflows/ci.yml`) runs pre-commit and smoke-tests
-every command on a synthetic cache, so it catches crashes, not wrong numbers. Verify a
+There are no unit tests. CI (`.github/workflows/ci.yml`) runs pre-commit, smoke-tests
+every command on a synthetic cache, and runs the e2e tests in `web/e2e/` (Playwright:
+that cache through `tl site` into the built page, at laptop and phone widths). It
+catches crashes and broken layouts, not wrong numbers. Verify a
 change by running the commands it affects and checking that the numbers make sense
 against the data. Run pre-commit before every commit; Ruff settings live in `ruff.toml`.
 Code must pass ty; declare attributes the checker cannot infer instead of silencing it.
