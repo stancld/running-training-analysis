@@ -21,16 +21,17 @@ Weekly training review for Dan. Work in `/Users/stancld/projects/running-trainin
    time series is enormous; the daily assessment lines are what matter. A same-day
    COROS reading can lag the phone app by hours — his app wins.
 5. **Check what was already agreed.** `TZ=Europe/Prague date`, then read `LOG.md`:
-   it holds the agreed day-by-day weeks and the reasons plan volumes moved, while
-   `tl/plan.py` carries week-level targets only. If the coming week is already agreed
-   there, print that one.
+   it holds Dan's decisions for each week and his reasons for plan changes, while
+   `tl/plan.py` carries week-level targets only. If Dan already planned the coming
+   week there, check that plan rather than writing a new one.
 6. **Evaluate.** `uv run tl status`, `weeks 6`, `diary 1`, `plan`. Judge the week on:
    plan vs actual (run h, vert, weekend long), the R1–R7 guardrails, CTL/ATL/form and
    monotony, the quality session's HR/power against LTHR 176, and what next week's plan
    row asks for. Flag anything that pushes the week-over-week running jump past 1.25×.
 7. **Publish.** `uv run tl site`, then commit and push `web/src/payload.json` to `master`.
    The Pages workflow deploys it to https://stancld.github.io/running-training-analysis/.
-8. **Report** in the terminal: what happened, what it means, and the call for next week.
+8. **Report** in the terminal: what happened, what it means, and what next week's plan
+   row would do to the guardrails. Dan decides the next week; ask him, don't prescribe.
 9. **Log it.** Add the week's section to the top of `LOG.md` (close-week review, open
-   questions). Once Dan agrees the next week, fill in its days and any `tl/plan.py`
-   change, then commit `LOG.md` with it.
+   questions). As Dan decides, record his plan, the checks against it and any
+   `tl/plan.py` change, then commit `LOG.md` with it.

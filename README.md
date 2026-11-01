@@ -64,8 +64,9 @@ GitHub Pages cannot run `tl`, so it builds the app from the committed payload.
 4. After an uphill session, extend `hills.csv` and `segments.csv`.
 5. `uv run tl status` to check, `uv run tl site` to rebuild the payload, then
    commit and push `web/src/payload.json`; the Pages workflow publishes it.
-6. Once a week, review the close week and agree the next one with an agent in
-   `LOG.md`; volume changes it agrees go into `tl/plan.py`.
+6. Once a week, review the close week with an agent in `LOG.md`: Dan plans the next
+   one, the agent checks it against the guardrails, and his volume changes go into
+   `tl/plan.py`.
 
 ## Guardrails encoded
 
