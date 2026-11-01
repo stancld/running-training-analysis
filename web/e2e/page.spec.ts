@@ -33,15 +33,20 @@ test('laptop: diary weeks expand into sessions with ratios and durations', async
   // No running the week before: WoW is undefined, so it is left out rather than shown as 0.
   await expect(race.locator('.tail')).not.toContainText('WoW');
 
-  const ride = page.locator('.wrow', { has: page.getByText(/^7\sSept?\s– /) });
+  const ride = page.locator('.wrow', { has: page.getByText(/^7–13\sSep$/) });
   await ride.getByRole('button').click();
   await expect(ride.locator('.tail')).toContainText('WoW 0.00×');
   await expect(ride.locator('.tail')).toContainText('ACWR 0.00');
 
   // Each guardrail flag is listed once, not once as a note and again as a flag.
-  const big = page.locator('.wrow', { has: page.getByText(/^14\sSept?\s– /) });
+  const big = page.locator('.wrow', { has: page.getByText(/^14–20\sSep$/) });
   await big.getByRole('button').click();
   await expect(big.locator('.verdict li.flag')).toHaveText([/R2.*ACWR/, /R6.*105 km/]);
+
+  // The ledger names the same week by plan week and dates, ISO second, with its flags.
+  const row = page.locator('.ledger tbody tr', { has: page.getByText('ISO W38', { exact: true }) });
+  await expect(row.getByRole('rowheader')).toHaveText('W3 · 14–20 SepISO W38');
+  await expect(row.locator('.chip')).toHaveText(['✕R2', '✕R6']);
 
   await noOverflow(page);
   expect(errors).toEqual([]);
@@ -62,12 +67,32 @@ test.describe('phone', () => {
       ['History', 'Week ledger'],
       ['Today', 'This week'],
     ] as const) {
-      await tabs.getByRole('button', { name: tab }).tap();
-      await expect(tabs.getByRole('button', { name: tab })).toHaveAttribute('aria-current', 'page');
+      await tabs.getByRole('link', { name: tab }).tap();
+      await expect(tabs.getByRole('link', { name: tab })).toHaveAttribute('aria-current', 'page');
       await expect(page.getByRole('heading', { name: heading })).toBeVisible();
+      await expect(page).toHaveURL(new RegExp(`#${tab.toLowerCase()}$`));
       await noOverflow(page);
     }
     await expect(page.getByRole('heading', { name: 'Week ledger' })).toHaveCount(0);
+
+    // The tab lives in the URL: Back returns to the previous tab and a reload keeps it.
+    await page.goBack();
+    await expect(page.getByRole('heading', { name: 'Week ledger' })).toBeVisible();
+    await page.reload();
+    await expect(tabs.getByRole('link', { name: 'History' })).toHaveAttribute('aria-current', 'page');
+    // Tapping the open tab again returns to its top rather than jumping to its anchor.
+    // Plan has an element with its tab's id, so the browser's own jump would land on it.
+    await tabs.getByRole('link', { name: 'Plan' }).tap();
+    await page.evaluate(() => window.scrollTo(0, 600));
+    await tabs.getByRole('link', { name: 'Plan' }).tap();
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+
+    // A closed diary week still shows its distance and climb.
+    await tabs.getByRole('link', { name: 'Diary' }).tap();
+    const race = page.locator('.wrow', { has: page.getByText(/^31\sAug\s– /) });
+    await expect(race.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
+    await expect(race.locator('.wn').first()).toBeVisible();
+    await expect(race.locator('.wn')).toHaveText(['70 km', '2,824 m']);
     expect(errors).toEqual([]);
   });
 });

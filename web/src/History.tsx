@@ -1,6 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { DATA, type Period } from './data';
-import { MON, hm, n, ratio, useWide } from './format';
+import {
+  MARK,
+  MON,
+  hm,
+  isoWeek,
+  month,
+  n,
+  planWeek,
+  plural,
+  r3Watch,
+  ratio,
+  span,
+  addDays,
+  useRenderedWidth,
+  useWide,
+  watchNote,
+  weekTitle,
+} from './format';
 import { About, place } from './Week';
 
 const months = DATA.months;
@@ -61,16 +78,8 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
   const wide = useWide();
   const W = wide ? 600 : 360,
     H = wide ? 128 : 140;
-  // The chart scales with its column (0.7× on a small phone, 2.7× just under laptop
-  // width), so labels are sized from its rendered width to always show at 10.5 px.
-  const ref = useRef<SVGSVGElement>(null);
-  const [px, setPx] = useState(W);
-  useEffect(() => {
-    const ro = new ResizeObserver(([e]) => setPx(e.contentRect.width));
-    if (ref.current) ro.observe(ref.current);
-    return () => ro.disconnect();
-  }, []);
-  const fs = (10.5 * W) / px;
+  const [ref, px] = useRenderedWidth<SVGSVGElement>(W);
+  const fs = (11 * W) / px;
   const m = { t: 22, r: 8, b: 18, l: Math.max(wide ? 34 : 30, 2.4 * fs) };
   const iw = W - m.l - m.r,
     ih = H - m.t - m.b,
@@ -103,7 +112,7 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
       className="trend"
       viewBox={`0 0 ${W} ${H}`}
       role="img"
-      aria-label={`Monthly ${{ h: 'running hours', t: 'total training hours', mh: 'climb per running hour' }[metric]} since ${months[0].label}, with a three-month average and injury periods`}
+      aria-label={`Monthly ${{ h: 'running hours', t: 'total training hours', mh: 'climb per running hour' }[metric]} since ${month(months[0].label)}, with a three-month average and injury periods`}
     >
       {bands.map(([a, b]) => (
         <g key={a}>
@@ -152,13 +161,14 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
           <line x1={x(si)} x2={x(si)} y1={m.t} y2={m.t + ih} stroke="var(--ink)" strokeWidth="1" opacity=".5" />
           <circle cx={x(si)} cy={y(vals[si])} r="3.2" fill="var(--ink)" />
           <text
-            x={Math.min(Math.max(x(si), m.l + 2 * fs), W - m.r - 2 * fs)}
+            x={x(si)}
             y={m.t - 7}
-            textAnchor="middle"
+            textAnchor={x(si) > W - m.r - 5 * fs ? 'end' : x(si) < m.l + 5 * fs ? 'start' : 'middle'}
             fontSize={fs}
             fill="var(--ink)"
           >
             {metric !== 'mh' ? vals[si].toFixed(1) : vals[si]} {unit}
+            {months[si].label === nowKey ? ' to date' : ''}
           </text>
         </>
       )}
@@ -245,7 +255,7 @@ function MonthDetail({ k, on, metric }: { k: string; on: boolean; metric: Metric
   return (
     <div className="month-detail" aria-hidden={!on}>
       <b>
-        {k}
+        {month(k)}
         {HURT.has(k) && <em className="tag">injury</em>}
         {RISK.has(+k.slice(5, 7)) && <em className="tag">Dec–Apr</em>}
         {k === nowKey && <em className="tag">to date</em>}
@@ -262,7 +272,7 @@ function MonthDetail({ k, on, metric }: { k: string; on: boolean; metric: Metric
               </span>
             )}
             <span>
-              {m.run_days} run days · longest {hm(m.longest / 60)} · {m.quality} quality · feel{' '}
+              {plural(m.run_days, 'run day')} · longest {hm(m.longest / 60)} · {m.quality} quality · feel{' '}
               {m.feel === null ? '—' : `${m.feel > 0 ? '+' : ''}${m.feel.toFixed(1)}`}
             </span>
             {m.hr !== null && m.pace !== null && (
@@ -284,7 +294,7 @@ function MonthDetail({ k, on, metric }: { k: string; on: boolean; metric: Metric
           <SameMonth sel={k} metric={metric} />
         </>
       ) : (
-        <span>nothing recorded</span>
+        <span>{k > nowKey ? 'Still to come' : 'Nothing recorded'}</span>
       )}
     </div>
   );
@@ -295,7 +305,7 @@ export function Heatmap() {
   const [metric, setMetric] = useState<Metric>('h');
   const M = METRIC[metric];
   return (
-    <section className="card heat" aria-labelledby="map-h">
+    <section className="card heat" id="months" aria-labelledby="map-h">
       <div className="ch">
         <h2 id="map-h">Every month since {years[years.length - 1]}</h2>
         <fieldset className="mode push" aria-label="Metric">
@@ -313,9 +323,9 @@ export function Heatmap() {
         </fieldset>
       </div>
       <p className="intro">
-        The gaps are the injuries: February–March 2024, April 2025, and the two months the January 2026 calf cost.
+        The gaps are the injuries: Feb–Mar 2024, Apr 2025 and the two months the Jan 2026 calf cost.
         {metric === 'mh' &&
-          ` Climb per running hour: below ${DATA.guardrails.vert_floor} m/h is the flat volume behind the calf and shin failures.`}{' '}
+          ` Below ${DATA.guardrails.vert_floor} m/h is the flat volume behind the calf and shin failures.`}{' '}
         Hover or tap a month.
       </p>
       <Trend metric={metric} sel={sel} setSel={setSel} />
@@ -340,14 +350,15 @@ export function Heatmap() {
             ...MON.map((_, k) => {
               const key = keyOf(y, k),
                 mm = byKey[key],
-                s2 = M.step(mm ? M.of(mm) : 0);
+                s2 = M.step(mm ? M.of(mm) : 0),
+                future = key > nowKey;
               return (
                 <button
                   key={key}
                   type="button"
-                  className={`cell${key === nowKey ? ' now' : ''}${key === sel ? ' sel' : ''}${HURT.has(key) ? ' hurt' : ''}`}
-                  style={{ backgroundColor: `var(--s${s2})`, color: `var(--on-s${s2})` }}
-                  aria-label={`${key}${HURT.has(key) ? ', injury' : ''}${key === nowKey ? ', to date' : ''}`}
+                  className={`cell${key === nowKey ? ' now' : ''}${key === sel ? ' sel' : ''}${HURT.has(key) ? ' hurt' : ''}${future ? ' future' : ''}`}
+                  style={future ? undefined : { backgroundColor: `var(--s${s2})`, color: `var(--on-s${s2})` }}
+                  aria-label={`${month(key)}${HURT.has(key) ? ', injury' : ''}${key === nowKey ? ', to date' : ''}${future ? ', still to come' : ''}`}
                   onPointerEnter={e => e.pointerType === 'mouse' && setSel(key)}
                   onClick={() => setSel(key)}
                 >
@@ -403,9 +414,14 @@ export function Heatmap() {
           Dec–Apr risk months
         </span>
         <span>
-          · garnet outline: this month, to date{metric === 't' && ' · small: run hours'}
-          {metric === 'mh' && ' · small: thousand metres climbed'}
+          <i className="now-key" />
+          month to date
         </span>
+        <span>
+          <i className="future-key" />
+          still to come
+        </span>
+        {metric !== 'h' && <span>small: {metric === 't' ? 'run hours' : 'thousand metres climbed'}</span>}
       </div>
       {/* Every month's detail sits in one grid cell and only the selected one is visible,
           so the box keeps the tallest month's height and hovering never shifts the page. */}
@@ -426,7 +442,8 @@ function FlagChip({ code, id }: { code: string; id: string }) {
     <>
       <button
         type="button"
-        className="chip bad"
+        className="chip flag"
+        aria-label={`flag ${code}`}
         popoverTarget={id}
         onPointerEnter={e => {
           if (!mouse(e)) return;
@@ -438,6 +455,7 @@ function FlagChip({ code, id }: { code: string; id: string }) {
           'pointerType' in e.nativeEvent && e.nativeEvent.pointerType === 'mouse' ? e.preventDefault() : place(e, id)
         }
       >
+        <i aria-hidden="true">{MARK.flag}</i>
         {code}
       </button>
       <span id={id} popover="auto" className="tip about">
@@ -447,75 +465,143 @@ function FlagChip({ code, id }: { code: string; id: string }) {
   );
 }
 
+/* A fade on the right edge while more columns sit off screen. */
+function useMoreRight() {
+  const ref = useRef<HTMLElement>(null);
+  const [more, setMore] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const on = () => setMore(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+    on();
+    el.addEventListener('scroll', on, { passive: true });
+    const ro = new ResizeObserver(on);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener('scroll', on);
+      ro.disconnect();
+    };
+  }, []);
+  return [ref, more] as const;
+}
+
 export function Ledger() {
   const planBy = Object.fromEntries(DATA.plan.map(p => [p.start, p]));
   const rows = DATA.weeks.slice(-26).reverse();
+  const G = DATA.guardrails;
+  const [ref, more] = useMoreRight();
+  // Bike and gym are often zero; a muted zero keeps the eye on the weeks that had some.
+  const h = (v: number) => <td className={`n${v ? '' : ' nil'}`}>{v.toFixed(1)}</td>;
   return (
-    <section className="card ledger" aria-labelledby="ledger-h">
+    <section className="card ledger" id="ledger" aria-labelledby="ledger-h">
       <div className="ch">
         <h2 id="ledger-h">Week ledger</h2>
         <span className="meta push">last {rows.length} weeks</span>
       </div>
-      <p className="intro">
-        Every week scored against the guardrails. WoW and ACWR are running hours only — the bike carries load the
-        tendons never see.
-      </p>
-      <div className="tw">
-        <table>
-          <thead>
-            <tr>
-              <th>Week</th>
-              <th className="n">Run h</th>
-              <th className="n">Plan</th>
-              <th className="n">km</th>
-              <th className="n">Vert</th>
-              <th className="n">m/h</th>
-              <th className="n">Bike</th>
-              <th className="n">Gym</th>
-              <th className="n">Total</th>
-              <th className="n">WoW</th>
-              <th className="n">ACWR</th>
-              <th>Rails</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map(w => {
-              const p = planBy[w.start];
-              return (
-                <tr key={w.start} className={w.current ? 'now' : w.flags.length ? 'flagged' : ''}>
-                  <td className="mono" title={`Monday ${w.start}`}>
-                    {w.label}
-                  </td>
-                  <td className="n">{w.run_h.toFixed(1)}</td>
-                  <td className="n">{p ? p.run_h.toFixed(1) : '—'}</td>
-                  <td className="n">{w.km.toFixed(0)}</td>
-                  <td className="n">{n(w.vert)}</td>
-                  <td className="n">{w.density}</td>
-                  <td className="n">{w.bike_h.toFixed(1)}</td>
-                  <td className="n">{w.gym_h.toFixed(1)}</td>
-                  <td className="n">{w.total_h.toFixed(1)}</td>
-                  <td className="n">{ratio(w.wow)}</td>
-                  <td className="n">{ratio(w.acwr)}</td>
-                  <td>
-                    {w.flags.length ? (
-                      w.flags.map(f => <FlagChip key={f} code={f} id={`flag-${w.start}-${f}`} />)
-                    ) : (
-                      <span className="chip ok">ok</span>
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <p className="intro">Every week scored against the guardrails, newest first.</p>
+      <div className={`tw-wrap${more ? ' more' : ''}`}>
+        {/* biome-ignore lint/a11y/noNoninteractiveTabindex: a scrolling region must be focusable to scroll by keyboard. */}
+        <section className="tw" ref={ref} tabIndex={0} aria-label="Week ledger, scrolls sideways">
+          <table>
+            <thead>
+              <tr>
+                <th>Week</th>
+                <th>Rails</th>
+                <th className="n">Run h</th>
+                <th className="n">Plan</th>
+                <th className="n">WoW</th>
+                <th className="n">ACWR</th>
+                <th className="n">km</th>
+                <th className="n">Vert</th>
+                <th className="n">m/h</th>
+                <th className="n">Bike</th>
+                <th className="n">Gym</th>
+                <th className="n">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map(w => {
+                const p = planBy[w.start],
+                  watch = r3Watch(w),
+                  hard = w.flags.filter(f => f !== '--');
+                return (
+                  <tr key={w.start} className={w.current ? 'now' : hard.length ? 'flagged' : ''}>
+                    <th scope="row" className="wkc" title={weekTitle(w.start)}>
+                      <b>{[planWeek(w.start), span(w.start, addDays(w.start, 6))].filter(Boolean).join(' · ')}</b>
+                      <small>{isoWeek(w.start)}</small>
+                    </th>
+                    <td className="rails-c">
+                      {hard.map(f => (
+                        <FlagChip key={f} code={f} id={`flag-${w.start}-${f}`} />
+                      ))}
+                      {w.flags.includes('--') && (
+                        <span className="chip watch" title="Big week inside the Dec–Apr injury window">
+                          <i aria-hidden="true">{MARK.watch}</i>
+                          Dec–Apr <span className="sr">watch</span>
+                        </span>
+                      )}
+                      {watch && (
+                        <span className="chip watch" title={watchNote(w)}>
+                          <i aria-hidden="true">{MARK.watch}</i>
+                          R3 <span className="sr">watch</span>
+                        </span>
+                      )}
+                      {!w.flags.length && !watch && (
+                        <span className="chip ok">
+                          <i aria-hidden="true">{MARK.ok}</i>ok
+                        </span>
+                      )}
+                    </td>
+                    <td className="n">{w.run_h.toFixed(1)}</td>
+                    <td className="n">{p ? p.run_h.toFixed(1) : '—'}</td>
+                    <td className="n">{ratio(w.wow)}</td>
+                    <td className="n">{ratio(w.acwr)}</td>
+                    <td className="n">{w.km.toFixed(0)}</td>
+                    <td className="n">{n(w.vert)}</td>
+                    <td className="n">{w.density}</td>
+                    {h(w.bike_h)}
+                    {h(w.gym_h)}
+                    <td className="n">{w.total_h.toFixed(1)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </section>
       </div>
-      <p className="note">
-        <b>Flags.</b> <span className="chip bad">R1</span> WoW jump above {DATA.guardrails.wow}×, the strongest injury
-        predictor in the record. <span className="chip bad">R2</span> ACWR above {DATA.guardrails.acwr.toFixed(2)}.{' '}
-        <span className="chip bad">R3</span> over {DATA.guardrails.big_week_h} h below {DATA.guardrails.vert_floor} m/h
-        — flat volume. <span className="chip bad">R6</span> over {DATA.guardrails.km} km. R4 fires only for{' '}
-        <em>flat</em> I/R work.
-      </p>
+      <dl className="note">
+        <div>
+          <dt>
+            <span className="chip ok">
+              <i aria-hidden="true">{MARK.ok}</i>ok
+            </span>
+          </dt>
+          <dd>inside every guardrail</dd>
+        </div>
+        <div>
+          <dt>
+            <span className="chip watch">
+              <i aria-hidden="true">{MARK.watch}</i>R3
+            </span>
+          </dt>
+          <dd>
+            watch: under {G.vert_floor} m/h on a week of {G.big_week_h} h or less, which the rule does not cover;
+            Dec–Apr marks a big week in the injury-prone months
+          </dd>
+        </div>
+        <div>
+          <dt>
+            <span className="chip flag">
+              <i aria-hidden="true">{MARK.flag}</i>R1
+            </span>
+          </dt>
+          <dd>
+            flag: R1 WoW over {G.wow}× · R2 ACWR over {G.acwr.toFixed(2)} · R3 under {G.vert_floor} m/h over{' '}
+            {G.big_week_h} h · R4 <em>flat</em> I/R work · R6 over {G.km} km
+          </dd>
+        </div>
+      </dl>
+      <p className="caption">WoW and ACWR are running hours only: the bike carries load the tendons never see.</p>
     </section>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { DATA, type PhaseZones, type WeekZones, type ZoneBand, type ZoneSplit } from './data';
-import { day, hm } from './format';
+import { hm, span } from './format';
 
 type Mode = 'run' | 'total';
 type Split = { run: ZoneSplit; bike: ZoneSplit };
@@ -88,7 +88,7 @@ function WeekColumns({ weeks, mode }: { weeks: WeekZones[]; mode: Mode }) {
       {rows.map(({ w, m }) => {
         const t = sum(m);
         const label =
-          `W${w.index} ${day(w.start)} – ${day(w.end)}: ${hm(t / 60)} h` +
+          `W${w.index} · ${span(w.start, w.end)}: ${hm(t / 60)} h` +
           (t
             ? `, ${m
                 .map((x, i) => (pct(x, t) ? `${bands[i].code} ${pct(x, t)}%` : ''))
@@ -132,7 +132,7 @@ function PhaseRow({ p, mode }: { p: PhaseZones; mode: Mode }) {
           {p.current && <span className="now-pill">now</span>}
           <span>{p.name}</span>
           <small>
-            {day(p.start)} – {day(p.end)} · {hm(total / 60)} h{p.current ? ' so far' : ''}
+            {span(p.start, p.end)} · {hm(total / 60)} h{p.current ? ' so far' : ''}
           </small>
           {share > 0 && <small>{share}% from HR streams</small>}
         </div>
@@ -177,7 +177,7 @@ export function Zones() {
   const share = streamShare(all);
   const noHr = sum(all.map(p => p.no_hr));
   return (
-    <section className="card zones" aria-labelledby="zones-h">
+    <section className="card zones" id="zones" aria-labelledby="zones-h">
       <div className="ch">
         <h2 id="zones-h">Heart-rate zones by phase</h2>
         <fieldset className="mode" aria-label="Sports">
@@ -206,14 +206,17 @@ export function Zones() {
       {phases.map(p => (
         <PhaseRow key={p.phase} p={p} mode={mode} />
       ))}
-      <p className="caption">
-        Activities with a fetched stream are split second by second; a run without one counts whole in the zone of its
-        average heart rate (COROS, else modelled from relative effort). Running zones are Dan's Strava zones; rides use
-        his Garmin HR and power zones, and Total adds the two sports zone by zone.
-        {noHr
-          ? ` ${hm(noHr / 60)} h without heart rate ${mode === 'total' ? '(rides without a strap still count in power) ' : ''}is left out of the HR bars.`
-          : ''}
-      </p>
+      <details className="how">
+        <summary>How it's computed</summary>
+        <p>
+          Activities with a fetched stream are split second by second; a run without one counts whole in the zone of its
+          average heart rate (COROS, else modelled from relative effort). Running zones are Dan's Strava zones; rides
+          use his Garmin HR and power zones, and Total adds the two sports zone by zone.
+          {noHr
+            ? ` ${hm(noHr / 60)} h without heart rate ${mode === 'total' ? '(rides without a strap still count in power) ' : ''}is left out of the HR bars.`
+            : ''}
+        </p>
+      </details>
     </section>
   );
 }

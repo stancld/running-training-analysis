@@ -16,6 +16,7 @@
   --amber: #8a6512;
   --amber-wash: #f4ecd8;
   --ghost: #d5d2c8;
+  --slate: #5f6f86;
   --s0: #f0efe9;
   --s1: #dfe9e9;
   --s2: #bcd4d6;
@@ -51,6 +52,7 @@
     --amber: #d8a742;
     --amber-wash: #2d2516;
     --ghost: #33383f;
+    --slate: #9aabc4;
     --s0: #1b1e22;
     --s1: #1e2f31;
     --s2: #284448;
@@ -174,7 +176,7 @@ svg text {
 }
 .meta {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
@@ -197,7 +199,7 @@ svg text {
   margin-top: 12px;
 }
 .pill {
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--teal);
   background: var(--teal-wash);
   border-radius: 999px;
@@ -232,9 +234,9 @@ svg text {
 .swatch.round {
   border-radius: 50%;
 }
-.swatch.dashed {
+.swatch.band {
   background: var(--sunk-2);
-  border: 1px dashed var(--line-2);
+  border: 1.5px dashed var(--ink-2);
 }
 .scroll {
   overflow-x: auto;
@@ -248,8 +250,7 @@ svg text {
   padding: 10px 12px;
   border-radius: 6px;
   background: var(--sunk);
-  font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--ink-2);
   font-variant-numeric: tabular-nums;
 }
@@ -257,6 +258,39 @@ svg text {
   flex-basis: 100%;
   color: var(--ink);
   font-weight: 600;
+}
+.wd-head {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wd-head b {
+  flex: 1 1 auto;
+  flex-basis: auto;
+}
+.wd-head button {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  font-size: 17px;
+  line-height: 1;
+  text-align: center;
+  color: var(--ink-2);
+}
+.wd-head button:hover:not(:disabled) {
+  color: var(--teal);
+  border-color: var(--teal-2);
+}
+.wd-head button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.wd-head b {
+  order: -1;
 }
 /* Phase advice: muted, below the numbers, reasoning folded away. */
 .wq {
@@ -304,39 +338,11 @@ svg text {
 }
 .wq details p {
   margin-top: 6px;
-  font-size: 11.5px;
+  font-size: 11px;
 }
 .wq a {
   color: var(--teal);
 }
-.tw-quality {
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-  width: 100%;
-  margin-top: 16px;
-  padding: 12px 0 0;
-  border: 0;
-  border-top: 1px solid var(--line);
-  background: none;
-  font: inherit;
-  font-size: 13px;
-  text-align: left;
-  color: var(--ink-2);
-  cursor: pointer;
-}
-.tw-quality .eyebrow {
-  flex: 0 0 auto;
-}
-.tw-quality i {
-  margin-left: auto;
-  font-style: normal;
-  color: var(--muted);
-}
-.tw-quality:hover {
-  color: var(--teal);
-}
-
 /* ---------- top bar ---------- */
 .topbar {
   position: relative;
@@ -355,7 +361,7 @@ svg text {
   border: 1px solid var(--line-2);
   color: var(--ink);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
 }
 .repo:hover {
@@ -380,7 +386,7 @@ svg text {
 }
 .focus span {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--surface);
@@ -388,14 +394,6 @@ svg text {
   border-radius: 999px;
   padding: 2px 8px;
   white-space: nowrap;
-}
-.phone .focus {
-  font-size: 12.5px;
-  gap: 6px;
-}
-.phone .focus span {
-  font-size: 9px;
-  letter-spacing: 0.06em;
 }
 .countdown {
   text-align: right;
@@ -441,7 +439,7 @@ svg text {
 .track-row > span {
   grid-row: 2;
   text-align: center;
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--muted);
   line-height: 1.25;
   border-top: 2px solid var(--line);
@@ -462,7 +460,7 @@ svg text {
 .track-row > span small {
   display: block;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 /* ---------- this week ---------- */
@@ -492,23 +490,28 @@ svg text {
 }
 .ring .c b {
   font-family: var(--mono);
-  font-size: 17px;
+  font-size: 21px;
   font-weight: 600;
   line-height: 1.2;
 }
+.ring .c b small {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
 .ring .c i {
   font-style: normal;
-  font-family: var(--mono);
-  font-size: 13px;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
   color: var(--ink-2);
 }
 .ring .c span {
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--muted);
 }
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .stats > div {
   padding: 2px 14px;
@@ -526,68 +529,102 @@ svg text {
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
 }
-.stats b.warn {
+.stats b.watch {
   color: var(--amber);
+}
+.stats b.flag {
+  color: var(--garnet);
 }
 .now {
   container-type: inline-size;
 }
-@container (max-width: 640px) {
-  .stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 0;
+@container (max-width: 520px) {
+  .stats b {
+    font-size: 24px;
   }
-  .stats > div:nth-child(3) {
-    border-left: 0;
-    padding-left: 0;
+  .stats > div {
+    padding: 2px 10px;
   }
-  .stats > div:nth-child(n + 3) {
-    border-top: 1px solid var(--line);
-    padding-top: 12px;
-  }
-}
-.stats b.txt {
-  font-size: 21px;
-  line-height: 1.3;
 }
 .stats span {
   display: block;
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--ink-2);
 }
 .stats small {
   display: block;
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--muted);
+}
+/* Weekend, quality and next week: plain lines under the numbers. */
+.tw-lines {
+  display: grid;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+.tw-lines > div {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+}
+.tw-lines a {
+  color: var(--teal);
+  text-decoration: none;
+}
+.tw-lines a:hover {
+  text-decoration: underline;
+}
+.tw-lines a i {
+  font-style: normal;
 }
 
 /* ---------- guardrails ---------- */
+/* ok, watch and flag look the same everywhere: a filled teal tick, a hollow amber ring
+   and a filled garnet cross, on marks, dots and ledger chips alike. */
 .mark {
-  flex: 0 0 26px;
-  width: 26px;
-  height: 26px;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   font-style: normal;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
+  line-height: 1;
   color: var(--surface);
   background: var(--teal);
 }
-.watch .mark {
-  background: var(--amber);
+.mark.watch {
+  background: none;
+  color: var(--amber);
+  box-shadow: inset 0 0 0 2px var(--amber);
 }
-.bad .mark {
+.mark.flag {
   background: var(--garnet);
 }
+.mark.sm {
+  display: inline-grid;
+  width: 16px;
+  height: 16px;
+  font-size: 11px;
+  vertical-align: -3px;
+}
+.mark.sm.watch {
+  box-shadow: inset 0 0 0 1.5px var(--amber);
+}
 .rail-list {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .rail-list li {
   display: grid;
-  grid-template-columns: 26px 1fr auto;
-  gap: 12px;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 4px 12px;
   align-items: center;
   padding: 9px 0;
   border-bottom: 1px solid var(--line);
@@ -595,70 +632,117 @@ svg text {
 .rail-list li:last-child {
   border-bottom: 0;
 }
-.rail-list b,
-.rchip b {
+.rule {
+  position: relative;
   display: block;
-  font-family: var(--mono);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--teal);
+  min-width: 0;
+}
+.rn {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink);
   line-height: 1.3;
 }
-.rail-list span,
-.rchip span {
+.rn small {
+  margin-left: 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.rv {
   display: block;
-  font-size: 12px;
-  color: var(--ink-2);
+  font-size: 12.5px;
+  color: var(--muted);
   line-height: 1.35;
 }
-.watch b {
+.rv b {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--teal);
+  margin-right: 4px;
+}
+.rail-list li.watch .rv b {
   color: var(--amber);
 }
-.bad b {
+.rail-list li.flag .rv b {
   color: var(--garnet);
 }
-.rail-list .dots,
-.rchip .dots {
-  display: flex;
-  gap: 6px;
+.rnote {
+  grid-column: 2 / -1;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  line-height: 1.4;
 }
-/* A dot is a <button>: its card opens on hover or focus on the laptop, on tap on the phone. */
+.rail-list li.watch .rnote {
+  border-left: 2px solid var(--amber);
+  padding-left: 8px;
+}
+.rail-list li.flag .rnote {
+  border-left: 2px solid var(--garnet);
+  padding-left: 8px;
+  color: var(--garnet);
+}
+.rails-inline {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.phone .rails-inline h2 {
+  font-size: 17px;
+}
+.phone .rails-inline .rail-list li {
+  column-gap: 10px;
+}
+.phone .rn {
+  font-size: 13.5px;
+}
+.dots {
+  display: flex;
+  gap: 8px;
+}
+/* A dot is a <button>: its card opens on hover or focus with a mouse, on tap on a phone.
+   The ::after pads each one to a 24 px target. */
 .dots > * {
   position: relative;
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--teal);
 }
 .dots > .watch {
-  background: var(--amber);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 2px var(--amber);
 }
-.dots > .bad {
+.dots > .flag {
   background: var(--garnet);
 }
 .dots > :last-child {
-  box-shadow:
-    0 0 0 2px var(--surface),
-    0 0 0 3px var(--line-2);
+  outline: 1.5px solid var(--ink-2);
+  outline-offset: 2px;
 }
 .dots > ::after {
   content: "";
   position: absolute;
-  inset: -4px;
+  inset: -7px -4px;
 }
-.rchip .dots {
-  gap: 12px;
+.rails-inline .dots {
+  gap: 14px;
+  padding-right: 3px;
 }
-.rchip .dots > ::after {
-  inset: -10px -6px;
+.rails-inline .dots > ::after {
+  inset: -7px;
 }
 
 /* Cards: per-week values on the dots, the rule's meaning on its text. Hover or keyboard
-   focus shows them on the laptop; on the phone they are popovers placed by Week.tsx. */
+   focus shows them with a mouse; on a phone they are popovers placed by Week.tsx. */
 .tip {
   z-index: 5;
   width: max-content;
   min-width: 150px;
+  max-width: 280px;
   padding: 9px 12px 10px;
   border: 1px solid var(--line-2);
   border-radius: 8px;
@@ -692,10 +776,6 @@ svg text {
   right: -12px;
   bottom: calc(100% + 12px);
 }
-.rule {
-  position: relative;
-  display: block;
-}
 .rule .tip {
   left: -12px;
   top: calc(100% + 10px);
@@ -709,7 +789,7 @@ svg text {
   border-width: 1px 0 0 1px;
 }
 .rail-list .dots > :hover {
-  outline: 2px solid var(--ink-2);
+  outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
 .rail-list .dots > :is(:hover, :focus-visible) .tip,
@@ -722,7 +802,7 @@ svg text {
   margin: 0;
   overflow: visible;
 }
-/* .rchip span would otherwise override the UA rule that hides closed popovers. */
+/* Display rules on spans would otherwise override the UA rule that hides closed popovers. */
 .tip[popover]:not(:popover-open) {
   display: none;
 }
@@ -739,83 +819,46 @@ svg text {
 .tip.about {
   width: 260px;
 }
-.tip small {
+.tip > * {
   display: block;
+}
+.tip small {
   font-family: var(--mono);
   font-size: 11px;
   color: var(--muted);
   letter-spacing: 0.02em;
 }
 .tip em {
-  display: block;
   font-style: normal;
   font-size: 12.5px;
   color: var(--ink);
 }
 .tip strong {
-  display: block;
   margin-top: 2px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--ink);
 }
 .tip b {
   margin-top: 6px;
-  font-size: 16px;
+  font-family: var(--mono);
+  font-size: 15px;
   color: var(--teal);
 }
 .tip.watch b {
   color: var(--amber);
 }
-.tip.bad b {
+.tip.flag b {
   color: var(--garnet);
 }
-.tip span {
-  font-size: 12px;
+.tip > span {
+  margin-top: 2px;
+  font-size: 12.5px;
   line-height: 1.45;
   color: var(--ink-2);
 }
-.tip.about span {
+.tip.about > span {
   margin-top: 4px;
-  font-size: 12.5px;
-}
-.chips-wrap {
-  border-top: 1px solid var(--line);
-  margin-top: 20px;
-  padding-top: 14px;
-}
-.chips {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  margin: 10px -16px 0;
-  padding: 0 16px 4px;
-  scrollbar-width: none;
-}
-.chips::-webkit-scrollbar {
-  display: none;
-}
-.rchip {
-  scroll-snap-align: start;
-  flex: 0 0 auto;
-  display: grid;
-  grid-template-columns: 26px auto;
-  gap: 4px 10px;
-  align-items: center;
-  min-height: 56px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: var(--teal-wash);
-}
-.rchip.watch {
-  background: var(--amber-wash);
-}
-.rchip.bad {
-  background: var(--garnet-wash);
-}
-.rchip .dots {
-  grid-column: 2;
 }
 
 /* ---------- fitness ---------- */
@@ -833,8 +876,11 @@ svg text {
   border-left: 0;
 }
 .fit-nums dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 12.5px;
   color: var(--ink-2);
 }
 .fit-nums dd {
@@ -843,19 +889,41 @@ svg text {
   font-weight: 600;
   line-height: 1.15;
 }
-.fit-nums dd.pos {
-  color: var(--teal);
-}
-.fit-nums dd.neg {
-  color: var(--garnet);
-}
 .fit-nums small {
   display: block;
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--muted);
 }
-.fit .legend {
-  margin-bottom: 6px;
+.fit svg {
+  margin-top: 12px;
+}
+.swatch.line {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+}
+.swatch.line.dash {
+  background: repeating-linear-gradient(90deg, var(--ink-2) 0 4px, transparent 4px 6.5px);
+}
+/* Method notes fold away so the charts come first. */
+.how {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.how summary {
+  width: max-content;
+  min-height: 28px;
+  padding: 4px 0;
+  cursor: pointer;
+  color: var(--ink-2);
+}
+.how summary:hover {
+  color: var(--teal);
+}
+.how p {
+  max-width: 78ch;
+  margin-top: 2px;
 }
 
 /* ---------- plan chart ---------- */
@@ -881,7 +949,7 @@ svg text {
   gap: 4px 12px;
   min-height: 52px;
   padding: 8px 4px;
-  grid-template-columns: 30px minmax(0, 1fr) 100px 46px 58px 10px 10px;
+  grid-template-columns: 30px minmax(0, 1fr) 100px 46px 58px 18px 10px;
 }
 .wsum:hover {
   background: var(--sunk);
@@ -892,28 +960,25 @@ svg text {
 .wk {
   font-family: var(--mono);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
 }
 .wd b {
   display: block;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   font-variant-numeric: tabular-nums;
 }
 .wd span {
   display: block;
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .wd .race {
   color: var(--garnet);
 }
 .wh b {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -941,19 +1006,25 @@ svg text {
   text-align: right;
   white-space: nowrap;
 }
-.ws {
-  display: none;
-}
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--surface);
   background: var(--teal);
 }
 .dot.watch {
-  background: var(--amber);
+  background: none;
+  color: var(--amber);
+  box-shadow: inset 0 0 0 1.5px var(--amber);
 }
-.dot.bad {
+.dot.flag {
   background: var(--garnet);
 }
 .chev {
@@ -987,7 +1058,7 @@ svg text {
 }
 .sd {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--ink-2);
 }
 .sd em {
@@ -999,7 +1070,7 @@ svg text {
 }
 .sn small {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 12.5px;
 }
 .sn q {
   display: block;
@@ -1008,20 +1079,20 @@ svg text {
   border-left: 2px solid var(--teal-2);
   background: var(--sunk);
   border-radius: 0 4px 4px 0;
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--ink-2);
   quotes: "“" "”";
 }
 .sv {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--ink-2);
   text-align: right;
   white-space: nowrap;
 }
 .type {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--teal);
   border: 1px solid var(--teal-2);
@@ -1060,9 +1131,9 @@ svg text {
   margin-top: 12px;
   padding-top: 10px;
   border-top: 1px solid var(--line);
-  font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12.5px;
   color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- heatmap ---------- */
@@ -1083,7 +1154,7 @@ svg text {
 }
 .mapgrid .hd {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1118,7 +1189,7 @@ svg text {
   line-height: 1;
 }
 .ytot i {
-  font-size: 10.5px;
+  font-size: 11px;
   font-style: normal;
   margin-top: 2px;
   color: var(--teal);
@@ -1128,6 +1199,13 @@ svg text {
 }
 .ramp .hurt-key {
   background: var(--s2) repeating-linear-gradient(135deg, transparent 0 3px, var(--garnet) 3px 4.5px);
+}
+.ramp .now-key {
+  background: var(--s2);
+  border: 1.5px dashed var(--ink-2);
+}
+.ramp .future-key {
+  border: 1px dashed var(--line-2);
 }
 .ramp .risk-key {
   background: var(--garnet-wash);
@@ -1162,12 +1240,12 @@ svg text {
   min-width: 0;
 }
 .md-text .up {
-  color: var(--garnet);
+  color: var(--amber);
 }
 .tag {
   font-style: normal;
   font-weight: 500;
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--garnet);
@@ -1241,7 +1319,7 @@ svg text {
 }
 .same li small {
   order: 2;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 .same li.on i {
   background: var(--teal);
@@ -1251,12 +1329,12 @@ svg text {
   color: var(--ink);
 }
 .same .unit {
-  font-size: 10.5px;
+  font-size: 11px;
   color: var(--muted);
 }
 .mapgrid .yr {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--ink-2);
   display: flex;
   align-items: center;
@@ -1279,7 +1357,7 @@ svg text {
   line-height: 1;
 }
 .cell i {
-  font-size: 10.5px;
+  font-size: 11px;
   font-style: normal;
   opacity: 0.75;
   margin-top: 2px;
@@ -1296,7 +1374,11 @@ svg text {
   }
 }
 .cell.now {
-  border-color: var(--garnet);
+  border: 1.5px dashed var(--ink-2);
+}
+.cell.future {
+  background: none;
+  border: 1px dashed var(--line-2);
 }
 .cell.sel {
   box-shadow: 0 0 0 2px var(--ink);
@@ -1322,16 +1404,32 @@ svg text {
 }
 
 /* ---------- ledger ---------- */
+.tw-wrap {
+  position: relative;
+  margin-top: 14px;
+}
+/* While columns sit off to the right, the edge fades to say the table scrolls. */
+.tw-wrap.more::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 40px;
+  border-radius: 0 6px 6px 0;
+  background: linear-gradient(to right, transparent, var(--surface) 85%);
+  pointer-events: none;
+}
 .tw {
   overflow-x: auto;
-  margin-top: 14px;
   border: 1px solid var(--line);
   border-radius: 6px;
 }
 table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   width: 100%;
-  font-size: 13px;
+  font-size: 13.5px;
 }
 th,
 td {
@@ -1339,10 +1437,11 @@ td {
   padding: 7px 10px;
   border-bottom: 1px solid var(--line);
   white-space: nowrap;
+  background: var(--surface);
 }
 thead th {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1351,8 +1450,34 @@ thead th {
   border-bottom: 1px solid var(--line-2);
   position: sticky;
   top: 0;
+  z-index: 1;
 }
-tbody tr:last-child td {
+/* The week stays pinned while the numbers scroll under it. */
+thead th:first-child,
+th.wkc {
+  position: sticky;
+  left: 0;
+  box-shadow: 1px 0 0 var(--line);
+}
+thead th:first-child {
+  z-index: 2;
+}
+th.wkc {
+  z-index: 1;
+  font-weight: 400;
+}
+.wkc b {
+  display: block;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.wkc small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+tbody tr:last-child > * {
   border-bottom: 0;
 }
 td.n,
@@ -1361,45 +1486,72 @@ th.n {
   font-variant-numeric: tabular-nums;
   text-align: right;
 }
-tbody tr.now td {
+td.nil {
+  color: var(--muted);
+}
+tbody tr.now > * {
   background: var(--teal-wash);
 }
-tbody tr.flagged td {
+tbody tr.flagged > * {
   background: var(--garnet-wash);
 }
 .chip {
   display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 24px;
   font-family: var(--mono);
-  font-size: 10.5px;
-  padding: 1px 6px;
-  border-radius: 3px;
-  margin-right: 3px;
+  font-size: 11px;
+  padding: 0 7px;
+  border-radius: 4px;
+  margin-right: 4px;
   border: 1px solid var(--line-2);
   color: var(--ink-2);
   background: var(--sunk);
 }
-.chip.bad {
+.chip i {
+  font-style: normal;
+  font-weight: 700;
+}
+.chip.flag {
   border-color: var(--garnet);
-  color: var(--garnet);
-  background: var(--garnet-wash);
+  color: var(--surface);
+  background: var(--garnet);
+}
+.chip.watch {
+  border: 1.5px solid var(--amber);
+  color: var(--amber);
+  background: var(--surface);
 }
 .chip.ok {
-  border-color: var(--teal-2);
+  border-color: transparent;
   color: var(--teal);
-  background: var(--teal-wash);
+  background: none;
+  padding-left: 2px;
+}
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 .note {
-  background: var(--amber-wash);
-  border-left: 3px solid var(--amber);
-  border-radius: 6px;
-  padding: 10px 14px;
-  margin-top: 14px;
-  font-size: 13px;
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 12.5px;
   color: var(--ink-2);
-  line-height: 1.7;
 }
-.note b {
-  color: var(--ink);
+.note > div {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 8px;
+  align-items: baseline;
+}
+.note .chip {
+  margin: 0;
 }
 footer {
   font-size: 12.5px;
@@ -1423,6 +1575,41 @@ footer {
   box-shadow: var(--shadow);
   padding: 16px 24px;
 }
+.wide [id] {
+  scroll-margin-top: 64px;
+}
+/* Jump links stay in reach on the long dashboard. */
+.jump {
+  position: sticky;
+  top: 8px;
+  z-index: 8;
+  justify-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow);
+}
+.jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.jump a:hover,
+.jump a[aria-current] {
+  background: var(--teal-wash);
+  color: var(--teal);
+}
 .row {
   display: grid;
   gap: 18px;
@@ -1430,10 +1617,13 @@ footer {
 }
 .r1 {
   grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr) minmax(0, 1fr);
-  align-items: stretch;
+}
+/* r2 and r3 share their split, so the card edges line up. */
+.r2,
+.r3 {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
 }
 .r2 {
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   align-items: stretch;
 }
 /* The diary list scrolls inside the height the plan chart sets. */
@@ -1446,12 +1636,13 @@ footer {
   min-height: 0;
   overflow-y: auto;
 }
-.r3 {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
-}
 .wide .ledger .tw {
-  max-height: 430px;
+  max-height: 520px;
   overflow-y: auto;
+}
+.wide .countdown .fresh {
+  justify-content: flex-end;
+  margin-top: 6px;
 }
 @media (max-width: 1279px) {
   /* The 29-week track needs ~440 px; below 1280 it gets its own row instead of
@@ -1478,49 +1669,78 @@ footer {
     max-height: 640px;
   }
 }
+.fresh {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.fresh i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+.fresh.stale {
+  color: var(--amber);
+}
+.fresh.stale i {
+  background: none;
+  box-shadow: inset 0 0 0 1.5px var(--amber);
+}
 
-/* ---------- phone: app shell ---------- */
+/* ---------- phone and tablet: app shell ---------- */
 .app.phone {
-  padding: 16px 12px calc(88px + env(safe-area-inset-bottom));
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 12px 12px calc(88px + env(safe-area-inset-bottom));
 }
 .phone main {
   display: grid;
   gap: 12px;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 .phone .topbar {
-  grid-template-columns: 1fr;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 12px;
   padding: 4px 6px 0;
 }
+.phone .topbar h1 {
+  font-size: 24px;
+}
 .phone .repo {
-  position: absolute;
-  top: 6px;
-  right: 6px;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: start;
   width: 44px;
+  height: 44px;
   padding: 0;
   justify-content: center;
 }
 .phone .repo span {
   display: none;
 }
-.phone h1 {
-  padding-right: 52px;
+.race-line {
+  font-size: 13.5px;
+  color: var(--ink-2);
 }
-.phone h1 {
-  font-size: 30px;
+.race-line b {
+  font-weight: 600;
+  color: var(--teal);
 }
-.phone .countdown {
-  text-align: left;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+.race-week {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--garnet-wash);
+  font-variant-numeric: tabular-nums;
 }
-.phone .countdown b {
-  font-size: 28px;
+.race-week b,
+.race-week span {
+  color: var(--garnet);
 }
 .phone .card {
-  padding: 18px 16px;
+  padding: 16px;
 }
 .phone h2 {
   font-size: 21px;
@@ -1528,50 +1748,51 @@ footer {
 .phone .ch .push {
   margin-left: auto;
 }
+/* Today on a phone: a small ring beside the numbers, so the guardrails make the first screen. */
 .phone .tw-main {
-  grid-template-columns: 1fr;
-  justify-items: center;
-  gap: 20px;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 14px;
 }
 .phone .ring {
-  width: 190px;
-  height: 190px;
+  width: 112px;
+  height: 112px;
 }
 .phone .ring .c b {
-  font-size: 19px;
+  font-size: 15px;
+}
+.phone .ring .c b small {
+  font-size: 12.5px;
+}
+.phone .ring .c i,
+.phone .ring .c span {
+  font-size: 12.5px;
+  line-height: 1.25;
 }
 .phone .stats {
-  grid-template-columns: 1fr 1fr;
-  gap: 16px 0;
-  width: 100%;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+.phone .stats > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 6px;
+  padding: 0;
+  border: 0;
 }
 .phone .stats b {
-  font-size: 30px;
+  display: inline;
+  font-size: 22px;
 }
-.phone .stats b.txt {
-  font-size: 24px;
+.phone .stats span {
+  display: inline;
 }
-.race-banner {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  padding: 12px 16px;
-  border-radius: 8px;
-  background: var(--garnet-wash);
-  border: 1px solid var(--line);
-  color: var(--garnet);
+.phone .stats small {
+  flex-basis: 100%;
 }
-.race-banner > span {
-  font-size: 20px;
-}
-.race-banner b {
-  display: block;
-  font-weight: 600;
-}
-.race-banner small {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-2);
+.phone .tw-lines > div {
+  grid-template-columns: 64px minmax(0, 1fr);
 }
 .phone .track-row {
   column-gap: 2px;
@@ -1585,14 +1806,17 @@ footer {
   height: 13px;
   border-width: 2.5px;
 }
-.phone .track-row > span em,
 .phone .track-row > span small {
   display: none;
 }
-/* diary accordion */
+.phone .wd-head button {
+  width: 44px;
+  height: 44px;
+}
+/* diary accordion: a closed week still shows its status, distance and climb */
 .phone .wsum {
-  grid-template-columns: 34px minmax(0, 1fr) auto 12px;
-  grid-template-areas: "k d s c" "k h h h";
+  grid-template-columns: 34px minmax(0, 1fr) auto auto 12px;
+  grid-template-areas: "k d d t c" "k h m v v";
   min-height: 64px;
   padding: 12px 4px;
   gap: 6px 10px;
@@ -1600,29 +1824,27 @@ footer {
 .phone .wk {
   grid-area: k;
   align-self: start;
-  padding-top: 3px;
+  padding-top: 2px;
 }
 .phone .wd {
   grid-area: d;
 }
 .phone .wd b {
-  font-family: var(--serif);
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
 }
 .phone .wh {
   grid-area: h;
 }
 .phone .wn {
-  display: none;
+  grid-area: m;
 }
-.phone .ws {
-  display: block;
-  grid-area: s;
-  color: var(--muted);
+.phone .wn + .wn {
+  grid-area: v;
 }
 .phone .dot {
-  display: none;
+  grid-area: t;
+  align-self: start;
 }
 .phone .chev {
   grid-area: c;
@@ -1646,7 +1868,7 @@ footer {
 }
 .strip li b {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--ink);
 }
 .strip li i {
@@ -1713,13 +1935,13 @@ footer {
   display: none;
 }
 .phone .ytot b {
-  font-size: 10.5px;
+  font-size: 11px;
 }
 .phone .month-detail {
   grid-template-columns: 1fr;
 }
 .phone .cell {
-  aspect-ratio: 1 / 1.1;
+  aspect-ratio: 1 / 1.2;
 }
 .phone .cell i {
   display: none;
@@ -1728,7 +1950,7 @@ footer {
   font-size: 11px;
 }
 .phone .mapgrid .hd {
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0;
 }
 /* Three letters stop fitting a column below ~380 px; the initial stays. */
@@ -1751,14 +1973,15 @@ footer {
   padding-bottom: env(safe-area-inset-bottom);
   box-shadow: 0 -8px 24px -18px rgba(26, 28, 32, 0.4);
 }
-.tabbar button {
+.tabbar a {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3px;
   min-height: 62px;
   padding: 9px 0 8px;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 500;
   color: var(--muted);
   text-align: center;
@@ -1772,11 +1995,11 @@ footer {
   stroke-linejoin: round;
   stroke-linecap: round;
 }
-.tabbar button.on {
+.tabbar a.on {
   color: var(--teal);
   font-weight: 600;
 }
-.tabbar button.on svg {
+.tabbar a.on svg {
   fill: var(--teal-wash);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1787,11 +2010,12 @@ footer {
 
 /* ---------- HR and power zones ---------- */
 .zones {
-  --z1: #bcd4d6;
-  --z2: var(--teal);
-  --z3: #d9b26a;
-  --z4: var(--amber);
-  --z5: var(--garnet);
+  /* Each zone darker than the one before, teal into amber into garnet. */
+  --z1: #c4d9db;
+  --z2: #7fa9ad;
+  --z3: #b9944a;
+  --z4: #8a6512;
+  --z5: #7c2334;
   /* Power: a slate ramp into garnet, so no step reads as an HR zone. */
   --p1: #e1e4e8;
   --p2: #bfc6cf;
@@ -1800,6 +2024,15 @@ footer {
   --p5: #a8707a;
   --p6: #8c3a49;
   --p7: #561623;
+}
+@media (prefers-color-scheme: dark) {
+  .zones {
+    --z1: #2e4b4f;
+    --z2: #4f8d94;
+    --z3: #a7853f;
+    --z4: #d8a742;
+    --z5: #e899a7;
+  }
 }
 .zones .z1 {
   background: var(--z1);
@@ -1890,14 +2123,16 @@ footer {
   gap: 6px 14px;
 }
 .key-group:only-child ul {
-  gap: 6px 28px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px 12px;
 }
 .key-group li {
   display: flex;
   flex-direction: column;
   min-width: 0;
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--ink);
 }
 .key-group li span {
@@ -1907,7 +2142,7 @@ footer {
   font-weight: 600;
 }
 .key-group li small {
-  font-size: 10.5px;
+  font-size: 11px;
   color: var(--muted);
   white-space: nowrap;
 }
@@ -1954,19 +2189,19 @@ footer {
 }
 .zone-label > span:not(.now-pill) {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
 }
 .zone-label small {
   display: block;
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--muted);
   margin-top: 2px;
 }
 .now-pill {
   margin-left: 8px;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11px;
   color: var(--surface);
   background: var(--teal);
   border-radius: 999px;
@@ -2018,7 +2253,7 @@ footer {
 }
 .zone-vals b {
   display: block;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
 }
 .zone-vals small {
@@ -2037,7 +2272,7 @@ footer {
   padding: 0 10px 0 4px;
   border-radius: 6px;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--teal);
 }
 .zone-toggle:hover {
@@ -2064,11 +2299,11 @@ footer {
   font-variant-numeric: tabular-nums;
 }
 .zone-col > b {
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
 }
 .zone-col > span {
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--muted);
   padding: 2px 0;
   border-radius: 4px;
@@ -2132,9 +2367,9 @@ footer {
   min-height: 44px;
 }
 .phone .zone-vals b {
-  font-size: 12px;
+  font-size: 12.5px;
 }
 .phone .zone-vals small,
 .phone .zone-vals li span {
-  font-size: 10.5px;
+  font-size: 11px;
 }

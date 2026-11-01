@@ -16,14 +16,14 @@ it is derived from the cache except Dan's own session notes.
 
 | section | what it shows |
 |---|---|
-| This week | running hours against the plan, km, climb, climb density, the weekend's planned long run and a one-line pointer to the phase's quality sessions |
-| Training guardrails | the five guardrails for the current week, each with its last six weeks |
+| This week | running hours against the plan, km, climb, climb density, the weekend's planned long run, a link to the phase's quality sessions and next week's plan targets |
+| Training guardrails | the five guardrails for the current week, each with its last six weeks, as ok, watch (R3 under the floor on a week the rule does not cover) or flag |
 | Fitness & form | fitness (CTL), fatigue (ATL) and form (yesterday's CTL − ATL, as in the TrainingPeaks PMC) over the last 12 weeks |
 | The 29-week plan | planned against actual running hours for every week, its phases and race weeks; beyond 8 weeks, bands instead of numbers. The selected week also lists its phase's suggested quality sessions (`plan.QUALITY`, Kilian Jornet's uphill-first approach), with the reasoning and sources folded away |
 | Heart-rate zones by phase | time per HR zone for each phase, opening into weekly columns; Running or Total (runs plus rides, with ride power zones) |
 | Weekly diary | one entry per week since the plan started: sessions, notes, plan comparison and verdicts |
 | Every month since 2023 | monthly running hours or climb density (m/h) as a trend line and a heatmap, with injury months, Dec–Apr risk months and yearly totals; each month opens into its stats, sport split and the same month in other years |
-| Week ledger | the last 26 weeks with ratios and guardrail flags |
+| Week ledger | the last 26 weeks with the same ok / watch / flag status, ratios and volumes |
 
 ## Running tl
 
@@ -49,6 +49,11 @@ GitHub Pages cannot run `tl`, so it builds the app from the committed payload.
     cd web && bun run build                 # type-check and build web/dist, as Pages does
     cd web && bun run lint                  # Biome lint + format check; `bun run format` fixes; husky runs it on commit
     cd web && bunx playwright test          # e2e on the built page
+
+Weeks are named by plan week (W1–W29) and dates, with the ISO week as secondary
+text. On a phone each tab has its own URL hash (`#today`, `#plan`, `#diary`,
+`#history`); every section also has an anchor (`#rails`, `#quality`, `#ledger`, …)
+that the laptop's jump bar uses.
 
 ## Workflow after a session
 

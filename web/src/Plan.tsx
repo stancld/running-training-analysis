@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DATA } from './data';
-import { curIdx, day, lastRace, n, phaseShort, phaseSpans, useWide } from './format';
+import { curIdx, day, lastRace, n, phaseShort, phaseSpans, useRenderedWidth, useWide, weekTitle } from './format';
 
 const P = DATA.plan,
   PROV = DATA.provisional;
@@ -9,11 +9,11 @@ const actual = Object.fromEntries(DATA.weeks.map(w => [w.start, w]));
 function detail(i: number) {
   const p = P[i],
     a = actual[p.start];
-  const head = `Week ${p.index} · ${day(p.start, true)} · ${p.phase} ${phaseShort(p.phase_name)}`;
+  const head = `${weekTitle(p.start)} · ${p.phase} ${phaseShort(p.phase_name)}`;
   if (p.committed) {
     return [
       head,
-      `Plan ${p.run_h.toFixed(1)} h run · ${p.bike_h.toFixed(1)} h bike${p.gym_h ? ` · ${p.gym_h} h gym` : ''} · ${p.km} km · ${p.vert === null ? 'no vert target' : `${n(p.vert)} m`}`,
+      `Plan ${p.run_h.toFixed(1)} h run${p.bike_h ? ` · ${p.bike_h.toFixed(1)} h bike` : ''}${p.gym_h ? ` · ${p.gym_h} h gym` : ''} · ${p.km} km · ${p.vert === null ? 'no vert target' : `${n(p.vert)} m`}`,
       a ? `Ran ${a.run_h.toFixed(1)} h · ${a.km} km · ${n(a.vert)} m · ${a.density} m/h` : 'Not run yet',
       p.race ?? `Weekend: ${p.weekend}`,
     ];
@@ -37,7 +37,7 @@ function PhaseQuality({ phase }: { phase: string }) {
   const q = DATA.quality[phase];
   if (!q) return null;
   return (
-    <div className="wq">
+    <div className="wq" id="quality">
       <p className="eyebrow">Quality this phase</p>
       <ul>
         {q.sessions.map(s => (
@@ -70,10 +70,18 @@ function PhaseQuality({ phase }: { phase: string }) {
 
 export function PlanChart() {
   const [sel, setSel] = useState(Math.max(0, curIdx));
-  // A phone gets a narrower canvas with larger type, so the whole macrocycle fits without scrolling.
+  // This week's Quality link shows this week's phase, whatever week was picked before.
+  useEffect(() => {
+    const on = () => location.hash === '#quality' && setSel(Math.max(0, curIdx));
+    addEventListener('hashchange', on);
+    return () => removeEventListener('hashchange', on);
+  }, []);
+  // Below laptop width the canvas gets larger type and stretches with the column, so a
+  // phone fits the whole macrocycle and a tablet does not blow the labels up.
   const wide = useWide(),
     f = wide ? 1 : 1.55;
-  const W = wide ? 1140 : 620,
+  const [ref, px] = useRenderedWidth<HTMLDivElement>(334);
+  const W = wide ? 1140 : Math.max(620, Math.round(px / 0.54)),
     H = wide ? 380 : 420,
     m = { t: 30 * f, r: 10, b: 84 * f, l: wide ? 56 : 54 };
   const iw = W - m.l - m.r,
@@ -89,22 +97,22 @@ export function PlanChart() {
   const firstProv = P.findIndex(p => !p.committed);
 
   const by = m.t + ih + 30 * f;
+  const every = wide || (slot * px) / W >= 22;
 
   const ran = P.filter(p => actual[p.start] && !actual[p.start].current);
   const hit = ran.length ? ran.reduce((s, p) => s + actual[p.start].run_h / p.run_h, 0) / ran.length : 0;
   const hz = DATA.horizon;
 
   return (
-    <section className="card plan" aria-labelledby="plan-h">
+    <section className="card plan" id="plan" aria-labelledby="plan-h">
       <div className="ch">
         <h2 id="plan-h">The {P.length}-week plan</h2>
         <p className="intro">
-          Running hours against what actually happened. The plan is written week by week only inside a{' '}
-          <strong>{hz.weeks}-week horizon</strong>; beyond it each phase carries a band that narrows into real weeks as
-          the block comes inside the horizon.
+          Planned against actual running hours. Weeks are written only {hz.weeks} weeks ahead; later phases carry a
+          band.
         </p>
       </div>
-      <div className="chart">
+      <div className="chart" ref={ref}>
         {/* biome-ignore lint/a11y/useSemanticElements: SVG has no <fieldset>; the group exposes the week buttons. */}
         <svg
           viewBox={`0 0 ${W} ${H}`}
@@ -178,7 +186,7 @@ export function PlanChart() {
                 strokeDasharray="4 3"
               />
               {wide && (
-                <text x={x(firstProv) - slot / 2 - 6} y={m.t - 4} textAnchor="end" fontSize={11.5} fill="var(--ink-2)">
+                <text x={x(firstProv) - slot / 2 - 6} y={m.t + 8} textAnchor="end" fontSize={11.5} fill="var(--ink-2)">
                   written to here
                 </text>
               )}
@@ -230,13 +238,13 @@ export function PlanChart() {
                   fontWeight="600"
                   fill="var(--garnet)"
                 >
-                  {wide ? p.race : p.race.split(' · ')[0]}
+                  {wide ? p.race : p.race.split(' ')[0]}
                 </text>
               </g>
             );
           })}
 
-          {sel >= 0 && <rect x={x(sel) - slot / 2} y={m.t} width={slot} height={ih} fill="var(--teal)" opacity=".07" />}
+          {sel >= 0 && <rect x={x(sel) - slot / 2} y={m.t} width={slot} height={ih} fill="var(--teal)" opacity=".13" />}
           {P.map((p, i) => (
             <g key={p.start}>
               <text
@@ -247,7 +255,7 @@ export function PlanChart() {
                 fontWeight={i === curIdx ? 700 : 400}
                 fill={`var(${i === curIdx ? '--ink' : '--muted'})`}
               >
-                {wide || i % 2 === 0 || i === curIdx ? p.index : ''}
+                {every || i % 2 === 0 || i === curIdx ? p.index : ''}
               </text>
               {/* biome-ignore lint/a11y/useSemanticElements: SVG has no <button>; focus selects the week. */}
               <rect
@@ -259,7 +267,7 @@ export function PlanChart() {
                 className="hit"
                 role="button"
                 tabIndex={0}
-                aria-label={`Week ${p.index}, ${day(p.start)}${p.race ? `, ${p.race}` : ''}`}
+                aria-label={`W${p.index}, ${day(p.start)}${p.race ? `, ${p.race}` : ''}`}
                 onPointerEnter={e => e.pointerType === 'mouse' && setSel(i)}
                 onFocus={() => setSel(i)}
                 onClick={() => setSel(i)}
@@ -299,7 +307,21 @@ export function PlanChart() {
         </svg>
       </div>
       <div className="week-detail" aria-live="polite">
-        {detail(sel).map((l, i) => (i === 0 ? <b key={i}>{l}</b> : <span key={i}>{l}</span>))}
+        {/* The chart's week columns are ~11 px wide on a phone; these step through weeks. */}
+        <div className="wd-head">
+          <button type="button" aria-label="Previous week" disabled={sel === 0} onClick={() => setSel(sel - 1)}>
+            ‹
+          </button>
+          <b>{detail(sel)[0]}</b>
+          <button type="button" aria-label="Next week" disabled={sel === P.length - 1} onClick={() => setSel(sel + 1)}>
+            ›
+          </button>
+        </div>
+        {detail(sel)
+          .slice(1)
+          .map(l => (
+            <span key={l}>{l}</span>
+          ))}
         <PhaseQuality phase={P[sel].phase} />
       </div>
       <div className="legend">
@@ -316,8 +338,8 @@ export function PlanChart() {
           Race week
         </span>
         <span>
-          <i className="swatch dashed" />
-          Phase band (provisional)
+          <i className="swatch band" />
+          Phase band (not yet written)
         </span>
         {lastRace && (
           <span className="push">
@@ -326,9 +348,9 @@ export function PlanChart() {
         )}
       </div>
       <p className="caption">
-        Written week by week through {day(hz.date, true)} — {hz.committed} of {P.length} weeks.{' '}
+        Written week by week through {day(hz.date, true)}: {hz.committed} of {P.length} weeks.{' '}
         {ran.length
-          ? `${ran.length} completed so far, averaging ${(hit * 100).toFixed(0)}% of planned running hours. Hover or tap a week for its targets.`
+          ? `${ran.length} completed so far, averaging ${(hit * 100).toFixed(0)}% of planned running hours.`
           : 'Actuals appear here as weeks are completed.'}
       </p>
     </section>

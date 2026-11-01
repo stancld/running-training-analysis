@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { DATA, type Act, type DiaryWeek } from './data';
-import { QUALITY, day, hm, n, phaseShort, raceOf, ratio, signed, span, tone } from './format';
+import { MARK, QUALITY, day, hm, isoWeek, n, phaseShort, plural, raceOf, ratio, signed, span, tone } from './format';
 
 const GLYPH: Record<string, string> = { bike: 'B', gym: 'G', hike: 'H', other: 'O' };
 const glyph = (a: Act) => (a.group === 'run' ? (a.type === 'RACE' ? '▲' : (a.type ?? 'R')) : (GLYPH[a.group] ?? 'O'));
@@ -46,7 +46,7 @@ function Sessions({ w }: { w: DiaryWeek }) {
               </span>
               <span className="sn">
                 {a.type && <span className={`type${QUALITY.has(a.type) ? ' q' : ''}`}>{a.type}</span>}
-                <b>{a.name || a.sport}</b>
+                <b>{a.name || `${a.sport} session`}</b>
                 {a.feel != null && (
                   <small>
                     {' '}
@@ -71,24 +71,36 @@ function WeekRow({ w }: { w: DiaryWeek }) {
   const [open, setOpen] = useState(w.current);
   const p = w.plan,
     race = raceOf(w),
-    t = tone(w);
+    [t, why] = tone(w);
   const r = p?.run_h ? w.run_h / p.run_h : null;
-  const sessions = w.days.reduce((s, d) => s + d.acts.length, 0);
+  // What the summary row and the sessions do not already say; cross-training appears only
+  // when it was done or planned, as done / planned.
+  const cross = (
+    [
+      ['bike', w.bike_h, p?.bike_h],
+      ['gym', w.gym_h, p?.gym_h],
+    ] as const
+  )
+    .filter(([, a, b]) => a || b)
+    .map(([k, a, b]) => `${k} ${a.toFixed(1)}${b ? ` / ${b}` : ''} h`)
+    .join(' · ');
   const tail = [
-    p ? `plan ${p.run_h} h run · ${p.bike_h} h bike · ${p.gym_h} h gym · weekend ${p.weekend}` : '',
-    `bike ${w.bike_h.toFixed(1)} h · gym ${w.gym_h.toFixed(1)} h`,
+    p ? `Weekend plan: ${p.weekend}` : '',
+    cross,
+    `${plural(w.run_days, 'run day')} · ${w.rest_days} full rest`,
+    w.wow != null ? `WoW ${ratio(w.wow, 2, '×')}` : '',
+    w.acwr != null ? `ACWR ${ratio(w.acwr)}` : '',
     w.ctl !== null && w.atl !== null && w.tsb !== null
       ? `CTL ${w.ctl.toFixed(0)} · ATL ${w.atl.toFixed(0)} · form ${signed(w.tsb)}`
       : '',
     w.monotony ? `monotony ${w.monotony.toFixed(2)}` : '',
-    w.wow != null ? `WoW ${ratio(w.wow, 2, '×')}` : '',
-    w.acwr != null ? `ACWR ${ratio(w.acwr)}` : '',
-    `${w.run_days} run days · ${w.rest_days} full rest`,
   ].filter(Boolean);
   return (
     <li className={`wrow${open ? ' open' : ''}${w.current ? ' cur' : ''}`}>
       <button type="button" className="wsum" aria-expanded={open} onClick={() => setOpen(!open)}>
-        <span className="wk">{p ? `W${p.index}` : 'W0'}</span>
+        <span className="wk" title={isoWeek(w.start)}>
+          {p ? `W${p.index}` : 'W0'}
+        </span>
         <span className="wd">
           <b>{span(w.start, w.end)}</b>
           <span className={race ? 'race' : ''}>
@@ -108,12 +120,9 @@ function WeekRow({ w }: { w: DiaryWeek }) {
         </span>
         <span className="wn">{Math.round(w.run_km)} km</span>
         <span className="wn">{n(w.run_vert)} m</span>
-        <span className="wn ws">{sessions} sessions</span>
-        <i
-          role="img"
-          className={`dot ${t}`}
-          aria-label={t === 'ok' ? 'on target' : t === 'bad' ? 'guardrail flag' : 'off target'}
-        />
+        <i role="img" className={`dot ${t}`} aria-label={`${t}: ${why}`} title={`${t} · ${why}`}>
+          {MARK[t]}
+        </i>
         <span className="chev" aria-hidden="true" />
       </button>
       {open && (
@@ -143,14 +152,12 @@ function WeekRow({ w }: { w: DiaryWeek }) {
 export function Diary() {
   const weeks = DATA.diary.slice().reverse();
   return (
-    <section className="card diary" aria-labelledby="diary-h">
+    <section className="card diary" id="diary" aria-labelledby="diary-h">
       <div className="ch">
         <h2 id="diary-h">Weekly diary</h2>
-        <span className="meta push">{weeks.length} weeks · newest first</span>
+        <span className="meta push">{plural(weeks.length, 'week')} · newest first</span>
       </div>
-      <p className="intro">
-        Open a week for its sessions. Every line is derived from the cache; the quotes are Dan's own session notes.
-      </p>
+      <p className="intro">Open a week for its sessions. The quotes are Dan's own notes; everything else is derived.</p>
       {weeks.length ? (
         <ul className="wlist">
           {weeks.map(w => (
