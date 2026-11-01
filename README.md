@@ -22,7 +22,7 @@ it is derived from the cache except Dan's own session notes.
 | The 29-week plan | planned against actual running hours for every week, its phases and race weeks; beyond 8 weeks, bands instead of numbers. The selected week also lists its phase's suggested quality sessions (`plan.QUALITY`, Kilian Jornet's uphill-first approach), with the reasoning and sources folded away |
 | Heart-rate zones by phase | time per HR zone for each phase, opening into weekly columns; Running or Total (runs plus rides, with ride power zones) |
 | Weekly diary | one entry per week since the plan started: sessions, notes, plan comparison and verdicts |
-| Every month since 2023 | a heatmap of monthly running hours, with details per month |
+| Every month since 2023 | monthly running hours or climb density (m/h) as a trend line and a heatmap, with injury months, Dec–Apr risk months and yearly totals; each month opens into its stats, sport split and the same month in other years |
 | Week ledger | the last 26 weeks with ratios and guardrail flags |
 
 ## Running tl

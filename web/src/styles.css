@@ -1060,9 +1060,18 @@ svg text {
 }
 
 /* ---------- heatmap ---------- */
+.heat .mode {
+  align-self: center;
+}
+.trend {
+  margin-top: 14px;
+}
+.trend .hit {
+  cursor: pointer;
+}
 .mapgrid {
   display: grid;
-  grid-template-columns: 40px repeat(12, minmax(0, 1fr));
+  grid-template-columns: 40px repeat(12, minmax(0, 1fr)) minmax(0, 1.15fr);
   gap: 3px;
   margin-top: 14px;
 }
@@ -1073,6 +1082,161 @@ svg text {
   text-transform: uppercase;
   color: var(--muted);
   text-align: center;
+  border-radius: 3px;
+  padding: 1px 0;
+}
+.mapgrid .hd.risk {
+  background: var(--garnet-wash);
+  color: var(--garnet);
+}
+.cell.hurt {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0 5px,
+    color-mix(in srgb, var(--garnet) 30%, transparent) 5px 6px
+  );
+}
+.ytot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  border-left: 1px solid var(--line);
+  color: var(--ink);
+}
+.ytot b {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1;
+}
+.ytot i {
+  font-size: 9.5px;
+  font-style: normal;
+  margin-top: 2px;
+  color: var(--teal);
+}
+.ytot i.dn {
+  color: var(--garnet);
+}
+.ramp .hurt-key {
+  background: var(--s2) repeating-linear-gradient(135deg, transparent 0 3px, var(--garnet) 3px 4.5px);
+}
+.ramp .risk-key {
+  background: var(--garnet-wash);
+  border: 1px solid var(--garnet);
+}
+.month-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 18px;
+  align-items: start;
+}
+.month-detail > b {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.md-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.md-text .up {
+  color: var(--garnet);
+}
+.tag {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--garnet);
+  border: 1px solid var(--garnet);
+  border-radius: 999px;
+  padding: 0 7px;
+}
+.split {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.split-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 2px;
+  overflow: hidden;
+  gap: 1px;
+  max-width: 320px;
+}
+.split-bar i {
+  min-width: 2px;
+}
+.split-bar .run {
+  background: var(--teal);
+}
+.split-bar .bike {
+  background: var(--teal-2);
+  opacity: 0.6;
+}
+.split-bar .gym {
+  background: var(--amber);
+}
+.split-bar .other {
+  background: var(--muted);
+}
+.same {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+.same ul {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+  height: 74px;
+}
+.same li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 30px;
+  color: var(--muted);
+}
+.same li i {
+  order: 1;
+  width: 16px;
+  min-height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--s3);
+}
+.same li b {
+  order: 0;
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--ink-2);
+}
+.same li small {
+  order: 2;
+  font-size: 10px;
+}
+.same li.on i {
+  background: var(--teal);
+}
+.same li.on b,
+.same li.on small {
+  color: var(--ink);
+}
+.same .unit {
+  font-size: 10px;
+  color: var(--muted);
 }
 .mapgrid .yr {
   font-family: var(--mono);
@@ -1103,6 +1267,7 @@ svg text {
   font-style: normal;
   opacity: 0.75;
   margin-top: 2px;
+  white-space: nowrap;
 }
 .cell.now {
   border-color: var(--garnet);
@@ -1506,8 +1671,17 @@ footer {
 }
 /* heatmap: hours only on a phone */
 .phone .mapgrid {
-  grid-template-columns: 34px repeat(12, minmax(0, 1fr));
+  grid-template-columns: 30px repeat(12, minmax(0, 1fr)) minmax(0, 1.3fr);
   gap: 2px;
+}
+.phone .ytot i {
+  display: none;
+}
+.phone .ytot b {
+  font-size: 10.5px;
+}
+.phone .month-detail {
+  grid-template-columns: 1fr;
 }
 .phone .cell {
   aspect-ratio: 1 / 1.1;
