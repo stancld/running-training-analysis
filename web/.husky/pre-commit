@@ -1,9 +1,9 @@
 # Husky owns core.hooksPath, so `pre-commit install` can't hook in; run its checks here.
 uv run pre-commit run
 
-# TypeScript checks only when web code is staged; Python-only commits stay fast.
-if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^web/.*\.tsx?$'; then
+# Web checks only when web code is staged; Python-only commits stay fast.
+if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^web/.*\.(tsx?|css|json)$'; then
   cd web
-  bunx biome lint --staged --no-errors-on-unmatched
+  bunx biome check --staged --no-errors-on-unmatched
   bun run typecheck
 fi
