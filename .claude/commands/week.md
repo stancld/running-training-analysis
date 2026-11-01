@@ -2,10 +2,10 @@
 description: Top up the training cache from Strava/COROS, evaluate the week, rebuild and republish the Chianti logbook
 ---
 
-Weekly training review for Dan. Work in `/Users/stancld/projects/training`.
+Weekly training review for Dan. Work in `/Users/stancld/projects/running-training-analysis`.
 
 1. **Find the gap.** `tail -3 data/activities.csv` for the last cached date, and
-   `python3 -m tl status` for the staleness line.
+   `uv run tl status` for the staleness line.
 2. **Fetch only what is missing.** `mcp__strava__list_activities` (per_page small —
    bulk pulls cost ~12k tokens per 100 activities). Append one row per activity to
    `data/activities.csv` (`date,sport,km,min,vert`; minutes = moving_time).
@@ -24,11 +24,11 @@ Weekly training review for Dan. Work in `/Users/stancld/projects/training`.
    `~/.claude/projects/-Users-stancld-projects-training/*.jsonl` — `tl/plan.py` carries
    week-level targets only. Grep those transcripts before prescribing anything, and if a
    week was already agreed, print that one.
-6. **Evaluate.** `python3 -m tl status`, `weeks 6`, `diary 1`, `plan`. Judge the week on:
+6. **Evaluate.** `uv run tl status`, `weeks 6`, `diary 1`, `plan`. Judge the week on:
    plan vs actual (run h, vert, weekend long), the R1–R7 guardrails, CTL/ATL/form and
    monotony, the quality session's HR/power against LTHR 176, and what next week's plan
    row asks for. Flag anything that pushes the week-over-week running jump past 1.25×.
-7. **Publish.** `python3 -m tl site`, then republish `web/diary.html` to the Chianti
+7. **Publish.** `uv run tl site`, then republish `web/diary.html` to the Chianti
    Logbook artifact — read it first, then publish with its URL:
    https://claude.ai/code/artifact/1fbd401a-9915-4a15-9668-7f1fe715b1ef
 8. **Report** in the terminal: what happened, what it means, and the call for next week.

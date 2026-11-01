@@ -1,0 +1,20 @@
+[project]
+name = "tl"
+version = "0.1.0"
+description = "Training analysis over Dan's Strava/COROS cache for the Chianti 120K"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+tl = "tl.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+
+[dependency-groups]
+dev = ["pre-commit"]

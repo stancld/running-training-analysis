@@ -1,15 +1,15 @@
 """tl — training analysis for the Chianti 120K macrocycle.
 
-python3 -m tl                     everything: status, weeks, diary, verdict
-python3 -m tl status              where the prep stands today
-python3 -m tl weeks [n|all]       week map (default: last 16)
-python3 -m tl months [n|all]      month map (default: all)
-python3 -m tl seasons             season map
-python3 -m tl plan                the 29-week macrocycle vs what happened
-python3 -m tl diary [n|all|DATE]  diary entries (default: plan weeks so far)
-python3 -m tl hills | segments | reps      quality-session analysis
-python3 -m tl export [path]       full JSON dump
-python3 -m tl site [path]         render web/diary.html for publishing
+uv run tl                     everything: status, weeks, diary, verdict
+uv run tl status              where the prep stands today
+uv run tl weeks [n|all]       week map (default: last 16)
+uv run tl months [n|all]      month map (default: all)
+uv run tl seasons             season map
+uv run tl plan                the 29-week macrocycle vs what happened
+uv run tl diary [n|all|DATE]  diary entries (default: plan weeks so far)
+uv run tl hills | segments | reps      quality-session analysis
+uv run tl export [path]       full JSON dump
+uv run tl site [path]         render web/diary.html for publishing
 """
 
 import datetime as dt
