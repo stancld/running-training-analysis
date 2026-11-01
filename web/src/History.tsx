@@ -186,7 +186,7 @@ function Split({ p }: { p: Period }) {
         ))}
       </div>
       <span>
-        {[...parts.map(([k, v]) => `${k} ${v.toFixed(1)}\u00a0h`), `total ${p.total_h.toFixed(1)}\u00a0h`].join(' · ')}
+        {[...parts, ['total', p.total_h] as const].map(([k, v]) => `${k}\u00a0${v.toFixed(1)}\u00a0h`).join(' · ')}
       </span>
     </div>
   );
