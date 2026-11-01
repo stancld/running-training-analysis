@@ -14,8 +14,8 @@ uv run tl site [path]         write web/src/payload.json for the diary page
 
 import datetime as dt
 import json
-import os
 import sys
+from pathlib import Path
 
 from tl import config, diary, export, plan, quality, render
 from tl.data import Dataset
@@ -161,7 +161,7 @@ def cmd_site(lab, arg=None):
     week before the macrocycle opens, so the entries lead in with week 1's setup.
     """
     since = None
-    out = os.path.join(os.path.dirname(config.DATA), "web", "src", "payload.json")
+    out = config.DATA.parent / "web" / "src" / "payload.json"
     if arg:
         try:
             since = dt.date.fromisoformat(arg)
@@ -174,7 +174,7 @@ def cmd_site(lab, arg=None):
         json.dump(obj, fh, ensure_ascii=False, indent=1)
         fh.write("\n")
     return (
-        f"wrote {out}  ({os.path.getsize(out) // 1024} KB, "
+        f"wrote {out}  ({Path(out).stat().st_size // 1024} KB, "
         f"{len(obj['diary'])} diary weeks, {len(obj['months'])} months)"
     )
 

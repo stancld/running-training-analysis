@@ -4,13 +4,13 @@ The thresholds come from Dan's own injury history, not textbook defaults.
 """
 
 import datetime as dt
-import os
+from pathlib import Path
 
-DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
+DATA = Path(__file__).absolute().parent.parent / "data"
 
 
 def path(name):
-    return os.path.join(DATA, name)
+    return DATA / name
 
 
 RUN = {"Run", "TrailRun", "RACE_Run"}
@@ -58,4 +58,4 @@ HR_A, HR_B = 81.2, 21.1
 LOAD_RATIO = {"run": 1.00, "bike": 0.75, "gym": 0.50, "hike": 0.60, "other": 0.0}
 CTL_TAU, ATL_TAU = 42, 7
 
-TODAY = dt.date.today()
+TODAY = dt.datetime.now().astimezone().date()

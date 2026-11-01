@@ -131,7 +131,8 @@ def _zones(ds):
 
 def payload(ds, entries, months, seasons):
     return {
-        "generated": dt.datetime.now().isoformat(timespec="seconds"),
+        # Local wall time without an offset, as the export has always written it.
+        "generated": dt.datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S"),
         "today": config.TODAY.isoformat(),
         "race": {
             "name": plan.RACE_NAME,
@@ -179,7 +180,7 @@ def web_payload(ds, weeks, entries, months, seasons, fitness, diary_from=None):
     """Trimmed payload for the diary page: enough to draw, not the whole cache."""
     diary_from = diary_from or plan.DIARY_START
     return {
-        "generated": dt.datetime.now().strftime("%d %B %Y, %H:%M"),
+        "generated": dt.datetime.now().astimezone().strftime("%d %B %Y, %H:%M"),
         "today": config.TODAY.isoformat(),
         "race": {
             "name": plan.RACE_NAME,

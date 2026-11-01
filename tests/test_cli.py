@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 @pytest.fixture
 def site(tmp_path, monkeypatch):
     """Run `tl site` on the cache in tmp_path and return the payload."""
-    monkeypatch.setattr(config, "DATA", str(tmp_path))
+    monkeypatch.setattr(config, "DATA", tmp_path)
 
     def run():
         out = tmp_path / "payload.json"
