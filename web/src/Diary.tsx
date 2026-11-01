@@ -122,14 +122,10 @@ function WeekRow({ w }: { w: DiaryWeek }) {
           <Sessions w={w} />
           <ul className="verdict">
             {!p && <li>Lead-in — the week before the macrocycle</li>}
+            {/* Notes already carry each guardrail flag as "[R1] …", as in the terminal diary. */}
             {w.notes.map((t2, i) => (
               <li key={i} className={t2.startsWith('[') ? 'flag' : ''}>
                 {t2}
-              </li>
-            ))}
-            {w.flags.map(f => (
-              <li key={f.code} className="flag">
-                {f.code} {f.msg}
               </li>
             ))}
           </ul>

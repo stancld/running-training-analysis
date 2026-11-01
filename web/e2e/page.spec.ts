@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 
-/* CI builds the page from scripts/synthetic_cache.sh: a race week
-   (31 Aug – 6 Sep 2026, 240 min RACE_Run) and a ride-only week after it. Nothing here
+/* CI builds the page from scripts/synthetic_cache.sh: a race week (31 Aug – 6 Sep 2026,
+   240 min RACE_Run), a ride-only week and a 105 km week flagged R2 and R6. Nothing here
    depends on today's date, which moves the current week and the countdown. */
 
 async function open(page: Page) {
@@ -37,6 +37,11 @@ test('laptop: diary weeks expand into sessions with ratios and durations', async
   await ride.getByRole('button').click();
   await expect(ride.locator('.tail')).toContainText('WoW 0.00×');
   await expect(ride.locator('.tail')).toContainText('ACWR 0.00');
+
+  // Each guardrail flag is listed once, not once as a note and again as a flag.
+  const big = page.locator('.wrow', { has: page.getByText(/^14\sSept?\s– /) });
+  await big.getByRole('button').click();
+  await expect(big.locator('.verdict li.flag')).toHaveText([/R2.*ACWR/, /R6.*105 km/]);
 
   await noOverflow(page);
   expect(errors).toEqual([]);
