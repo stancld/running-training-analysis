@@ -12,9 +12,11 @@ macrocycle and renders the diary page in `web/`. Read `README.md` before changin
 | Full report | `python3 -m tl` |
 | JSON dump | `python3 -m tl export` (writes `data/diary.json`) |
 | Rebuild the diary page | `python3 -m tl site` (renders `web/diary.tmpl.html` → `web/diary.html`) |
+| Lint, format and hygiene | `pre-commit run --all-files` (install once with `pre-commit install`) |
 
 There is no test suite. Verify a change by running the commands it affects and checking
-that the numbers make sense against the data.
+that the numbers make sense against the data. Run pre-commit before every commit; Ruff
+settings live in `ruff.toml`.
 
 ## Where things live
 

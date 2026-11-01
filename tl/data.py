@@ -1,7 +1,9 @@
 """Loading and normalising the local cache into one queryable dataset."""
+
 import csv
 import datetime as dt
 import math
+import pathlib
 from collections import defaultdict
 
 from . import config as C
@@ -10,7 +12,7 @@ from . import config as C
 def _date(s):
     try:
         return dt.date.fromisoformat(s.strip())
-    except (ValueError, AttributeError):
+    except ValueError, AttributeError:
         return None
 
 
@@ -22,13 +24,25 @@ def _rows(name):
         return
     with fh:
         for r in csv.DictReader(fh):
-            if r.get('date') and _date(r['date']):
+            if r.get("date") and _date(r["date"]):
                 yield r
 
 
 class Activity:
-    __slots__ = ('date', 'sport', 'group', 'km', 'mins', 'vert', 'type',
-                 'feel', 're', 'hr', 'name', 'note')
+    __slots__ = (
+        "date",
+        "feel",
+        "group",
+        "hr",
+        "km",
+        "mins",
+        "name",
+        "note",
+        "re",
+        "sport",
+        "type",
+        "vert",
+    )
 
     def __init__(self, date, sport, km, mins, vert):
         self.date, self.sport = date, sport
@@ -52,7 +66,7 @@ class Activity:
 
     @property
     def is_run(self):
-        return self.group == 'run'
+        return self.group == "run"
 
     def est_hr(self):
         """Measured HR when COROS has it, else the relative-effort model."""
@@ -65,7 +79,7 @@ class Activity:
         return None, False
 
     def __repr__(self):
-        return f'<{self.date} {self.sport} {self.km:.1f}km {self.mins:.0f}min>'
+        return f"<{self.date} {self.sport} {self.km:.1f}km {self.mins:.0f}min>"
 
 
 class Dataset:
@@ -84,24 +98,31 @@ class Dataset:
     @classmethod
     def load(cls):
         acts = []
-        for r in _rows('activities.csv'):
-            acts.append(Activity(_date(r['date']), r['sport'],
-                                 float(r['km'] or 0), float(r['min'] or 0),
-                                 float(r['vert'] or 0)))
+        for r in _rows("activities.csv"):
+            acts.append(
+                Activity(
+                    _date(r["date"]),
+                    r["sport"],
+                    float(r["km"] or 0),
+                    float(r["min"] or 0),
+                    float(r["vert"] or 0),
+                )
+            )
 
         labels, re_, hr = {}, {}, {}
-        for r in _rows('labels.csv'):
-            labels[_date(r['date'])] = (
-                r['type'] or None,
-                float(r['feel']) if r.get('feel') else None)
-        for r in _rows('re.csv'):
-            re_[_date(r['date'])] = float(r['re'])
-        for r in _rows('hr.csv'):
-            hr[_date(r['date'])] = float(r['hr'])
+        for r in _rows("labels.csv"):
+            labels[_date(r["date"])] = (
+                r["type"] or None,
+                float(r["feel"]) if r.get("feel") else None,
+            )
+        for r in _rows("re.csv"):
+            re_[_date(r["date"])] = float(r["re"])
+        for r in _rows("hr.csv"):
+            hr[_date(r["date"])] = float(r["hr"])
 
         notes = defaultdict(list)
-        for r in _rows('notes.csv'):
-            notes[_date(r['date'])].append((r.get('name') or '', r.get('note') or ''))
+        for r in _rows("notes.csv"):
+            notes[_date(r["date"])].append((r.get("name") or "", r.get("note") or ""))
 
         # Labels/RE/HR are one-per-day and describe the day's *main* run, so
         # attach them to the longest run of that day and nothing else.
@@ -116,25 +137,28 @@ class Dataset:
             a.re, a.hr = re_.get(d), hr.get(d)
 
         for d, items in notes.items():
-            for a, (name, note) in zip(cls._runs_first(acts, d), items):
+            for a, (name, note) in zip(cls._runs_first(acts, d), items, strict=False):
                 a.name, a.note = name, note
 
-        hills = list(_rows('hills.csv'))
-        segs = list(_rows('segments.csv'))
+        hills = list(_rows("hills.csv"))
+        segs = list(_rows("segments.csv"))
         return cls(acts, hills, segs, _weather())
 
     @staticmethod
     def _runs_first(acts, d):
         same = [a for a in acts if a.date == d]
-        return sorted(same, key=lambda a: (a.group != 'run', -a.mins))
+        return sorted(same, key=lambda a: (a.group != "run", -a.mins))
 
     # ------------------------------------------------------------- querying
     def between(self, start, end, groups=None):
-        return [a for a in self.activities
-                if start <= a.date <= end and (groups is None or a.group in groups)]
+        return [
+            a
+            for a in self.activities
+            if start <= a.date <= end and (groups is None or a.group in groups)
+        ]
 
     def runs(self, start=None, end=None):
-        return self.between(start or self.first, end or self.last, {'run'})
+        return self.between(start or self.first, end or self.last, {"run"})
 
     def daily_load(self):
         """date -> load units. RE where Strava has it, else a scaled minute."""
@@ -152,23 +176,29 @@ class Dataset:
 def _weather():
     """Open-Meteo archive export for Prague; header row is found, not assumed."""
     try:
-        lines = open(C.path('weather_raw.csv')).read().splitlines()
+        lines = pathlib.Path(C.path("weather_raw.csv")).read_text().splitlines()
     except FileNotFoundError:
         return {}
-    head = next((i for i, l in enumerate(lines) if l.startswith('time,')), None)
+    head = next((i for i, line in enumerate(lines) if line.startswith("time,")), None)
     if head is None:
         return {}
     out = {}
-    for line in lines[head + 1:]:
+    for line in lines[head + 1 :]:
         if not line.strip():
             continue
-        p = line.split(',')
+        p = line.split(",")
         d = _date(p[0])
         if not d:
             continue
         try:
-            out[d] = dict(tmean=float(p[1]), tmax=float(p[2]), tapp=float(p[4]),
-                          prcp=float(p[5]), rh=float(p[6]), wind=float(p[7]))
-        except (ValueError, IndexError):
+            out[d] = {
+                "tmean": float(p[1]),
+                "tmax": float(p[2]),
+                "tapp": float(p[4]),
+                "prcp": float(p[5]),
+                "rh": float(p[6]),
+                "wind": float(p[7]),
+            }
+        except ValueError, IndexError:
             continue
     return out

@@ -16,7 +16,7 @@ INJ=["2023-04-04","2024-03-10","2024-08-09","2024-12-17","2025-02-18",
 injw={monday(dt.date.fromisoformat(x)) for x in INJ}
 
 print("Does a >=1.5x week-over-week jump in RUN HOURS predict injury?\n")
-spike=set(); 
+spike=set();
 for a,b in zip(weeks,weeks[1:]):
     pa,pb=wk[a][0]/60,wk[b][0]/60
     if pa>=1.0 and pb/pa>=1.5 and pb>=5.0:

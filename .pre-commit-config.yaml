@@ -1,0 +1,55 @@
+# Modelled on the cogni / cogni-utils configs, cut to what a stdlib-only repo needs:
+# no uv, lockfile or type-checker hooks. Install with `pre-commit install`.
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        # Two trailing spaces are a Markdown line break.
+        args: [--markdown-linebreak-ext=md]
+        # Generated outputs are rebuilt by `python3 -m tl export|site`, never hand-fixed.
+        exclude: &generated '^(web/diary\.html|data/diary\.json)$'
+      - id: end-of-file-fixer
+        exclude: *generated
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-added-large-files
+        # --enforce-all: otherwise only newly added files are checked, so --all-files checks nothing.
+        args: [--maxkb=1000, --enforce-all]
+      - id: check-case-conflict
+      - id: check-merge-conflict
+        args: [--assume-in-merge]
+      - id: debug-statements
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.1
+    hooks:
+      - id: ruff-check
+        args: ["--fix"]
+      - id: ruff-format
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.3
+    hooks:
+      - id: codespell
+        types_or: [python, markdown]
+
+  - repo: local
+    hooks:
+      # The global git identity is the work address; this repo is personal.
+      - id: enforce-personal-email
+        name: Enforce personal email in git author
+        entry: ./scripts/pre_commit_check_email.sh
+        language: script
+        stages: [pre-commit]
+        always_run: true
+        pass_filenames: false

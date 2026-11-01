@@ -5,5 +5,15 @@
 
 Command line: python3 -m tl --help
 """
-__all__ = ['config', 'data', 'periods', 'plan', 'diary', 'quality',
-           'render', 'export', 'cli']
+
+__all__ = [
+    "cli",
+    "config",
+    "data",
+    "diary",
+    "export",
+    "periods",
+    "plan",
+    "quality",
+    "render",
+]

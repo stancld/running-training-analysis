@@ -1,0 +1,29 @@
+# A trimmed version of cogni's ruff.toml: the same formatter settings, a smaller rule set.
+line-length = 100
+target-version = "py314"
+# The data/*.py scripts are one-off analyses superseded by `tl` (see AGENTS.md).
+extend-exclude = ["data/*.py"]
+# pre-commit hands ruff explicit filenames, and an explicit path defeats `exclude` unless forced.
+force-exclude = true
+
+[lint]
+select = ["E", "W", "F", "I", "B", "UP", "C4", "SIM", "PIE", "RET", "PL", "RUF"]
+ignore = [
+    "E501",     # leave line length to the formatter
+    "RUF001",   # en dashes and minus signs are deliberate in rendered text
+    # `try: fh = open(...)` then `with fh:` keeps the except clause to the open call alone.
+    "SIM115",
+    # Training thresholds are domain numbers; the named ones already live in config.py.
+    "PLR2004",
+    # The CLI dispatcher and the renderers are long by nature; the guardrail logic is not.
+    "PLR0911",
+    "PLR0912",
+    "PLR0913",
+    "PLR0915",
+    "PLR0917",
+]
+
+[format]
+exclude = ["*.md"]
+quote-style = "double"
+line-ending = "lf"
