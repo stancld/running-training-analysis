@@ -1,5 +1,4 @@
-# Modelled on cogni's ruff.toml: the same formatter settings and every stable rule, with
-# cogni's ignores cut to those that apply to a small stdlib-only CLI.
+# Every stable rule, with ignores cut to those that apply to a small stdlib-only CLI.
 line-length = 100
 target-version = "py314"
 # pre-commit hands ruff explicit filenames, and an explicit path defeats `exclude` unless forced.

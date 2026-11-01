@@ -1,5 +1,4 @@
-# Modelled on the cogni / cogni-utils configs, cut to what a stdlib-only repo needs:
-# no lockfile hook. Install with `uv run pre-commit install`.
+# Cut to what a stdlib-only repo needs: no lockfile hook. Install with `uv run pre-commit install`.
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
