@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+      - run: uv lock --check
+      - run: uv sync --locked
+
+      # The author-email hook guards local commits; CI has no author identity.
+      - name: pre-commit
+        run: uv run pre-commit run --all-files --show-diff-on-failure
+        env:
+          SKIP: enforce-personal-email
+
+      # The real cache is personal and never pushed, so smoke-test on a tiny synthetic one.
+      - name: Synthetic cache
+        run: |
+          printf 'date,sport,km,min,vert\n2026-08-31,Run,10.0,55,300\n2026-09-02,TrailRun,12.0,70,600\n2026-09-05,Ride,40.0,90,400\n2026-09-06,RACE_Run,47.6,240,1924\n' > data/activities.csv
+          printf 'date,type,feel\n2026-08-31,E,1\n2026-09-02,L,\n2026-09-06,RACE,2\n' > data/labels.csv
+          printf 'date,re\n2026-08-31,20\n2026-09-02,40\n2026-09-06,235\n' > data/re.csv
+          printf 'date,min,hr\n2026-09-06,240,162\n' > data/hr.csv
+      - name: Smoke-test every command
+        run: |
+          uv run tl
+          uv run tl weeks all > /dev/null
+          uv run tl months all > /dev/null
+          for c in seasons hills segments reps; do uv run tl "$c" > /dev/null; done
+          uv run tl export "$RUNNER_TEMP/diary.json"
+          uv run tl site "$RUNNER_TEMP/diary.html"
+      - run: uv build
