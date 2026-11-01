@@ -105,8 +105,27 @@ def _period(p: Period) -> dict[str, Any]:
     }
 
 
+def _zone_split(period: periods.Period) -> dict[str, Any]:
+    """Run and ride zone minutes for one period, rounded for the page."""
+    return {
+        group: {
+            k: [round(m) for m in v] if isinstance(v, list) else round(v)
+            for k, v in period.zone_minutes(group).items()
+        }
+        for group in ("run", "bike")
+    }
+
+
+def _bands(zones: tuple[tuple[str, str, int | None], ...]) -> list[dict[str, Any]]:
+    lo, out = 0, []
+    for code, name, top in zones:
+        out.append({"code": code, "name": name, "lo": lo, "hi": top})
+        lo = top
+    return out
+
+
 def _zones(ds: Dataset) -> dict[str, Any]:
-    """Running time per HR zone for each phase that has started."""
+    """Run and ride time per zone for each phase that has started, and its weeks."""
     out = []
     for code, name, *_ in plan.PHASES:
         weeks = plan.PHASE_WEEKS[code]
@@ -114,24 +133,19 @@ def _zones(ds: Dataset) -> dict[str, Any]:
         if start > config.TODAY:
             break
         acts = [a for a in ds.activities if start <= a.date <= end]
-        z = periods.Period(start, end, acts).zone_minutes()
-        week_rows = []
-        for w in weeks:
-            if w.start > config.TODAY:
-                break
-            wz = periods.Period(
-                w.start, w.end, [a for a in acts if w.start <= a.date <= w.end]
-            ).zone_minutes()
-            week_rows.append(
-                {
-                    "index": w.index,
-                    "start": w.start.isoformat(),
-                    "end": w.end.isoformat(),
-                    "current": w.start <= config.TODAY <= w.end,
-                    "minutes": [round(m) for m in wz["minutes"]],
-                    "stream": round(wz["stream"]),
-                }
-            )
+        week_rows = [
+            {
+                "index": w.index,
+                "start": w.start.isoformat(),
+                "end": w.end.isoformat(),
+                "current": w.start <= config.TODAY <= w.end,
+                **_zone_split(
+                    periods.Period(w.start, w.end, [a for a in acts if w.start <= a.date <= w.end])
+                ),
+            }
+            for w in weeks
+            if w.start <= config.TODAY
+        ]
         out.append(
             {
                 "phase": code,
@@ -139,20 +153,16 @@ def _zones(ds: Dataset) -> dict[str, Any]:
                 "start": start.isoformat(),
                 "end": end.isoformat(),
                 "current": start <= config.TODAY <= end,
-                "minutes": [round(m) for m in z["minutes"]],
-                "stream": round(z["stream"]),
-                "measured": round(z["measured"]),
-                "modelled": round(z["modelled"]),
-                "no_hr": round(z["no_hr"]),
+                **_zone_split(periods.Period(start, end, acts)),
                 "weeks": week_rows,
             }
         )
-    lo = 0
-    bands = []
-    for code, name, top in config.HR_ZONES:
-        bands.append({"code": code, "name": name, "lo": lo, "hi": top})
-        lo = top
-    return {"bands": bands, "phases": out}
+    return {
+        "bands": _bands(config.HR_ZONES),
+        "bike_bands": _bands(config.BIKE_HR_ZONES),
+        "power_bands": _bands(config.POWER_ZONES),
+        "phases": out,
+    }
 
 
 def payload(

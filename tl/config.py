@@ -48,6 +48,29 @@ HR_ZONES = (
     ("Z4", "Threshold", 181),
     ("Z5", "Anaerobic", None),
 )
+# Cycling zones from Garmin: HR, and power from the ride's watts stream.
+BIKE_HR_ZONES = (
+    ("Z1", "Warm up", 127),
+    ("Z2", "Easy", 152),
+    ("Z3", "Aerobic", 167),
+    ("Z4", "Threshold", 173),
+    ("Z5", "Maximum", None),
+)
+POWER_ZONES = (
+    ("Z1", "Active recovery", 155),
+    ("Z2", "Endurance", 211),
+    ("Z3", "Tempo", 254),
+    ("Z4", "Threshold", 296),
+    ("Z5", "VO2 max", 339),
+    ("Z6", "Anaerobic", 424),
+    ("Z7", "Neuromuscular", None),
+)
+
+
+def zone_index(value: float, zones: tuple[tuple[str, str, int | None], ...]) -> int:
+    """Index of the zone whose inclusive top `value` stays under; the last zone is open."""
+    return next(i for i, (*_, top) in enumerate(zones) if top is None or value <= top)
+
 
 # HR = 81.2 + 21.1*ln(relative_effort per hour); r=0.91, +-3.5 bpm, n=46
 HR_A, HR_B = 81.2, 21.1

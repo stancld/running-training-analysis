@@ -61,6 +61,38 @@ def _rows(name: str) -> Iterator[tuple[dt.date, dict[str, str]]]:
                 yield d, r
 
 
+# (minutes, HR-zone seconds, power-zone seconds) from one stream-cache row.
+type _ZoneRow = tuple[float, list[float] | None, list[float] | None]
+
+
+def _attach_streams(acts: list[Activity]) -> None:
+    """Attach zone seconds from the stream caches, matched to same-day activities by duration."""
+
+    def by_dur(a: Activity, r: _ZoneRow) -> float:
+        return abs(a.mins - r[0])
+
+    files = (
+        ("run", "zones.csv", False),
+        ("bike", "ride_zones.csv", True),
+    )
+    for group, name, ride in files:
+        rows: dict[dt.date, list[_ZoneRow]] = _by_day(
+            name,
+            lambda r, ride=ride: (
+                float(r["min"]),
+                [float(r[f"z{i}"]) for i in range(1, 6)] if r["z1"] else None,
+                [float(r[f"p{i}"]) for i in range(1, 8)] if ride and r["p1"] else None,
+            ),
+        )
+        days = defaultdict(list)
+        for a in acts:
+            if a.group == group:
+                days[a.date].append(a)
+        for d, day in days.items():
+            for a, (_, z, p) in _pair(day, rows.get(d, []), by_dur):
+                a.zones, a.power = z, p
+
+
 class Activity:
     __slots__ = (
         "date",
@@ -71,6 +103,7 @@ class Activity:
         "mins",
         "name",
         "note",
+        "power",
         "re",
         "sport",
         "type",
@@ -90,14 +123,16 @@ class Activity:
     hr: float | None
     name: str | None
     note: str | None
-    # Seconds per HR zone from the run's HR stream (zones.csv), when fetched.
+    # Seconds per HR zone from the HR stream (zones.csv for runs, ride_zones.csv for
+    # rides) and per power zone from a ride's watts stream, when fetched.
     zones: list[float] | None
+    power: list[float] | None
 
     def __init__(self, date: dt.date, sport: str, km: float, mins: float, vert: float) -> None:
         self.date, self.sport = date, sport
         self.group = config.group_of(sport)
         self.km, self.mins, self.vert = km, mins, vert
-        self.type = self.feel = self.re = self.hr = self.zones = None
+        self.type = self.feel = self.re = self.hr = self.zones = self.power = None
         self.name = self.note = None
 
     @property
@@ -163,11 +198,6 @@ class Dataset:
         )
         re_ = _by_day("re.csv", lambda r: float(r["re"]))
         hr = _by_day("hr.csv", lambda r: (float(r["min"]), float(r["hr"])))
-        zones = _by_day(
-            "zones.csv",
-            lambda r: (float(r["min"]), [float(r[f"z{i}"]) for i in range(1, 6)]),
-        )
-
         notes = defaultdict(list)
         for d, r in _rows("notes.csv"):
             notes[d].append((r.get("name") or "", r.get("note") or ""))
@@ -184,8 +214,7 @@ class Dataset:
             # hr.csv carries minutes, so rows match runs by duration.
             for a, (_, v) in _pair(day, hr.get(d, []), lambda a, r: abs(a.mins - r[0])):
                 a.hr = v
-            for a, (_, z) in _pair(day, zones.get(d, []), lambda a, r: abs(a.mins - r[0])):
-                a.zones = z
+        _attach_streams(acts)
 
         for d, items in notes.items():
             same_day = runs_first(a for a in acts if a.date == d)

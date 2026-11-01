@@ -52,8 +52,13 @@ def test_payload_carries_the_cache(tmp_path: Path, site: Callable[[], dict[str, 
     # The race splits by its stream (2 h Z2, 1 h Z3, 30 min each Z4 and Z5), not its 162 bpm
     # average; the other runs count whole in Z2, modelled from relative effort (146, 156 bpm).
     p1 = p["zones"]["phases"][0]
-    assert p1["minutes"] == [0, 245, 60, 30, 30]
-    assert (p1["stream"], p1["measured"], p1["modelled"]) == (240, 0, 125)
+    run, bike = p1["run"], p1["bike"]
+    assert run["minutes"] == [0, 245, 60, 30, 30]
+    assert (run["stream"], run["measured"], run["modelled"]) == (240, 0, 125)
+    # The 90-min ride splits 30/45/15 min by HR and 60/20/10 min by power (Garmin zones);
+    # the 60-min ride has no stream and no HR fallback.
+    assert (bike["minutes"], bike["power"]) == ([30, 45, 15, 0, 0], [0, 60, 20, 10, 0, 0, 0])
+    assert (bike["stream"], bike["no_hr"]) == (90, 60)
 
 
 def test_guardrails_fire_past_the_limit_not_at_it(

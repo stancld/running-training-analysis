@@ -56,8 +56,9 @@ GitHub Pages cannot run `tl`, so it builds the app from the committed payload.
    `re.csv` row per run in the same order as `activities.csv`; `hr.csv` rows are
    matched to runs by duration.
 2. Session notes go in `data/notes.csv` (`date,name,note`).
-3. `uv run python scripts/fetch_zones.py` appends HR-zone seconds for new
-   plan-period runs to `zones.csv` from their Strava HR streams (needs
+3. `uv run python scripts/fetch_zones.py` appends zone seconds for new
+   plan-period runs to `zones.csv` and rides (HR and power) to `ride_zones.csv`
+   from their Strava streams (needs
    `STRAVA_CLIENT_ID`, `STRAVA_CLIENT_SECRET` and a refresh token with
    `activity:read_all`). Runs without a row fall back to their average HR.
 4. After an uphill session, extend `hills.csv` and `segments.csv`.

@@ -15,7 +15,7 @@ Weekly training review for Dan. Work in `/Users/stancld/projects/running-trainin
    E/L/T/I/R/M/F/S/RACE, feel −2..+2 from his own description), `re.csv` (Strava
    relative_effort, runs only), `hr.csv` (`date,min,hr` — COROS avg HR via
    `mcp__coros__querySportRecords`), `notes.csv` (`date,name,note`).
-   Then `uv run python scripts/fetch_zones.py` for the new runs' HR-zone seconds (`zones.csv`).
+   Then `uv run python scripts/fetch_zones.py` for the new runs' and rides' zone seconds (`zones.csv`, `ride_zones.csv`).
 4. **Pull recovery context** for the week: `queryTrainingLoadAssessment`,
    `queryRestingHeartRate`, `queryAvgHeartRate`. Use `querySleepHrv` sparingly — its
    time series is enormous; the daily assessment lines are what matter. A same-day

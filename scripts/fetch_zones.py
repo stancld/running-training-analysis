@@ -1,7 +1,8 @@
-"""Append HR-zone seconds for plan-period runs that data/zones.csv lacks.
+"""Append HR- and power-zone seconds for plan-period runs and rides the cache lacks.
 
-Reads each run's Strava HR stream once and keeps only the time per zone (Dan's
-config.HR_ZONES), so the cache stays small. Needs STRAVA_CLIENT_ID,
+Reads each activity's Strava streams once and keeps only the time per zone: runs in
+zones.csv (config.HR_ZONES), rides in ride_zones.csv (Garmin HR and power zones), so
+the cache stays small. Needs STRAVA_CLIENT_ID,
 STRAVA_CLIENT_SECRET and STRAVA_REFRESH_TOKEN; Strava may rotate the refresh
 token, so the newest one is kept in ~/.config/tl/strava_refresh_token (mode 600).
 """
@@ -54,58 +55,84 @@ def _access_token() -> str:
     return tok["access_token"]
 
 
-def _zone_seconds(streams: dict[str, Any]) -> list[float]:
+def _seconds(streams: dict[str, Any], key: str, zones: tuple) -> list[int] | None:
     """Seconds per zone over moving samples; paused gaps are not training time."""
-    t, hr = streams["time"]["data"], streams["heartrate"]["data"]
+    if key not in streams:
+        return None
+    t, v = streams["time"]["data"], streams[key]["data"]
     moving = streams.get("moving", {}).get("data") or [True] * len(t)
-    out = [0.0] * len(config.HR_ZONES)
+    out = [0.0] * len(zones)
     for i in range(1, len(t)):
-        if moving[i]:
-            zone = next(
-                z for z, (*_, top) in enumerate(config.HR_ZONES) if top is None or hr[i] <= top
-            )
-            out[zone] += t[i] - t[i - 1]
-    return out
+        if moving[i] and v[i] is not None:
+            out[config.zone_index(v[i], zones)] += t[i] - t[i - 1]
+    return [round(s) for s in out] if any(out) else None
+
+
+# cache file, Strava sport types, stream keys, header, how a stream becomes zone columns
+KINDS = (
+    ("zones.csv", RUNS, "time,heartrate,moving", [f"z{i}" for i in range(1, 6)]),
+    (
+        "ride_zones.csv",
+        config.BIKE,
+        "time,heartrate,watts,moving",
+        [f"z{i}" for i in range(1, 6)] + [f"p{i}" for i in range(1, 8)],
+    ),
+)
+
+
+def _row(kind: str, streams: dict[str, Any]) -> list[int | str] | None:
+    if kind == "zones.csv":
+        hr = _seconds(streams, "heartrate", config.HR_ZONES)
+        return list(hr) if hr else None
+    hr = _seconds(streams, "heartrate", config.BIKE_HR_ZONES)
+    watts = _seconds(streams, "watts", config.POWER_ZONES)
+    if not hr and not watts:
+        return None
+    return [*(hr or [""] * 5), *(watts or [""] * 7)]
+
+
+def _have(path: Path) -> set[tuple[str, int]]:
+    if not path.exists():
+        return set()
+    with path.open() as fh:
+        return {
+            (r["date"], round(float(r["min"]))) for r in csv.DictReader(fh) if r["date"] != "date"
+        }
 
 
 def main() -> int:
-    path = config.path("zones.csv")
-    have: set[tuple[str, int]] = set()
-    if path.exists():
-        with path.open() as fh:
-            have = {
-                (r["date"], round(float(r["min"])))
-                for r in csv.DictReader(fh)
-                if r["date"] != "date"
-            }
     token = _access_token()
-
     after = int(dt.datetime.combine(plan.PLAN_START, dt.time(), tzinfo=dt.UTC).timestamp())
-    runs, page = [], 1
+    acts, page = [], 1
     while batch := _call(f"{API}/athlete/activities?after={after}&per_page=100&page={page}", token):
-        runs += [a for a in batch if a["sport_type"] in RUNS and a.get("has_heartrate")]
+        acts += batch
         page += 1
 
-    rows = []
-    for a in sorted(runs, key=lambda a: a["start_date_local"]):
-        key = (a["start_date_local"][:10], round(a["moving_time"] / 60))
-        if key in have:
-            continue
-        streams = _call(
-            f"{API}/activities/{a['id']}/streams?keys=time,heartrate,moving&key_by_type=true", token
-        )
-        if "heartrate" in streams:
-            rows.append([*key, *(round(s) for s in _zone_seconds(streams))])
-
-    new = not path.exists()
-    with path.open("a", newline="") as fh:
-        w = csv.writer(fh)
-        if new:
-            w.writerow(["date", "min", "z1", "z2", "z3", "z4", "z5"])
-        w.writerows(rows)
-    sys.stdout.write(
-        f"appended {len(rows)} runs to {path} ({len(runs) - len(rows)} already there)\n"
-    )
+    for kind, sports, keys, header in KINDS:
+        path = config.path(kind)
+        have = _have(path)
+        todo = [
+            a
+            for a in acts
+            if a["sport_type"] in sports and (a.get("has_heartrate") or a.get("device_watts"))
+        ]
+        rows = []
+        for a in sorted(todo, key=lambda a: a["start_date_local"]):
+            key = (a["start_date_local"][:10], round(a["moving_time"] / 60))
+            if key in have:
+                continue
+            streams = _call(
+                f"{API}/activities/{a['id']}/streams?keys={keys}&key_by_type=true", token
+            )
+            if row := _row(kind, streams):
+                rows.append([*key, *row])
+        new = not path.exists()
+        with path.open("a", newline="") as fh:
+            w = csv.writer(fh)
+            if new:
+                w.writerow(["date", "min", *header])
+            w.writerows(rows)
+        sys.stdout.write(f"{kind}: appended {len(rows)} of {len(todo)} activities\n")
     return 0
 
 

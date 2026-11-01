@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # CI's stand-in for Dan's personal cache, which is never pushed: a race week, then a
-# ride-only week so WoW and ACWR are 0.00 (not null); the race has an HR-stream zone row.
+# ride-only week so WoW and ACWR are 0.00 (not null); the race and the
+# first ride have stream zone rows.
 # The e2e tests rely on these rows.
 # Writes into data/ unless given a directory; never run it there on Dan's machine.
 set -euo pipefail
@@ -11,3 +12,4 @@ printf 'date,type,feel\n2026-08-31,E,1\n2026-09-02,L,\n2026-09-06,RACE,2\n' > la
 printf 'date,re\n2026-08-31,20\n2026-09-02,40\n2026-09-06,235\n' > re.csv
 printf 'date,min,hr\n2026-09-06,240,162\n' > hr.csv
 printf 'date,min,z1,z2,z3,z4,z5\n2026-09-06,240,0,7200,3600,1800,1800\n' > zones.csv
+printf 'date,min,z1,z2,z3,z4,z5,p1,p2,p3,p4,p5,p6,p7\n2026-09-05,90,1800,2700,900,0,0,0,3600,1200,600,0,0,0\n' > ride_zones.csv

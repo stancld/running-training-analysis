@@ -84,21 +84,27 @@ class Period:
     def partial(self) -> bool:
         return self.end > config.TODAY
 
-    def zone_minutes(self) -> dict[str, Any]:
-        """Running minutes per HR zone.
+    def zone_minutes(self, group: str = "run") -> dict[str, Any]:
+        """Minutes per HR zone for runs or rides, plus power-zone minutes for rides.
 
-        A run with a fetched HR stream (zones.csv) splits its moving time by the stream's
-        shares; any other run counts whole in the zone of its average (measured, else
-        modelled), which hides hard reps inside an easy session.
+        An activity with a fetched stream splits its moving time by the stream's shares.
+        A run without one counts whole in the zone of its average HR (measured, else
+        modelled), which hides hard reps inside an easy session; rides have no fallback.
         """
+        zones = config.HR_ZONES if group == "run" else config.BIKE_HR_ZONES
+        acts = [a for a in self.acts if a.group == group]
         out: dict[str, Any] = {
-            "minutes": [0.0] * len(config.HR_ZONES),
+            "minutes": [0.0] * len(zones),
+            "power": [0.0] * len(config.POWER_ZONES),
             "stream": 0.0,
             "measured": 0.0,
             "modelled": 0.0,
             "no_hr": 0.0,
         }
-        for a in self.runs:
+        for a in acts:
+            if a.power and (secs := sum(a.power)):
+                for i, s in enumerate(a.power):
+                    out["power"][i] += a.mins * s / secs
             if a.zones and (secs := sum(a.zones)):
                 out["stream"] += a.mins
                 for i, s in enumerate(a.zones):
@@ -109,10 +115,7 @@ class Period:
                 out["no_hr"] += a.mins
                 continue
             out["measured" if a.hr else "modelled"] += a.mins
-            zone = next(
-                i for i, (*_, top) in enumerate(config.HR_ZONES) if top is None or hr <= top
-            )
-            out["minutes"][zone] += a.mins
+            out["minutes"][config.zone_index(hr, zones)] += a.mins
         return out
 
     def hr_at_pace(self) -> dict[str, float] | None:
