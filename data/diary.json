@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01T14:36:18",
+ "generated": "2026-11-01T17:50:15",
  "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
@@ -24,8 +24,8 @@
    "code": "P2",
    "name": "Recovery & gym on-ramp",
    "weeks": 6,
-   "km": 427,
-   "vert": 12500
+   "km": 371,
+   "vert": 10850
   },
   {
    "code": "P3",
@@ -138,8 +138,8 @@
    "gym_h": 0,
    "run_km": 59.6,
    "run_vert": 2200,
-   "weekend": "Race",
-   "race": "Slapy Trailmaniacs 47K \u00b7 17 Oct"
+   "weekend": "Easy 90'",
+   "race": null
   },
   {
    "index": 8,
@@ -151,33 +151,33 @@
    "gym_h": 0,
    "run_km": 50.6,
    "run_vert": 1480,
-   "weekend": "Easy 90'",
-   "race": null
+   "weekend": "Race",
+   "race": "Slapy Trailmaniacs 47K \u00b7 24 Oct"
   },
   {
    "index": 9,
    "phase": "P2",
    "start": "2026-10-26",
-   "total_h": 9,
-   "run_h": 5.5,
-   "bike_h": 2.5,
-   "gym_h": 1.0,
-   "run_km": 61.8,
-   "run_vert": 1809,
-   "weekend": "Long 2:00",
+   "total_h": 3.5,
+   "run_h": 3.5,
+   "bike_h": 0,
+   "gym_h": 0,
+   "run_km": 39.3,
+   "run_vert": 1151,
+   "weekend": "Off-season \u00b7 easy",
    "race": null
   },
   {
    "index": 10,
    "phase": "P2",
    "start": "2026-11-02",
-   "total_h": 11,
-   "run_h": 6.5,
-   "bike_h": 2.5,
-   "gym_h": 2.0,
-   "run_km": 73.0,
-   "run_vert": 2138,
-   "weekend": "Long 2:30",
+   "total_h": 3.5,
+   "run_h": 3.5,
+   "bike_h": 0,
+   "gym_h": 0,
+   "run_km": 39.3,
+   "run_vert": 1151,
+   "weekend": "Off-season \u00b7 easy",
    "race": null
   },
   {
@@ -189,7 +189,7 @@
    "bike_h": 2.0,
    "gym_h": 2.0,
    "run_km": 78.7,
-   "run_vert": 2303,
+   "run_vert": 2302,
    "weekend": "A \u00b7 2:30+2:00",
    "race": null
   },
@@ -202,7 +202,7 @@
    "bike_h": 2.5,
    "gym_h": 2.0,
    "run_km": 84.3,
-   "run_vert": 2467,
+   "run_vert": 2466,
    "weekend": "A \u00b7 3:00+2:15",
    "race": null
   },
@@ -215,7 +215,7 @@
    "bike_h": 2.0,
    "gym_h": 2.0,
    "run_km": 78.7,
-   "run_vert": 2303,
+   "run_vert": 2302,
    "weekend": "Long 2:45",
    "race": null
   },
@@ -639,7 +639,7 @@
    "feel": null,
    "monotony": 0.86,
    "ctl": 2.6,
-   "atl": 8.3,
+   "atl": 8.2,
    "tsb": -5.6,
    "flags": [
     {
@@ -755,7 +755,7 @@
    "feel": null,
    "monotony": 0.41,
    "ctl": 2.5,
-   "atl": 4.7,
+   "atl": 4.6,
    "tsb": -2.2,
    "flags": [],
    "notes": [
@@ -977,7 +977,7 @@
    "feel": null,
    "monotony": 0.55,
    "ctl": 4.6,
-   "atl": 9.0,
+   "atl": 8.9,
    "tsb": -4.3,
    "flags": [],
    "notes": [
@@ -1210,7 +1210,7 @@
    "acwr": 1.42,
    "feel": null,
    "monotony": 1.43,
-   "ctl": 6.6,
+   "ctl": 6.5,
    "atl": 11.5,
    "tsb": -5.0,
    "flags": [
@@ -1368,7 +1368,7 @@
    "acwr": 1.05,
    "feel": 1.0,
    "monotony": 1.46,
-   "ctl": 7.7,
+   "ctl": 7.6,
    "atl": 13.0,
    "tsb": -5.4,
    "flags": [],
@@ -1510,8 +1510,8 @@
    "acwr": 1.24,
    "feel": 1.0,
    "monotony": 1.35,
-   "ctl": 8.6,
-   "atl": 13.8,
+   "ctl": 8.5,
+   "atl": 13.7,
    "tsb": -5.2,
    "flags": [
     {
@@ -1649,8 +1649,8 @@
    "feel": null,
    "monotony": 1.26,
    "ctl": 9.7,
-   "atl": 15.1,
-   "tsb": -5.4,
+   "atl": 15.0,
+   "tsb": -5.3,
    "flags": [],
    "notes": [
     "Longest run 2:11 / 19.3 km / 1538 m on Sat.",
@@ -1802,7 +1802,7 @@
    "acwr": 0.59,
    "feel": -1.0,
    "monotony": 1.87,
-   "ctl": 10.2,
+   "ctl": 10.1,
    "atl": 13.6,
    "tsb": -3.4,
    "flags": [
@@ -1952,8 +1952,8 @@
    "feel": -2.0,
    "monotony": 1.3,
    "ctl": 10.7,
-   "atl": 13.4,
-   "tsb": -2.7,
+   "atl": 13.3,
+   "tsb": -2.6,
    "flags": [
     {
      "code": "R1",
@@ -2208,7 +2208,7 @@
    "monotony": 0.83,
    "ctl": 9.0,
    "atl": 5.8,
-   "tsb": 3.2,
+   "tsb": 3.1,
    "flags": [],
    "notes": [
     "Longest run 0:45 / 8.2 km / 199 m on Sun.",
@@ -2312,8 +2312,8 @@
    "acwr": 0.84,
    "feel": 1.0,
    "monotony": 1.79,
-   "ctl": 10.3,
-   "atl": 13.8,
+   "ctl": 10.2,
+   "atl": 13.7,
    "tsb": -3.5,
    "flags": [],
    "notes": [
@@ -2456,8 +2456,8 @@
    "feel": -1.0,
    "monotony": 1.87,
    "ctl": 12.0,
-   "atl": 19.8,
-   "tsb": -7.8,
+   "atl": 19.7,
+   "tsb": -7.7,
    "flags": [
     {
      "code": "R1",
@@ -2642,8 +2642,8 @@
    "acwr": 1.39,
    "feel": null,
    "monotony": 1.91,
-   "ctl": 13.8,
-   "atl": 23.1,
+   "ctl": 13.7,
+   "atl": 23.0,
    "tsb": -9.4,
    "flags": [
     {
@@ -2802,8 +2802,8 @@
    "acwr": 1.55,
    "feel": 2.0,
    "monotony": 1.35,
-   "ctl": 18.2,
-   "atl": 38.4,
+   "ctl": 18.1,
+   "atl": 38.3,
    "tsb": -20.2,
    "flags": [
     {
@@ -2817,7 +2817,7 @@
    ],
    "notes": [
     "Longest run 2:28 / 23.5 km / 1090 m on Sun.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: I on Fri, T on Sat",
     "Vert density 407 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +2.0 over 1 scored runs.",
@@ -3014,8 +3014,8 @@
    "feel": 0.0,
    "monotony": 1.41,
    "ctl": 18.9,
-   "atl": 30.6,
-   "tsb": -11.7,
+   "atl": 30.5,
+   "tsb": -11.6,
    "flags": [],
    "notes": [
     "Longest run 0:57 / 11.7 km / 26 m on Sat.",
@@ -3222,8 +3222,8 @@
    "acwr": 0.85,
    "feel": null,
    "monotony": 2.66,
-   "ctl": 19.4,
-   "atl": 25.4,
+   "ctl": 19.3,
+   "atl": 25.3,
    "tsb": -6.1,
    "flags": [],
    "notes": [
@@ -3444,8 +3444,8 @@
    "acwr": 0.69,
    "feel": 1.0,
    "monotony": 2.75,
-   "ctl": 18.7,
-   "atl": 18.8,
+   "ctl": 18.6,
+   "atl": 18.7,
    "tsb": -0.1,
    "flags": [],
    "notes": [
@@ -3644,8 +3644,8 @@
    "acwr": 1.18,
    "feel": -1.0,
    "monotony": 0.61,
-   "ctl": 21.5,
-   "atl": 35.2,
+   "ctl": 21.4,
+   "atl": 35.1,
    "tsb": -13.7,
    "flags": [
     {
@@ -3793,8 +3793,8 @@
    "acwr": 0.51,
    "feel": null,
    "monotony": 1.43,
-   "ctl": 21.5,
-   "atl": 28.0,
+   "ctl": 21.4,
+   "atl": 27.9,
    "tsb": -6.5,
    "flags": [],
    "notes": [
@@ -3977,8 +3977,8 @@
    "acwr": 1.19,
    "feel": 1.0,
    "monotony": 1.26,
-   "ctl": 21.8,
-   "atl": 26.5,
+   "ctl": 21.7,
+   "atl": 26.4,
    "tsb": -4.7,
    "flags": [
     {
@@ -4145,9 +4145,9 @@
    "wow": 1.27,
    "acwr": 1.32,
    "feel": 1.5,
-   "monotony": 1.78,
+   "monotony": 1.77,
    "ctl": 22.4,
-   "atl": 26.6,
+   "atl": 26.5,
    "tsb": -4.2,
    "flags": [
     {
@@ -4344,9 +4344,9 @@
    "wow": 0.32,
    "acwr": 0.52,
    "feel": null,
-   "monotony": 1.17,
-   "ctl": 21.2,
-   "atl": 19.6,
+   "monotony": 1.18,
+   "ctl": 21.1,
+   "atl": 19.5,
    "tsb": 1.6,
    "flags": [],
    "notes": [
@@ -4520,7 +4520,7 @@
    "feel": null,
    "monotony": 1.7,
    "ctl": 20.6,
-   "atl": 18.7,
+   "atl": 18.6,
    "tsb": 1.9,
    "flags": [
     {
@@ -4706,8 +4706,8 @@
    "acwr": 1.26,
    "feel": null,
    "monotony": 1.56,
-   "ctl": 21.4,
-   "atl": 24.8,
+   "ctl": 21.3,
+   "atl": 24.7,
    "tsb": -3.3,
    "flags": [
     {
@@ -4867,8 +4867,8 @@
    "feel": null,
    "monotony": 1.17,
    "ctl": 21.3,
-   "atl": 23.5,
-   "tsb": -2.2,
+   "atl": 23.4,
+   "tsb": -2.1,
    "flags": [
     {
      "code": "R2",
@@ -5048,9 +5048,9 @@
    "acwr": 0.87,
    "feel": 1.0,
    "monotony": 1.2,
-   "ctl": 20.4,
+   "ctl": 20.3,
    "atl": 18.5,
-   "tsb": 1.9,
+   "tsb": 1.8,
    "flags": [],
    "notes": [
     "Longest run 1:25 / 17.4 km / 51 m on Tue.",
@@ -5203,8 +5203,8 @@
    "acwr": 1.04,
    "feel": -0.5,
    "monotony": 1.57,
-   "ctl": 20.8,
-   "atl": 23.0,
+   "ctl": 20.7,
+   "atl": 22.9,
    "tsb": -2.2,
    "flags": [
     {
@@ -5640,9 +5640,9 @@
    "acwr": 1.17,
    "feel": 0.33,
    "monotony": 1.53,
-   "ctl": 21.2,
+   "ctl": 21.1,
    "atl": 22.6,
-   "tsb": -1.4,
+   "tsb": -1.5,
    "flags": [],
    "notes": [
     "Longest run 2:00 / 25.4 km / 239 m on Sun.",
@@ -5807,8 +5807,8 @@
    "acwr": 0.63,
    "feel": null,
    "monotony": 1.33,
-   "ctl": 19.9,
-   "atl": 17.2,
+   "ctl": 19.8,
+   "atl": 17.1,
    "tsb": 2.7,
    "flags": [],
    "notes": [
@@ -5937,7 +5937,7 @@
    "acwr": 0.86,
    "feel": 0.5,
    "monotony": 1.5,
-   "ctl": 19.8,
+   "ctl": 19.7,
    "atl": 18.1,
    "tsb": 1.6,
    "flags": [
@@ -6153,8 +6153,8 @@
    "wow": 1.42,
    "acwr": 1.23,
    "feel": -1.0,
-   "monotony": 1.81,
-   "ctl": 19.9,
+   "monotony": 1.8,
+   "ctl": 19.8,
    "atl": 19.9,
    "tsb": -0.1,
    "flags": [
@@ -6361,7 +6361,7 @@
    "feel": 0.33,
    "monotony": 1.36,
    "ctl": 20.9,
-   "atl": 24.9,
+   "atl": 24.8,
    "tsb": -4.0,
    "flags": [],
    "notes": [
@@ -6570,7 +6570,7 @@
    "acwr": 1.08,
    "feel": 0.0,
    "monotony": 1.39,
-   "ctl": 22.8,
+   "ctl": 22.7,
    "atl": 30.2,
    "tsb": -7.5,
    "flags": [],
@@ -6997,9 +6997,9 @@
    "acwr": 0.78,
    "feel": -1.0,
    "monotony": 1.17,
-   "ctl": 21.1,
+   "ctl": 21.0,
    "atl": 19.7,
-   "tsb": 1.4,
+   "tsb": 1.3,
    "flags": [],
    "notes": [
     "Longest run 0:55 / 12.5 km / 38 m on Wed.",
@@ -7128,7 +7128,7 @@
    "acwr": 0.88,
    "feel": 0.0,
    "monotony": 0.45,
-   "ctl": 25.1,
+   "ctl": 25.0,
    "atl": 42.7,
    "tsb": -17.7,
    "flags": [],
@@ -7679,7 +7679,7 @@
    "acwr": 0.69,
    "feel": 1.5,
    "monotony": 1.56,
-   "ctl": 21.5,
+   "ctl": 21.4,
    "atl": 15.6,
    "tsb": 5.8,
    "flags": [],
@@ -7890,7 +7890,7 @@
    "monotony": 0.41,
    "ctl": 18.4,
    "atl": 6.3,
-   "tsb": 12.1,
+   "tsb": 12.0,
    "flags": [],
    "notes": [
     "Longest run 0:33 / 6.1 km / 25 m on Mon."
@@ -7988,11 +7988,11 @@
    "longest_km": 0,
    "longest_vert": 0,
    "back_to_back": false,
-   "wow": null,
-   "acwr": null,
+   "wow": 0.0,
+   "acwr": 0.0,
    "feel": null,
    "monotony": null,
-   "ctl": 15.6,
+   "ctl": 15.5,
    "atl": 2.3,
    "tsb": 13.2,
    "flags": [],
@@ -8056,10 +8056,10 @@
    "longest_vert": 0,
    "back_to_back": false,
    "wow": null,
-   "acwr": null,
+   "acwr": 0.0,
    "feel": null,
    "monotony": null,
-   "ctl": 13.2,
+   "ctl": 13.1,
    "atl": 0.9,
    "tsb": 12.3,
    "flags": [],
@@ -8126,7 +8126,7 @@
    "acwr": 3.35,
    "feel": -0.5,
    "monotony": 1.15,
-   "ctl": 12.3,
+   "ctl": 12.2,
    "atl": 4.9,
    "tsb": 7.3,
    "flags": [],
@@ -8244,7 +8244,7 @@
    "acwr": 2.39,
    "feel": 0.0,
    "monotony": 1.43,
-   "ctl": 12.1,
+   "ctl": 12.0,
    "atl": 8.6,
    "tsb": 3.5,
    "flags": [
@@ -8386,7 +8386,7 @@
    "acwr": 1.11,
    "feel": 0.0,
    "monotony": 1.11,
-   "ctl": 11.4,
+   "ctl": 11.3,
    "atl": 7.1,
    "tsb": 4.2,
    "flags": [],
@@ -8515,8 +8515,8 @@
    "acwr": 1.13,
    "feel": 1.0,
    "monotony": 1.36,
-   "ctl": 12.9,
-   "atl": 14.2,
+   "ctl": 12.8,
+   "atl": 14.1,
    "tsb": -1.3,
    "flags": [
     {
@@ -8873,7 +8873,7 @@
    "feel": 0.0,
    "monotony": 1.98,
    "ctl": 13.8,
-   "atl": 16.2,
+   "atl": 16.1,
    "tsb": -2.4,
    "flags": [],
    "notes": [
@@ -9016,9 +9016,9 @@
    "acwr": 1.12,
    "feel": 2.0,
    "monotony": 1.98,
-   "ctl": 14.2,
-   "atl": 16.6,
-   "tsb": -2.5,
+   "ctl": 14.1,
+   "atl": 16.5,
+   "tsb": -2.4,
    "flags": [],
    "notes": [
     "Longest run 1:40 / 19.4 km / 443 m on Sat.",
@@ -9159,8 +9159,8 @@
    "acwr": 0.98,
    "feel": -0.5,
    "monotony": 1.7,
-   "ctl": 15.0,
-   "atl": 18.5,
+   "ctl": 14.9,
+   "atl": 18.4,
    "tsb": -3.5,
    "flags": [],
    "notes": [
@@ -9325,7 +9325,7 @@
    "acwr": 0.99,
    "feel": 0.0,
    "monotony": 1.26,
-   "ctl": 15.5,
+   "ctl": 15.4,
    "atl": 18.6,
    "tsb": -3.2,
    "flags": [
@@ -9474,9 +9474,9 @@
    "wow": 1.08,
    "acwr": 1.04,
    "feel": -1.0,
-   "monotony": 1.66,
-   "ctl": 16.8,
-   "atl": 22.3,
+   "monotony": 1.65,
+   "ctl": 16.7,
+   "atl": 22.2,
    "tsb": -5.5,
    "flags": [
     {
@@ -9669,9 +9669,9 @@
    "wow": 1.05,
    "acwr": 1.08,
    "feel": 0.0,
-   "monotony": 2.05,
+   "monotony": 2.04,
    "ctl": 18.4,
-   "atl": 26.4,
+   "atl": 26.3,
    "tsb": -8.0,
    "flags": [
     {
@@ -9877,7 +9877,7 @@
    "acwr": 0.76,
    "feel": 1.0,
    "monotony": 0.97,
-   "ctl": 18.6,
+   "ctl": 18.5,
    "atl": 23.0,
    "tsb": -4.5,
    "flags": [],
@@ -10074,7 +10074,7 @@
    "wow": 1.6,
    "acwr": 1.16,
    "feel": 0.0,
-   "monotony": 1.23,
+   "monotony": 1.22,
    "ctl": 18.8,
    "atl": 22.5,
    "tsb": -3.7,
@@ -10252,7 +10252,7 @@
    "acwr": 1.02,
    "feel": 0.67,
    "monotony": 1.18,
-   "ctl": 19.0,
+   "ctl": 18.9,
    "atl": 20.2,
    "tsb": -1.2,
    "flags": [],
@@ -10396,8 +10396,8 @@
    "acwr": 0.09,
    "feel": 0.0,
    "monotony": 0.91,
-   "ctl": 18.3,
-   "atl": 18.1,
+   "ctl": 18.2,
+   "atl": 18.0,
    "tsb": 0.2,
    "flags": [],
    "notes": [
@@ -10547,7 +10547,7 @@
    "acwr": 0.39,
    "feel": 0.0,
    "monotony": 1.76,
-   "ctl": 18.0,
+   "ctl": 17.9,
    "atl": 16.0,
    "tsb": 2.0,
    "flags": [],
@@ -10723,8 +10723,8 @@
    "acwr": 0.3,
    "feel": null,
    "monotony": 1.69,
-   "ctl": 19.3,
-   "atl": 24.3,
+   "ctl": 19.2,
+   "atl": 24.2,
    "tsb": -5.0,
    "flags": [],
    "notes": [
@@ -10886,8 +10886,8 @@
    "acwr": 2.3,
    "feel": 1.5,
    "monotony": 1.31,
-   "ctl": 21.3,
-   "atl": 32.5,
+   "ctl": 21.2,
+   "atl": 32.4,
    "tsb": -11.2,
    "flags": [
     {
@@ -11073,8 +11073,8 @@
    "acwr": 1.71,
    "feel": -2.0,
    "monotony": 0.55,
-   "ctl": 25.9,
-   "atl": 49.6,
+   "ctl": 25.8,
+   "atl": 49.5,
    "tsb": -23.7,
    "flags": [
     {
@@ -11240,9 +11240,9 @@
    "acwr": 1.79,
    "feel": -1.0,
    "monotony": 0.95,
-   "ctl": 25.2,
+   "ctl": 25.1,
    "atl": 33.6,
-   "tsb": -8.4,
+   "tsb": -8.5,
    "flags": [
     {
      "code": "R1",
@@ -11571,7 +11571,7 @@
    "acwr": 0.82,
    "feel": null,
    "monotony": 0.73,
-   "ctl": 25.4,
+   "ctl": 25.3,
    "atl": 29.6,
    "tsb": -4.3,
    "flags": [],
@@ -11757,7 +11757,7 @@
    "acwr": 1.15,
    "feel": null,
    "monotony": 1.85,
-   "ctl": 25.1,
+   "ctl": 25.0,
    "atl": 26.1,
    "tsb": -1.0,
    "flags": [
@@ -11973,8 +11973,8 @@
    "acwr": 1.17,
    "feel": 0.5,
    "monotony": 1.26,
-   "ctl": 24.4,
-   "atl": 22.4,
+   "ctl": 24.3,
+   "atl": 22.3,
    "tsb": 2.0,
    "flags": [],
    "notes": [
@@ -12139,8 +12139,8 @@
    "acwr": 0.5,
    "feel": null,
    "monotony": 1.02,
-   "ctl": 21.8,
-   "atl": 14.0,
+   "ctl": 21.7,
+   "atl": 13.9,
    "tsb": 7.8,
    "flags": [],
    "notes": [
@@ -12257,7 +12257,7 @@
    "feel": 2.0,
    "monotony": 1.52,
    "ctl": 20.9,
-   "atl": 16.0,
+   "atl": 15.9,
    "tsb": 4.9,
    "flags": [
     {
@@ -12394,8 +12394,8 @@
    "acwr": 1.32,
    "feel": -1.0,
    "monotony": 1.24,
-   "ctl": 21.1,
-   "atl": 21.8,
+   "ctl": 21.0,
+   "atl": 21.7,
    "tsb": -0.7,
    "flags": [
     {
@@ -12409,7 +12409,7 @@
    ],
    "notes": [
     "Longest run 2:40 / 25.8 km / 1383 m on Sun.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: F on Tue",
     "Vert density 375 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -1.0 over 1 scored runs.",
@@ -12544,7 +12544,8 @@
    "flags": [],
    "notes": [
     "Longest run 1:56 / 17.3 km / 1178 m on Sun.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
+    "Quality: T on Thu",
     "Vert density 368 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +1.0 over 1 scored runs."
    ],
@@ -12619,7 +12620,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "T",
        "name": null,
        "note": null,
        "mins": 51,
@@ -12703,9 +12704,9 @@
    "wow": 1.06,
    "acwr": 1.11,
    "feel": null,
-   "monotony": 2.11,
-   "ctl": 25.0,
-   "atl": 33.0,
+   "monotony": 2.1,
+   "ctl": 24.9,
+   "atl": 32.9,
    "tsb": -8.0,
    "flags": [
     {
@@ -12715,7 +12716,7 @@
    ],
    "notes": [
     "Longest run 2:15 / 22.5 km / 1039 m on Sun.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: I on Wed",
     "Vert density 350 m/h \u2014 above the 300 m/h floor.",
     "Monotony 2.1 \u2014 the week was too evenly hard; Foster's threshold for trouble is 2.0.",
@@ -12921,9 +12922,9 @@
    "wow": 0.47,
    "acwr": 0.56,
    "feel": null,
-   "monotony": 2.49,
-   "ctl": 24.1,
-   "atl": 25.2,
+   "monotony": 2.48,
+   "ctl": 24.0,
+   "atl": 25.1,
    "tsb": -1.1,
    "flags": [],
    "notes": [
@@ -13143,7 +13144,7 @@
    "acwr": 1.19,
    "feel": 0.67,
    "monotony": 1.43,
-   "ctl": 26.6,
+   "ctl": 26.5,
    "atl": 36.1,
    "tsb": -9.5,
    "flags": [
@@ -13154,7 +13155,7 @@
    ],
    "notes": [
     "Longest run 2:17 / 25.3 km / 978 m on Sun.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Tue, F on Fri",
     "Vert density 429 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.7 over 3 scored runs.",
@@ -13394,7 +13395,7 @@
    "acwr": 1.22,
    "feel": -0.5,
    "monotony": 1.68,
-   "ctl": 28.6,
+   "ctl": 28.5,
    "atl": 40.3,
    "tsb": -11.7,
    "flags": [
@@ -13405,7 +13406,7 @@
    ],
    "notes": [
     "Longest run 2:31 / 22.0 km / 1454 m on Sun.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Mon, F on Wed, I on Thu",
     "Vert density 448 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -0.5 over 2 scored runs.",
@@ -13612,9 +13613,9 @@
    "acwr": 0.4,
    "feel": 0.0,
    "monotony": 1.35,
-   "ctl": 27.7,
+   "ctl": 27.6,
    "atl": 29.7,
-   "tsb": -2.0,
+   "tsb": -2.1,
    "flags": [],
    "notes": [
     "Longest run 0:55 / 10.7 km / 316 m on Sun.",
@@ -13854,8 +13855,8 @@
    "wow": 1.36,
    "acwr": 0.56,
    "feel": 1.0,
-   "monotony": 1.19,
-   "ctl": 26.5,
+   "monotony": 1.18,
+   "ctl": 26.4,
    "atl": 24.9,
    "tsb": 1.5,
    "flags": [
@@ -14114,8 +14115,8 @@
    "acwr": 1.32,
    "feel": 1.5,
    "monotony": 0.54,
-   "ctl": 27.8,
-   "atl": 34.5,
+   "ctl": 27.7,
+   "atl": 34.4,
    "tsb": -6.7,
    "flags": [
     {
@@ -14322,9 +14323,9 @@
    "wow": 0.17,
    "acwr": 0.36,
    "feel": -1.0,
-   "monotony": 1.68,
+   "monotony": 1.69,
    "ctl": 26.1,
-   "atl": 24.5,
+   "atl": 24.4,
    "tsb": 1.7,
    "flags": [],
    "notes": [
@@ -14532,9 +14533,9 @@
    "acwr": 0.19,
    "feel": null,
    "monotony": 1.58,
-   "ctl": 23.2,
+   "ctl": 23.1,
    "atl": 13.2,
-   "tsb": 10.0,
+   "tsb": 9.9,
    "flags": [],
    "notes": [
     "Longest run 0:35 / 6.8 km / 167 m on Sun."
@@ -14704,9 +14705,9 @@
    "wow": 9.51,
    "acwr": 1.5,
    "feel": null,
-   "monotony": 1.26,
+   "monotony": 1.25,
    "ctl": 23.0,
-   "atl": 20.0,
+   "atl": 19.9,
    "tsb": 3.0,
    "flags": [
     {
@@ -14846,8 +14847,8 @@
    "acwr": 2.0,
    "feel": 0.0,
    "monotony": 1.25,
-   "ctl": 25.6,
-   "atl": 32.9,
+   "ctl": 25.5,
+   "atl": 32.8,
    "tsb": -7.3,
    "flags": [
     {
@@ -15112,8 +15113,8 @@
    "acwr": 1.12,
    "feel": null,
    "monotony": 1.6,
-   "ctl": 26.2,
-   "atl": 30.8,
+   "ctl": 26.1,
+   "atl": 30.7,
    "tsb": -4.6,
    "flags": [],
    "notes": [
@@ -15343,8 +15344,8 @@
    "acwr": 0.56,
    "feel": -1.0,
    "monotony": 1.27,
-   "ctl": 30.2,
-   "atl": 46.4,
+   "ctl": 30.1,
+   "atl": 46.3,
    "tsb": -16.2,
    "flags": [],
    "notes": [
@@ -15496,9 +15497,9 @@
    "acwr": 0.68,
    "feel": null,
    "monotony": 1.45,
-   "ctl": 28.8,
-   "atl": 31.1,
-   "tsb": -2.4,
+   "ctl": 28.7,
+   "atl": 31.0,
+   "tsb": -2.3,
    "flags": [],
    "notes": [
     "Longest run 1:06 / 12.5 km / 216 m on Sun."
@@ -15724,8 +15725,8 @@
    "wow": 2.44,
    "acwr": 1.62,
    "feel": -1.0,
-   "monotony": 1.85,
-   "ctl": 29.0,
+   "monotony": 1.84,
+   "ctl": 28.9,
    "atl": 31.6,
    "tsb": -2.6,
    "flags": [
@@ -15740,7 +15741,7 @@
    ],
    "notes": [
     "Longest run 1:54 / 22.1 km / 815 m on Sun.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Tue",
     "Vert density 330 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -1.0 over 1 scored runs.",
@@ -15947,8 +15948,8 @@
    "acwr": 1.38,
    "feel": null,
    "monotony": 1.77,
-   "ctl": 29.4,
-   "atl": 33.6,
+   "ctl": 29.3,
+   "atl": 33.5,
    "tsb": -4.2,
    "flags": [
     {
@@ -15962,7 +15963,7 @@
    ],
    "notes": [
     "Longest run 2:20 / 22.1 km / 1143 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: I on Wed",
     "Vert density 287 m/h \u2014 below the 300 m/h floor.",
     "[R2] ACWR 1.38 > 1.3",
@@ -16201,10 +16202,10 @@
    "wow": 0.37,
    "acwr": 0.51,
    "feel": null,
-   "monotony": 2.32,
-   "ctl": 26.3,
+   "monotony": 2.31,
+   "ctl": 26.2,
    "atl": 18.0,
-   "tsb": 8.3,
+   "tsb": 8.2,
    "flags": [],
    "notes": [
     "Longest run 1:10 / 12.3 km / 170 m on Sun.",
@@ -16377,8 +16378,8 @@
    "acwr": 0.94,
    "feel": 2.0,
    "monotony": 0.54,
-   "ctl": 29.3,
-   "atl": 39.6,
+   "ctl": 29.2,
+   "atl": 39.5,
    "tsb": -10.3,
    "flags": [
     {
@@ -16593,7 +16594,7 @@
    "feel": null,
    "monotony": 1.05,
    "ctl": 26.9,
-   "atl": 24.3,
+   "atl": 24.2,
    "tsb": 2.7,
    "flags": [],
    "notes": [
@@ -16777,7 +16778,7 @@
    "feel": 0.5,
    "monotony": 1.59,
    "ctl": 26.9,
-   "atl": 25.7,
+   "atl": 25.6,
    "tsb": 1.2,
    "flags": [
     {
@@ -17197,8 +17198,8 @@
    "longest_km": 0,
    "longest_vert": 0,
    "back_to_back": false,
-   "wow": null,
-   "acwr": null,
+   "wow": 0.0,
+   "acwr": 0.0,
    "feel": null,
    "monotony": 0.87,
    "ctl": 21.7,
@@ -17336,10 +17337,10 @@
    "wow": null,
    "acwr": 1.04,
    "feel": null,
-   "monotony": 1.71,
+   "monotony": 1.7,
    "ctl": 20.1,
    "atl": 11.0,
-   "tsb": 9.2,
+   "tsb": 9.1,
    "flags": [],
    "notes": [
     "Longest run 1:05 / 12.8 km / 301 m on Sun."
@@ -17532,9 +17533,9 @@
    "wow": 2.26,
    "acwr": 2.14,
    "feel": -1.0,
-   "monotony": 3.17,
-   "ctl": 19.6,
-   "atl": 14.8,
+   "monotony": 3.16,
+   "ctl": 19.5,
+   "atl": 14.7,
    "tsb": 4.8,
    "flags": [
     {
@@ -17744,7 +17745,7 @@
    "acwr": 1.56,
    "feel": null,
    "monotony": 1.26,
-   "ctl": 18.8,
+   "ctl": 18.7,
    "atl": 14.3,
    "tsb": 4.4,
    "flags": [
@@ -17943,7 +17944,7 @@
    ],
    "notes": [
     "Longest run 2:15 / 25.4 km / 727 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: R on Thu",
     "Vert density 276 m/h \u2014 below the 300 m/h floor.",
     "[R1] week-over-week 1.65x > 1.25",
@@ -18311,9 +18312,9 @@
    "acwr": 1.28,
    "feel": 0.0,
    "monotony": 1.94,
-   "ctl": 21.7,
-   "atl": 26.5,
-   "tsb": -4.9,
+   "ctl": 21.6,
+   "atl": 26.4,
+   "tsb": -4.8,
    "flags": [
     {
      "code": "R1",
@@ -18476,8 +18477,8 @@
    "wow": 0.52,
    "acwr": 0.67,
    "feel": 0.0,
-   "monotony": 2.8,
-   "ctl": 20.7,
+   "monotony": 2.79,
+   "ctl": 20.6,
    "atl": 20.0,
    "tsb": 0.6,
    "flags": [],
@@ -18645,7 +18646,7 @@
    "feel": 1.0,
    "monotony": 1.17,
    "ctl": 21.5,
-   "atl": 26.3,
+   "atl": 26.2,
    "tsb": -4.8,
    "flags": [
     {
@@ -18692,18 +18693,18 @@
        "mins": 43,
        "km": 9.4,
        "vert": 11,
-       "feel": 0.0
+       "feel": null
       },
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "E",
        "name": null,
        "note": null,
        "mins": 40,
        "km": 8.7,
        "vert": 214,
-       "feel": null
+       "feel": 0.0
       }
      ]
     },
@@ -18852,7 +18853,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "E",
        "name": null,
        "note": null,
        "mins": 40,
@@ -18981,14 +18982,14 @@
    "wow": 1.06,
    "acwr": 1.18,
    "feel": 0.0,
-   "monotony": 1.69,
+   "monotony": 1.68,
    "ctl": 22.4,
-   "atl": 27.8,
+   "atl": 27.7,
    "tsb": -5.4,
    "flags": [],
    "notes": [
     "Longest run 2:46 / 30.0 km / 1075 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Thu",
     "Vert density 277 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel +0.0 over 1 scored runs."
@@ -19194,7 +19195,7 @@
    "acwr": 0.63,
    "feel": null,
    "monotony": 1.27,
-   "ctl": 20.9,
+   "ctl": 20.8,
    "atl": 19.1,
    "tsb": 1.8,
    "flags": [],
@@ -19359,7 +19360,7 @@
    "monotony": 1.22,
    "ctl": 20.7,
    "atl": 21.0,
-   "tsb": -0.3,
+   "tsb": -0.4,
    "flags": [
     {
      "code": "R1",
@@ -19368,7 +19369,7 @@
    ],
    "notes": [
     "Longest run 2:15 / 25.2 km / 850 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Mon",
     "Vert density 237 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel -0.2 over 4 scored runs.",
@@ -19530,9 +19531,9 @@
    "wow": 1.18,
    "acwr": 1.24,
    "feel": -0.2,
-   "monotony": 1.73,
+   "monotony": 1.72,
    "ctl": 21.0,
-   "atl": 23.7,
+   "atl": 23.6,
    "tsb": -2.7,
    "flags": [
     {
@@ -19584,7 +19585,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "E",
        "name": null,
        "note": null,
        "mins": 40,
@@ -19852,7 +19853,7 @@
    "feel": 0.5,
    "monotony": 1.52,
    "ctl": 17.6,
-   "atl": 11.7,
+   "atl": 11.6,
    "tsb": 5.9,
    "flags": [
     {
@@ -19998,9 +19999,9 @@
    "wow": 1.85,
    "acwr": 1.29,
    "feel": -0.5,
-   "monotony": 1.65,
+   "monotony": 1.64,
    "ctl": 19.7,
-   "atl": 25.0,
+   "atl": 24.9,
    "tsb": -5.3,
    "flags": [
     {
@@ -20205,7 +20206,7 @@
    "feel": 1.5,
    "monotony": 0.87,
    "ctl": 22.1,
-   "atl": 35.7,
+   "atl": 35.6,
    "tsb": -13.6,
    "flags": [
     {
@@ -20398,7 +20399,7 @@
    "acwr": 0.67,
    "feel": null,
    "monotony": 1.97,
-   "ctl": 21.5,
+   "ctl": 21.4,
    "atl": 25.6,
    "tsb": -4.2,
    "flags": [],
@@ -20582,9 +20583,9 @@
    "wow": 2.11,
    "acwr": 1.18,
    "feel": 2.0,
-   "monotony": 1.37,
-   "ctl": 22.4,
-   "atl": 29.1,
+   "monotony": 1.36,
+   "ctl": 22.3,
+   "atl": 29.0,
    "tsb": -6.7,
    "flags": [
     {
@@ -20598,7 +20599,7 @@
    ],
    "notes": [
     "Longest run 2:44 / 30.4 km / 926 m on Sun.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Tue",
     "Vert density 305 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +2.0 over 1 scored runs.",
@@ -20761,9 +20762,9 @@
    "wow": 0.55,
    "acwr": 0.71,
    "feel": -0.5,
-   "monotony": 1.54,
-   "ctl": 23.9,
-   "atl": 33.6,
+   "monotony": 1.55,
+   "ctl": 23.8,
+   "atl": 33.5,
    "tsb": -9.7,
    "flags": [],
    "notes": [
@@ -20940,9 +20941,9 @@
    "acwr": 0.28,
    "feel": 0.0,
    "monotony": 1.69,
-   "ctl": 26.7,
-   "atl": 37.1,
-   "tsb": -10.4,
+   "ctl": 26.6,
+   "atl": 37.0,
+   "tsb": -10.3,
    "flags": [],
    "notes": [
     "Longest run 0:43 / 7.8 km / 312 m on Thu.",
@@ -21105,7 +21106,7 @@
    "acwr": 0.94,
    "feel": 0.25,
    "monotony": 1.17,
-   "ctl": 25.5,
+   "ctl": 25.4,
    "atl": 27.2,
    "tsb": -1.7,
    "flags": [
@@ -21469,7 +21470,7 @@
    "feel": 2.0,
    "monotony": 1.61,
    "ctl": 24.6,
-   "atl": 25.3,
+   "atl": 25.2,
    "tsb": -0.6,
    "flags": [
     {
@@ -21645,7 +21646,7 @@
    "acwr": 1.44,
    "feel": -0.33,
    "monotony": 1.16,
-   "ctl": 25.0,
+   "ctl": 24.9,
    "atl": 28.4,
    "tsb": -3.4,
    "flags": [
@@ -21839,8 +21840,8 @@
    "acwr": 1.28,
    "feel": -0.5,
    "monotony": 1.15,
-   "ctl": 25.9,
-   "atl": 32.4,
+   "ctl": 25.8,
+   "atl": 32.3,
    "tsb": -6.5,
    "flags": [
     {
@@ -22043,7 +22044,7 @@
    "wow": 0.37,
    "acwr": 0.47,
    "feel": -1.0,
-   "monotony": 2.61,
+   "monotony": 2.62,
    "ctl": 24.4,
    "atl": 22.9,
    "tsb": 1.5,
@@ -22250,8 +22251,8 @@
    "acwr": 0.82,
    "feel": -1.0,
    "monotony": 0.58,
-   "ctl": 23.0,
-   "atl": 19.0,
+   "ctl": 22.9,
+   "atl": 18.9,
    "tsb": 4.0,
    "flags": [
     {
@@ -22386,7 +22387,7 @@
    "acwr": 0.15,
    "feel": -2.0,
    "monotony": 0.63,
-   "ctl": 20.7,
+   "ctl": 20.6,
    "atl": 11.1,
    "tsb": 9.6,
    "flags": [],
@@ -22526,7 +22527,7 @@
    "feel": -0.33,
    "monotony": 1.6,
    "ctl": 23.1,
-   "atl": 28.6,
+   "atl": 28.5,
    "tsb": -5.5,
    "flags": [
     {
@@ -22830,9 +22831,9 @@
    "acwr": 1.84,
    "feel": -0.67,
    "monotony": 1.44,
-   "ctl": 23.1,
-   "atl": 29.7,
-   "tsb": -6.6,
+   "ctl": 23.0,
+   "atl": 29.6,
+   "tsb": -6.5,
    "flags": [
     {
      "code": "R1",
@@ -22845,7 +22846,7 @@
    ],
    "notes": [
     "Longest run 2:45 / 25.0 km / 1527 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Tue, F on Fri",
     "Vert density 362 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel -0.7 over 3 scored runs.",
@@ -23052,9 +23053,9 @@
    "acwr": 1.05,
    "feel": 0.5,
    "monotony": 2.01,
-   "ctl": 25.3,
-   "atl": 36.2,
-   "tsb": -10.9,
+   "ctl": 25.2,
+   "atl": 36.0,
+   "tsb": -10.8,
    "flags": [],
    "notes": [
     "Longest run 2:15 / 19.8 km / 1669 m on Sat.",
@@ -23242,7 +23243,7 @@
    "acwr": 1.59,
    "feel": 0.5,
    "monotony": 0.86,
-   "ctl": 30.1,
+   "ctl": 30.0,
    "atl": 55.3,
    "tsb": -25.2,
    "flags": [
@@ -23261,7 +23262,7 @@
    ],
    "notes": [
     "Longest run 3:15 / 30.6 km / 2277 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: I on Wed",
     "Vert density 441 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.5 over 4 scored runs.",
@@ -23436,7 +23437,7 @@
    "acwr": 0.43,
    "feel": 0.0,
    "monotony": 1.04,
-   "ctl": 27.6,
+   "ctl": 27.5,
    "atl": 30.6,
    "tsb": -3.1,
    "flags": [],
@@ -23599,9 +23600,9 @@
    "back_to_back": true,
    "wow": 2.4,
    "acwr": 1.07,
-   "feel": null,
+   "feel": 1.0,
    "monotony": 0.56,
-   "ctl": 28.7,
+   "ctl": 28.6,
    "atl": 40.1,
    "tsb": -11.4,
    "flags": [
@@ -23612,9 +23613,10 @@
    ],
    "notes": [
     "Longest run 3:15 / 25.2 km / 2163 m on Sun.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
-    "Quality: F on Wed",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
+    "Quality: F on Wed, RACE on Sat",
     "Vert density 555 m/h \u2014 above the 300 m/h floor.",
+    "Self-reported feel +1.0 over 1 scored runs.",
     "[R1] week-over-week 2.40x > 1.25"
    ],
    "plan": null,
@@ -23699,18 +23701,18 @@
       {
        "sport": "RACE_Run",
        "group": "run",
-       "type": "W",
+       "type": "RACE",
        "name": null,
        "note": null,
        "mins": 60,
        "km": 7.6,
        "vert": 1004,
-       "feel": null
+       "feel": 1.0
       },
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "W",
        "name": null,
        "note": null,
        "mins": 50,
@@ -23762,13 +23764,13 @@
    "acwr": 1.17,
    "feel": 0.0,
    "monotony": 1.11,
-   "ctl": 27.5,
+   "ctl": 27.4,
    "atl": 29.9,
    "tsb": -2.4,
    "flags": [],
    "notes": [
     "Longest run 2:45 / 30.6 km / 994 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Fri, T on Sun",
     "Vert density 321 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.0 over 1 scored runs."
@@ -23894,8 +23896,8 @@
    "wow": 0.79,
    "acwr": 1.07,
    "feel": null,
-   "monotony": 1.7,
-   "ctl": 26.2,
+   "monotony": 1.69,
+   "ctl": 26.1,
    "atl": 23.1,
    "tsb": 3.0,
    "flags": [],
@@ -24112,12 +24114,12 @@
    "longest_km": 0,
    "longest_vert": 0,
    "back_to_back": false,
-   "wow": null,
-   "acwr": null,
+   "wow": 0.0,
+   "acwr": 0.0,
    "feel": null,
    "monotony": 1.04,
-   "ctl": 26.2,
-   "atl": 27.1,
+   "ctl": 26.1,
+   "atl": 27.0,
    "tsb": -0.9,
    "flags": [],
    "notes": [],
@@ -24253,8 +24255,8 @@
    "acwr": 0.29,
    "feel": 0.0,
    "monotony": 1.74,
-   "ctl": 25.8,
-   "atl": 26.3,
+   "ctl": 25.7,
+   "atl": 26.2,
    "tsb": -0.5,
    "flags": [],
    "notes": [
@@ -24451,8 +24453,8 @@
    "acwr": 2.01,
    "feel": 0.0,
    "monotony": 1.45,
-   "ctl": 26.4,
-   "atl": 29.3,
+   "ctl": 26.3,
+   "atl": 29.2,
    "tsb": -2.9,
    "flags": [
     {
@@ -24683,9 +24685,9 @@
    "wow": 1.1,
    "acwr": 1.96,
    "feel": -1.0,
-   "monotony": 1.42,
+   "monotony": 1.41,
    "ctl": 26.1,
-   "atl": 27.4,
+   "atl": 27.3,
    "tsb": -1.3,
    "flags": [
     {
@@ -24889,10 +24891,10 @@
    "wow": 1.02,
    "acwr": 1.34,
    "feel": 0.5,
-   "monotony": 1.87,
+   "monotony": 1.86,
    "ctl": 25.5,
-   "atl": 24.4,
-   "tsb": 1.2,
+   "atl": 24.3,
+   "tsb": 1.1,
    "flags": [
     {
      "code": "R2",
@@ -25079,7 +25081,7 @@
    "acwr": 1.08,
    "feel": 0.75,
    "monotony": 1.19,
-   "ctl": 27.8,
+   "ctl": 27.7,
    "atl": 38.7,
    "tsb": -10.9,
    "flags": [
@@ -25090,7 +25092,7 @@
    ],
    "notes": [
     "Longest run 3:15 / 33.7 km / 1763 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: I on Wed",
     "Vert density 357 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.8 over 4 scored runs.",
@@ -25133,7 +25135,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "E",
        "name": null,
        "note": null,
        "mins": 41,
@@ -25287,7 +25289,7 @@
    "feel": -0.33,
    "monotony": 0.97,
    "ctl": 28.9,
-   "atl": 39.9,
+   "atl": 39.8,
    "tsb": -11.0,
    "flags": [
     {
@@ -25470,7 +25472,7 @@
    "acwr": 1.04,
    "feel": 0.33,
    "monotony": 1.15,
-   "ctl": 28.2,
+   "ctl": 28.1,
    "atl": 30.6,
    "tsb": -2.5,
    "flags": [],
@@ -25500,7 +25502,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "E",
        "name": null,
        "note": null,
        "mins": 40,
@@ -25765,9 +25767,9 @@
    "acwr": 1.28,
    "feel": 0.67,
    "monotony": 0.5,
-   "ctl": 24.8,
-   "atl": 23.7,
-   "tsb": 1.0,
+   "ctl": 24.7,
+   "atl": 23.6,
+   "tsb": 1.1,
    "flags": [
     {
      "code": "R1",
@@ -25887,12 +25889,12 @@
    "longest_km": 0,
    "longest_vert": 0,
    "back_to_back": false,
-   "wow": null,
-   "acwr": null,
+   "wow": 0.0,
+   "acwr": 0.0,
    "feel": null,
    "monotony": 0.55,
    "ctl": 21.8,
-   "atl": 11.6,
+   "atl": 11.5,
    "tsb": 10.2,
    "flags": [],
    "notes": [],
@@ -25990,10 +25992,10 @@
    "longest_vert": 0,
    "back_to_back": false,
    "wow": null,
-   "acwr": null,
+   "acwr": 0.0,
    "feel": null,
    "monotony": 0.64,
-   "ctl": 19.7,
+   "ctl": 19.6,
    "atl": 9.8,
    "tsb": 9.8,
    "flags": [],
@@ -26107,7 +26109,7 @@
    "acwr": 1.58,
    "feel": -1.0,
    "monotony": 1.44,
-   "ctl": 20.5,
+   "ctl": 20.4,
    "atl": 20.2,
    "tsb": 0.2,
    "flags": [
@@ -26279,7 +26281,7 @@
    "acwr": 2.1,
    "feel": 0.33,
    "monotony": 1.63,
-   "ctl": 20.4,
+   "ctl": 20.3,
    "atl": 20.9,
    "tsb": -0.6,
    "flags": [
@@ -26449,8 +26451,8 @@
    "wow": 1.07,
    "acwr": 1.44,
    "feel": -0.5,
-   "monotony": 1.84,
-   "ctl": 21.1,
+   "monotony": 1.83,
+   "ctl": 21.0,
    "atl": 24.9,
    "tsb": -3.9,
    "flags": [
@@ -26623,8 +26625,8 @@
    "acwr": 0.69,
    "feel": null,
    "monotony": 1.34,
-   "ctl": 21.3,
-   "atl": 25.1,
+   "ctl": 21.2,
+   "atl": 25.0,
    "tsb": -3.8,
    "flags": [],
    "notes": [
@@ -26952,9 +26954,9 @@
    "wow": 1.01,
    "acwr": 1.14,
    "feel": -0.5,
-   "monotony": 1.58,
-   "ctl": 22.2,
-   "atl": 25.8,
+   "monotony": 1.57,
+   "ctl": 22.1,
+   "atl": 25.7,
    "tsb": -3.6,
    "flags": [
     {
@@ -27138,7 +27140,7 @@
    "feel": 0.0,
    "monotony": 1.18,
    "ctl": 22.3,
-   "atl": 25.3,
+   "atl": 25.2,
    "tsb": -3.0,
    "flags": [
     {
@@ -27354,7 +27356,7 @@
    "acwr": 0.66,
    "feel": 1.0,
    "monotony": 1.66,
-   "ctl": 21.7,
+   "ctl": 21.6,
    "atl": 21.5,
    "tsb": 0.1,
    "flags": [],
@@ -27518,8 +27520,8 @@
    "wow": 1.66,
    "acwr": 1.1,
    "feel": -0.5,
-   "monotony": 1.16,
-   "ctl": 22.1,
+   "monotony": 1.15,
+   "ctl": 22.0,
    "atl": 23.5,
    "tsb": -1.4,
    "flags": [
@@ -27682,7 +27684,7 @@
    "monotony": 0.82,
    "ctl": 19.2,
    "atl": 10.7,
-   "tsb": 8.5,
+   "tsb": 8.4,
    "flags": [],
    "notes": [
     "Longest run 0:31 / 5.6 km / 133 m on Mon.",
@@ -27788,7 +27790,7 @@
    "monotony": 1.36,
    "ctl": 17.7,
    "atl": 9.4,
-   "tsb": 8.3,
+   "tsb": 8.2,
    "flags": [
     {
      "code": "R1",
@@ -28051,8 +28053,8 @@
    "wow": 0.39,
    "acwr": 0.39,
    "feel": 1.0,
-   "monotony": 1.45,
-   "ctl": 15.5,
+   "monotony": 1.46,
+   "ctl": 15.4,
    "atl": 10.6,
    "tsb": 4.9,
    "flags": [],
@@ -28204,7 +28206,7 @@
    "acwr": 1.3,
    "feel": -1.0,
    "monotony": 1.41,
-   "ctl": 14.8,
+   "ctl": 14.7,
    "atl": 11.2,
    "tsb": 3.5,
    "flags": [],
@@ -28355,9 +28357,9 @@
    "wow": 0.95,
    "acwr": 1.36,
    "feel": -0.5,
-   "monotony": 3.84,
-   "ctl": 14.8,
-   "atl": 13.7,
+   "monotony": 3.81,
+   "ctl": 14.7,
+   "atl": 13.6,
    "tsb": 1.1,
    "flags": [],
    "notes": [
@@ -28521,9 +28523,9 @@
    "wow": 1.01,
    "acwr": 1.22,
    "feel": 0.0,
-   "monotony": 0.91,
+   "monotony": 0.92,
    "ctl": 14.4,
-   "atl": 12.5,
+   "atl": 12.4,
    "tsb": 1.9,
    "flags": [],
    "notes": [
@@ -28664,7 +28666,7 @@
    "acwr": 1.58,
    "feel": -1.0,
    "monotony": 1.95,
-   "ctl": 14.8,
+   "ctl": 14.7,
    "atl": 15.5,
    "tsb": -0.8,
    "flags": [
@@ -28841,8 +28843,8 @@
    "feel": 1.0,
    "monotony": 1.51,
    "ctl": 16.0,
-   "atl": 22.3,
-   "tsb": -6.3,
+   "atl": 22.2,
+   "tsb": -6.2,
    "flags": [
     {
      "code": "R2",
@@ -29013,9 +29015,9 @@
    "acwr": 1.08,
    "feel": 0.33,
    "monotony": 3.09,
-   "ctl": 17.0,
+   "ctl": 16.9,
    "atl": 22.1,
-   "tsb": -5.2,
+   "tsb": -5.1,
    "flags": [],
    "notes": [
     "Longest run 1:50 / 25.0 km / 168 m on Sat.",
@@ -29203,8 +29205,8 @@
    "acwr": 0.93,
    "feel": -1.0,
    "monotony": 2.39,
-   "ctl": 19.8,
-   "atl": 32.2,
+   "ctl": 19.7,
+   "atl": 32.1,
    "tsb": -12.4,
    "flags": [],
    "notes": [
@@ -29403,10 +29405,10 @@
    "wow": 0.9,
    "acwr": 0.89,
    "feel": 0.67,
-   "monotony": 1.25,
-   "ctl": 22.0,
-   "atl": 32.2,
-   "tsb": -10.2,
+   "monotony": 1.24,
+   "ctl": 21.9,
+   "atl": 32.1,
+   "tsb": -10.1,
    "flags": [],
    "notes": [
     "Longest run 2:40 / 32.7 km / 375 m on Fri.",
@@ -29558,8 +29560,8 @@
    "acwr": 1.27,
    "feel": 0.5,
    "monotony": 1.87,
-   "ctl": 21.5,
-   "atl": 24.2,
+   "ctl": 21.4,
+   "atl": 24.1,
    "tsb": -2.7,
    "flags": [
     {
@@ -29897,8 +29899,8 @@
    "acwr": 0.97,
    "feel": -1.0,
    "monotony": 1.25,
-   "ctl": 23.3,
-   "atl": 30.9,
+   "ctl": 23.2,
+   "atl": 30.8,
    "tsb": -7.6,
    "flags": [],
    "notes": [
@@ -30075,7 +30077,7 @@
    "feel": 0.5,
    "monotony": 1.41,
    "ctl": 23.8,
-   "atl": 30.4,
+   "atl": 30.3,
    "tsb": -6.5,
    "flags": [],
    "notes": [
@@ -30241,8 +30243,8 @@
    "feel": -1.0,
    "monotony": 1.35,
    "ctl": 24.8,
-   "atl": 32.6,
-   "tsb": -7.8,
+   "atl": 32.5,
+   "tsb": -7.7,
    "flags": [
     {
      "code": "R1",
@@ -30251,9 +30253,10 @@
    ],
    "notes": [
     "Longest run 1:58 / 20.2 km / 765 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
+    "Quality: I on Sun",
     "Vert density 348 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 2 scored runs.",
     "[R1] week-over-week 1.59x > 1.25"
    ],
    "plan": null,
@@ -30422,13 +30425,13 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "I",
        "name": null,
        "note": null,
        "mins": 67,
        "km": 12.9,
        "vert": 594,
-       "feel": null
+       "feel": -1.0
       }
      ]
     }
@@ -30456,14 +30459,14 @@
    "wow": 0.91,
    "acwr": 1.13,
    "feel": 0.5,
-   "monotony": 1.41,
-   "ctl": 26.9,
+   "monotony": 1.4,
+   "ctl": 26.8,
    "atl": 39.1,
    "tsb": -12.2,
    "flags": [],
    "notes": [
     "Longest run 2:17 / 25.0 km / 794 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Vert density 389 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.5 over 2 scored runs."
    ],
@@ -30636,7 +30639,7 @@
    "feel": 1.0,
    "monotony": 0.82,
    "ctl": 29.8,
-   "atl": 47.3,
+   "atl": 47.2,
    "tsb": -17.4,
    "flags": [
     {
@@ -30646,7 +30649,7 @@
    ],
    "notes": [
     "Longest run 3:35 / 36.0 km / 1652 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Vert density 445 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +1.0 over 3 scored runs.",
     "[R1] week-over-week 1.26x > 1.25"
@@ -30785,9 +30788,9 @@
    "acwr": 1.03,
    "feel": 0.33,
    "monotony": 1.56,
-   "ctl": 29.5,
-   "atl": 36.7,
-   "tsb": -7.3,
+   "ctl": 29.4,
+   "atl": 36.6,
+   "tsb": -7.2,
    "flags": [],
    "notes": [
     "Longest run 3:11 / 27.5 km / 1554 m on Sun.",
@@ -30951,8 +30954,8 @@
    "feel": null,
    "monotony": 1.3,
    "ctl": 28.2,
-   "atl": 28.9,
-   "tsb": -0.7,
+   "atl": 28.8,
+   "tsb": -0.6,
    "flags": [],
    "notes": [
     "Longest run 1:42 / 18.0 km / 334 m on Sat."
@@ -31124,9 +31127,9 @@
    "acwr": 1.2,
    "feel": null,
    "monotony": 1.58,
-   "ctl": 28.1,
-   "atl": 29.2,
-   "tsb": -1.1,
+   "ctl": 28.0,
+   "atl": 29.1,
+   "tsb": -1.0,
    "flags": [
     {
      "code": "R1",
@@ -31317,13 +31320,13 @@
    "acwr": 1.22,
    "feel": 2.0,
    "monotony": 0.83,
-   "ctl": 29.2,
-   "atl": 32.2,
+   "ctl": 29.1,
+   "atl": 32.1,
    "tsb": -3.0,
    "flags": [],
    "notes": [
     "Longest run 3:11 / 34.7 km / 1915 m on Fri.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Vert density 587 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +2.0 over 1 scored runs."
    ],
@@ -31483,7 +31486,7 @@
    "acwr": 0.6,
    "feel": -1.0,
    "monotony": 1.65,
-   "ctl": 26.5,
+   "ctl": 26.4,
    "atl": 19.7,
    "tsb": 6.7,
    "flags": [],
@@ -31659,9 +31662,9 @@
    "acwr": 1.39,
    "feel": 0.5,
    "monotony": 0.46,
-   "ctl": 27.1,
-   "atl": 30.2,
-   "tsb": -3.1,
+   "ctl": 27.0,
+   "atl": 30.1,
+   "tsb": -3.0,
    "flags": [
     {
      "code": "R1",
@@ -31790,8 +31793,8 @@
    "acwr": 0.11,
    "feel": null,
    "monotony": 0.89,
-   "ctl": 25.4,
-   "atl": 22.0,
+   "ctl": 25.3,
+   "atl": 21.9,
    "tsb": 3.4,
    "flags": [],
    "notes": [
@@ -31941,8 +31944,8 @@
    "acwr": 0.45,
    "feel": -1.0,
    "monotony": 1.92,
-   "ctl": 24.2,
-   "atl": 20.1,
+   "ctl": 24.1,
+   "atl": 20.0,
    "tsb": 4.1,
    "flags": [],
    "notes": [
@@ -32127,9 +32130,9 @@
    "acwr": 1.19,
    "feel": -1.0,
    "monotony": 1.48,
-   "ctl": 24.1,
-   "atl": 24.0,
-   "tsb": 0.1,
+   "ctl": 24.0,
+   "atl": 23.9,
+   "tsb": 0.2,
    "flags": [
     {
      "code": "R1",
@@ -32138,6 +32141,7 @@
    ],
    "notes": [
     "Longest run 1:21 / 15.5 km / 384 m on Sun.",
+    "Quality: T on Sun",
     "Vert density 187 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel -1.0 over 1 scored runs.",
     "[R1] week-over-week 2.96x > 1.25"
@@ -32297,7 +32301,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "T",
        "name": null,
        "note": null,
        "mins": 63,
@@ -32332,8 +32336,8 @@
    "acwr": 1.77,
    "feel": 1.0,
    "monotony": 1.82,
-   "ctl": 24.3,
-   "atl": 26.2,
+   "ctl": 24.2,
+   "atl": 26.1,
    "tsb": -1.8,
    "flags": [
     {
@@ -32571,7 +32575,7 @@
    "acwr": 1.21,
    "feel": -0.5,
    "monotony": 1.61,
-   "ctl": 25.3,
+   "ctl": 25.2,
    "atl": 31.4,
    "tsb": -6.1,
    "flags": [],
@@ -32738,8 +32742,8 @@
    "acwr": 1.01,
    "feel": 0.0,
    "monotony": 0.96,
-   "ctl": 26.5,
-   "atl": 34.5,
+   "ctl": 26.4,
+   "atl": 34.4,
    "tsb": -8.0,
    "flags": [],
    "notes": [
@@ -32949,8 +32953,8 @@
    "acwr": 1.09,
    "feel": 1.0,
    "monotony": 2.17,
-   "ctl": 27.2,
-   "atl": 34.2,
+   "ctl": 27.1,
+   "atl": 34.1,
    "tsb": -7.0,
    "flags": [],
    "notes": [
@@ -33182,9 +33186,9 @@
    "wow": 0.88,
    "acwr": 0.98,
    "feel": -1.0,
-   "monotony": 1.48,
-   "ctl": 26.9,
-   "atl": 30.2,
+   "monotony": 1.47,
+   "ctl": 26.8,
+   "atl": 30.1,
    "tsb": -3.3,
    "flags": [],
    "notes": [
@@ -33560,8 +33564,8 @@
    "acwr": 1.0,
    "feel": 0.33,
    "monotony": 1.31,
-   "ctl": 27.7,
-   "atl": 32.4,
+   "ctl": 27.6,
+   "atl": 32.3,
    "tsb": -4.7,
    "flags": [],
    "notes": [
@@ -33784,15 +33788,15 @@
    "wow": 0.98,
    "acwr": 1.01,
    "feel": 0.67,
-   "monotony": 1.82,
-   "ctl": 28.4,
-   "atl": 33.3,
+   "monotony": 1.81,
+   "ctl": 28.3,
+   "atl": 33.2,
    "tsb": -4.9,
    "flags": [],
    "notes": [
     "Running on target (6.9 vs 8.0 h).",
     "Longest run 2:46 / 30.0 km / 1294 m on Sat.",
-    "Weekend was a single long run; the plan called for a back-to-back.",
+    "No back-to-back long days; the plan called for them.",
     "Quality: T on Wed \u2014 5x5\u2019 uphill hard efforts",
     "Vert density 332 m/h \u2014 above the 300 m/h floor.",
     "Self-reported feel +0.7 over 3 scored runs."
@@ -33830,7 +33834,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "E",
        "name": "[PM] Easy 35 w/ 4x20\u201d ST",
        "note": "Strahov/Petrin, 177 m vert, 21-25C, avg HR 145; strides at the end, silver PR on Most Legii",
        "mins": 35,
@@ -33989,7 +33993,7 @@
    "acwr": 1.09,
    "feel": 0.5,
    "monotony": 1.81,
-   "ctl": 30.1,
+   "ctl": 30.0,
    "atl": 39.3,
    "tsb": -9.2,
    "flags": [],
@@ -34191,10 +34195,10 @@
    "wow": 0.94,
    "acwr": 1.0,
    "feel": -0.33,
-   "monotony": 1.09,
-   "ctl": 29.7,
-   "atl": 34.1,
-   "tsb": -4.4,
+   "monotony": 1.06,
+   "ctl": 29.6,
+   "atl": 33.8,
+   "tsb": -4.2,
    "flags": [],
    "notes": [
     "Running on target (7.3 vs 8.5 h).",
@@ -34242,7 +34246,7 @@
       {
        "sport": "TrailRun",
        "group": "run",
-       "type": null,
+       "type": "E",
        "name": "Easy 35 w/ 4x20\" ST",
        "note": "6.8 km / 189 m, avg HR 143, strides peaked 177",
        "mins": 35,
@@ -34372,15 +34376,15 @@
    "wow": 1.01,
    "acwr": 1.0,
    "feel": null,
-   "monotony": 1.5,
-   "ctl": 30.3,
-   "atl": 35.4,
-   "tsb": -5.1,
+   "monotony": 1.46,
+   "ctl": 30.1,
+   "atl": 35.0,
+   "tsb": -4.9,
    "flags": [],
    "notes": [
     "Running on target (7.3 vs 8.5 h).",
     "Longest run 3:05 / 34.0 km / 1202 m on Sat.",
-    "Weekend was a single long run; the plan called for a back-to-back.",
+    "No back-to-back long days; the plan called for them.",
     "Quality: T on Wed \u2014 2x4k T (4\u2019 jg rest)",
     "Vert density 256 m/h \u2014 below the 300 m/h floor."
    ],
@@ -34422,7 +34426,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "E",
        "name": null,
        "note": null,
        "mins": 35,
@@ -34585,16 +34589,16 @@
    "wow": 0.92,
    "acwr": 0.93,
    "feel": 0.5,
-   "monotony": 1.13,
-   "ctl": 30.0,
-   "atl": 32.5,
-   "tsb": -2.5,
+   "monotony": 1.12,
+   "ctl": 30.1,
+   "atl": 33.5,
+   "tsb": -3.5,
    "flags": [],
    "notes": [
     "Running on target (6.8 vs 7.0 h).",
     "Bike well short \u2014 0.0 of 3.0 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
     "Longest run 1:09 / 12.4 km / 406 m on Sat.",
-    "Back-to-back weekend achieved \u2014 the Chianti-specific stimulus.",
+    "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: F on Tue, M on Thu \u2014 3x4k M-like efforts (5\u2019 Z2 jg rest), M on Sat \u2014 [PM] 50 @ Z2/Z3",
     "Vert density 272 m/h \u2014 below the 300 m/h floor.",
     "Self-reported feel +0.5 over 2 scored runs."
@@ -34705,9 +34709,9 @@
       {
        "sport": "TrailRun",
        "group": "run",
-       "type": "M",
-       "name": "[PM] 50 @ Z2/Z3",
-       "note": "11.5 km / 256 m steady Z2/Z3, avg HR 160, RE 45; second run of the day after an easy 70.",
+       "type": "E",
+       "name": "[AM] \ud83c\udf27\ufe0fEasy 70",
+       "note": "12.4 km / 406 m easy in rain and wind, avg HR 145; carried the mandatory race kit.",
        "mins": 69,
        "km": 12.4,
        "vert": 406,
@@ -34716,9 +34720,9 @@
       {
        "sport": "TrailRun",
        "group": "run",
-       "type": null,
-       "name": null,
-       "note": null,
+       "type": "M",
+       "name": "[PM] 50 @ Z2/Z3",
+       "note": "11.5 km / 256 m steady Z2/Z3, avg HR 160, RE 45; second run of the day after an easy 70.",
        "mins": 50,
        "km": 11.5,
        "vert": 256,
@@ -34733,7 +34737,7 @@
       {
        "sport": "TrailRun",
        "group": "run",
-       "type": "S",
+       "type": "E",
        "name": null,
        "note": null,
        "mins": 55,
@@ -34744,7 +34748,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "S",
        "name": null,
        "note": null,
        "mins": 35,
@@ -34780,8 +34784,8 @@
    "feel": null,
    "monotony": 1.59,
    "ctl": 28.1,
-   "atl": 24.2,
-   "tsb": 3.8,
+   "atl": 24.6,
+   "tsb": 3.5,
    "flags": [],
    "notes": [
     "Running on target (4.9 vs 5.5 h).",
@@ -34800,8 +34804,8 @@
     "total_h": 7,
     "run_km": 59.6,
     "run_vert": 2200,
-    "weekend": "Race",
-    "race": "Slapy Trailmaniacs 47K \u00b7 17 Oct",
+    "weekend": "Easy 90'",
+    "race": null,
     "to_race": 22
    },
    "days": [
@@ -34937,7 +34941,7 @@
    "acwr": 0.94,
    "feel": 1.33,
    "monotony": 0.47,
-   "ctl": 29.8,
+   "ctl": 29.9,
    "atl": 38.7,
    "tsb": -8.9,
    "flags": [],
@@ -34959,8 +34963,8 @@
     "total_h": 7,
     "run_km": 50.6,
     "run_vert": 1480,
-    "weekend": "Easy 90'",
-    "race": null,
+    "weekend": "Race",
+    "race": "Slapy Trailmaniacs 47K \u00b7 24 Oct",
     "to_race": 21
    },
    "days": [
@@ -35034,7 +35038,7 @@
        "group": "run",
        "type": "RACE",
        "name": "Slapy Trailmaniacs 47k \ud83e\udd47",
-       "note": "WON. 47.6 km / 1924 m in 3:59:57 moving, avg HR 162, RE 235. Went hard from the start, took the speed premium too and held tempo through the KOM section rather than changing pace. Fuel: alternated GU macchiato and Hydrogel Iontmax gels every 30 min, plus Iontmax drink and Powerdrink+ with added maltodextrin.",
+       "note": "WON. 47.6 km / 1924 m in 3:59:57 moving, avg HR 162, RE 235. Went hard from the start, took the speed premium too and held tempo through the KOM section rather than changing pace. Fuel: alternated GU macchiato and Hydrogel Iontmax gels every 30 min, plus Iontmax drink and Powerdrink+ with added maltodextrin. UTMB index ~780 (Dan's estimate), against 684 at Lavaredo 80K (27 Jun 2026); Chianti target 720-750.",
        "mins": 240,
        "km": 47.6,
        "vert": 1924,
@@ -35043,7 +35047,7 @@
       {
        "sport": "Run",
        "group": "run",
-       "type": null,
+       "type": "E",
        "name": null,
        "note": null,
        "mins": 11,
@@ -35085,12 +35089,10 @@
    "monotony": 1.07,
    "ctl": 26.3,
    "atl": 19.0,
-   "tsb": 7.2,
+   "tsb": 6.8,
    "flags": [],
    "notes": [
-    "Running 35% under the 5.5 h target.",
-    "Bike well short \u2014 0.0 of 2.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
-    "No gym logged against a 1.0 h target (R5).",
+    "Running on target (3.6 vs 3.5 h).",
     "Longest run 1:10 / 12.4 km / 267 m on Sat.",
     "Self-reported feel +1.0 over 1 scored runs."
    ],
@@ -35098,13 +35100,13 @@
     "index": 9,
     "phase": "P2",
     "phase_name": "Recovery & gym on-ramp",
-    "run_h": 5.5,
-    "bike_h": 2.5,
-    "gym_h": 1.0,
-    "total_h": 9,
-    "run_km": 61.8,
-    "run_vert": 1809,
-    "weekend": "Long 2:00",
+    "run_h": 3.5,
+    "bike_h": 0,
+    "gym_h": 0,
+    "total_h": 3.5,
+    "run_km": 39.3,
+    "run_vert": 1151,
+    "weekend": "Off-season \u00b7 easy",
     "race": null,
     "to_race": 20
    },
@@ -35489,7 +35491,7 @@
    "gym_h": 0.0,
    "total_h": 39.5,
    "run_days": 22,
-   "quality": 3,
+   "quality": 4,
    "feel": 0.67,
    "hr": 144.6,
    "pace": 5.523,
@@ -35697,8 +35699,8 @@
    "gym_h": 0.0,
    "total_h": 45.3,
    "run_days": 18,
-   "quality": 4,
-   "feel": 0.14,
+   "quality": 5,
+   "feel": 0.25,
    "hr": 147.3,
    "pace": 5.582,
    "longest": 195
@@ -35857,8 +35859,8 @@
    "gym_h": 1.0,
    "total_h": 55.1,
    "run_days": 20,
-   "quality": 0,
-   "feel": 0.44,
+   "quality": 1,
+   "feel": 0.3,
    "hr": 144.9,
    "pace": 5.446,
    "longest": 215
@@ -35889,9 +35891,9 @@
    "gym_h": 1.0,
    "total_h": 42.6,
    "run_days": 20,
-   "quality": 2,
+   "quality": 3,
    "feel": -0.11,
-   "hr": 139.2,
+   "hr": 139.1,
    "pace": 5.563,
    "longest": 144
   },
@@ -35923,8 +35925,8 @@
    "run_days": 24,
    "quality": 5,
    "feel": 0.27,
-   "hr": 140.4,
-   "pace": 5.566,
+   "hr": 139.1,
+   "pace": 5.497,
    "longest": 176
   },
   {
@@ -35939,8 +35941,8 @@
    "run_days": 23,
    "quality": 9,
    "feel": 1.0,
-   "hr": 136.2,
-   "pace": 5.334,
+   "hr": 137.1,
+   "pace": 5.368,
    "longest": 240
   },
   {
@@ -35987,7 +35989,7 @@
    "gym_h": 3.9,
    "total_h": 436.2,
    "run_days": 235,
-   "quality": 52,
+   "quality": 53,
    "feel": 0.18,
    "hr": 141.2,
    "pace": 5.315,
@@ -36003,8 +36005,8 @@
    "gym_h": 18.0,
    "total_h": 489.9,
    "run_days": 240,
-   "quality": 60,
-   "feel": -0.02,
+   "quality": 61,
+   "feel": -0.01,
    "hr": 142.8,
    "pace": 5.363,
    "longest": 462
@@ -36019,10 +36021,10 @@
    "gym_h": 22.0,
    "total_h": 420.2,
    "run_days": 204,
-   "quality": 37,
-   "feel": 0.12,
-   "hr": 140.8,
-   "pace": 5.458,
+   "quality": 39,
+   "feel": 0.11,
+   "hr": 140.6,
+   "pace": 5.452,
    "longest": 620
   }
  ]

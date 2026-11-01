@@ -1,5 +1,5 @@
 {
- "generated": "01 November 2026, 16:29",
+ "generated": "01 November 2026, 17:50",
  "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
@@ -1911,13 +1911,13 @@
    "phase": "P2",
    "phase_name": "Recovery & gym on-ramp",
    "start": "2026-10-26",
-   "total_h": 9,
-   "run_h": 5.5,
-   "bike_h": 2.5,
-   "gym_h": 1.0,
-   "km": 62,
-   "vert": 1809,
-   "weekend": "Long 2:00",
+   "total_h": 3.5,
+   "run_h": 3.5,
+   "bike_h": 0,
+   "gym_h": 0,
+   "km": 39,
+   "vert": 1151,
+   "weekend": "Off-season · easy",
    "race": null,
    "committed": true
   },
@@ -1926,13 +1926,13 @@
    "phase": "P2",
    "phase_name": "Recovery & gym on-ramp",
    "start": "2026-11-02",
-   "total_h": 11,
-   "run_h": 6.5,
-   "bike_h": 2.5,
-   "gym_h": 2.0,
-   "km": 73,
-   "vert": 2138,
-   "weekend": "Long 2:30",
+   "total_h": 3.5,
+   "run_h": 3.5,
+   "bike_h": 0,
+   "gym_h": 0,
+   "km": 39,
+   "vert": 1151,
+   "weekend": "Off-season · easy",
    "race": null,
    "committed": true
   },
@@ -1946,7 +1946,7 @@
    "bike_h": 2.0,
    "gym_h": 2.0,
    "km": 79,
-   "vert": 2303,
+   "vert": 2302,
    "weekend": "A · 2:30+2:00",
    "race": null,
    "committed": true
@@ -1961,7 +1961,7 @@
    "bike_h": 2.5,
    "gym_h": 2.0,
    "km": 84,
-   "vert": 2467,
+   "vert": 2466,
    "weekend": "A · 3:00+2:15",
    "race": null,
    "committed": true
@@ -1976,7 +1976,7 @@
    "bike_h": 2.0,
    "gym_h": 2.0,
    "km": 79,
-   "vert": 2303,
+   "vert": 2302,
    "weekend": "Long 2:45",
    "race": null,
    "committed": true
@@ -4060,12 +4060,10 @@
    "monotony": 1.07,
    "ctl": 26.3,
    "atl": 19.0,
-   "tsb": 7.2,
+   "tsb": 6.8,
    "flags": [],
    "notes": [
-    "Running 35% under the 5.5 h target.",
-    "Bike well short — 0.0 of 2.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
-    "No gym logged against a 1.0 h target (R5).",
+    "Running on target (3.6 vs 3.5 h).",
     "Longest run 1:10 / 12.4 km / 267 m on Sat.",
     "Self-reported feel +1.0 over 1 scored runs."
    ],
@@ -4073,13 +4071,13 @@
     "index": 9,
     "phase": "P2",
     "phase_name": "Recovery & gym on-ramp",
-    "run_h": 5.5,
-    "bike_h": 2.5,
-    "gym_h": 1.0,
-    "total_h": 9,
-    "run_km": 61.8,
-    "run_vert": 1809,
-    "weekend": "Long 2:00",
+    "run_h": 3.5,
+    "bike_h": 0,
+    "gym_h": 0,
+    "total_h": 3.5,
+    "run_km": 39.3,
+    "run_vert": 1151,
+    "weekend": "Off-season · easy",
     "race": null,
     "to_race": 20
    },
@@ -4186,163 +4184,163 @@
    "date": "2026-08-10",
    "ctl": 26.2,
    "atl": 32.5,
-   "tsb": -6.3
+   "tsb": -8.0
   },
   {
    "date": "2026-08-11",
    "ctl": 25.9,
    "atl": 29.9,
-   "tsb": -4.0
+   "tsb": -6.3
   },
   {
    "date": "2026-08-12",
    "ctl": 25.8,
    "atl": 28.4,
-   "tsb": -2.7
+   "tsb": -4.0
   },
   {
    "date": "2026-08-13",
    "ctl": 25.7,
    "atl": 27.7,
-   "tsb": -2.0
+   "tsb": -2.7
   },
   {
    "date": "2026-08-14",
    "ctl": 26.3,
    "atl": 30.7,
-   "tsb": -4.4
+   "tsb": -2.0
   },
   {
    "date": "2026-08-15",
    "ctl": 26.8,
    "atl": 32.9,
-   "tsb": -6.1
+   "tsb": -4.4
   },
   {
    "date": "2026-08-16",
    "ctl": 27.1,
    "atl": 34.1,
-   "tsb": -7.0
+   "tsb": -6.1
   },
   {
    "date": "2026-08-17",
    "ctl": 26.5,
    "atl": 29.6,
-   "tsb": -3.1
+   "tsb": -7.0
   },
   {
    "date": "2026-08-18",
    "ctl": 26.4,
    "atl": 28.6,
-   "tsb": -2.2
+   "tsb": -3.1
   },
   {
    "date": "2026-08-19",
    "ctl": 26.2,
    "atl": 27.3,
-   "tsb": -1.1
+   "tsb": -2.2
   },
   {
    "date": "2026-08-20",
    "ctl": 26.0,
    "atl": 25.9,
-   "tsb": 0.1
+   "tsb": -1.1
   },
   {
    "date": "2026-08-21",
    "ctl": 25.9,
    "atl": 25.6,
-   "tsb": 0.3
+   "tsb": 0.1
   },
   {
    "date": "2026-08-22",
    "ctl": 26.7,
    "atl": 30.1,
-   "tsb": -3.4
+   "tsb": 0.3
   },
   {
    "date": "2026-08-23",
    "ctl": 26.8,
    "atl": 30.1,
-   "tsb": -3.3
+   "tsb": -3.4
   },
   {
    "date": "2026-08-24",
    "ctl": 27.3,
    "atl": 32.4,
-   "tsb": -5.1
+   "tsb": -3.3
   },
   {
    "date": "2026-08-25",
    "ctl": 27.2,
    "atl": 31.4,
-   "tsb": -4.2
+   "tsb": -5.1
   },
   {
    "date": "2026-08-26",
    "ctl": 27.4,
    "atl": 31.9,
-   "tsb": -4.5
+   "tsb": -4.2
   },
   {
    "date": "2026-08-27",
    "ctl": 27.1,
    "atl": 29.2,
-   "tsb": -2.2
+   "tsb": -4.5
   },
   {
    "date": "2026-08-28",
    "ctl": 26.7,
    "atl": 26.8,
-   "tsb": -0.1
+   "tsb": -2.2
   },
   {
    "date": "2026-08-29",
    "ctl": 27.0,
    "atl": 28.6,
-   "tsb": -1.6
+   "tsb": -0.1
   },
   {
    "date": "2026-08-30",
    "ctl": 26.5,
    "atl": 25.4,
-   "tsb": 1.1
+   "tsb": -1.6
   },
   {
    "date": "2026-08-31",
    "ctl": 26.2,
    "atl": 24.3,
-   "tsb": 2.0
+   "tsb": 1.1
   },
   {
    "date": "2026-09-01",
    "ctl": 25.8,
    "atl": 22.1,
-   "tsb": 3.7
+   "tsb": 2.0
   },
   {
    "date": "2026-09-02",
    "ctl": 25.7,
    "atl": 21.7,
-   "tsb": 4.0
+   "tsb": 3.7
   },
   {
    "date": "2026-09-03",
    "ctl": 26.8,
    "atl": 28.7,
-   "tsb": -1.9
+   "tsb": 4.0
   },
   {
    "date": "2026-09-04",
    "ctl": 26.4,
    "atl": 26.4,
-   "tsb": 0.0
+   "tsb": -1.9
   },
   {
    "date": "2026-09-05",
    "ctl": 27.4,
    "atl": 32.1,
-   "tsb": -4.7
+   "tsb": 0.0
   },
   {
    "date": "2026-09-06",
@@ -4354,25 +4352,25 @@
    "date": "2026-09-07",
    "ctl": 27.4,
    "atl": 30.9,
-   "tsb": -3.4
+   "tsb": -4.7
   },
   {
    "date": "2026-09-08",
    "ctl": 27.5,
    "atl": 30.6,
-   "tsb": -3.1
+   "tsb": -3.4
   },
   {
    "date": "2026-09-09",
    "ctl": 27.8,
    "atl": 32.2,
-   "tsb": -4.4
+   "tsb": -3.1
   },
   {
    "date": "2026-09-10",
    "ctl": 27.4,
    "atl": 28.9,
-   "tsb": -1.5
+   "tsb": -4.4
   },
   {
    "date": "2026-09-11",
@@ -4384,307 +4382,307 @@
    "date": "2026-09-12",
    "ctl": 28.3,
    "atl": 34.1,
-   "tsb": -5.7
+   "tsb": -1.5
   },
   {
    "date": "2026-09-13",
    "ctl": 28.3,
    "atl": 33.2,
-   "tsb": -4.9
+   "tsb": -5.7
   },
   {
    "date": "2026-09-14",
    "ctl": 28.0,
    "atl": 30.8,
-   "tsb": -2.8
+   "tsb": -4.9
   },
   {
    "date": "2026-09-15",
    "ctl": 28.0,
    "atl": 30.5,
-   "tsb": -2.5
+   "tsb": -2.8
   },
   {
    "date": "2026-09-16",
    "ctl": 28.5,
    "atl": 33.1,
-   "tsb": -4.6
+   "tsb": -2.5
   },
   {
    "date": "2026-09-17",
    "ctl": 28.1,
    "atl": 29.8,
-   "tsb": -1.7
+   "tsb": -4.6
   },
   {
    "date": "2026-09-18",
    "ctl": 28.4,
    "atl": 31.4,
-   "tsb": -3.0
+   "tsb": -1.7
   },
   {
    "date": "2026-09-19",
    "ctl": 29.5,
    "atl": 37.1,
-   "tsb": -7.6
+   "tsb": -3.0
   },
   {
    "date": "2026-09-20",
    "ctl": 30.0,
    "atl": 39.3,
-   "tsb": -9.2
+   "tsb": -7.6
   },
   {
    "date": "2026-09-21",
    "ctl": 29.3,
    "atl": 34.0,
-   "tsb": -4.7
+   "tsb": -9.2
   },
   {
    "date": "2026-09-22",
    "ctl": 29.0,
    "atl": 31.8,
-   "tsb": -2.7
+   "tsb": -4.7
   },
   {
    "date": "2026-09-23",
    "ctl": 29.5,
    "atl": 34.1,
-   "tsb": -4.6
+   "tsb": -2.7
   },
   {
    "date": "2026-09-24",
    "ctl": 29.0,
    "atl": 30.6,
-   "tsb": -1.6
+   "tsb": -4.6
   },
   {
    "date": "2026-09-25",
    "ctl": 28.6,
    "atl": 28.3,
-   "tsb": 0.4
+   "tsb": -1.6
   },
   {
    "date": "2026-09-26",
    "ctl": 28.4,
    "atl": 27.3,
-   "tsb": 1.2
+   "tsb": 0.4
   },
   {
    "date": "2026-09-27",
    "ctl": 29.6,
    "atl": 33.8,
-   "tsb": -4.2
+   "tsb": 1.2
   },
   {
    "date": "2026-09-28",
    "ctl": 28.9,
    "atl": 29.3,
-   "tsb": -0.4
+   "tsb": -4.2
   },
   {
    "date": "2026-09-29",
    "ctl": 28.6,
    "atl": 27.8,
-   "tsb": 0.8
+   "tsb": -0.4
   },
   {
    "date": "2026-09-30",
    "ctl": 29.1,
    "atl": 30.5,
-   "tsb": -1.4
+   "tsb": 0.8
   },
   {
    "date": "2026-10-01",
    "ctl": 29.4,
    "atl": 32.2,
-   "tsb": -2.8
+   "tsb": -1.4
   },
   {
    "date": "2026-10-02",
    "ctl": 29.1,
    "atl": 29.9,
-   "tsb": -0.8
+   "tsb": -2.8
   },
   {
    "date": "2026-10-03",
    "ctl": 30.1,
    "atl": 35.5,
-   "tsb": -5.4
+   "tsb": -0.8
   },
   {
    "date": "2026-10-04",
    "ctl": 30.1,
    "atl": 35.0,
-   "tsb": -4.9
+   "tsb": -5.4
   },
   {
    "date": "2026-10-05",
    "ctl": 29.7,
    "atl": 31.8,
-   "tsb": -2.1
+   "tsb": -4.9
   },
   {
    "date": "2026-10-06",
    "ctl": 29.3,
    "atl": 29.3,
-   "tsb": -0.0
+   "tsb": -2.1
   },
   {
    "date": "2026-10-07",
    "ctl": 28.6,
    "atl": 25.4,
-   "tsb": 3.2
+   "tsb": -0.0
   },
   {
    "date": "2026-10-08",
    "ctl": 29.5,
    "atl": 31.2,
-   "tsb": -1.7
+   "tsb": 3.2
   },
   {
    "date": "2026-10-09",
    "ctl": 29.1,
    "atl": 28.7,
-   "tsb": 0.5
+   "tsb": -1.7
   },
   {
    "date": "2026-10-10",
    "ctl": 30.0,
    "atl": 33.8,
-   "tsb": -3.7
+   "tsb": 0.5
   },
   {
    "date": "2026-10-11",
    "ctl": 30.1,
    "atl": 33.5,
-   "tsb": -3.5
+   "tsb": -3.7
   },
   {
    "date": "2026-10-12",
    "ctl": 29.4,
    "atl": 29.1,
-   "tsb": 0.3
+   "tsb": -3.5
   },
   {
    "date": "2026-10-13",
    "ctl": 29.1,
    "atl": 27.7,
-   "tsb": 1.4
+   "tsb": 0.3
   },
   {
    "date": "2026-10-14",
    "ctl": 28.6,
    "atl": 25.2,
-   "tsb": 3.4
+   "tsb": 1.4
   },
   {
    "date": "2026-10-15",
    "ctl": 28.2,
    "atl": 23.1,
-   "tsb": 5.1
+   "tsb": 3.4
   },
   {
    "date": "2026-10-16",
    "ctl": 28.0,
    "atl": 22.8,
-   "tsb": 5.2
+   "tsb": 5.1
   },
   {
    "date": "2026-10-17",
    "ctl": 28.0,
    "atl": 23.5,
-   "tsb": 4.5
+   "tsb": 5.2
   },
   {
    "date": "2026-10-18",
    "ctl": 28.1,
    "atl": 24.6,
-   "tsb": 3.5
+   "tsb": 4.5
   },
   {
    "date": "2026-10-19",
    "ctl": 27.4,
    "atl": 21.3,
-   "tsb": 6.1
+   "tsb": 3.5
   },
   {
    "date": "2026-10-20",
    "ctl": 27.1,
    "atl": 20.2,
-   "tsb": 6.9
+   "tsb": 6.1
   },
   {
    "date": "2026-10-21",
    "ctl": 26.5,
    "atl": 17.5,
-   "tsb": 8.9
+   "tsb": 6.9
   },
   {
    "date": "2026-10-22",
    "ctl": 26.1,
    "atl": 16.4,
-   "tsb": 9.7
+   "tsb": 8.9
   },
   {
    "date": "2026-10-23",
    "ctl": 25.6,
    "atl": 15.2,
-   "tsb": 10.5
+   "tsb": 9.7
   },
   {
    "date": "2026-10-24",
    "ctl": 30.6,
    "atl": 44.7,
-   "tsb": -14.1
+   "tsb": 10.5
   },
   {
    "date": "2026-10-25",
    "ctl": 29.9,
    "atl": 38.7,
-   "tsb": -8.9
+   "tsb": -14.1
   },
   {
    "date": "2026-10-26",
    "ctl": 29.2,
    "atl": 33.6,
-   "tsb": -4.4
+   "tsb": -8.9
   },
   {
    "date": "2026-10-27",
    "ctl": 28.5,
    "atl": 29.1,
-   "tsb": -0.6
+   "tsb": -4.4
   },
   {
    "date": "2026-10-28",
    "ctl": 28.0,
    "atl": 26.3,
-   "tsb": 1.7
+   "tsb": -0.6
   },
   {
    "date": "2026-10-29",
    "ctl": 27.5,
    "atl": 23.9,
-   "tsb": 3.7
+   "tsb": 1.7
   },
   {
    "date": "2026-10-30",
    "ctl": 26.9,
    "atl": 20.7,
-   "tsb": 6.2
+   "tsb": 3.7
   },
   {
    "date": "2026-10-31",
    "ctl": 26.6,
    "atl": 19.8,
-   "tsb": 6.8
+   "tsb": 6.2
   },
   {
    "date": "2026-11-01",
    "ctl": 26.3,
    "atl": 19.0,
-   "tsb": 7.2
+   "tsb": 6.8
   }
  ],
  "zones": {
@@ -4805,11 +4803,11 @@
     "current": false,
     "run": {
      "minutes": [
-      1113,
-      1448,
-      199,
-      115,
-      4
+      756,
+      2123,
+      0,
+      0,
+      0
      ],
      "power": [
       0,
@@ -4820,32 +4818,32 @@
       0,
       0
      ],
-     "stream": 2879,
-     "measured": 0,
-     "modelled": 0,
+     "stream": 0,
+     "measured": 2696,
+     "modelled": 183,
      "no_hr": 0
     },
     "bike": {
      "minutes": [
-      613,
-      324,
-      23,
-      1,
-      1
+      0,
+      0,
+      0,
+      0,
+      0
      ],
      "power": [
-      557,
-      256,
-      138,
-      66,
-      28,
-      19,
-      8
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
      ],
-     "stream": 961,
+     "stream": 0,
      "measured": 0,
      "modelled": 0,
-     "no_hr": 111
+     "no_hr": 1072
     },
     "weeks": [
      {
@@ -4855,10 +4853,10 @@
       "current": false,
       "run": {
        "minutes": [
-        176,
-        209,
-        18,
-        19,
+        81,
+        341,
+        0,
+        0,
         0
        ],
        "power": [
@@ -4870,32 +4868,32 @@
         0,
         0
        ],
-       "stream": 422,
-       "measured": 0,
-       "modelled": 0,
+       "stream": 0,
+       "measured": 381,
+       "modelled": 41,
        "no_hr": 0
       },
       "bike": {
        "minutes": [
-        140,
-        129,
-        10,
+        0,
+        0,
+        0,
         0,
         0
        ],
        "power": [
-        140,
-        89,
-        51,
-        24,
-        9,
-        5,
-        2
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
        ],
-       "stream": 279,
+       "stream": 0,
        "measured": 0,
        "modelled": 0,
-       "no_hr": 42
+       "no_hr": 321
       }
      },
      {
@@ -4905,11 +4903,11 @@
       "current": false,
       "run": {
        "minutes": [
-        190,
-        185,
-        20,
-        16,
-        2
+        143,
+        271,
+        0,
+        0,
+        0
        ],
        "power": [
         0,
@@ -4920,32 +4918,32 @@
         0,
         0
        ],
-       "stream": 414,
-       "measured": 0,
-       "modelled": 0,
+       "stream": 0,
+       "measured": 371,
+       "modelled": 43,
        "no_hr": 0
       },
       "bike": {
        "minutes": [
-        113,
-        57,
-        3,
+        0,
+        0,
+        0,
         0,
         0
        ],
        "power": [
-        92,
-        52,
-        25,
-        10,
-        5,
-        4,
-        1
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
        ],
-       "stream": 173,
+       "stream": 0,
        "measured": 0,
        "modelled": 0,
-       "no_hr": 16
+       "no_hr": 189
       }
      },
      {
@@ -4955,10 +4953,10 @@
       "current": false,
       "run": {
        "minutes": [
-        150,
-        270,
-        27,
-        18,
+        99,
+        367,
+        0,
+        0,
         0
        ],
        "power": [
@@ -4970,32 +4968,32 @@
         0,
         0
        ],
-       "stream": 466,
-       "measured": 0,
-       "modelled": 0,
+       "stream": 0,
+       "measured": 367,
+       "modelled": 99,
        "no_hr": 0
       },
       "bike": {
        "minutes": [
-        137,
-        108,
-        10,
-        1,
-        1
+        0,
+        0,
+        0,
+        0,
+        0
        ],
        "power": [
-        125,
-        70,
-        40,
-        19,
-        8,
-        5,
-        3
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
        ],
-       "stream": 256,
+       "stream": 0,
        "measured": 0,
        "modelled": 0,
-       "no_hr": 15
+       "no_hr": 271
       }
      },
      {
@@ -5005,11 +5003,11 @@
       "current": false,
       "run": {
        "minutes": [
-        205,
-        180,
-        27,
-        22,
-        1
+        130,
+        306,
+        0,
+        0,
+        0
        ],
        "power": [
         0,
@@ -5020,8 +5018,8 @@
         0,
         0
        ],
-       "stream": 436,
-       "measured": 0,
+       "stream": 0,
+       "measured": 436,
        "modelled": 0,
        "no_hr": 0
       },
@@ -5055,10 +5053,10 @@
       "current": false,
       "run": {
        "minutes": [
-        180,
-        223,
-        16,
-        20,
+        169,
+        270,
+        0,
+        0,
         0
        ],
        "power": [
@@ -5070,32 +5068,32 @@
         0,
         0
        ],
-       "stream": 439,
-       "measured": 0,
+       "stream": 0,
+       "measured": 439,
        "modelled": 0,
        "no_hr": 0
       },
       "bike": {
        "minutes": [
-        223,
-        30,
+        0,
+        0,
         0,
         0,
         0
        ],
        "power": [
-        199,
-        45,
-        21,
-        12,
-        7,
-        5,
-        1
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
        ],
-       "stream": 253,
+       "stream": 0,
        "measured": 0,
        "modelled": 0,
-       "no_hr": 38
+       "no_hr": 291
       }
      },
      {
@@ -5105,10 +5103,10 @@
       "current": false,
       "run": {
        "minutes": [
-        111,
-        221,
-        61,
-        13,
+        52,
+        354,
+        0,
+        0,
         0
        ],
        "power": [
@@ -5120,8 +5118,8 @@
         0,
         0
        ],
-       "stream": 406,
-       "measured": 0,
+       "stream": 0,
+       "measured": 406,
        "modelled": 0,
        "no_hr": 0
       },
@@ -5155,11 +5153,11 @@
       "current": false,
       "run": {
        "minutes": [
-        100,
-        159,
-        29,
-        7,
-        1
+        82,
+        214,
+        0,
+        0,
+        0
        ],
        "power": [
         0,
@@ -5170,8 +5168,8 @@
         0,
         0
        ],
-       "stream": 296,
-       "measured": 0,
+       "stream": 0,
+       "measured": 296,
        "modelled": 0,
        "no_hr": 0
       },
@@ -5208,10 +5206,10 @@
     "current": true,
     "run": {
      "minutes": [
-      221,
-      229,
-      112,
-      3,
+      254,
+      311,
+      0,
+      0,
       0
      ],
      "power": [
@@ -5223,8 +5221,8 @@
       0,
       0
      ],
-     "stream": 565,
-     "measured": 0,
+     "stream": 0,
+     "measured": 565,
      "modelled": 0,
      "no_hr": 0
     },
@@ -5258,10 +5256,10 @@
       "current": false,
       "run": {
        "minutes": [
-        51,
-        185,
-        112,
-        3,
+        40,
+        311,
+        0,
+        0,
         0
        ],
        "power": [
@@ -5273,8 +5271,8 @@
         0,
         0
        ],
-       "stream": 351,
-       "measured": 0,
+       "stream": 0,
+       "measured": 351,
        "modelled": 0,
        "no_hr": 0
       },
@@ -5308,8 +5306,8 @@
       "current": true,
       "run": {
        "minutes": [
-        170,
-        44,
+        214,
+        0,
         0,
         0,
         0
@@ -5323,8 +5321,8 @@
         0,
         0
        ],
-       "stream": 214,
-       "measured": 0,
+       "stream": 0,
+       "measured": 214,
        "modelled": 0,
        "no_hr": 0
       },
