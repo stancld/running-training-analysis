@@ -1,8 +1,8 @@
-# Chianti Logbook
+# Training Logbook
 
-Dan's training diary for the Chianti 120K (Ultra Trail Chianti Castles, 20 March
-2027), and `tl`, the dependency-free Python package that builds it from his local
-Strava/COROS cache.
+Dan's training logbook, and `tl`, the dependency-free Python package that builds
+it from his local Strava/COROS cache. The current focus is the Chianti 120K by
+UTMB (Ultra Trail Chianti Castles, 20 March 2027), shown as a badge on the page.
 
 **Read it:** https://stancld.github.io/running-training-analysis/. The page is
 public by link and marked `noindex`, so search engines don't list it.

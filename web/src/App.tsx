@@ -39,8 +39,8 @@ function TopBar({ wide }: { wide: boolean }) {
   return (
     <header className="topbar">
       <div className="brand">
-        <h1>Chianti Logbook</h1>
-        <p className="sub">Training for the {DATA.race.name} · {day(DATA.race.date, true)}</p>
+        <h1>Training Logbook</h1>
+        <p className="focus"><span>Current focus</span>{DATA.race.name} by UTMB · {day(DATA.race.date, true)}</p>
       </div>
       {wide && <Track />}
       <div className="countdown">

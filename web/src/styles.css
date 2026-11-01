@@ -68,7 +68,12 @@ svg text{font-family:var(--mono); font-variant-numeric:tabular-nums}
 
 /* ---------- top bar ---------- */
 .topbar{display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:20px 36px}
-.sub{color:var(--ink-2); font-size:14px; margin-top:6px}
+.focus{display:inline-flex; align-items:center; gap:8px; margin-top:8px; padding:3px 12px 3px 4px; border-radius:999px;
+  background:var(--teal-wash); color:var(--teal); font-size:13.5px; font-weight:500}
+.focus span{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--surface);
+  background:var(--teal); border-radius:999px; padding:2px 8px; white-space:nowrap}
+.phone .focus{font-size:12.5px; gap:6px}
+.phone .focus span{font-size:9px; letter-spacing:.06em}
 .countdown{text-align:right}
 .countdown b{display:block; font-family:var(--serif); font-size:30px; font-weight:600; line-height:1.05; color:var(--teal)}
 .track{min-width:0}

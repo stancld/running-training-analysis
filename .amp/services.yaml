@@ -4,5 +4,5 @@ services:
     health: /
     portal:
       url: /
-      title: Chianti logbook
+      title: Training logbook
       description: Vite dev server for web/; `uv run tl site` rewrites the payload and the page hot-reloads.

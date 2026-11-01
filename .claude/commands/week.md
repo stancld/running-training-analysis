@@ -1,5 +1,5 @@
 ---
-description: Top up the training cache from Strava/COROS, evaluate the week, rebuild and publish the Chianti logbook
+description: Top up the training cache from Strava/COROS, evaluate the week, rebuild and publish the training logbook
 ---
 
 Weekly training review for Dan. Work in `/Users/stancld/projects/running-training-analysis`.
