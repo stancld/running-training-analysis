@@ -34,9 +34,9 @@ _W: list[_Row] = [
     ("2026-10-05", 10, 7.0, 3.0, 0, "Long 2:30", None),
     ("2026-10-12", 7, 5.5, 1.5, 0, "Easy 90'", None),
     ("2026-10-19", 7, 4.5, 2.5, 0, "Race", "Slapy Trailmaniacs 47K · 24 Oct"),
-    # Off-season after Slapy: ~40 km of easy running, no bike or gym.
-    ("2026-10-26", 3.5, 3.5, 0, 0, "Off-season · easy", None),
-    ("2026-11-02", 3.5, 3.5, 0, 0, "Off-season · easy", None),
+    # Off-season after Slapy: easy running only, km fixed in OWN_KM.
+    ("2026-10-26", 4, 4.0, 0, 0, "Off-season · no long run", None),
+    ("2026-11-02", 4, 4.0, 0, 0, "Off-season · no long run", None),
     ("2026-11-09", 11, 7.0, 2.0, 2.0, "A · 2:30+2:00", None),
     ("2026-11-16", 12, 7.5, 2.5, 2.0, "A · 3:00+2:15", None),
     ("2026-11-23", 11, 7.0, 2.0, 2.0, "Long 2:45", None),
@@ -58,12 +58,16 @@ _W: list[_Row] = [
     ("2027-03-15", 4, 3.0, 1.0, 0, "Race", "Chianti 120K · 20 Mar"),
 ]
 
+# Weeks with Dan's own km target and no vert target; the rest of their phase's totals
+# is split over the other weeks.
+OWN_KM = {dt.date(2026, 10, 26): 40.0, dt.date(2026, 11, 2): 40.0}
+
 # name, weeks, published km total, published vert total
 PHASES = [
     ("P1", "Slapy build", 7, 569, 21000),
-    # Cut from 427 km / 12,500 m with the off-season hours, at the phase's own km/h and m/h,
-    # so the other P2 weeks keep their targets.
-    ("P2", "Recovery & gym on-ramp", 6, 371, 10850),
+    # Was 427 km / 12,500 m: the off-season weeks now carry 40 km and no vert, and the
+    # other P2 weeks keep their targets.
+    ("P2", "Recovery & gym on-ramp", 6, 372, 8550),
     ("P3", "Base — the Kilian block", 8, 703, 28400),
     ("P4", "Specific build", 6, 544, 23900),
     ("P5", "Taper", 2, 97, 2550),
@@ -71,8 +75,8 @@ PHASES = [
 
 
 class PlanWeek:
-    run_km: float  # set by _build from the phase totals
-    run_vert: float
+    run_km: float  # set by _build from the phase totals or OWN_KM
+    run_vert: float | None  # None: no vert target
 
     def __init__(self, i: int, row: _Row, phase: str) -> None:
         (d, h, r, b, g, we, race) = row
@@ -101,11 +105,15 @@ def _build() -> list[PlanWeek]:
     for code, _name, n, km, vert in PHASES:
         rows = _W[i : i + n]
         block = [PlanWeek(i + j, r, code) for j, r in enumerate(rows)]
-        run_h = sum(w.run_h for w in block)
+        split = [w for w in block if w.start not in OWN_KM]
+        split_km = km - sum(OWN_KM[w.start] for w in block if w not in split)
+        run_h = sum(w.run_h for w in split)
         for w in block:
-            share = w.run_h / run_h
-            w.run_km = km * share
-            w.run_vert = vert * share
+            if w in split:
+                share = w.run_h / run_h
+                w.run_km, w.run_vert = split_km * share, vert * share
+            else:
+                w.run_km, w.run_vert = OWN_KM[w.start], None
         weeks += block
         i += n
     return weeks
@@ -124,7 +132,7 @@ def _bands() -> dict[str, dict[str, tuple[float, float]]]:
     out = {}
     for code, block in PHASE_WEEKS.items():
         out[code] = {
-            f: (min(getattr(w, f) for w in block), max(getattr(w, f) for w in block))
+            f: (min(vs := [v for w in block if (v := getattr(w, f)) is not None]), max(vs))
             for f in ("run_h", "bike_h", "gym_h", "total_h", "run_km", "run_vert")
         }
     return out

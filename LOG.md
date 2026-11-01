@@ -49,23 +49,25 @@ flags, and how Dan felt about it.
 gym. Longest run 70 min. The first week after Slapy 47K (24 Oct).
 
 **Dan's plan:** "Two weeks after Slapy are my off-season, I'm aiming for ~40k of
-running with no extra cross-training." That covers wk 9 (26 Oct) and wk 10 (2 Nov).
+running with no extra cross-training." Then: "40 km, 4 hour target, no vert target, no
+long." That covers wk 9 (26 Oct) and wk 10 (2 Nov).
 
-**Checks:**
-- Wk 9 fits it: 38.9 km, no cross-training.
-- Wk 10 at ~40 km (~3.5 h at wk 9's 5:30/km) is WoW ~1.0× and ACWR ~0.8: no flags.
-- Wk 11's row (7.0 h running, "A · 2:30+2:00") would fail after a 3.5 h week: R1 at
-  2.0× (the cap allows ~4.4 h) and R2 at ~1.41 (mean of 5.85, 3.57, 3.5, 7.0 h). Wk 12
+**Checks** (R2 is now the week over the mean of the 4 weeks before, cap 1.44):
+- Wk 9 fits it: 3.6 h, 38.9 km, no cross-training.
+- Wk 10 at 4.0 h is WoW 1.12× over wk 9's 3.57 h and ACWR 0.76 over wk 6–9 (6.77,
+  4.93, 5.85, 3.57 h): no flags.
+- Wk 11's row (7.0 h running, "A · 2:30+2:00") would fail after a 4.0 h wk 10: R1 at
+  1.75× (the cap allows 5.0 h) and R2 at 1.53 over wk 7–10 (4.93, 5.85, 3.57, 4.0 h;
+  the cap allows 6.6 h). Both limits move with what wk 10 actually comes in at. Wk 12
   (7.5 h) and wk 13 (7.0 h) need checking against whatever wk 11 becomes.
 
 **Plan changes:**
-- `tl/plan.py` wk 9: 9 h total, 5.5 run, 2.5 bike, 1.0 gym, "Long 2:00" → 3.5 h run
-  only, "Off-season · easy" (Dan's off-season).
-- `tl/plan.py` wk 10: 11 h total, 6.5 run, 2.5 bike, 2.0 gym, "Long 2:30" → 3.5 h run
-  only, "Off-season · easy" (Dan's off-season).
-- P2 published totals 427 km / 12,500 m → 371 km / 10,850 m: the cut hours times the
-  phase's own 11.24 km/h and 329 m/h. Otherwise `_build` would spread the old totals
-  over the remaining P2 weeks; wk 8 and wk 11–13 keep their targets.
+- `tl/plan.py` wk 9 and wk 10 (were 9 h / 5.5 run / 2.5 bike / 1.0 gym / "Long 2:00"
+  and 11 h / 6.5 / 2.5 / 2.0 / "Long 2:30") → 4 h running only, 40 km, no vert target,
+  "Off-season · no long run". The 40 km sits in `OWN_KM` and is kept out of P2's km/vert
+  split.
+- P2 published totals 427 km / 12,500 m → 372 km / 8,550 m, so wk 8 and wk 11–13 keep
+  their km and vert targets (the off-season weeks carry 80 km and no vert).
 
 **Open:**
 - How Dan returns from the off-season in wk 11–13 (currently 7.0 / 7.5 / 7.0 h running

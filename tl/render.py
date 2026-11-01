@@ -131,8 +131,11 @@ def plan_table(weeks_by_start: dict[dt.date, Week]) -> str:
     for p in plan.committed_weeks():
         a = weeks_by_start.get(p.start)
 
-        def pair(pv: float, av: float | None, fmt: str = "{:5.1f}") -> tuple[str, str]:
-            return (fmt.format(pv), "    -" if av is None else fmt.format(av))
+        def pair(pv: float | None, av: float | None, fmt: str = "{:5.1f}") -> tuple[str, str]:
+            def f(v: float | None) -> str:
+                return "    -" if v is None else fmt.format(v)
+
+            return f(pv), f(av)
 
         ph, ah = pair(p.run_h, a.run_h if a else None)
         pb, ab = pair(p.bike_h, a.bike_h if a else None)
@@ -172,7 +175,7 @@ def plan_table(weeks_by_start: dict[dt.date, Week]) -> str:
         lines.append("  only the week-by-week split inside a provisional phase is open.")
     tot_h = sum(p.run_h for p in plan.WEEKS)
     tot_km = sum(p.run_km for p in plan.WEEKS)
-    tot_v = sum(p.run_vert for p in plan.WEEKS)
+    tot_v = sum(p.run_vert or 0 for p in plan.WEEKS)
     lines.append(
         f"\n  29 weeks: {tot_h:.0f} h running, {tot_km:.0f} km, {tot_v:,.0f} m "
         f"of climb. {plan.weeks_to_race():.1f} weeks to the start line."

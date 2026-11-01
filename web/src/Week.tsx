@@ -12,7 +12,12 @@ export function ThisWeek({ children }: { children?: React.ReactNode }) {
     C = 2 * Math.PI * R;
   const stats: [string, string, string, string][] = [
     [String(Math.round(w.run_km)), 'km', p ? `of ${Math.round(p.run_km)} planned` : 'this week', ''],
-    [n(w.run_vert), 'm vert', p ? `of ${n(p.run_vert)} planned` : 'this week', ''],
+    [
+      n(w.run_vert),
+      'm vert',
+      p ? (p.run_vert === null ? 'no target' : `of ${n(p.run_vert)} planned`) : 'this week',
+      '',
+    ],
     [String(w.density), 'm/h density', `floor ${G.vert_floor} m/h`, w.density < G.vert_floor ? 'warn' : ''],
     [p ? p.weekend : '—', 'weekend', 'planned', 'txt'],
   ];

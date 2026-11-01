@@ -23,7 +23,7 @@ export type WeekPlan = {
   gym_h: number;
   total_h: number;
   run_km: number;
-  run_vert: number;
+  run_vert: number | null;
   weekend: string;
   race: string | null;
   to_race: number;
@@ -100,7 +100,7 @@ export type PlanWeek = {
   bike_h: number;
   gym_h: number;
   km: number;
-  vert: number;
+  vert: number | null;
   weekend: string;
   race: string | null;
   committed: boolean;

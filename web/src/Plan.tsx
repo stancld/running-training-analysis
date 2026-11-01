@@ -15,7 +15,7 @@ function detail(i: number) {
   if (p.committed) {
     return [
       head,
-      `Plan ${p.run_h.toFixed(1)} h run · ${p.bike_h.toFixed(1)} h bike${p.gym_h ? ` · ${p.gym_h} h gym` : ''} · ${p.km} km · ${n(p.vert)} m`,
+      `Plan ${p.run_h.toFixed(1)} h run · ${p.bike_h.toFixed(1)} h bike${p.gym_h ? ` · ${p.gym_h} h gym` : ''} · ${p.km} km · ${p.vert === null ? 'no vert target' : `${n(p.vert)} m`}`,
       a ? `Ran ${a.run_h.toFixed(1)} h · ${a.km} km · ${n(a.vert)} m · ${a.density} m/h` : 'Not run yet',
       p.race ?? `Weekend: ${p.weekend}`,
     ];
