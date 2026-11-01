@@ -5,7 +5,7 @@
   --sunk-2: #e0ded5;
   --ink: #1a1c20;
   --ink-2: #4a4d53;
-  --muted: #74777d;
+  --muted: #5d6066; /* ≥ 4.5:1 on every light background, including --sunk */
   --line: #dedbd3;
   --line-2: #c8c4b9;
   --teal: #2f5d63;
