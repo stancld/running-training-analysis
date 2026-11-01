@@ -145,7 +145,7 @@ def write(obj, path):
         json.dump(obj, fh, indent=1)
 
 
-def web_payload(ds, weeks, entries, months, seasons, diary_from=None):
+def web_payload(ds, weeks, entries, months, seasons, fitness, diary_from=None):
     """Trimmed payload for the diary page: enough to draw, not the whole cache."""
     diary_from = diary_from or plan.DIARY_START
     return {
@@ -223,4 +223,17 @@ def web_payload(ds, weeks, entries, months, seasons, diary_from=None):
             for q in plan.provisional_phases()
         ],
         "diary": [_week(e) for e in entries if e.week.start >= diary_from],
+        # Daily, not weekly: a 7-day ATL swings too much within a week to read from week ends.
+        "fitness": [
+            {"date": d.isoformat(), **{k: round(v, 1) for k, v in f.items()}}
+            for d, f in fitness.items()
+            if C.TODAY - dt.timedelta(days=83) <= d <= C.TODAY
+        ],
+        "guardrails": {
+            "wow": C.WOW_CAP,
+            "acwr": C.ACWR_CAP,
+            "vert_floor": C.VERT_FLOOR,
+            "big_week_h": C.BIG_WEEK_H,
+            "km": C.KM_CEILING,
+        },
     }

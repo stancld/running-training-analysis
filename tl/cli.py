@@ -173,7 +173,7 @@ def cmd_site(lab, arg=None):
         except ValueError:
             out = arg
     obj = export_mod.web_payload(
-        lab.ds, lab.weeks, lab.entries, lab.months, lab.seasons, diary_from=since
+        lab.ds, lab.weeks, lab.entries, lab.months, lab.seasons, lab.fitness, diary_from=since
     )
     html = pathlib.Path(tmpl).read_text()
     if "/*DATA*/" not in html:
