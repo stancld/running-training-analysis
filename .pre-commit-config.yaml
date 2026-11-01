@@ -1,5 +1,5 @@
 # Modelled on the cogni / cogni-utils configs, cut to what a stdlib-only repo needs:
-# no uv, lockfile or type-checker hooks. Install with `pre-commit install`.
+# no lockfile or type-checker hooks. Install with `uv run pre-commit install`.
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -8,7 +8,7 @@ repos:
       - id: trailing-whitespace
         # Two trailing spaces are a Markdown line break.
         args: [--markdown-linebreak-ext=md]
-        # Generated outputs are rebuilt by `python3 -m tl export|site`, never hand-fixed.
+        # Generated outputs are rebuilt by `uv run tl export|site`, never hand-fixed.
         exclude: &generated '^(web/diary\.html|data/diary\.json)$'
       - id: end-of-file-fixer
         exclude: *generated

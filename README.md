@@ -7,15 +7,17 @@ macrocycle, and renders the diary page in `web/`.
 
 ## Use
 
-    python3 -m tl                     status + weeks + plan + diary
-    python3 -m tl status              where the prep stands today
-    python3 -m tl weeks 20 | all      week map
-    python3 -m tl months | seasons    month and season maps
-    python3 -m tl plan                29-week macrocycle vs what happened
-    python3 -m tl diary 4 | all | DATE
-    python3 -m tl hills | segments | reps
-    python3 -m tl export [path]       full JSON dump (data/diary.json)
-    python3 -m tl site                render web/diary.html, then publish it
+Set up once with `uv sync`, which installs Python 3.14 and the dev tools.
+
+    uv run tl                     status + weeks + plan + diary
+    uv run tl status              where the prep stands today
+    uv run tl weeks 20 | all      week map
+    uv run tl months | seasons    month and season maps
+    uv run tl plan                29-week macrocycle vs what happened
+    uv run tl diary 4 | all | DATE
+    uv run tl hills | segments | reps
+    uv run tl export [path]       full JSON dump (data/diary.json)
+    uv run tl site                render web/diary.html, then publish it
 
 ## Layout
 
@@ -43,7 +45,7 @@ macrocycle, and renders the diary page in `web/`.
 3. After an uphill session, extend `hills.csv` and `segments.csv` — Strava
    `get_activity_performance` returns laps and segment efforts with per-rep HR
    and watts in one call.
-4. `python3 -m tl status` to check, `python3 -m tl site` to rebuild the page,
+4. `uv run tl     status` to check, `uv run tl site` to rebuild the page,
    then republish `web/diary.html` to the same artifact URL.
 
 ## Guardrails encoded

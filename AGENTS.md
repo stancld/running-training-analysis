@@ -8,11 +8,11 @@ macrocycle and renders the diary page in `web/`. Read `README.md` before changin
 
 | Task | Command |
 |---|---|
-| Status of the prep | `python3 -m tl status` |
-| Full report | `python3 -m tl` |
-| JSON dump | `python3 -m tl export` (writes `data/diary.json`) |
-| Rebuild the diary page | `python3 -m tl site` (renders `web/diary.tmpl.html` → `web/diary.html`) |
-| Lint, format and hygiene | `pre-commit run --all-files` (install once with `pre-commit install`) |
+| Status of the prep | `uv run tl status` |
+| Full report | `uv run tl` |
+| JSON dump | `uv run tl export` (writes `data/diary.json`) |
+| Rebuild the diary page | `uv run tl site` (renders `web/diary.tmpl.html` → `web/diary.html`) |
+| Lint, format and hygiene | `uv run pre-commit run --all-files` (install once with `uv run pre-commit install`) |
 
 There is no test suite. Verify a change by running the commands it affects and checking
 that the numbers make sense against the data. Run pre-commit before every commit; Ruff
@@ -31,7 +31,9 @@ settings live in `ruff.toml`.
 ## Boundaries
 
 **Always**
-- Stay on the standard library. Python 3.14+.
+- Use uv for everything: `uv sync` to set up, `uv run` for every command, `uv add --dev` for
+  tooling. Never pip or a bare `python`. The runtime stays on the standard library, so
+  `pyproject.toml` has no `dependencies`; Python is pinned in `.python-version`.
 - Append to the CSVs; keep their column order and date format.
 - Keep the README in sync when commands, modules or guardrails change.
 
