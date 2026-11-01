@@ -2,6 +2,7 @@
 
 import csv
 import datetime as dt
+import itertools
 import math
 from collections import defaultdict
 
@@ -27,10 +28,15 @@ def _by_day(name, parse):
     return out
 
 
-def _pair(runs, rows):
-    """Rows pair with the day's runs in file order when there is one per run;
-    otherwise the day's last row describes its longest run."""
+def _pair(runs, rows, cost=None):
+    """With one row per run, rows pair in file order, or by the lowest total `cost`
+    when given; otherwise the day's last row describes its longest run."""
     if len(rows) == len(runs):
+        if cost:
+            runs = min(
+                itertools.permutations(runs),
+                key=lambda p: sum(cost(a, r) for a, r in zip(p, rows, strict=True)),
+            )
         return zip(runs, rows, strict=True)
     return [(max(runs, key=lambda a: a.mins), rows[-1])] if rows else []
 
@@ -138,13 +144,8 @@ class Dataset:
                 a.type, a.feel = typ, feel
             for a, v in _pair(day, re_.get(d, [])):
                 a.re = v
-            # hr.csv carries minutes, so each row goes to the run closest in duration.
-            free = list(day)
-            for mins, v in hr.get(d, []):
-                if not free:
-                    break
-                a = min(free, key=lambda a: abs(a.mins - mins))
-                free.remove(a)
+            # hr.csv carries minutes, so rows match runs by duration.
+            for a, (_, v) in _pair(day, hr.get(d, []), lambda a, r: abs(a.mins - r[0])):
                 a.hr = v
 
         for d, items in notes.items():
