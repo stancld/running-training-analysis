@@ -41,8 +41,8 @@ def test_payload_carries_the_cache(tmp_path: Path, site: Callable[[], dict[str, 
     week = {w["start"]: w for w in p["weeks"]}
     race, ride = week["2026-08-31"], week["2026-09-07"]
     assert (race["run_h"], race["km"]) == (6.08, 69.6)  # 55 + 70 + 240 min; 10 + 12 + 47.6 km
-    # No running before the race week: WoW is undefined (null); after the ride week it is a real 0.
-    assert (race["wow"], race["acwr"]) == (None, 1.0)
+    # No weeks before the race week: WoW and ACWR are undefined (null); after the ride week, a real 0.
+    assert (race["wow"], race["acwr"]) == (None, None)
     assert (ride["wow"], ride["acwr"]) == (0.0, 0.0)
 
     acts = [a for d in p["diary"][0]["days"] for a in d["acts"]]
@@ -65,16 +65,29 @@ def test_payload_carries_the_cache(tmp_path: Path, site: Callable[[], dict[str, 
 def test_guardrails_fire_past_the_limit_not_at_it(
     tmp_path: Path, site: Callable[[], dict[str, Any]]
 ) -> None:
-    # 4 h -> 5 h (WoW exactly 1.25, exactly 100 km) -> 6.5 h (WoW 1.30, 101 km).
-    # ACWR on the last week is 6.5 / 5.17 = 1.26, under its 1.30 cap. June is outside Dec-Apr.
+    # 4.5, 4.5, 5, 6 h, then 7.2 h: ACWR 7.2 / mean(4.5, 4.5, 5, 6) = exactly 1.44, at its cap.
+    # 9 h: WoW exactly 1.25 and exactly 100 km, but ACWR 9 / 5.675 = 1.59.
+    # 11.7 h: WoW 1.30, ACWR 11.7 / 6.8 = 1.72, 101 km. Climb keeps R3 quiet; Jun-Aug is outside
+    # Dec-Apr. Then four empty weeks: a 4 h week after them has no baseline and still flags R2.
     (tmp_path / "activities.csv").write_text(
         "date,sport,km,min,vert\n"
-        "2026-06-06,Run,40.0,240,1500\n"
-        "2026-06-13,Run,100.0,300,1800\n"
-        "2026-06-20,Run,101.0,390,2400\n"
+        "2026-06-06,Run,40.0,270,1000\n"
+        "2026-06-13,Run,40.0,270,1000\n"
+        "2026-06-20,Run,45.0,300,1000\n"
+        "2026-06-27,Run,55.0,360,1500\n"
+        "2026-07-04,Run,70.0,432,2000\n"
+        "2026-07-11,Run,100.0,540,3000\n"
+        "2026-07-18,Run,101.0,702,3600\n"
+        "2026-08-22,Run,40.0,240,1000\n"
     )
-    flags = {w["start"]: w["flags"] for w in site()["weeks"]}
-    assert flags == {"2026-06-01": [], "2026-06-08": [], "2026-06-15": ["R1", "R6"]}
+    weeks = site()["weeks"]
+    assert {w["start"]: w["acwr"] for w in weeks}["2026-06-29"] == 1.44  # coupled, it read 1.27
+    flags = {w["start"]: w["flags"] for w in weeks if w["flags"]}
+    assert flags == {
+        "2026-07-06": ["R2"],
+        "2026-07-13": ["R1", "R2", "R6"],
+        "2026-08-17": ["R2"],
+    }
 
 
 def test_form_is_freshness_going_into_the_day(

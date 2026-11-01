@@ -137,7 +137,7 @@ class Period:
 
 class Week(Period):
     prev: Week | None  # wired up by build_weeks
-    chronic: float | None  # mean running hours of the 4 weeks ending here
+    chronic: float | None  # mean running hours of the up to 4 weeks before this one
 
     def __init__(self, start: dt.date, acts: list[Activity]) -> None:
         super().__init__(start, start + dt.timedelta(days=6), acts)
@@ -176,7 +176,9 @@ class Week(Period):
             return out
         if self.wow and self.wow > config.WOW_CAP and self.run_h > 3:
             out.append(("R1", f"week-over-week {self.wow:.2f}x > {config.WOW_CAP}"))
-        if self.acwr and self.acwr > config.ACWR_CAP and self.run_h > 3:
+        if self.chronic == 0 and self.run_h > 3:
+            out.append(("R2", "first running week after 4 weeks off"))
+        elif self.acwr and self.acwr > config.ACWR_CAP and self.run_h > 3:
             out.append(("R2", f"ACWR {self.acwr:.2f} > {config.ACWR_CAP}"))
         if self.run_h > config.BIG_WEEK_H and self.density < config.VERT_FLOOR:
             out.append(("R3", f"{self.density:.0f} m/h on a {self.run_h:.1f} h week — flat volume"))
@@ -217,8 +219,8 @@ def build_weeks(ds: Dataset) -> list[Week]:
         w += dt.timedelta(days=7)
     for i, wk in enumerate(weeks):
         wk.prev = weeks[i - 1] if i else None
-        window = weeks[max(0, i - 3) : i + 1]
-        wk.chronic = sum(x.run_h for x in window) / len(window)
+        window = weeks[max(0, i - 4) : i]
+        wk.chronic = sum(x.run_h for x in window) / len(window) if window else None
     return weeks
 
 

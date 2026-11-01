@@ -76,7 +76,7 @@ history.
 | rule | limit | `tl/config.py` | why, from Dan's record |
 |---|---|---|---|
 | R1 | week-over-week running hours ≤ 1.25× | `WOW_CAP` | the single strongest injury predictor in the record |
-| R2 | acute:chronic running hours (1 wk : 4 wk) ≤ 1.30 | `ACWR_CAP` | |
+| R2 | acute:chronic running hours (the week : mean of the 4 before it) ≤ 1.44 | `ACWR_CAP` | uncoupled, so the week does not dilute its own baseline; as strict as the old coupled 1 wk : 4 wk ≤ 1.30 |
 | R3 | ≥ 300 m of climb per running hour on weeks over 8 h | `VERT_FLOOR`, `BIG_WEEK_H` | flat volume is the mechanism behind the calf and shin failures |
 | R4 | no *flat* interval or repetition work | `BANNED_TYPES` | uphill reps carry the intent of the rule and are not flagged |
 | R6 | ≤ 100 km of running per week | `KM_CEILING` | |

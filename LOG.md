@@ -14,7 +14,7 @@ reasons for changing them and the days he settles on.
   in `tl/plan.py` and the actual numbers with `uv run tl status`, or in
   `data/diary.json` (`today`, `weeks`, `plan`) when the cache is not on this machine.
 - **Dan decides, the agent checks.** Write down what Dan says he wants, in his words.
-  Check it against R1 (week-over-week ≤ 1.25×), R2 (ACWR ≤ 1.30), R3, R4, R6 and the
+  Check it against R1 (week-over-week ≤ 1.25×), R2 (ACWR ≤ 1.44 against the 4 weeks before), R3, R4, R6 and the
   plan, and report the result with the numbers behind it. When something fails, say by
   how much and what would pass. Don't hand Dan a ready-made week he didn't ask for.
 - **Numbers come from `tl`.** Quote actual hours, km and vert from `tl`, never estimate

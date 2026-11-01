@@ -33,7 +33,9 @@ def group_of(sport: str) -> str:
 QUALITY = {"T", "I", "R", "M", "F", "RACE"}
 
 WOW_CAP = 1.25  # R1/R2 — max week-over-week running-hour ratio
-ACWR_CAP = 1.30  # acute (1 wk) : chronic (4 wk) running hours
+# Acute week over the mean of the 4 weeks before it. Uncoupled (Lolli 2019), so the week
+# does not dilute its own baseline; 1.44 is as strict as the old coupled 1.30.
+ACWR_CAP = 1.44  # acute (1 wk) : chronic (previous 4 wk) running hours
 VERT_FLOOR = 300  # R3 — m of climb per running hour on big weeks
 BIG_WEEK_H = 8.0
 KM_CEILING = 100.0  # R6 — hard weekly running-kilometre ceiling
