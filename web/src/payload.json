@@ -1,5 +1,5 @@
 {
- "generated": "01 November 2026, 16:16",
+ "generated": "01 November 2026, 16:29",
  "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
@@ -4720,6 +4720,82 @@
     "hi": null
    }
   ],
+  "bike_bands": [
+   {
+    "code": "Z1",
+    "name": "Warm up",
+    "lo": 0,
+    "hi": 127
+   },
+   {
+    "code": "Z2",
+    "name": "Easy",
+    "lo": 127,
+    "hi": 152
+   },
+   {
+    "code": "Z3",
+    "name": "Aerobic",
+    "lo": 152,
+    "hi": 167
+   },
+   {
+    "code": "Z4",
+    "name": "Threshold",
+    "lo": 167,
+    "hi": 173
+   },
+   {
+    "code": "Z5",
+    "name": "Maximum",
+    "lo": 173,
+    "hi": null
+   }
+  ],
+  "power_bands": [
+   {
+    "code": "Z1",
+    "name": "Active recovery",
+    "lo": 0,
+    "hi": 155
+   },
+   {
+    "code": "Z2",
+    "name": "Endurance",
+    "lo": 155,
+    "hi": 211
+   },
+   {
+    "code": "Z3",
+    "name": "Tempo",
+    "lo": 211,
+    "hi": 254
+   },
+   {
+    "code": "Z4",
+    "name": "Threshold",
+    "lo": 254,
+    "hi": 296
+   },
+   {
+    "code": "Z5",
+    "name": "VO2 max",
+    "lo": 296,
+    "hi": 339
+   },
+   {
+    "code": "Z6",
+    "name": "Anaerobic",
+    "lo": 339,
+    "hi": 424
+   },
+   {
+    "code": "Z7",
+    "name": "Neuromuscular",
+    "lo": 424,
+    "hi": null
+   }
+  ],
   "phases": [
    {
     "phase": "P1",
@@ -4727,115 +4803,400 @@
     "start": "2026-08-31",
     "end": "2026-10-18",
     "current": false,
-    "minutes": [
-     1113,
-     1448,
-     199,
-     115,
-     4
-    ],
-    "stream": 2879,
-    "measured": 0,
-    "modelled": 0,
-    "no_hr": 0,
+    "run": {
+     "minutes": [
+      1113,
+      1448,
+      199,
+      115,
+      4
+     ],
+     "power": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "stream": 2879,
+     "measured": 0,
+     "modelled": 0,
+     "no_hr": 0
+    },
+    "bike": {
+     "minutes": [
+      613,
+      324,
+      23,
+      1,
+      1
+     ],
+     "power": [
+      557,
+      256,
+      138,
+      66,
+      28,
+      19,
+      8
+     ],
+     "stream": 961,
+     "measured": 0,
+     "modelled": 0,
+     "no_hr": 111
+    },
     "weeks": [
      {
       "index": 1,
       "start": "2026-08-31",
       "end": "2026-09-06",
       "current": false,
-      "minutes": [
-       176,
-       209,
-       18,
-       19,
-       0
-      ],
-      "stream": 422
+      "run": {
+       "minutes": [
+        176,
+        209,
+        18,
+        19,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 422,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        140,
+        129,
+        10,
+        0,
+        0
+       ],
+       "power": [
+        140,
+        89,
+        51,
+        24,
+        9,
+        5,
+        2
+       ],
+       "stream": 279,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 42
+      }
      },
      {
       "index": 2,
       "start": "2026-09-07",
       "end": "2026-09-13",
       "current": false,
-      "minutes": [
-       190,
-       185,
-       20,
-       16,
-       2
-      ],
-      "stream": 414
+      "run": {
+       "minutes": [
+        190,
+        185,
+        20,
+        16,
+        2
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 414,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        113,
+        57,
+        3,
+        0,
+        0
+       ],
+       "power": [
+        92,
+        52,
+        25,
+        10,
+        5,
+        4,
+        1
+       ],
+       "stream": 173,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 16
+      }
      },
      {
       "index": 3,
       "start": "2026-09-14",
       "end": "2026-09-20",
       "current": false,
-      "minutes": [
-       150,
-       270,
-       27,
-       18,
-       0
-      ],
-      "stream": 466
+      "run": {
+       "minutes": [
+        150,
+        270,
+        27,
+        18,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 466,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        137,
+        108,
+        10,
+        1,
+        1
+       ],
+       "power": [
+        125,
+        70,
+        40,
+        19,
+        8,
+        5,
+        3
+       ],
+       "stream": 256,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 15
+      }
      },
      {
       "index": 4,
       "start": "2026-09-21",
       "end": "2026-09-27",
       "current": false,
-      "minutes": [
-       205,
-       180,
-       27,
-       22,
-       1
-      ],
-      "stream": 436
+      "run": {
+       "minutes": [
+        205,
+        180,
+        27,
+        22,
+        1
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 436,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 0,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      }
      },
      {
       "index": 5,
       "start": "2026-09-28",
       "end": "2026-10-04",
       "current": false,
-      "minutes": [
-       180,
-       223,
-       16,
-       20,
-       0
-      ],
-      "stream": 439
+      "run": {
+       "minutes": [
+        180,
+        223,
+        16,
+        20,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 439,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        223,
+        30,
+        0,
+        0,
+        0
+       ],
+       "power": [
+        199,
+        45,
+        21,
+        12,
+        7,
+        5,
+        1
+       ],
+       "stream": 253,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 38
+      }
      },
      {
       "index": 6,
       "start": "2026-10-05",
       "end": "2026-10-11",
       "current": false,
-      "minutes": [
-       111,
-       221,
-       61,
-       13,
-       0
-      ],
-      "stream": 406
+      "run": {
+       "minutes": [
+        111,
+        221,
+        61,
+        13,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 406,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 0,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      }
      },
      {
       "index": 7,
       "start": "2026-10-12",
       "end": "2026-10-18",
       "current": false,
-      "minutes": [
-       100,
-       159,
-       29,
-       7,
-       1
-      ],
-      "stream": 296
+      "run": {
+       "minutes": [
+        100,
+        159,
+        29,
+        7,
+        1
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 296,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 0,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      }
      }
     ]
    },
@@ -4845,45 +5206,150 @@
     "start": "2026-10-19",
     "end": "2026-11-29",
     "current": true,
-    "minutes": [
-     221,
-     229,
-     112,
-     3,
-     0
-    ],
-    "stream": 565,
-    "measured": 0,
-    "modelled": 0,
-    "no_hr": 0,
+    "run": {
+     "minutes": [
+      221,
+      229,
+      112,
+      3,
+      0
+     ],
+     "power": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "stream": 565,
+     "measured": 0,
+     "modelled": 0,
+     "no_hr": 0
+    },
+    "bike": {
+     "minutes": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "power": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "stream": 0,
+     "measured": 0,
+     "modelled": 0,
+     "no_hr": 0
+    },
     "weeks": [
      {
       "index": 8,
       "start": "2026-10-19",
       "end": "2026-10-25",
       "current": false,
-      "minutes": [
-       51,
-       185,
-       112,
-       3,
-       0
-      ],
-      "stream": 351
+      "run": {
+       "minutes": [
+        51,
+        185,
+        112,
+        3,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 351,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 0,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      }
      },
      {
       "index": 9,
       "start": "2026-10-26",
       "end": "2026-11-01",
       "current": true,
-      "minutes": [
-       170,
-       44,
-       0,
-       0,
-       0
-      ],
-      "stream": 214
+      "run": {
+       "minutes": [
+        170,
+        44,
+        0,
+        0,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 214,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 0,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      }
      }
     ]
    }
