@@ -28,6 +28,6 @@ Weekly training review for Dan. Work in `/Users/stancld/projects/running-trainin
    plan vs actual (run h, vert, weekend long), the R1–R7 guardrails, CTL/ATL/form and
    monotony, the quality session's HR/power against LTHR 176, and what next week's plan
    row asks for. Flag anything that pushes the week-over-week running jump past 1.25×.
-7. **Publish.** `uv run tl site`, then commit and push `web/diary.html` to `master`.
+7. **Publish.** `uv run tl site`, then commit and push `web/src/payload.json` to `master`.
    The Pages workflow deploys it to https://stancld.github.io/running-training-analysis/.
 8. **Report** in the terminal: what happened, what it means, and the call for next week.

@@ -11,8 +11,9 @@ macrocycle and renders the diary page in `web/`. Read `README.md` before changin
 | Status of the prep | `uv run tl status` |
 | Full report | `uv run tl` |
 | JSON dump | `uv run tl export` (writes `data/diary.json`) |
-| Rebuild the diary page | `uv run tl site` (renders `web/diary.tmpl.html` → `web/diary.html`) |
-| Publish the diary page | commit and push `web/diary.html`; `.github/workflows/pages.yml` deploys it |
+| Rebuild the diary page | `uv run tl site` (writes `web/src/payload.json`) |
+| Preview / build the page | `cd web && bun run dev` / `bun run build` (Vite + React + TypeScript) |
+| Publish the diary page | commit and push `web/src/payload.json`; `.github/workflows/pages.yml` builds and deploys it |
 | Lint, format and hygiene | `uv run pre-commit run --all-files` (install once with `uv run pre-commit install`) |
 
 There is no test suite. CI (`.github/workflows/ci.yml`) runs pre-commit and smoke-tests
@@ -28,7 +29,7 @@ against the data. Run pre-commit before every commit; Ruff settings live in `ruf
 - `tl/plan.py` holds the macrocycle as data — week-level targets only.
 - `data/*.csv` is the cache and the source of truth. It is personal data, gitignored and
   kept on Dan's machine only — never commit it. `data/diary.json` and
-  `web/diary.html` are generated: regenerate them, never hand-edit them.
+  `web/src/payload.json` are generated: regenerate them, never hand-edit them.
 
 ## Boundaries
 
@@ -47,7 +48,7 @@ against the data. Run pre-commit before every commit; Ruff settings live in `ruf
 
 **Never**
 - Re-pull full history from Strava/COROS; fetch only the missing days.
-- Publish the diary anywhere but GitHub Pages. Pushing `web/diary.html` to `master`
+- Publish the diary anywhere but GitHub Pages. Pushing `web/` to `master`
   deploys it to https://stancld.github.io/running-training-analysis/; Dan has approved that.
 
 ## Code style

@@ -9,13 +9,12 @@ uv run tl plan                the 29-week macrocycle vs what happened
 uv run tl diary [n|all|DATE]  diary entries (default: plan weeks so far)
 uv run tl hills | segments | reps      quality-session analysis
 uv run tl export [path]       full JSON dump
-uv run tl site [path]         render web/diary.html for publishing
+uv run tl site [path]         write web/src/payload.json for the diary page
 """
 
 import datetime as dt
 import json
 import os
-import pathlib
 import sys
 
 from . import config as C
@@ -157,16 +156,15 @@ def cmd_reps(lab, arg=None):
 
 
 def cmd_site(lab, arg=None):
-    """Render the diary page from web/diary.tmpl.html.
+    """Write the diary page's payload to web/src/payload.json.
 
-    The optional argument is either an output path or a date — the Monday the
-    diary should start from. It defaults to the week before the macrocycle
-    opens, so the entries lead in with the week that set up week 1.
+    Pages cannot run tl (the CSVs never leave this machine), so the React app
+    builds from this committed file. The optional argument is either an output
+    path or a date — the Monday the diary should start from. It defaults to the
+    week before the macrocycle opens, so the entries lead in with week 1's setup.
     """
-    root = os.path.dirname(C.DATA)
-    tmpl = os.path.join(root, "web", "diary.tmpl.html")
     since = None
-    out = os.path.join(root, "web", "diary.html")
+    out = os.path.join(os.path.dirname(C.DATA), "web", "src", "payload.json")
     if arg:
         try:
             since = dt.date.fromisoformat(arg)
@@ -175,11 +173,9 @@ def cmd_site(lab, arg=None):
     obj = export_mod.web_payload(
         lab.ds, lab.weeks, lab.entries, lab.months, lab.seasons, lab.fitness, diary_from=since
     )
-    html = pathlib.Path(tmpl).read_text()
-    if "/*DATA*/" not in html:
-        return f"{tmpl} has no /*DATA*/ placeholder"
     with open(out, "w") as fh:
-        fh.write(html.replace("/*DATA*/", json.dumps(obj, ensure_ascii=False)))
+        json.dump(obj, fh, ensure_ascii=False, indent=1)
+        fh.write("\n")
     return (
         f"wrote {out}  ({os.path.getsize(out) // 1024} KB, "
         f"{len(obj['diary'])} diary weeks, {len(obj['months'])} months)"

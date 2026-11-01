@@ -9,16 +9,19 @@ public by link and marked `noindex`, so search engines don't list it.
 
 ## The diary
 
-One self-contained page with the data built in, rebuilt every time the cache is
-topped up. Top to bottom:
+A small React app (Vite + TypeScript, under `web/`) built from a JSON payload
+that `tl` writes every time the cache is topped up. On a laptop it is a
+dashboard grid; on a phone it is an app with Today, Plan, Diary and History tabs.
+
 
 | section | what it shows |
 |---|---|
-| This week | running hours against the plan, km, climb, m/h of climb density, the weekend's planned long run, and the five guardrails (WoW, ACWR, climb density, weekly km, no flat intervals) for the current week |
+| This week | running hours against the plan, km, climb, m/h of climb density and the weekend's planned long run |
+| Training guardrails | the five guardrails (WoW, ACWR, climb density, no flat intervals, weekly km) for the current week, each with its last six weeks |
 | Fitness & form | fitness (CTL), fatigue (ATL) and form (CTL − ATL) day by day over the last 12 weeks |
 | The 29-week plan | planned against actual running hours for every week of the macrocycle, its five phases, race weeks, and the 8-week horizon: weeks beyond it are bands, not numbers |
 | Weekly diary | one collapsible entry per week since the plan started: day-by-day sessions, Dan's notes, the plan comparison and the derived verdicts |
-| Every month since 2023 | a heatmap of monthly running hours plus a table of monthly volume, climb, longest run, easy/long HR and pace, and feel |
+| Every month since 2023 | a heatmap of monthly running hours; hover or tap a month for its volume, climb, longest run, easy/long HR and pace, and feel |
 | Week ledger | the last 26 weeks with ratios and guardrail flags |
 
 Everything on the page is derived from the cache. Nothing is written by hand
@@ -27,8 +30,8 @@ except Dan's own session notes.
 ## The package
 
 `tl` maps the whole history onto weeks, months and seasons, scores every week
-against the injury guardrails, compares actuals with the macrocycle and renders
-the page from `web/diary.tmpl.html`. The CSV cache in `data/` is personal and
+against the injury guardrails, compares actuals with the macrocycle and writes
+the page's payload to `web/src/payload.json`. The CSV cache in `data/` is personal and
 stays on Dan's machine; it is gitignored, so a fresh clone has no data.
 
 ### Use
@@ -43,7 +46,7 @@ Set up once with `uv sync`, which installs Python 3.14 and the dev tools.
     uv run tl diary 4 | all | DATE
     uv run tl hills | segments | reps
     uv run tl export [path]       full JSON dump (data/diary.json)
-    uv run tl site                render web/diary.html; pushing it publishes it
+    uv run tl site                write web/src/payload.json; pushing it publishes the page
 
 ### Layout
 
@@ -59,6 +62,14 @@ Set up once with `uv sync`, which installs Python 3.14 and the dev tools.
 | `export.py` | JSON for the diary page |
 | `cli.py` | commands |
 
+### The page
+
+The CSVs never leave Dan's machine, so GitHub Pages cannot run `tl`; it builds
+the app from the committed payload instead. To work on the page:
+
+    cd web && bun install && bun run dev    # live preview; reloads when tl site rewrites the payload
+    cd web && bun run build                 # type-check and build web/dist, as Pages does
+
 ## Workflow after a session
 
 1. Append to `data/activities.csv`, `labels.csv`, `re.csv`, `hr.csv` — never
@@ -71,8 +82,9 @@ Set up once with `uv sync`, which installs Python 3.14 and the dev tools.
 3. After an uphill session, extend `hills.csv` and `segments.csv` — Strava
    `get_activity_performance` returns laps and segment efforts with per-rep HR
    and watts in one call.
-4. `uv run tl status` to check, `uv run tl site` to rebuild the page, then
-   commit and push `web/diary.html`. The Pages workflow publishes it to
+4. `uv run tl status` to check, `uv run tl site` to rebuild the payload, then
+   commit and push `web/src/payload.json`. The Pages workflow builds the app
+   with Bun and publishes it to
    https://stancld.github.io/running-training-analysis/ — readable by link,
    `noindex` for search engines.
 

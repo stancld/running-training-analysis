@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# AGENTS.md: commit as Dan's personal identity; the pre-commit email hook rejects anything else.
+git config --local user.name stancld
+git config --local user.email daniel.stancl@gmail.com
+
 uv sync
 uv run pre-commit install-hooks
+
+# The diary page is a Vite + React app; .amp/services.yaml runs its dev server.
+(cd web && bun install --frozen-lockfile)

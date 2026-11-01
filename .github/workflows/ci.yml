@@ -44,5 +44,20 @@ jobs:
           uv run tl months all > /dev/null
           for c in seasons hills segments reps; do uv run tl "$c" > /dev/null; done
           uv run tl export "$RUNNER_TEMP/diary.json"
-          uv run tl site "$RUNNER_TEMP/diary.html"
+          uv run tl site "$RUNNER_TEMP/payload.json"
       - run: uv build
+
+  # The diary page; Pages builds it the same way from the committed payload.
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6  # v2.2.0
+      - run: bun install --frozen-lockfile
+      - run: bun run build

@@ -1,0 +1,4697 @@
+{
+ "generated": "01 November 2026, 15:13",
+ "today": "2026-11-01",
+ "race": {
+  "name": "Chianti 120K",
+  "date": "2027-03-20",
+  "weeks_to_go": 19.9
+ },
+ "cache": {
+  "first": "2023-01-04",
+  "last": "2026-11-01",
+  "n": 1684,
+  "stale": 0
+ },
+ "seasons": [
+  {
+   "label": "2023",
+   "run_h": 195.9,
+   "run_km": 2319.8,
+   "run_vert": 42463,
+   "density": 217,
+   "bike_h": 88.7,
+   "gym_h": 9.9,
+   "total_h": 331.5,
+   "run_days": 212,
+   "quality": 58,
+   "feel": 0.23,
+   "hr": 139.3,
+   "pace": 5.072,
+   "longest": 182
+  },
+  {
+   "label": "2024",
+   "run_h": 261.7,
+   "run_km": 2929.3,
+   "run_vert": 79160,
+   "density": 302,
+   "bike_h": 140.3,
+   "gym_h": 3.9,
+   "total_h": 436.2,
+   "run_days": 235,
+   "quality": 53,
+   "feel": 0.18,
+   "hr": 141.2,
+   "pace": 5.315,
+   "longest": 363
+  },
+  {
+   "label": "2025",
+   "run_h": 287.0,
+   "run_km": 3236.5,
+   "run_vert": 89446,
+   "density": 312,
+   "bike_h": 126.6,
+   "gym_h": 18.0,
+   "total_h": 489.9,
+   "run_days": 240,
+   "quality": 61,
+   "feel": -0.01,
+   "hr": 142.8,
+   "pace": 5.363,
+   "longest": 462
+  },
+  {
+   "label": "2026",
+   "run_h": 241.3,
+   "run_km": 2660.1,
+   "run_vert": 76171,
+   "density": 316,
+   "bike_h": 134.3,
+   "gym_h": 22.0,
+   "total_h": 420.2,
+   "run_days": 204,
+   "quality": 39,
+   "feel": 0.11,
+   "hr": 140.6,
+   "pace": 5.452,
+   "longest": 620
+  }
+ ],
+ "months": [
+  {
+   "label": "2023-01",
+   "run_h": 9.2,
+   "run_km": 113.2,
+   "run_vert": 1799,
+   "density": 196,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 9.2,
+   "run_days": 9,
+   "quality": 0,
+   "feel": null,
+   "hr": null,
+   "pace": null,
+   "longest": 79
+  },
+  {
+   "label": "2023-02",
+   "run_h": 12.1,
+   "run_km": 142.9,
+   "run_vert": 2938,
+   "density": 243,
+   "bike_h": 0.0,
+   "gym_h": 3.5,
+   "total_h": 23.1,
+   "run_days": 12,
+   "quality": 3,
+   "feel": -1.0,
+   "hr": null,
+   "pace": null,
+   "longest": 88
+  },
+  {
+   "label": "2023-03",
+   "run_h": 20.7,
+   "run_km": 238.8,
+   "run_vert": 4960,
+   "density": 240,
+   "bike_h": 0.0,
+   "gym_h": 0.5,
+   "total_h": 26.9,
+   "run_days": 20,
+   "quality": 5,
+   "feel": 0.17,
+   "hr": null,
+   "pace": null,
+   "longest": 131
+  },
+  {
+   "label": "2023-04",
+   "run_h": 11.6,
+   "run_km": 135.2,
+   "run_vert": 2645,
+   "density": 228,
+   "bike_h": 11.4,
+   "gym_h": 0.0,
+   "total_h": 23.4,
+   "run_days": 13,
+   "quality": 3,
+   "feel": 0.17,
+   "hr": 138.3,
+   "pace": 5.0,
+   "longest": 104
+  },
+  {
+   "label": "2023-05",
+   "run_h": 20.3,
+   "run_km": 224.4,
+   "run_vert": 5882,
+   "density": 290,
+   "bike_h": 21.9,
+   "gym_h": 0.0,
+   "total_h": 44.1,
+   "run_days": 20,
+   "quality": 7,
+   "feel": 0.5,
+   "hr": 137.0,
+   "pace": 5.251,
+   "longest": 148
+  },
+  {
+   "label": "2023-06",
+   "run_h": 14.6,
+   "run_km": 167.6,
+   "run_vert": 4364,
+   "density": 300,
+   "bike_h": 17.4,
+   "gym_h": 0.0,
+   "total_h": 38.0,
+   "run_days": 14,
+   "quality": 4,
+   "feel": 1.0,
+   "hr": 147.5,
+   "pace": 5.228,
+   "longest": 182
+  },
+  {
+   "label": "2023-07",
+   "run_h": 19.2,
+   "run_km": 229.7,
+   "run_vert": 3852,
+   "density": 201,
+   "bike_h": 14.1,
+   "gym_h": 3.7,
+   "total_h": 36.9,
+   "run_days": 20,
+   "quality": 4,
+   "feel": null,
+   "hr": 139.7,
+   "pace": 4.819,
+   "longest": 117
+  },
+  {
+   "label": "2023-08",
+   "run_h": 25.1,
+   "run_km": 301.9,
+   "run_vert": 3715,
+   "density": 148,
+   "bike_h": 7.0,
+   "gym_h": 1.2,
+   "total_h": 33.2,
+   "run_days": 26,
+   "quality": 9,
+   "feel": 0.43,
+   "hr": 139.3,
+   "pace": 5.119,
+   "longest": 120
+  },
+  {
+   "label": "2023-09",
+   "run_h": 24.5,
+   "run_km": 303.7,
+   "run_vert": 5068,
+   "density": 207,
+   "bike_h": 6.1,
+   "gym_h": 1.0,
+   "total_h": 36.3,
+   "run_days": 27,
+   "quality": 10,
+   "feel": 0.0,
+   "hr": 138.4,
+   "pace": 4.951,
+   "longest": 120
+  },
+  {
+   "label": "2023-10",
+   "run_h": 17.9,
+   "run_km": 216.8,
+   "run_vert": 3708,
+   "density": 207,
+   "bike_h": 4.3,
+   "gym_h": 0.0,
+   "total_h": 23.8,
+   "run_days": 22,
+   "quality": 9,
+   "feel": -0.17,
+   "hr": 138.4,
+   "pace": 5.122,
+   "longest": 168
+  },
+  {
+   "label": "2023-11",
+   "run_h": 7.1,
+   "run_km": 85.5,
+   "run_vert": 1149,
+   "density": 161,
+   "bike_h": 4.5,
+   "gym_h": 0.0,
+   "total_h": 14.8,
+   "run_days": 11,
+   "quality": 4,
+   "feel": 0.67,
+   "hr": 134.8,
+   "pace": 5.117,
+   "longest": 60
+  },
+  {
+   "label": "2023-12",
+   "run_h": 13.6,
+   "run_km": 160.1,
+   "run_vert": 2383,
+   "density": 175,
+   "bike_h": 1.9,
+   "gym_h": 0.0,
+   "total_h": 21.7,
+   "run_days": 18,
+   "quality": 0,
+   "feel": 0.0,
+   "hr": 135.9,
+   "pace": 5.422,
+   "longest": 75
+  },
+  {
+   "label": "2024-01",
+   "run_h": 26.8,
+   "run_km": 315.3,
+   "run_vert": 6367,
+   "density": 237,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 26.8,
+   "run_days": 27,
+   "quality": 3,
+   "feel": 0.0,
+   "hr": 145.0,
+   "pace": 5.144,
+   "longest": 120
+  },
+  {
+   "label": "2024-02",
+   "run_h": 24.5,
+   "run_km": 291.8,
+   "run_vert": 5156,
+   "density": 210,
+   "bike_h": 4.3,
+   "gym_h": 1.4,
+   "total_h": 30.2,
+   "run_days": 23,
+   "quality": 8,
+   "feel": 0.0,
+   "hr": 141.3,
+   "pace": 5.467,
+   "longest": 125
+  },
+  {
+   "label": "2024-03",
+   "run_h": 12.6,
+   "run_km": 137.3,
+   "run_vert": 3766,
+   "density": 299,
+   "bike_h": 24.1,
+   "gym_h": 1.5,
+   "total_h": 43.4,
+   "run_days": 12,
+   "quality": 2,
+   "feel": 0.25,
+   "hr": 138.4,
+   "pace": 5.606,
+   "longest": 165
+  },
+  {
+   "label": "2024-04",
+   "run_h": 21.8,
+   "run_km": 236.6,
+   "run_vert": 6851,
+   "density": 315,
+   "bike_h": 14.5,
+   "gym_h": 0.0,
+   "total_h": 40.7,
+   "run_days": 20,
+   "quality": 5,
+   "feel": 0.0,
+   "hr": 141.1,
+   "pace": 5.189,
+   "longest": 164
+  },
+  {
+   "label": "2024-05",
+   "run_h": 24.7,
+   "run_km": 262.0,
+   "run_vert": 8304,
+   "density": 336,
+   "bike_h": 5.5,
+   "gym_h": 0.0,
+   "total_h": 30.1,
+   "run_days": 23,
+   "quality": 5,
+   "feel": 0.5,
+   "hr": 132.6,
+   "pace": 5.352,
+   "longest": 174
+  },
+  {
+   "label": "2024-06",
+   "run_h": 31.0,
+   "run_km": 334.1,
+   "run_vert": 11206,
+   "density": 361,
+   "bike_h": 6.4,
+   "gym_h": 0.0,
+   "total_h": 39.5,
+   "run_days": 22,
+   "quality": 4,
+   "feel": 0.67,
+   "hr": 144.6,
+   "pace": 5.523,
+   "longest": 160
+  },
+  {
+   "label": "2024-07",
+   "run_h": 24.5,
+   "run_km": 266.1,
+   "run_vert": 8974,
+   "density": 366,
+   "bike_h": 15.3,
+   "gym_h": 0.0,
+   "total_h": 41.8,
+   "run_days": 22,
+   "quality": 10,
+   "feel": 0.4,
+   "hr": 138.0,
+   "pace": 5.709,
+   "longest": 151
+  },
+  {
+   "label": "2024-08",
+   "run_h": 19.0,
+   "run_km": 193.4,
+   "run_vert": 7302,
+   "density": 385,
+   "bike_h": 14.2,
+   "gym_h": 0.0,
+   "total_h": 37.1,
+   "run_days": 14,
+   "quality": 2,
+   "feel": 0.0,
+   "hr": 139.9,
+   "pace": 5.206,
+   "longest": 363
+  },
+  {
+   "label": "2024-09",
+   "run_h": 22.1,
+   "run_km": 255.2,
+   "run_vert": 6078,
+   "density": 275,
+   "bike_h": 28.9,
+   "gym_h": 1.0,
+   "total_h": 56.6,
+   "run_days": 19,
+   "quality": 3,
+   "feel": -1.0,
+   "hr": 140.9,
+   "pace": 5.404,
+   "longest": 130
+  },
+  {
+   "label": "2024-10",
+   "run_h": 18.8,
+   "run_km": 220.6,
+   "run_vert": 5855,
+   "density": 312,
+   "bike_h": 13.2,
+   "gym_h": 0.0,
+   "total_h": 36.5,
+   "run_days": 18,
+   "quality": 4,
+   "feel": 1.5,
+   "hr": 139.1,
+   "pace": 5.181,
+   "longest": 208
+  },
+  {
+   "label": "2024-11",
+   "run_h": 9.5,
+   "run_km": 116.9,
+   "run_vert": 2115,
+   "density": 222,
+   "bike_h": 9.1,
+   "gym_h": 0.0,
+   "total_h": 20.7,
+   "run_days": 13,
+   "quality": 4,
+   "feel": 0.5,
+   "hr": 142.7,
+   "pace": 5.038,
+   "longest": 65
+  },
+  {
+   "label": "2024-12",
+   "run_h": 26.4,
+   "run_km": 300.0,
+   "run_vert": 7186,
+   "density": 273,
+   "bike_h": 5.0,
+   "gym_h": 0.0,
+   "total_h": 32.8,
+   "run_days": 22,
+   "quality": 3,
+   "feel": -0.67,
+   "hr": 144.2,
+   "pace": 5.061,
+   "longest": 151
+  },
+  {
+   "label": "2025-01",
+   "run_h": 26.6,
+   "run_km": 310.1,
+   "run_vert": 7548,
+   "density": 284,
+   "bike_h": 2.7,
+   "gym_h": 0.0,
+   "total_h": 36.3,
+   "run_days": 22,
+   "quality": 3,
+   "feel": 0.67,
+   "hr": 141.4,
+   "pace": 5.403,
+   "longest": 166
+  },
+  {
+   "label": "2025-02",
+   "run_h": 21.8,
+   "run_km": 250.8,
+   "run_vert": 5701,
+   "density": 262,
+   "bike_h": 0.3,
+   "gym_h": 0.0,
+   "total_h": 26.2,
+   "run_days": 21,
+   "quality": 6,
+   "feel": -0.17,
+   "hr": 140.6,
+   "pace": 5.477,
+   "longest": 140
+  },
+  {
+   "label": "2025-03",
+   "run_h": 29.6,
+   "run_km": 334.2,
+   "run_vert": 9434,
+   "density": 318,
+   "bike_h": 10.8,
+   "gym_h": 0.0,
+   "total_h": 40.5,
+   "run_days": 25,
+   "quality": 4,
+   "feel": 0.38,
+   "hr": 142.9,
+   "pace": 5.299,
+   "longest": 167
+  },
+  {
+   "label": "2025-04",
+   "run_h": 14.4,
+   "run_km": 162.0,
+   "run_vert": 5304,
+   "density": 368,
+   "bike_h": 34.2,
+   "gym_h": 0.0,
+   "total_h": 57.9,
+   "run_days": 16,
+   "quality": 6,
+   "feel": 0.22,
+   "hr": 143.2,
+   "pace": 5.287,
+   "longest": 116
+  },
+  {
+   "label": "2025-05",
+   "run_h": 30.7,
+   "run_km": 347.9,
+   "run_vert": 11056,
+   "density": 360,
+   "bike_h": 7.7,
+   "gym_h": 0.0,
+   "total_h": 38.5,
+   "run_days": 23,
+   "quality": 9,
+   "feel": -0.33,
+   "hr": 143.3,
+   "pace": 5.211,
+   "longest": 245
+  },
+  {
+   "label": "2025-06",
+   "run_h": 15.2,
+   "run_km": 168.3,
+   "run_vert": 4535,
+   "density": 299,
+   "bike_h": 9.9,
+   "gym_h": 0.0,
+   "total_h": 40.9,
+   "run_days": 12,
+   "quality": 3,
+   "feel": -0.6,
+   "hr": 144.4,
+   "pace": 5.363,
+   "longest": 165
+  },
+  {
+   "label": "2025-07",
+   "run_h": 23.5,
+   "run_km": 239.6,
+   "run_vert": 10589,
+   "density": 451,
+   "bike_h": 21.8,
+   "gym_h": 0.0,
+   "total_h": 45.3,
+   "run_days": 18,
+   "quality": 5,
+   "feel": 0.25,
+   "hr": 147.3,
+   "pace": 5.582,
+   "longest": 195
+  },
+  {
+   "label": "2025-08",
+   "run_h": 18.5,
+   "run_km": 219.7,
+   "run_vert": 5924,
+   "density": 320,
+   "bike_h": 22.7,
+   "gym_h": 0.0,
+   "total_h": 51.6,
+   "run_days": 17,
+   "quality": 6,
+   "feel": 0.0,
+   "hr": 143.5,
+   "pace": 5.251,
+   "longest": 165
+  },
+  {
+   "label": "2025-09",
+   "run_h": 33.8,
+   "run_km": 388.8,
+   "run_vert": 10765,
+   "density": 319,
+   "bike_h": 11.8,
+   "gym_h": 1.0,
+   "total_h": 48.0,
+   "run_days": 26,
+   "quality": 7,
+   "feel": 0.15,
+   "hr": 142.0,
+   "pace": 5.403,
+   "longest": 203
+  },
+  {
+   "label": "2025-10",
+   "run_h": 18.1,
+   "run_km": 196.8,
+   "run_vert": 5945,
+   "density": 329,
+   "bike_h": 1.1,
+   "gym_h": 1.0,
+   "total_h": 23.9,
+   "run_days": 12,
+   "quality": 4,
+   "feel": 0.25,
+   "hr": 139.1,
+   "pace": 5.347,
+   "longest": 462
+  },
+  {
+   "label": "2025-11",
+   "run_h": 24.0,
+   "run_km": 271.5,
+   "run_vert": 5640,
+   "density": 235,
+   "bike_h": 3.1,
+   "gym_h": 7.2,
+   "total_h": 39.0,
+   "run_days": 21,
+   "quality": 1,
+   "feel": -0.29,
+   "hr": 145.4,
+   "pace": 5.268,
+   "longest": 145
+  },
+  {
+   "label": "2025-12",
+   "run_h": 30.8,
+   "run_km": 346.8,
+   "run_vert": 7005,
+   "density": 228,
+   "bike_h": 0.3,
+   "gym_h": 8.8,
+   "total_h": 42.0,
+   "run_days": 27,
+   "quality": 7,
+   "feel": -0.1,
+   "hr": 141.6,
+   "pace": 5.419,
+   "longest": 165
+  },
+  {
+   "label": "2026-01",
+   "run_h": 10.0,
+   "run_km": 113.9,
+   "run_vert": 3112,
+   "density": 312,
+   "bike_h": 4.0,
+   "gym_h": 5.2,
+   "total_h": 22.1,
+   "run_days": 10,
+   "quality": 2,
+   "feel": -0.33,
+   "hr": 140.0,
+   "pace": 5.234,
+   "longest": 185
+  },
+  {
+   "label": "2026-02",
+   "run_h": 12.9,
+   "run_km": 148.6,
+   "run_vert": 2489,
+   "density": 193,
+   "bike_h": 5.5,
+   "gym_h": 4.9,
+   "total_h": 26.3,
+   "run_days": 15,
+   "quality": 1,
+   "feel": -0.45,
+   "hr": 140.7,
+   "pace": 5.167,
+   "longest": 80
+  },
+  {
+   "label": "2026-03",
+   "run_h": 22.2,
+   "run_km": 268.8,
+   "run_vert": 4008,
+   "density": 181,
+   "bike_h": 26.2,
+   "gym_h": 5.9,
+   "total_h": 55.5,
+   "run_days": 21,
+   "quality": 6,
+   "feel": 0.5,
+   "hr": 142.0,
+   "pace": 5.247,
+   "longest": 160
+  },
+  {
+   "label": "2026-04",
+   "run_h": 23.4,
+   "run_km": 272.2,
+   "run_vert": 5243,
+   "density": 224,
+   "bike_h": 12.6,
+   "gym_h": 4.1,
+   "total_h": 40.1,
+   "run_days": 23,
+   "quality": 4,
+   "feel": -0.5,
+   "hr": 140.8,
+   "pace": 5.456,
+   "longest": 131
+  },
+  {
+   "label": "2026-05",
+   "run_h": 32.9,
+   "run_km": 340.2,
+   "run_vert": 13759,
+   "density": 419,
+   "bike_h": 15.8,
+   "gym_h": 1.0,
+   "total_h": 55.1,
+   "run_days": 20,
+   "quality": 1,
+   "feel": 0.3,
+   "hr": 144.9,
+   "pace": 5.446,
+   "longest": 215
+  },
+  {
+   "label": "2026-06",
+   "run_h": 33.0,
+   "run_km": 303.5,
+   "run_vert": 15910,
+   "density": 481,
+   "bike_h": 7.4,
+   "gym_h": 0.0,
+   "total_h": 40.4,
+   "run_days": 20,
+   "quality": 4,
+   "feel": 0.0,
+   "hr": 140.2,
+   "pace": 5.844,
+   "longest": 620
+  },
+  {
+   "label": "2026-07",
+   "run_h": 19.3,
+   "run_km": 212.5,
+   "run_vert": 4285,
+   "density": 222,
+   "bike_h": 22.3,
+   "gym_h": 1.0,
+   "total_h": 42.6,
+   "run_days": 20,
+   "quality": 3,
+   "feel": -0.11,
+   "hr": 139.1,
+   "pace": 5.563,
+   "longest": 144
+  },
+  {
+   "label": "2026-08",
+   "run_h": 31.5,
+   "run_km": 349.5,
+   "run_vert": 9180,
+   "density": 291,
+   "bike_h": 22.7,
+   "gym_h": 0.0,
+   "total_h": 54.3,
+   "run_days": 27,
+   "quality": 4,
+   "feel": 0.67,
+   "hr": 142.9,
+   "pace": 5.497,
+   "longest": 205
+  },
+  {
+   "label": "2026-09",
+   "run_h": 29.8,
+   "run_km": 338.5,
+   "run_vert": 10512,
+   "density": 353,
+   "bike_h": 13.0,
+   "gym_h": 0.0,
+   "total_h": 50.4,
+   "run_days": 24,
+   "quality": 5,
+   "feel": 0.27,
+   "hr": 139.1,
+   "pace": 5.497,
+   "longest": 176
+  },
+  {
+   "label": "2026-10",
+   "run_h": 25.4,
+   "run_km": 300.7,
+   "run_vert": 7373,
+   "density": 291,
+   "bike_h": 4.8,
+   "gym_h": 0.0,
+   "total_h": 32.5,
+   "run_days": 23,
+   "quality": 9,
+   "feel": 1.0,
+   "hr": 137.1,
+   "pace": 5.368,
+   "longest": 240
+  },
+  {
+   "label": "2026-11",
+   "run_h": 1.1,
+   "run_km": 11.7,
+   "run_vert": 300,
+   "density": 277,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 1.1,
+   "run_days": 1,
+   "quality": 0,
+   "feel": null,
+   "hr": 135.0,
+   "pace": 5.556,
+   "longest": 65
+  }
+ ],
+ "weeks": [
+  {
+   "label": "2025-W37",
+   "start": "2025-09-08",
+   "run_h": 7.6,
+   "km": 89.5,
+   "vert": 2435,
+   "density": 320,
+   "bike_h": 1.0,
+   "gym_h": 0.0,
+   "total_h": 8.6,
+   "wow": 1.02,
+   "acwr": 1.34,
+   "flags": [
+    "R2",
+    "R4"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W38",
+   "start": "2025-09-15",
+   "run_h": 8.07,
+   "km": 91.2,
+   "vert": 2876,
+   "density": 357,
+   "bike_h": 6.35,
+   "gym_h": 0.0,
+   "total_h": 15.78,
+   "wow": 1.06,
+   "acwr": 1.08,
+   "flags": [
+    "R4"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W39",
+   "start": "2025-09-22",
+   "run_h": 8.22,
+   "km": 95.2,
+   "vert": 2433,
+   "density": 296,
+   "bike_h": 2.78,
+   "gym_h": 1.0,
+   "total_h": 12.0,
+   "wow": 1.02,
+   "acwr": 1.05,
+   "flags": [
+    "R3"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W40",
+   "start": "2025-09-29",
+   "run_h": 8.4,
+   "km": 95.8,
+   "vert": 2554,
+   "density": 304,
+   "bike_h": 0.58,
+   "gym_h": 0.0,
+   "total_h": 8.98,
+   "wow": 1.02,
+   "acwr": 1.04,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2025-W41",
+   "start": "2025-10-06",
+   "run_h": 2.92,
+   "km": 34.2,
+   "vert": 567,
+   "density": 194,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 2.92,
+   "wow": 0.35,
+   "acwr": 0.42,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2025-W42",
+   "start": "2025-10-13",
+   "run_h": 9.2,
+   "km": 94.6,
+   "vert": 3599,
+   "density": 391,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 9.2,
+   "wow": 3.15,
+   "acwr": 1.28,
+   "flags": [
+    "R1"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W43",
+   "start": "2025-10-20",
+   "run_h": 0.0,
+   "km": 0,
+   "vert": 0,
+   "density": 0,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 3.72,
+   "wow": 0.0,
+   "acwr": 0.0,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2025-W44",
+   "start": "2025-10-27",
+   "run_h": 0.0,
+   "km": 0,
+   "vert": 0,
+   "density": 0,
+   "bike_h": 3.3,
+   "gym_h": 1.0,
+   "total_h": 4.3,
+   "wow": null,
+   "acwr": 0.0,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2025-W45",
+   "start": "2025-11-03",
+   "run_h": 6.03,
+   "km": 70.1,
+   "vert": 1365,
+   "density": 226,
+   "bike_h": 0.28,
+   "gym_h": 2.58,
+   "total_h": 8.9,
+   "wow": null,
+   "acwr": 1.58,
+   "flags": [
+    "R2"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W46",
+   "start": "2025-11-10",
+   "run_h": 6.67,
+   "km": 75.6,
+   "vert": 1741,
+   "density": 261,
+   "bike_h": 0.33,
+   "gym_h": 1.15,
+   "total_h": 8.15,
+   "wow": 1.1,
+   "acwr": 2.1,
+   "flags": [
+    "R2"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W47",
+   "start": "2025-11-17",
+   "run_h": 7.17,
+   "km": 80.8,
+   "vert": 1366,
+   "density": 191,
+   "bike_h": 0.0,
+   "gym_h": 2.4,
+   "total_h": 9.57,
+   "wow": 1.07,
+   "acwr": 1.44,
+   "flags": [
+    "R2"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W48",
+   "start": "2025-11-24",
+   "run_h": 4.12,
+   "km": 45.0,
+   "vert": 1168,
+   "density": 284,
+   "bike_h": 0.0,
+   "gym_h": 1.07,
+   "total_h": 9.92,
+   "wow": 0.57,
+   "acwr": 0.69,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2025-W49",
+   "start": "2025-12-01",
+   "run_h": 7.37,
+   "km": 80.2,
+   "vert": 2058,
+   "density": 279,
+   "bike_h": 0.0,
+   "gym_h": 2.12,
+   "total_h": 9.48,
+   "wow": 1.79,
+   "acwr": 1.16,
+   "flags": [
+    "R1",
+    "R4"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W50",
+   "start": "2025-12-08",
+   "run_h": 7.42,
+   "km": 84.8,
+   "vert": 1686,
+   "density": 227,
+   "bike_h": 0.33,
+   "gym_h": 2.13,
+   "total_h": 9.88,
+   "wow": 1.01,
+   "acwr": 1.14,
+   "flags": [
+    "R4"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W51",
+   "start": "2025-12-15",
+   "run_h": 7.88,
+   "km": 89.9,
+   "vert": 1403,
+   "density": 178,
+   "bike_h": 0.0,
+   "gym_h": 1.0,
+   "total_h": 8.88,
+   "wow": 1.06,
+   "acwr": 1.18,
+   "flags": [
+    "R4"
+   ],
+   "current": false
+  },
+  {
+   "label": "2025-W52",
+   "start": "2025-12-22",
+   "run_h": 4.52,
+   "km": 51.0,
+   "vert": 1113,
+   "density": 246,
+   "bike_h": 0.0,
+   "gym_h": 2.52,
+   "total_h": 9.15,
+   "wow": 0.57,
+   "acwr": 0.66,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W01",
+   "start": "2025-12-29",
+   "run_h": 7.48,
+   "km": 84.1,
+   "vert": 1943,
+   "density": 260,
+   "bike_h": 0.0,
+   "gym_h": 1.05,
+   "total_h": 10.2,
+   "wow": 1.66,
+   "acwr": 1.1,
+   "flags": [
+    "R1"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W02",
+   "start": "2026-01-05",
+   "run_h": 0.85,
+   "km": 9.2,
+   "vert": 180,
+   "density": 212,
+   "bike_h": 0.0,
+   "gym_h": 1.17,
+   "total_h": 2.02,
+   "wow": 0.11,
+   "acwr": 0.16,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W03",
+   "start": "2026-01-12",
+   "run_h": 3.53,
+   "km": 38.9,
+   "vert": 1358,
+   "density": 384,
+   "bike_h": 0.0,
+   "gym_h": 1.0,
+   "total_h": 4.53,
+   "wow": 4.16,
+   "acwr": 0.86,
+   "flags": [
+    "R1"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W04",
+   "start": "2026-01-19",
+   "run_h": 1.72,
+   "km": 22.6,
+   "vert": 376,
+   "density": 219,
+   "bike_h": 0.0,
+   "gym_h": 1.0,
+   "total_h": 3.95,
+   "wow": 0.49,
+   "acwr": 0.51,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W05",
+   "start": "2026-01-26",
+   "run_h": 0.67,
+   "km": 8.2,
+   "vert": 101,
+   "density": 152,
+   "bike_h": 4.05,
+   "gym_h": 2.0,
+   "total_h": 6.72,
+   "wow": 0.39,
+   "acwr": 0.39,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W06",
+   "start": "2026-02-02",
+   "run_h": 2.83,
+   "km": 32.5,
+   "vert": 513,
+   "density": 181,
+   "bike_h": 1.47,
+   "gym_h": 1.0,
+   "total_h": 5.3,
+   "wow": 4.25,
+   "acwr": 1.3,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W07",
+   "start": "2026-02-09",
+   "run_h": 2.68,
+   "km": 30.5,
+   "vert": 642,
+   "density": 239,
+   "bike_h": 3.0,
+   "gym_h": 1.0,
+   "total_h": 6.68,
+   "wow": 0.95,
+   "acwr": 1.36,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W08",
+   "start": "2026-02-16",
+   "run_h": 2.72,
+   "km": 33.0,
+   "vert": 463,
+   "density": 170,
+   "bike_h": 0.0,
+   "gym_h": 0.92,
+   "total_h": 6.65,
+   "wow": 1.01,
+   "acwr": 1.22,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W09",
+   "start": "2026-02-23",
+   "run_h": 5.38,
+   "km": 60.0,
+   "vert": 988,
+   "density": 184,
+   "bike_h": 1.0,
+   "gym_h": 2.0,
+   "total_h": 8.38,
+   "wow": 1.98,
+   "acwr": 1.58,
+   "flags": [
+    "R1",
+    "R2"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W10",
+   "start": "2026-03-02",
+   "run_h": 5.2,
+   "km": 60.7,
+   "vert": 1195,
+   "density": 230,
+   "bike_h": 3.73,
+   "gym_h": 0.83,
+   "total_h": 9.77,
+   "wow": 0.97,
+   "acwr": 1.3,
+   "flags": [
+    "R2"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W11",
+   "start": "2026-03-09",
+   "run_h": 4.9,
+   "km": 61.9,
+   "vert": 771,
+   "density": 157,
+   "bike_h": 2.6,
+   "gym_h": 1.77,
+   "total_h": 10.52,
+   "wow": 0.94,
+   "acwr": 1.08,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W12",
+   "start": "2026-03-16",
+   "run_h": 4.72,
+   "km": 58.1,
+   "vert": 897,
+   "density": 190,
+   "bike_h": 10.9,
+   "gym_h": 2.02,
+   "total_h": 17.63,
+   "wow": 0.96,
+   "acwr": 0.93,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W13",
+   "start": "2026-03-23",
+   "run_h": 4.25,
+   "km": 50.3,
+   "vert": 730,
+   "density": 172,
+   "bike_h": 8.93,
+   "gym_h": 1.25,
+   "total_h": 14.43,
+   "wow": 0.9,
+   "acwr": 0.89,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W14",
+   "start": "2026-03-30",
+   "run_h": 6.47,
+   "km": 83.5,
+   "vert": 879,
+   "density": 136,
+   "bike_h": 1.02,
+   "gym_h": 0.83,
+   "total_h": 8.32,
+   "wow": 1.52,
+   "acwr": 1.27,
+   "flags": [
+    "R1"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W15",
+   "start": "2026-04-06",
+   "run_h": 5.9,
+   "km": 75.5,
+   "vert": 1022,
+   "density": 173,
+   "bike_h": 0.0,
+   "gym_h": 1.18,
+   "total_h": 7.08,
+   "wow": 0.91,
+   "acwr": 1.11,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W16",
+   "start": "2026-04-13",
+   "run_h": 5.33,
+   "km": 56.1,
+   "vert": 1459,
+   "density": 274,
+   "bike_h": 5.18,
+   "gym_h": 0.0,
+   "total_h": 10.52,
+   "wow": 0.9,
+   "acwr": 0.97,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W17",
+   "start": "2026-04-20",
+   "run_h": 4.87,
+   "km": 53.7,
+   "vert": 1633,
+   "density": 336,
+   "bike_h": 5.77,
+   "gym_h": 1.02,
+   "total_h": 11.65,
+   "wow": 0.91,
+   "acwr": 0.86,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W18",
+   "start": "2026-04-27",
+   "run_h": 7.75,
+   "km": 80.2,
+   "vert": 2697,
+   "density": 348,
+   "bike_h": 0.65,
+   "gym_h": 1.05,
+   "total_h": 14.87,
+   "wow": 1.59,
+   "acwr": 1.3,
+   "flags": [
+    "R1"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W19",
+   "start": "2026-05-04",
+   "run_h": 7.05,
+   "km": 79.7,
+   "vert": 2740,
+   "density": 389,
+   "bike_h": 4.3,
+   "gym_h": 0.0,
+   "total_h": 11.35,
+   "wow": 0.91,
+   "acwr": 1.13,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W20",
+   "start": "2026-05-11",
+   "run_h": 8.87,
+   "km": 89.9,
+   "vert": 3944,
+   "density": 445,
+   "bike_h": 1.88,
+   "gym_h": 1.0,
+   "total_h": 11.75,
+   "wow": 1.26,
+   "acwr": 1.24,
+   "flags": [
+    "R1"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W21",
+   "start": "2026-05-18",
+   "run_h": 8.22,
+   "km": 77.8,
+   "vert": 3969,
+   "density": 483,
+   "bike_h": 3.18,
+   "gym_h": 0.0,
+   "total_h": 11.4,
+   "wow": 0.93,
+   "acwr": 1.03,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W22",
+   "start": "2026-05-25",
+   "run_h": 3.47,
+   "km": 38.2,
+   "vert": 856,
+   "density": 247,
+   "bike_h": 6.43,
+   "gym_h": 0.0,
+   "total_h": 9.9,
+   "wow": 0.42,
+   "acwr": 0.5,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W23",
+   "start": "2026-06-01",
+   "run_h": 8.77,
+   "km": 81.2,
+   "vert": 5104,
+   "density": 582,
+   "bike_h": 2.77,
+   "gym_h": 0.0,
+   "total_h": 11.53,
+   "wow": 2.53,
+   "acwr": 1.2,
+   "flags": [
+    "R1"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W24",
+   "start": "2026-06-08",
+   "run_h": 9.02,
+   "km": 86.6,
+   "vert": 5289,
+   "density": 587,
+   "bike_h": 0.65,
+   "gym_h": 0.0,
+   "total_h": 9.67,
+   "wow": 1.03,
+   "acwr": 1.22,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W25",
+   "start": "2026-06-15",
+   "run_h": 3.78,
+   "km": 43.1,
+   "vert": 953,
+   "density": 252,
+   "bike_h": 1.33,
+   "gym_h": 0.0,
+   "total_h": 5.12,
+   "wow": 0.42,
+   "acwr": 0.6,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W26",
+   "start": "2026-06-22",
+   "run_h": 11.48,
+   "km": 92.6,
+   "vert": 4564,
+   "density": 397,
+   "bike_h": 0.25,
+   "gym_h": 0.0,
+   "total_h": 11.73,
+   "wow": 3.04,
+   "acwr": 1.39,
+   "flags": [
+    "R1",
+    "R2"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W27",
+   "start": "2026-06-29",
+   "run_h": 0.67,
+   "km": 7.4,
+   "vert": 155,
+   "density": 232,
+   "bike_h": 7.62,
+   "gym_h": 0.0,
+   "total_h": 8.28,
+   "wow": 0.06,
+   "acwr": 0.11,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W28",
+   "start": "2026-07-06",
+   "run_h": 2.03,
+   "km": 22.6,
+   "vert": 331,
+   "density": 163,
+   "bike_h": 6.75,
+   "gym_h": 0.0,
+   "total_h": 8.78,
+   "wow": 3.05,
+   "acwr": 0.45,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W29",
+   "start": "2026-07-13",
+   "run_h": 6.02,
+   "km": 70.1,
+   "vert": 1123,
+   "density": 187,
+   "bike_h": 4.58,
+   "gym_h": 0.0,
+   "total_h": 10.6,
+   "wow": 2.96,
+   "acwr": 1.19,
+   "flags": [
+    "R1"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W30",
+   "start": "2026-07-20",
+   "run_h": 6.9,
+   "km": 71.6,
+   "vert": 1796,
+   "density": 260,
+   "bike_h": 4.95,
+   "gym_h": 1.0,
+   "total_h": 12.85,
+   "wow": 1.15,
+   "acwr": 1.77,
+   "flags": [
+    "R2"
+   ],
+   "current": false
+  },
+  {
+   "label": "2026-W31",
+   "start": "2026-07-27",
+   "run_h": 6.48,
+   "km": 71.7,
+   "vert": 1913,
+   "density": 295,
+   "bike_h": 4.58,
+   "gym_h": 0.0,
+   "total_h": 11.07,
+   "wow": 0.94,
+   "acwr": 1.21,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W32",
+   "start": "2026-08-03",
+   "run_h": 6.57,
+   "km": 74.8,
+   "vert": 2025,
+   "density": 308,
+   "bike_h": 3.9,
+   "gym_h": 0.0,
+   "total_h": 10.53,
+   "wow": 1.01,
+   "acwr": 1.01,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W33",
+   "start": "2026-08-10",
+   "run_h": 7.52,
+   "km": 75.1,
+   "vert": 2522,
+   "density": 336,
+   "bike_h": 7.4,
+   "gym_h": 0.0,
+   "total_h": 14.92,
+   "wow": 1.14,
+   "acwr": 1.09,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W34",
+   "start": "2026-08-17",
+   "run_h": 6.65,
+   "km": 75.1,
+   "vert": 1868,
+   "density": 281,
+   "bike_h": 2.97,
+   "gym_h": 0.0,
+   "total_h": 9.62,
+   "wow": 0.88,
+   "acwr": 0.98,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W35",
+   "start": "2026-08-24",
+   "run_h": 6.8,
+   "km": 80.1,
+   "vert": 1398,
+   "density": 206,
+   "bike_h": 4.6,
+   "gym_h": 0.0,
+   "total_h": 11.4,
+   "wow": 1.02,
+   "acwr": 0.99,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W36",
+   "start": "2026-08-31",
+   "run_h": 7.03,
+   "km": 79.7,
+   "vert": 2499,
+   "density": 355,
+   "bike_h": 5.35,
+   "gym_h": 0.0,
+   "total_h": 13.32,
+   "wow": 1.03,
+   "acwr": 1.0,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W37",
+   "start": "2026-09-07",
+   "run_h": 6.9,
+   "km": 80.6,
+   "vert": 2290,
+   "density": 332,
+   "bike_h": 3.15,
+   "gym_h": 0.0,
+   "total_h": 12.65,
+   "wow": 0.98,
+   "acwr": 1.01,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W38",
+   "start": "2026-09-14",
+   "run_h": 7.77,
+   "km": 80.2,
+   "vert": 3321,
+   "density": 428,
+   "bike_h": 4.52,
+   "gym_h": 0.0,
+   "total_h": 14.28,
+   "wow": 1.13,
+   "acwr": 1.09,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W39",
+   "start": "2026-09-21",
+   "run_h": 7.27,
+   "km": 84.8,
+   "vert": 2468,
+   "density": 340,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 9.33,
+   "wow": 0.94,
+   "acwr": 1.0,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W40",
+   "start": "2026-09-28",
+   "run_h": 7.32,
+   "km": 85.4,
+   "vert": 1876,
+   "density": 256,
+   "bike_h": 4.85,
+   "gym_h": 0.0,
+   "total_h": 12.17,
+   "wow": 1.01,
+   "acwr": 1.0,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W41",
+   "start": "2026-10-05",
+   "run_h": 6.77,
+   "km": 84.2,
+   "vert": 1838,
+   "density": 272,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 7.95,
+   "wow": 0.92,
+   "acwr": 0.93,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W42",
+   "start": "2026-10-12",
+   "run_h": 4.93,
+   "km": 60.3,
+   "vert": 1370,
+   "density": 278,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 4.93,
+   "wow": 0.73,
+   "acwr": 0.75,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W43",
+   "start": "2026-10-19",
+   "run_h": 5.85,
+   "km": 70.3,
+   "vert": 2204,
+   "density": 377,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 5.85,
+   "wow": 1.19,
+   "acwr": 0.94,
+   "flags": [],
+   "current": false
+  },
+  {
+   "label": "2026-W44",
+   "start": "2026-10-26",
+   "run_h": 3.57,
+   "km": 38.9,
+   "vert": 653,
+   "density": 183,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 4.68,
+   "wow": 0.61,
+   "acwr": 0.68,
+   "flags": [],
+   "current": true
+  }
+ ],
+ "horizon": {
+  "weeks": 8,
+  "date": "2026-12-27",
+  "committed": 17
+ },
+ "plan": [
+  {
+   "index": 1,
+   "phase": "P1",
+   "phase_name": "Slapy build",
+   "start": "2026-08-31",
+   "total_h": 11,
+   "run_h": 7.5,
+   "bike_h": 3.5,
+   "gym_h": 0,
+   "km": 81,
+   "vert": 3000,
+   "weekend": "Long 3:00",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 2,
+   "phase": "P1",
+   "phase_name": "Slapy build",
+   "start": "2026-09-07",
+   "total_h": 12,
+   "run_h": 8.0,
+   "bike_h": 4.0,
+   "gym_h": 0,
+   "km": 87,
+   "vert": 3200,
+   "weekend": "A · 3:00+2:30",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 3,
+   "phase": "P1",
+   "phase_name": "Slapy build",
+   "start": "2026-09-14",
+   "total_h": 11,
+   "run_h": 7.5,
+   "bike_h": 3.5,
+   "gym_h": 0,
+   "km": 81,
+   "vert": 3000,
+   "weekend": "Long 3:00",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 4,
+   "phase": "P1",
+   "phase_name": "Slapy build",
+   "start": "2026-09-21",
+   "total_h": 12,
+   "run_h": 8.5,
+   "bike_h": 3.5,
+   "gym_h": 0,
+   "km": 92,
+   "vert": 3400,
+   "weekend": "Long 3:30",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 5,
+   "phase": "P1",
+   "phase_name": "Slapy build",
+   "start": "2026-09-28",
+   "total_h": 12,
+   "run_h": 8.5,
+   "bike_h": 3.5,
+   "gym_h": 0,
+   "km": 92,
+   "vert": 3400,
+   "weekend": "A · 3:30+2:00",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 6,
+   "phase": "P1",
+   "phase_name": "Slapy build",
+   "start": "2026-10-05",
+   "total_h": 10,
+   "run_h": 7.0,
+   "bike_h": 3.0,
+   "gym_h": 0,
+   "km": 76,
+   "vert": 2800,
+   "weekend": "Long 2:30",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 7,
+   "phase": "P1",
+   "phase_name": "Slapy build",
+   "start": "2026-10-12",
+   "total_h": 7,
+   "run_h": 5.5,
+   "bike_h": 1.5,
+   "gym_h": 0,
+   "km": 60,
+   "vert": 2200,
+   "weekend": "Easy 90'",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 8,
+   "phase": "P2",
+   "phase_name": "Recovery & gym on-ramp",
+   "start": "2026-10-19",
+   "total_h": 7,
+   "run_h": 4.5,
+   "bike_h": 2.5,
+   "gym_h": 0,
+   "km": 51,
+   "vert": 1480,
+   "weekend": "Race",
+   "race": "Slapy Trailmaniacs 47K · 24 Oct",
+   "committed": true
+  },
+  {
+   "index": 9,
+   "phase": "P2",
+   "phase_name": "Recovery & gym on-ramp",
+   "start": "2026-10-26",
+   "total_h": 9,
+   "run_h": 5.5,
+   "bike_h": 2.5,
+   "gym_h": 1.0,
+   "km": 62,
+   "vert": 1809,
+   "weekend": "Long 2:00",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 10,
+   "phase": "P2",
+   "phase_name": "Recovery & gym on-ramp",
+   "start": "2026-11-02",
+   "total_h": 11,
+   "run_h": 6.5,
+   "bike_h": 2.5,
+   "gym_h": 2.0,
+   "km": 73,
+   "vert": 2138,
+   "weekend": "Long 2:30",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 11,
+   "phase": "P2",
+   "phase_name": "Recovery & gym on-ramp",
+   "start": "2026-11-09",
+   "total_h": 11,
+   "run_h": 7.0,
+   "bike_h": 2.0,
+   "gym_h": 2.0,
+   "km": 79,
+   "vert": 2303,
+   "weekend": "A · 2:30+2:00",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 12,
+   "phase": "P2",
+   "phase_name": "Recovery & gym on-ramp",
+   "start": "2026-11-16",
+   "total_h": 12,
+   "run_h": 7.5,
+   "bike_h": 2.5,
+   "gym_h": 2.0,
+   "km": 84,
+   "vert": 2467,
+   "weekend": "A · 3:00+2:15",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 13,
+   "phase": "P2",
+   "phase_name": "Recovery & gym on-ramp",
+   "start": "2026-11-23",
+   "total_h": 11,
+   "run_h": 7.0,
+   "bike_h": 2.0,
+   "gym_h": 2.0,
+   "km": 79,
+   "vert": 2303,
+   "weekend": "Long 2:45",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 14,
+   "phase": "P3",
+   "phase_name": "Base — the Kilian block",
+   "start": "2026-11-30",
+   "total_h": 12,
+   "run_h": 7.5,
+   "bike_h": 2.5,
+   "gym_h": 2.0,
+   "km": 80,
+   "vert": 3227,
+   "weekend": "A · 3:00+2:15",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 15,
+   "phase": "P3",
+   "phase_name": "Base — the Kilian block",
+   "start": "2026-12-07",
+   "total_h": 12,
+   "run_h": 8.0,
+   "bike_h": 2.0,
+   "gym_h": 2.0,
+   "km": 85,
+   "vert": 3442,
+   "weekend": "A · 3:00+2:30",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 16,
+   "phase": "P3",
+   "phase_name": "Base — the Kilian block",
+   "start": "2026-12-14",
+   "total_h": 13,
+   "run_h": 8.5,
+   "bike_h": 2.5,
+   "gym_h": 2.0,
+   "km": 91,
+   "vert": 3658,
+   "weekend": "A · 3:00+2:30",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 17,
+   "phase": "P3",
+   "phase_name": "Base — the Kilian block",
+   "start": "2026-12-21",
+   "total_h": 11,
+   "run_h": 7.5,
+   "bike_h": 2.0,
+   "gym_h": 1.5,
+   "km": 80,
+   "vert": 3227,
+   "weekend": "Long 3:00",
+   "race": null,
+   "committed": true
+  },
+  {
+   "index": 18,
+   "phase": "P3",
+   "phase_name": "Base — the Kilian block",
+   "start": "2026-12-28",
+   "total_h": 13,
+   "run_h": 8.5,
+   "bike_h": 2.5,
+   "gym_h": 2.0,
+   "km": 91,
+   "vert": 3658,
+   "weekend": "B · two-phase",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 19,
+   "phase": "P3",
+   "phase_name": "Base — the Kilian block",
+   "start": "2027-01-04",
+   "total_h": 13,
+   "run_h": 9.0,
+   "bike_h": 2.0,
+   "gym_h": 2.0,
+   "km": 96,
+   "vert": 3873,
+   "weekend": "A · 3:00+2:30",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 20,
+   "phase": "P3",
+   "phase_name": "Base — the Kilian block",
+   "start": "2027-01-11",
+   "total_h": 13,
+   "run_h": 9.0,
+   "bike_h": 2.5,
+   "gym_h": 1.5,
+   "km": 96,
+   "vert": 3873,
+   "weekend": "A · 3:15+2:30",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 21,
+   "phase": "P3",
+   "phase_name": "Base — the Kilian block",
+   "start": "2027-01-18",
+   "total_h": 11,
+   "run_h": 8.0,
+   "bike_h": 2.0,
+   "gym_h": 1.0,
+   "km": 85,
+   "vert": 3442,
+   "weekend": "Long 3:00",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 22,
+   "phase": "P4",
+   "phase_name": "Specific build",
+   "start": "2027-01-25",
+   "total_h": 12,
+   "run_h": 8.5,
+   "bike_h": 2.5,
+   "gym_h": 1.0,
+   "km": 89,
+   "vert": 3907,
+   "weekend": "A · 3:15+2:30",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 23,
+   "phase": "P4",
+   "phase_name": "Specific build",
+   "start": "2027-02-01",
+   "total_h": 13,
+   "run_h": 9.0,
+   "bike_h": 2.5,
+   "gym_h": 1.5,
+   "km": 94,
+   "vert": 4137,
+   "weekend": "C · race-specific",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 24,
+   "phase": "P4",
+   "phase_name": "Specific build",
+   "start": "2027-02-08",
+   "total_h": 12,
+   "run_h": 8.0,
+   "bike_h": 2.5,
+   "gym_h": 1.5,
+   "km": 84,
+   "vert": 3677,
+   "weekend": "Long 3:00",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 25,
+   "phase": "P4",
+   "phase_name": "Specific build",
+   "start": "2027-02-15",
+   "total_h": 13,
+   "run_h": 9.0,
+   "bike_h": 2.5,
+   "gym_h": 1.5,
+   "km": 94,
+   "vert": 4137,
+   "weekend": "A · 3:30+2:30",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 26,
+   "phase": "P4",
+   "phase_name": "Specific build",
+   "start": "2027-02-22",
+   "total_h": 13,
+   "run_h": 9.5,
+   "bike_h": 2.5,
+   "gym_h": 1.0,
+   "km": 99,
+   "vert": 4366,
+   "weekend": "C · 3:30+2:35",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 27,
+   "phase": "P4",
+   "phase_name": "Specific build",
+   "start": "2027-03-01",
+   "total_h": 11,
+   "run_h": 8.0,
+   "bike_h": 2.0,
+   "gym_h": 1.0,
+   "km": 84,
+   "vert": 3677,
+   "weekend": "A · 3:00+2:00",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 28,
+   "phase": "P5",
+   "phase_name": "Taper",
+   "start": "2027-03-08",
+   "total_h": 8,
+   "run_h": 5.5,
+   "bike_h": 2.0,
+   "gym_h": 0.5,
+   "km": 63,
+   "vert": 1650,
+   "weekend": "Long 2:00",
+   "race": null,
+   "committed": false
+  },
+  {
+   "index": 29,
+   "phase": "P5",
+   "phase_name": "Taper",
+   "start": "2027-03-15",
+   "total_h": 4,
+   "run_h": 3.0,
+   "bike_h": 1.0,
+   "gym_h": 0,
+   "km": 34,
+   "vert": 900,
+   "weekend": "Race",
+   "race": "Chianti 120K · 20 Mar",
+   "committed": false
+  }
+ ],
+ "provisional": [
+  {
+   "phase": "P3",
+   "name": "Base — the Kilian block",
+   "weeks": 4,
+   "start": "2026-12-28",
+   "end": "2027-01-24",
+   "run_h": [
+    7.5,
+    9.0
+   ],
+   "bike_h": [
+    2.0,
+    2.5
+   ],
+   "gym_h": [
+    1.0,
+    2.0
+   ],
+   "km": [
+    80,
+    96
+   ],
+   "vert": [
+    3227,
+    3873
+   ],
+   "total_km": 703,
+   "total_vert": 28400
+  },
+  {
+   "phase": "P4",
+   "name": "Specific build",
+   "weeks": 6,
+   "start": "2027-01-25",
+   "end": "2027-03-07",
+   "run_h": [
+    8.0,
+    9.5
+   ],
+   "bike_h": [
+    2.0,
+    2.5
+   ],
+   "gym_h": [
+    1.0,
+    1.5
+   ],
+   "km": [
+    84,
+    99
+   ],
+   "vert": [
+    3677,
+    4366
+   ],
+   "total_km": 544,
+   "total_vert": 23900
+  },
+  {
+   "phase": "P5",
+   "name": "Taper",
+   "weeks": 2,
+   "start": "2027-03-08",
+   "end": "2027-03-21",
+   "run_h": [
+    3.0,
+    5.5
+   ],
+   "bike_h": [
+    1.0,
+    2.0
+   ],
+   "gym_h": [
+    0,
+    0.5
+   ],
+   "km": [
+    34,
+    63
+   ],
+   "vert": [
+    900,
+    1650
+   ],
+   "total_km": 97,
+   "total_vert": 2550
+  }
+ ],
+ "diary": [
+  {
+   "label": "2026-W35",
+   "start": "2026-08-24",
+   "end": "2026-08-30",
+   "partial": false,
+   "current": false,
+   "run_h": 6.8,
+   "run_km": 80.1,
+   "run_vert": 1398,
+   "density": 206,
+   "bike_h": 4.6,
+   "gym_h": 0.0,
+   "total_h": 11.4,
+   "run_days": 7,
+   "rest_days": 1,
+   "longest": 120,
+   "longest_km": 22.6,
+   "longest_vert": 722,
+   "back_to_back": false,
+   "wow": 1.02,
+   "acwr": 0.99,
+   "feel": 2.0,
+   "monotony": 1.64,
+   "ctl": 26.5,
+   "atl": 25.4,
+   "tsb": 1.1,
+   "flags": [],
+   "notes": [
+    "Longest run 2:00 / 22.6 km / 722 m on Wed.",
+    "Quality: T on Sat — [PM] Poznań - 10x1k T (1’ rest)",
+    "Vert density 206 m/h — below the 300 m/h floor.",
+    "Self-reported feel +2.0 over 3 scored runs."
+   ],
+   "plan": null,
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-08-24",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "[AM] Vitkov Easy Hills 65",
+       "note": "",
+       "mins": 65,
+       "km": 10.3,
+       "vert": 561,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "[PM] WU z prace + 1h power Z3/Z4 tempo + CD dom",
+       "note": "1 h @ 246 W (3.67 W/kg) — controlled, no heroics",
+       "mins": 102,
+       "km": 53.5,
+       "vert": 498,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Morning Ride",
+       "note": "Commute",
+       "mins": 17,
+       "km": 8.8,
+       "vert": 16,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Tue",
+     "date": "2026-08-25",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "[AM] Easy 45",
+       "note": "Z1 down to the office",
+       "mins": 45,
+       "km": 9.3,
+       "vert": 14,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "[PM] Protocit 1:10h za Ondrou",
+       "note": "",
+       "mins": 70,
+       "km": 34.6,
+       "vert": 206,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-08-26",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "L",
+       "name": "Shorter Long 120",
+       "note": "\"Dnes to slapalo jak zvejkac na gymplu\"",
+       "mins": 120,
+       "km": 22.6,
+       "vert": 722,
+       "feel": 2.0
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-08-27",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 55",
+       "note": "",
+       "mins": 54,
+       "km": 10.5,
+       "vert": 43,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-08-28",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Uwaga Easy 40 w/ 5x20” ST",
+       "note": "Poznan, supporting a friend at 70.3 — \"beželo neskutečně\"",
+       "mins": 40,
+       "km": 8.7,
+       "vert": 36,
+       "feel": 2.0
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-08-29",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "[PM] Poznań - 10x1k T (1’ rest)",
+       "note": "3:43,42,38,35,28,30,29,26,23,24 — started deliberately slow, finished 3:23. This is the session that set the working T pace",
+       "mins": 69,
+       "km": 16.5,
+       "vert": 22,
+       "feel": 2.0
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "[AM] Poznań - Very easy 1:30h",
+       "note": "Course recon on a borrowed bike",
+       "mins": 87,
+       "km": 36.5,
+       "vert": 152,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-08-30",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": "Povbuzovani",
+       "note": "Cheering, not training",
+       "mins": 15,
+       "km": 2.2,
+       "vert": 0,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W36",
+   "start": "2026-08-31",
+   "end": "2026-09-06",
+   "partial": false,
+   "current": false,
+   "run_h": 7.03,
+   "run_km": 79.7,
+   "run_vert": 2499,
+   "density": 355,
+   "bike_h": 5.35,
+   "gym_h": 0.0,
+   "total_h": 13.32,
+   "run_days": 6,
+   "rest_days": 0,
+   "longest": 166,
+   "longest_km": 29.0,
+   "longest_vert": 1305,
+   "back_to_back": false,
+   "wow": 1.03,
+   "acwr": 1.0,
+   "feel": 0.33,
+   "monotony": 1.31,
+   "ctl": 27.6,
+   "atl": 32.3,
+   "tsb": -4.7,
+   "flags": [],
+   "notes": [
+    "Running on target (7.0 vs 7.5 h).",
+    "Longest run 2:46 / 29.0 km / 1305 m on Sat.",
+    "Quality: T on Thu — 5x5' uphill hard efforts",
+    "Vert density 355 m/h — above the 300 m/h floor.",
+    "Self-reported feel +0.3 over 3 scored runs."
+   ],
+   "plan": {
+    "index": 1,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 7.5,
+    "bike_h": 3.5,
+    "gym_h": 0,
+    "total_h": 11,
+    "run_km": 81.3,
+    "run_vert": 3000,
+    "weekend": "Long 3:00",
+    "race": null,
+    "to_race": 28
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-08-31",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 70",
+       "note": "",
+       "mins": 70,
+       "km": 13.5,
+       "vert": 334,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Tue",
+     "date": "2026-09-01",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 40",
+       "note": "",
+       "mins": 40,
+       "km": 8.3,
+       "vert": 101,
+       "feel": null
+      },
+      {
+       "sport": "Walk",
+       "group": "other",
+       "type": null,
+       "name": "New beginnings",
+       "note": "Morning walk — \"uzit si ranni chilly Prahu\"",
+       "mins": 56,
+       "km": 5.9,
+       "vert": 15,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-09-02",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy (Z2 mainly) 45 na Petrine za Plotem",
+       "note": "Snazil jsem se krotit",
+       "mins": 46,
+       "km": 9.0,
+       "vert": 222,
+       "feel": 0.0
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-09-03",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "5x5' uphill hard efforts",
+       "note": "T/VO2max — \"exactly that what works for me\". 464 m in 59'",
+       "mins": 59,
+       "km": 12.5,
+       "vert": 464,
+       "feel": 1.0
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "CF Ride #1",
+       "note": "First club ride — 53 km",
+       "mins": 128,
+       "km": 53.2,
+       "vert": 541,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Dpnk",
+       "note": "Commute",
+       "mins": 16,
+       "km": 7.6,
+       "vert": 21,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Morning Ride",
+       "note": "Commute",
+       "mins": 4,
+       "km": 1.3,
+       "vert": 6,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-09-04",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 40",
+       "note": "Recovery",
+       "mins": 41,
+       "km": 7.4,
+       "vert": 73,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Za trest domu v protivetru",
+       "note": "Commute into a headwind",
+       "mins": 22,
+       "km": 7.4,
+       "vert": 178,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-09-05",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "L",
+       "name": "Long 165",
+       "note": "Rough start after a late steak; came good after ~20 km. 240 g carbs taken — full Chianti fuelling rehearsal",
+       "mins": 166,
+       "km": 29.0,
+       "vert": 1305,
+       "feel": 0.0
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-09-06",
+     "acts": [
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Base Endurance 2:30h",
+       "note": "Sunday club base ride — 75 km",
+       "mins": 151,
+       "km": 75.1,
+       "vert": 687,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W37",
+   "start": "2026-09-07",
+   "end": "2026-09-13",
+   "partial": false,
+   "current": false,
+   "run_h": 6.9,
+   "run_km": 80.6,
+   "run_vert": 2290,
+   "density": 332,
+   "bike_h": 3.15,
+   "gym_h": 0.0,
+   "total_h": 12.65,
+   "run_days": 5,
+   "rest_days": 0,
+   "longest": 166,
+   "longest_km": 30.0,
+   "longest_vert": 1294,
+   "back_to_back": false,
+   "wow": 0.98,
+   "acwr": 1.01,
+   "feel": 0.67,
+   "monotony": 1.81,
+   "ctl": 28.3,
+   "atl": 33.2,
+   "tsb": -4.9,
+   "flags": [],
+   "notes": [
+    "Running on target (6.9 vs 8.0 h).",
+    "Longest run 2:46 / 30.0 km / 1294 m on Sat.",
+    "No back-to-back long days; the plan called for them.",
+    "Quality: T on Wed — 5x5’ uphill hard efforts",
+    "Vert density 332 m/h — above the 300 m/h floor.",
+    "Self-reported feel +0.7 over 3 scored runs."
+   ],
+   "plan": {
+    "index": 2,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 8.0,
+    "bike_h": 4.0,
+    "gym_h": 0,
+    "total_h": 12,
+    "run_km": 86.7,
+    "run_vert": 3200,
+    "weekend": "A · 3:00+2:30",
+    "race": null,
+    "to_race": 27
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-09-07",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "[AM] 🐌Easy 35 (Z1)",
+       "note": "Flat Ladronka shakeout, 14-16C, avg HR 127 — genuine Z1",
+       "mins": 35,
+       "km": 7.1,
+       "vert": 21,
+       "feel": null
+      },
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "[PM] Easy 35 w/ 4x20” ST",
+       "note": "Strahov/Petrin, 177 m vert, 21-25C, avg HR 145; strides at the end, silver PR on Most Legii",
+       "mins": 35,
+       "km": 6.7,
+       "vert": 177,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Tue",
+     "date": "2026-09-08",
+     "acts": [
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Easy 1:50h",
+       "note": "Z1 endurance ride, 51.7 km / 468 m, RE 20 — held easy as intended",
+       "mins": 112,
+       "km": 51.7,
+       "vert": 468,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Dpnk za hovnocucem",
+       "note": "Commute — \"v 7:15 tu to je smrt. Miss you, Karlin\"",
+       "mins": 16,
+       "km": 7.7,
+       "vert": 18,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-09-09",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "5x5’ uphill hard efforts",
+       "note": "Sarka, 5x5' on the Vokovicka climb (5.9%). Threshold: HR 171-178 vs LTHR 176, 350-359 W flat, rep 5 strongest. \"Krasny pocasi\"",
+       "mins": 70,
+       "km": 15.7,
+       "vert": 406,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-09-10",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 42 #CF Run 1",
+       "note": "Club run, 19-22C, 6:04/km — properly easy",
+       "mins": 43,
+       "km": 7.1,
+       "vert": 158,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-09-11",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "[P2] 🧱Easy 65",
+       "note": "Brick off the bike. 14 km @ 4:39/km, 234 m, avg HR 136 (Z1), 256 W. \"V posledni dobe to obcas fakt odsejpa\"",
+       "mins": 65,
+       "km": 14.0,
+       "vert": 234,
+       "feel": 1.0
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "[P1] Easy 1h",
+       "note": "Z1 spin into the brick — \"Jen ulevit noham a prejit do behu\"",
+       "mins": 61,
+       "km": 25.9,
+       "vert": 329,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-09-12",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "L",
+       "name": "Long 165 na Suchaku",
+       "note": "Suchy vrch — 30 km / 1294 m, real mountain terrain (laps to 15%). Avg HR 149, max 169, no drift. Stiff first 10 km (\"neprotahl jsem se, pracoval z gauciku\"), then \"pohoda\". \"Navrat do mladych let\"",
+       "mins": 166,
+       "km": 30.0,
+       "vert": 1294,
+       "feel": 0.0
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-09-13",
+     "acts": [
+      {
+       "sport": "Hike",
+       "group": "hike",
+       "type": null,
+       "name": "Ze zmrzliny od budky dom",
+       "note": "14.9 km hike home from the ice cream stand — active recovery, no running",
+       "mins": 156,
+       "km": 14.9,
+       "vert": 349,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W38",
+   "start": "2026-09-14",
+   "end": "2026-09-20",
+   "partial": false,
+   "current": false,
+   "run_h": 7.77,
+   "run_km": 80.2,
+   "run_vert": 3321,
+   "density": 428,
+   "bike_h": 4.52,
+   "gym_h": 0.0,
+   "total_h": 14.28,
+   "run_days": 6,
+   "rest_days": 0,
+   "longest": 176,
+   "longest_km": 30.6,
+   "longest_vert": 1183,
+   "back_to_back": false,
+   "wow": 1.13,
+   "acwr": 1.09,
+   "feel": 0.5,
+   "monotony": 1.81,
+   "ctl": 30.0,
+   "atl": 39.3,
+   "tsb": -9.2,
+   "flags": [],
+   "notes": [
+    "Running on target (7.8 vs 7.5 h).",
+    "Longest run 2:56 / 30.6 km / 1183 m on Sat.",
+    "Quality: T on Wed — 6x1.5k T (90” rest)",
+    "Vert density 428 m/h — above the 300 m/h floor.",
+    "Self-reported feel +0.5 over 2 scored runs."
+   ],
+   "plan": {
+    "index": 3,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 7.5,
+    "bike_h": 3.5,
+    "gym_h": 0,
+    "total_h": 11,
+    "run_km": 81.3,
+    "run_vert": 3000,
+    "weekend": "Long 3:00",
+    "race": null,
+    "to_race": 26
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-09-14",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 60 w/ 4x20\" ST",
+       "note": "Petrin. 11.4 km / 316 m, avg HR 140, 241 W. Opening flat km 4:47 @ HR 127",
+       "mins": 59,
+       "km": 11.4,
+       "vert": 316,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Tue",
+     "date": "2026-09-15",
+     "acts": [
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Base 1:50h",
+       "note": "Base ride 54.4 km / 521 m. Avg 179 W (66% FTP, mid-Z2), avg HR 132 (Z1), max 159. Best 1h 195 W. Climbs 228-244 W @ HR 142-148",
+       "mins": 113,
+       "km": 54.4,
+       "vert": 521,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Morning Ride",
+       "note": "Commute",
+       "mins": 15,
+       "km": 7.7,
+       "vert": 19,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-09-16",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "6x1.5k T (90” rest)",
+       "note": "Ladronka. Reps 312/320/316/313/316/312 s = 3:28-3:33/km (mean 3:30). HR 164/171/172/171/174/176, power 325/326/326/327/333/331 W. Jog rest after odd reps, walk after even. Finished exactly at LTHR 176. POD temp 21.9 C flat (vs 18.7 C falling on the 29 Aug 10x1k in Poznan). NOTE: not in reps.csv — that file is 1k reps only",
+       "mins": 51,
+       "km": 12.5,
+       "vert": 68,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-09-17",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Very easy sightseeing",
+       "note": "6:24/km through the crowds — \"Hrad nas vypekl, tak jsem si dal slalom mezi lidmo\"",
+       "mins": 50,
+       "km": 7.8,
+       "vert": 184,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-09-18",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 50 na klobasky pres hustnik",
+       "note": "8.6 km / 170 m easy",
+       "mins": 49,
+       "km": 8.6,
+       "vert": 170,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": "Base 2:20h s Prochym vyvolavat pocity",
+       "note": "64.3 km / 661 m, RE 28 — ran 2:23 against the 1:30 planned",
+       "mins": 143,
+       "km": 64.3,
+       "vert": 661,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-09-19",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "L",
+       "name": "Long 175",
+       "note": "Radic / Slapy Trailmaniacs terrain. 30.6 km / 1183 m in 2:56, avg HR 150, 229 W. Technical through km 13-16 (Albertovy skaly): power fell to 202-207 W while HR rose to 157-161 and cadence dropped to 77. \"Albertovky krasne, ale tezke\"",
+       "mins": 176,
+       "km": 30.6,
+       "vert": 1183,
+       "feel": 0.0
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-09-20",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "15% Treadmill 80' @ Z2",
+       "note": "Indoor: 9.3 km in 1:20:56 at 7.0-7.2 km/h on 15% incline = 1400 m up (1050 m/h). Avg HR 152, max 157 — Z2/low-Z3, no drift. Strava records vert 0 for treadmill; the 1400 m is from his own note and is entered by hand in activities.csv.",
+       "mins": 81,
+       "km": 9.3,
+       "vert": 1400,
+       "feel": null
+      },
+      {
+       "sport": "Hike",
+       "group": "hike",
+       "type": null,
+       "name": "Prochazka",
+       "note": "Horni Bezdekov, 9.0 km / 287 m walking, 2:07, avg HR 85. Recovery only.",
+       "mins": 120,
+       "km": 9.0,
+       "vert": 287,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W39",
+   "start": "2026-09-21",
+   "end": "2026-09-27",
+   "partial": false,
+   "current": false,
+   "run_h": 7.27,
+   "run_km": 84.8,
+   "run_vert": 2468,
+   "density": 340,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 9.33,
+   "run_days": 6,
+   "rest_days": 1,
+   "longest": 115,
+   "longest_km": 22.7,
+   "longest_vert": 687,
+   "back_to_back": false,
+   "wow": 0.94,
+   "acwr": 1.0,
+   "feel": -0.33,
+   "monotony": 1.06,
+   "ctl": 29.6,
+   "atl": 33.8,
+   "tsb": -4.2,
+   "flags": [],
+   "notes": [
+    "Running on target (7.3 vs 8.5 h).",
+    "Bike well short — 0.0 of 3.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "Longest run 1:55 / 22.7 km / 687 m on Sun.",
+    "Quality: T on Wed — 6x5' uphill hard->very hard efforts",
+    "Vert density 340 m/h — above the 300 m/h floor.",
+    "Self-reported feel -0.3 over 3 scored runs."
+   ],
+   "plan": {
+    "index": 4,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 8.5,
+    "bike_h": 3.5,
+    "gym_h": 0,
+    "total_h": 12,
+    "run_km": 92.1,
+    "run_vert": 3400,
+    "weekend": "Long 3:30",
+    "race": null,
+    "to_race": 25
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-09-21",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-09-22",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 35 ke strojum",
+       "note": "7.4 km flat Z1, avg HR 132",
+       "mins": 36,
+       "km": 6.8,
+       "vert": 189,
+       "feel": null
+      },
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 35 w/ 4x20\" ST",
+       "note": "6.8 km / 189 m, avg HR 143, strides peaked 177",
+       "mins": 35,
+       "km": 7.4,
+       "vert": 18,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-09-23",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "6x5' uphill hard->very hard efforts",
+       "note": "Petrin, 4 reps on the ~8.5% Hellichova line + 2 on the 15% line. 349-368 W (mean 360) vs 347 W on the 3 Sep 5x5' here; same-line reps 356 W vs 347 at equal avg HR (~173). End-of-rep HR climbed ~171 -> 177 -> 177 -> 179 -> 181 -> 181, max 183: first half T, last two reps above LTHR 176. POD 15-17 C. \"Fuck, to stiplo.\"",
+       "mins": 70,
+       "km": 14.4,
+       "vert": 640,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-09-24",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 45,
+       "km": 7.0,
+       "vert": 188,
+       "feel": -1.0
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-09-25",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 50",
+       "note": "10.1 km / 267 m, avg HR 139. Head cold but ran well; rolled an ankle on a stone ~400 m in while dodging dogs.",
+       "mins": 50,
+       "km": 10.1,
+       "vert": 267,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-09-26",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 85",
+       "note": "Planned long, cut to easy 85: still weak from the cold, sore stomach. 16.4 km / 479 m, avg HR 140.",
+       "mins": 85,
+       "km": 16.4,
+       "vert": 479,
+       "feel": -1.0
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-09-27",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "L",
+       "name": "Shorter Long 110 w/ 25’ tempo",
+       "note": "22.7 km / 687 m in 1:55 with 25 min tempo, avg HR 150, RE 54. The long moved here from Saturday.",
+       "mins": 115,
+       "km": 22.7,
+       "vert": 687,
+       "feel": null
+      },
+      {
+       "sport": "Hike",
+       "group": "hike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 124,
+       "km": 9.0,
+       "vert": 203,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W40",
+   "start": "2026-09-28",
+   "end": "2026-10-04",
+   "partial": false,
+   "current": false,
+   "run_h": 7.32,
+   "run_km": 85.4,
+   "run_vert": 1876,
+   "density": 256,
+   "bike_h": 4.85,
+   "gym_h": 0.0,
+   "total_h": 12.17,
+   "run_days": 6,
+   "rest_days": 1,
+   "longest": 185,
+   "longest_km": 34.0,
+   "longest_vert": 1202,
+   "back_to_back": false,
+   "wow": 1.01,
+   "acwr": 1.0,
+   "feel": null,
+   "monotony": 1.46,
+   "ctl": 30.1,
+   "atl": 35.0,
+   "tsb": -4.9,
+   "flags": [],
+   "notes": [
+    "Running on target (7.3 vs 8.5 h).",
+    "Longest run 3:05 / 34.0 km / 1202 m on Sat.",
+    "No back-to-back long days; the plan called for them.",
+    "Quality: T on Wed — 2x4k T (4’ jg rest)",
+    "Vert density 256 m/h — below the 300 m/h floor."
+   ],
+   "plan": {
+    "index": 5,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 8.5,
+    "bike_h": 3.5,
+    "gym_h": 0,
+    "total_h": 12,
+    "run_km": 92.1,
+    "run_vert": 3400,
+    "weekend": "A · 3:30+2:00",
+    "race": null,
+    "to_race": 24
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-09-28",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-09-29",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 35,
+       "km": 7.4,
+       "vert": 20,
+       "feel": null
+      },
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 35,
+       "km": 6.7,
+       "vert": 183,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-09-30",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "T",
+       "name": "2x4k T (4’ jg rest)",
+       "note": "Flat threshold: 4k reps at 3:33 and 3:32 /km, avg HR 160, RE 48.",
+       "mins": 50,
+       "km": 12.6,
+       "vert": 65,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-01",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 46,
+       "km": 8.0,
+       "vert": 191,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 138,
+       "km": 52.1,
+       "vert": 169,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 16,
+       "km": 7.7,
+       "vert": 22,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-02",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 53,
+       "km": 10.0,
+       "vert": 143,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 22,
+       "km": 7.7,
+       "vert": 183,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-03",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "L",
+       "name": "Sunset Long 185",
+       "note": "34.0 km / 1202 m in 3:05, avg HR 150, 237 W. Longest run of the Slapy block.",
+       "mins": 185,
+       "km": 34.0,
+       "vert": 1202,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-10-04",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 35,
+       "km": 6.7,
+       "vert": 72,
+       "feel": null
+      },
+      {
+       "sport": "Ride",
+       "group": "bike",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 115,
+       "km": 52.2,
+       "vert": 584,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W41",
+   "start": "2026-10-05",
+   "end": "2026-10-11",
+   "partial": false,
+   "current": false,
+   "run_h": 6.77,
+   "run_km": 84.2,
+   "run_vert": 1838,
+   "density": 272,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 7.95,
+   "run_days": 6,
+   "rest_days": 1,
+   "longest": 69,
+   "longest_km": 12.4,
+   "longest_vert": 406,
+   "back_to_back": true,
+   "wow": 0.92,
+   "acwr": 0.93,
+   "feel": 0.5,
+   "monotony": 1.12,
+   "ctl": 30.1,
+   "atl": 33.5,
+   "tsb": -3.5,
+   "flags": [],
+   "notes": [
+    "Running on target (6.8 vs 7.0 h).",
+    "Bike well short — 0.0 of 3.0 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "Longest run 1:09 / 12.4 km / 406 m on Sat.",
+    "Back-to-back long days achieved — the Chianti-specific stimulus.",
+    "Quality: F on Tue, M on Thu — 3x4k M-like efforts (5’ Z2 jg rest), M on Sat — [PM] 50 @ Z2/Z3",
+    "Vert density 272 m/h — below the 300 m/h floor.",
+    "Self-reported feel +0.5 over 2 scored runs."
+   ],
+   "plan": {
+    "index": 6,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 7.0,
+    "bike_h": 3.0,
+    "gym_h": 0,
+    "total_h": 10,
+    "run_km": 75.9,
+    "run_vert": 2800,
+    "weekend": "Long 2:30",
+    "race": null,
+    "to_race": 23
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-10-05",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 8.1,
+       "vert": 106,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Tue",
+     "date": "2026-10-06",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 8.1,
+       "vert": 232,
+       "feel": null
+      },
+      {
+       "sport": "Other",
+       "group": "other",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 71,
+       "km": 7.4,
+       "vert": 0,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-10-07",
+     "acts": []
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-08",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "M",
+       "name": "3x4k M-like efforts (5’ Z2 jg rest)",
+       "note": "4k reps at 3:47, 3:45, 3:45 /km in wind and rain, avg HR 163, RE 69.",
+       "mins": 65,
+       "km": 16.3,
+       "vert": 67,
+       "feel": 0.0
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-09",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 52,
+       "km": 10.0,
+       "vert": 292,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-10",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": "[AM] 🌧️Easy 70",
+       "note": "12.4 km / 406 m easy in rain and wind, avg HR 145; carried the mandatory race kit.",
+       "mins": 69,
+       "km": 12.4,
+       "vert": 406,
+       "feel": null
+      },
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "M",
+       "name": "[PM] 50 @ Z2/Z3",
+       "note": "11.5 km / 256 m steady Z2/Z3, avg HR 160, RE 45; second run of the day after an easy 70.",
+       "mins": 50,
+       "km": 11.5,
+       "vert": 256,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-10-11",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 55,
+       "km": 9.8,
+       "vert": 338,
+       "feel": null
+      },
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "S",
+       "name": null,
+       "note": null,
+       "mins": 35,
+       "km": 8.0,
+       "vert": 141,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W42",
+   "start": "2026-10-12",
+   "end": "2026-10-18",
+   "partial": false,
+   "current": false,
+   "run_h": 4.93,
+   "run_km": 60.3,
+   "run_vert": 1370,
+   "density": 278,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 4.93,
+   "run_days": 6,
+   "rest_days": 1,
+   "longest": 65,
+   "longest_km": 14.0,
+   "longest_vert": 302,
+   "back_to_back": false,
+   "wow": 0.73,
+   "acwr": 0.75,
+   "feel": null,
+   "monotony": 1.59,
+   "ctl": 28.1,
+   "atl": 24.6,
+   "tsb": 3.5,
+   "flags": [],
+   "notes": [
+    "Running on target (4.9 vs 5.5 h).",
+    "Bike well short — 0.0 of 1.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "Longest run 1:05 / 14.0 km / 302 m on Sun.",
+    "Quality: F on Tue, F on Fri, F on Sun — Fartlek 65 (3x5’ sup-race tempo + 1:15 up very hard)",
+    "Vert density 278 m/h — below the 300 m/h floor."
+   ],
+   "plan": {
+    "index": 7,
+    "phase": "P1",
+    "phase_name": "Slapy build",
+    "run_h": 5.5,
+    "bike_h": 1.5,
+    "gym_h": 0,
+    "total_h": 7,
+    "run_km": 59.6,
+    "run_vert": 2200,
+    "weekend": "Easy 90'",
+    "race": null,
+    "to_race": 22
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-10-12",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-10-13",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": null,
+       "note": null,
+       "mins": 51,
+       "km": 11.1,
+       "vert": 183,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-10-14",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 7.9,
+       "vert": 187,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-15",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 42,
+       "km": 7.9,
+       "vert": 110,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-16",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": null,
+       "note": null,
+       "mins": 42,
+       "km": 9.5,
+       "vert": 85,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-17",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 56,
+       "km": 9.9,
+       "vert": 503,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-10-18",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": "Fartlek 65 (3x5’ sup-race tempo + 1:15 up very hard)",
+       "note": "Race tune-up a week out. His own tally: max 85 km/week but ~950 km of running and 142 h of sport over 12 weeks to early October, both all-time highs. Next goal: Chianti 120K without the usual winter injury.",
+       "mins": 65,
+       "km": 14.0,
+       "vert": 302,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W43",
+   "start": "2026-10-19",
+   "end": "2026-10-25",
+   "partial": false,
+   "current": false,
+   "run_h": 5.85,
+   "run_km": 70.3,
+   "run_vert": 2204,
+   "density": 377,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 5.85,
+   "run_days": 4,
+   "rest_days": 3,
+   "longest": 240,
+   "longest_km": 47.6,
+   "longest_vert": 1924,
+   "back_to_back": false,
+   "wow": 1.19,
+   "acwr": 0.94,
+   "feel": 1.33,
+   "monotony": 0.47,
+   "ctl": 29.9,
+   "atl": 38.7,
+   "tsb": -8.9,
+   "flags": [],
+   "notes": [
+    "Running 30% over the 4.5 h target.",
+    "Bike well short — 0.0 of 2.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "Longest run 4:00 / 47.6 km / 1924 m on Sat.",
+    "Quality: F on Tue, F on Fri — Activation - 3x1’ T->VO2max, RACE on Sat — Slapy Trailmaniacs 47k 🥇",
+    "Vert density 377 m/h — above the 300 m/h floor.",
+    "Self-reported feel +1.3 over 3 scored runs."
+   ],
+   "plan": {
+    "index": 8,
+    "phase": "P2",
+    "phase_name": "Recovery & gym on-ramp",
+    "run_h": 4.5,
+    "bike_h": 2.5,
+    "gym_h": 0,
+    "total_h": 7,
+    "run_km": 50.6,
+    "run_vert": 1480,
+    "weekend": "Race",
+    "race": "Slapy Trailmaniacs 47K · 24 Oct",
+    "to_race": 21
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-10-19",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-10-20",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 8.7,
+       "vert": 120,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-10-21",
+     "acts": []
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-22",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 7.8,
+       "vert": 95,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-23",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "F",
+       "name": "Activation - 3x1’ T->VO2max",
+       "note": "Pre-race opener, 4.3 km. Feels in good shape going in.",
+       "mins": 20,
+       "km": 4.3,
+       "vert": 15,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-24",
+     "acts": [
+      {
+       "sport": "RACE_Run",
+       "group": "run",
+       "type": "RACE",
+       "name": "Slapy Trailmaniacs 47k 🥇",
+       "note": "WON. 47.6 km / 1924 m in 3:59:57 moving, avg HR 162, RE 235. Went hard from the start, took the speed premium too and held tempo through the KOM section rather than changing pace. Fuel: alternated GU macchiato and Hydrogel Iontmax gels every 30 min, plus Iontmax drink and Powerdrink+ with added maltodextrin. UTMB index ~780 (Dan's estimate), against 684 at Lavaredo 80K (27 Jun 2026); Chianti target 720-750.",
+       "mins": 240,
+       "km": 47.6,
+       "vert": 1924,
+       "feel": 2.0
+      },
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 11,
+       "km": 1.9,
+       "vert": 50,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-10-25",
+     "acts": []
+    }
+   ]
+  },
+  {
+   "label": "2026-W44",
+   "start": "2026-10-26",
+   "end": "2026-11-01",
+   "partial": false,
+   "current": true,
+   "run_h": 3.57,
+   "run_km": 38.9,
+   "run_vert": 653,
+   "density": 183,
+   "bike_h": 0.0,
+   "gym_h": 0.0,
+   "total_h": 4.68,
+   "run_days": 4,
+   "rest_days": 3,
+   "longest": 70,
+   "longest_km": 12.4,
+   "longest_vert": 267,
+   "back_to_back": false,
+   "wow": 0.61,
+   "acwr": 0.68,
+   "feel": 1.0,
+   "monotony": 1.07,
+   "ctl": 26.3,
+   "atl": 19.0,
+   "tsb": 7.2,
+   "flags": [],
+   "notes": [
+    "Running 35% under the 5.5 h target.",
+    "Bike well short — 0.0 of 2.5 h. That is the plan's aerobic ballast; running cannot absorb it instead.",
+    "No gym logged against a 1.0 h target (R5).",
+    "Longest run 1:10 / 12.4 km / 267 m on Sat.",
+    "Self-reported feel +1.0 over 1 scored runs."
+   ],
+   "plan": {
+    "index": 9,
+    "phase": "P2",
+    "phase_name": "Recovery & gym on-ramp",
+    "run_h": 5.5,
+    "bike_h": 2.5,
+    "gym_h": 1.0,
+    "total_h": 9,
+    "run_km": 61.8,
+    "run_vert": 1809,
+    "weekend": "Long 2:00",
+    "race": null,
+    "to_race": 20
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-10-26",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-10-27",
+     "acts": []
+    },
+    {
+     "day": "Wed",
+     "date": "2026-10-28",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 40",
+       "note": "First run after 3 days off post-race; surprisingly good, though Monday looked rough.",
+       "mins": 39,
+       "km": 7.4,
+       "vert": 47,
+       "feel": 1.0
+      }
+     ]
+    },
+    {
+     "day": "Thu",
+     "date": "2026-10-29",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 40,
+       "km": 7.4,
+       "vert": 39,
+       "feel": null
+      },
+      {
+       "sport": "Other",
+       "group": "other",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 67,
+       "km": 0.0,
+       "vert": 0,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-10-30",
+     "acts": []
+    },
+    {
+     "day": "Sat",
+     "date": "2026-10-31",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": "E",
+       "name": null,
+       "note": null,
+       "mins": 70,
+       "km": 12.4,
+       "vert": 267,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-11-01",
+     "acts": [
+      {
+       "sport": "TrailRun",
+       "group": "run",
+       "type": "E",
+       "name": "Easy 65",
+       "note": "Z1/Z2. No full off-season this year: two very easy weeks instead, then into the Chianti winter block.",
+       "mins": 65,
+       "km": 11.7,
+       "vert": 300,
+       "feel": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "fitness": [
+  {
+   "date": "2026-08-10",
+   "ctl": 26.2,
+   "atl": 32.5,
+   "tsb": -6.3
+  },
+  {
+   "date": "2026-08-11",
+   "ctl": 25.9,
+   "atl": 29.9,
+   "tsb": -4.0
+  },
+  {
+   "date": "2026-08-12",
+   "ctl": 25.8,
+   "atl": 28.4,
+   "tsb": -2.7
+  },
+  {
+   "date": "2026-08-13",
+   "ctl": 25.7,
+   "atl": 27.7,
+   "tsb": -2.0
+  },
+  {
+   "date": "2026-08-14",
+   "ctl": 26.3,
+   "atl": 30.7,
+   "tsb": -4.4
+  },
+  {
+   "date": "2026-08-15",
+   "ctl": 26.8,
+   "atl": 32.9,
+   "tsb": -6.1
+  },
+  {
+   "date": "2026-08-16",
+   "ctl": 27.1,
+   "atl": 34.1,
+   "tsb": -7.0
+  },
+  {
+   "date": "2026-08-17",
+   "ctl": 26.5,
+   "atl": 29.6,
+   "tsb": -3.1
+  },
+  {
+   "date": "2026-08-18",
+   "ctl": 26.4,
+   "atl": 28.6,
+   "tsb": -2.2
+  },
+  {
+   "date": "2026-08-19",
+   "ctl": 26.2,
+   "atl": 27.3,
+   "tsb": -1.1
+  },
+  {
+   "date": "2026-08-20",
+   "ctl": 26.0,
+   "atl": 25.9,
+   "tsb": 0.1
+  },
+  {
+   "date": "2026-08-21",
+   "ctl": 25.9,
+   "atl": 25.6,
+   "tsb": 0.3
+  },
+  {
+   "date": "2026-08-22",
+   "ctl": 26.7,
+   "atl": 30.1,
+   "tsb": -3.4
+  },
+  {
+   "date": "2026-08-23",
+   "ctl": 26.8,
+   "atl": 30.1,
+   "tsb": -3.3
+  },
+  {
+   "date": "2026-08-24",
+   "ctl": 27.3,
+   "atl": 32.4,
+   "tsb": -5.1
+  },
+  {
+   "date": "2026-08-25",
+   "ctl": 27.2,
+   "atl": 31.4,
+   "tsb": -4.2
+  },
+  {
+   "date": "2026-08-26",
+   "ctl": 27.4,
+   "atl": 31.9,
+   "tsb": -4.5
+  },
+  {
+   "date": "2026-08-27",
+   "ctl": 27.1,
+   "atl": 29.2,
+   "tsb": -2.2
+  },
+  {
+   "date": "2026-08-28",
+   "ctl": 26.7,
+   "atl": 26.8,
+   "tsb": -0.1
+  },
+  {
+   "date": "2026-08-29",
+   "ctl": 27.0,
+   "atl": 28.6,
+   "tsb": -1.6
+  },
+  {
+   "date": "2026-08-30",
+   "ctl": 26.5,
+   "atl": 25.4,
+   "tsb": 1.1
+  },
+  {
+   "date": "2026-08-31",
+   "ctl": 26.2,
+   "atl": 24.3,
+   "tsb": 2.0
+  },
+  {
+   "date": "2026-09-01",
+   "ctl": 25.8,
+   "atl": 22.1,
+   "tsb": 3.7
+  },
+  {
+   "date": "2026-09-02",
+   "ctl": 25.7,
+   "atl": 21.7,
+   "tsb": 4.0
+  },
+  {
+   "date": "2026-09-03",
+   "ctl": 26.8,
+   "atl": 28.7,
+   "tsb": -1.9
+  },
+  {
+   "date": "2026-09-04",
+   "ctl": 26.4,
+   "atl": 26.4,
+   "tsb": 0.0
+  },
+  {
+   "date": "2026-09-05",
+   "ctl": 27.4,
+   "atl": 32.1,
+   "tsb": -4.7
+  },
+  {
+   "date": "2026-09-06",
+   "ctl": 27.6,
+   "atl": 32.3,
+   "tsb": -4.7
+  },
+  {
+   "date": "2026-09-07",
+   "ctl": 27.4,
+   "atl": 30.9,
+   "tsb": -3.4
+  },
+  {
+   "date": "2026-09-08",
+   "ctl": 27.5,
+   "atl": 30.6,
+   "tsb": -3.1
+  },
+  {
+   "date": "2026-09-09",
+   "ctl": 27.8,
+   "atl": 32.2,
+   "tsb": -4.4
+  },
+  {
+   "date": "2026-09-10",
+   "ctl": 27.4,
+   "atl": 28.9,
+   "tsb": -1.5
+  },
+  {
+   "date": "2026-09-11",
+   "ctl": 27.4,
+   "atl": 28.8,
+   "tsb": -1.5
+  },
+  {
+   "date": "2026-09-12",
+   "ctl": 28.3,
+   "atl": 34.1,
+   "tsb": -5.7
+  },
+  {
+   "date": "2026-09-13",
+   "ctl": 28.3,
+   "atl": 33.2,
+   "tsb": -4.9
+  },
+  {
+   "date": "2026-09-14",
+   "ctl": 28.0,
+   "atl": 30.8,
+   "tsb": -2.8
+  },
+  {
+   "date": "2026-09-15",
+   "ctl": 28.0,
+   "atl": 30.5,
+   "tsb": -2.5
+  },
+  {
+   "date": "2026-09-16",
+   "ctl": 28.5,
+   "atl": 33.1,
+   "tsb": -4.6
+  },
+  {
+   "date": "2026-09-17",
+   "ctl": 28.1,
+   "atl": 29.8,
+   "tsb": -1.7
+  },
+  {
+   "date": "2026-09-18",
+   "ctl": 28.4,
+   "atl": 31.4,
+   "tsb": -3.0
+  },
+  {
+   "date": "2026-09-19",
+   "ctl": 29.5,
+   "atl": 37.1,
+   "tsb": -7.6
+  },
+  {
+   "date": "2026-09-20",
+   "ctl": 30.0,
+   "atl": 39.3,
+   "tsb": -9.2
+  },
+  {
+   "date": "2026-09-21",
+   "ctl": 29.3,
+   "atl": 34.0,
+   "tsb": -4.7
+  },
+  {
+   "date": "2026-09-22",
+   "ctl": 29.0,
+   "atl": 31.8,
+   "tsb": -2.7
+  },
+  {
+   "date": "2026-09-23",
+   "ctl": 29.5,
+   "atl": 34.1,
+   "tsb": -4.6
+  },
+  {
+   "date": "2026-09-24",
+   "ctl": 29.0,
+   "atl": 30.6,
+   "tsb": -1.6
+  },
+  {
+   "date": "2026-09-25",
+   "ctl": 28.6,
+   "atl": 28.3,
+   "tsb": 0.4
+  },
+  {
+   "date": "2026-09-26",
+   "ctl": 28.4,
+   "atl": 27.3,
+   "tsb": 1.2
+  },
+  {
+   "date": "2026-09-27",
+   "ctl": 29.6,
+   "atl": 33.8,
+   "tsb": -4.2
+  },
+  {
+   "date": "2026-09-28",
+   "ctl": 28.9,
+   "atl": 29.3,
+   "tsb": -0.4
+  },
+  {
+   "date": "2026-09-29",
+   "ctl": 28.6,
+   "atl": 27.8,
+   "tsb": 0.8
+  },
+  {
+   "date": "2026-09-30",
+   "ctl": 29.1,
+   "atl": 30.5,
+   "tsb": -1.4
+  },
+  {
+   "date": "2026-10-01",
+   "ctl": 29.4,
+   "atl": 32.2,
+   "tsb": -2.8
+  },
+  {
+   "date": "2026-10-02",
+   "ctl": 29.1,
+   "atl": 29.9,
+   "tsb": -0.8
+  },
+  {
+   "date": "2026-10-03",
+   "ctl": 30.1,
+   "atl": 35.5,
+   "tsb": -5.4
+  },
+  {
+   "date": "2026-10-04",
+   "ctl": 30.1,
+   "atl": 35.0,
+   "tsb": -4.9
+  },
+  {
+   "date": "2026-10-05",
+   "ctl": 29.7,
+   "atl": 31.8,
+   "tsb": -2.1
+  },
+  {
+   "date": "2026-10-06",
+   "ctl": 29.3,
+   "atl": 29.3,
+   "tsb": -0.0
+  },
+  {
+   "date": "2026-10-07",
+   "ctl": 28.6,
+   "atl": 25.4,
+   "tsb": 3.2
+  },
+  {
+   "date": "2026-10-08",
+   "ctl": 29.5,
+   "atl": 31.2,
+   "tsb": -1.7
+  },
+  {
+   "date": "2026-10-09",
+   "ctl": 29.1,
+   "atl": 28.7,
+   "tsb": 0.5
+  },
+  {
+   "date": "2026-10-10",
+   "ctl": 30.0,
+   "atl": 33.8,
+   "tsb": -3.7
+  },
+  {
+   "date": "2026-10-11",
+   "ctl": 30.1,
+   "atl": 33.5,
+   "tsb": -3.5
+  },
+  {
+   "date": "2026-10-12",
+   "ctl": 29.4,
+   "atl": 29.1,
+   "tsb": 0.3
+  },
+  {
+   "date": "2026-10-13",
+   "ctl": 29.1,
+   "atl": 27.7,
+   "tsb": 1.4
+  },
+  {
+   "date": "2026-10-14",
+   "ctl": 28.6,
+   "atl": 25.2,
+   "tsb": 3.4
+  },
+  {
+   "date": "2026-10-15",
+   "ctl": 28.2,
+   "atl": 23.1,
+   "tsb": 5.1
+  },
+  {
+   "date": "2026-10-16",
+   "ctl": 28.0,
+   "atl": 22.8,
+   "tsb": 5.2
+  },
+  {
+   "date": "2026-10-17",
+   "ctl": 28.0,
+   "atl": 23.5,
+   "tsb": 4.5
+  },
+  {
+   "date": "2026-10-18",
+   "ctl": 28.1,
+   "atl": 24.6,
+   "tsb": 3.5
+  },
+  {
+   "date": "2026-10-19",
+   "ctl": 27.4,
+   "atl": 21.3,
+   "tsb": 6.1
+  },
+  {
+   "date": "2026-10-20",
+   "ctl": 27.1,
+   "atl": 20.2,
+   "tsb": 6.9
+  },
+  {
+   "date": "2026-10-21",
+   "ctl": 26.5,
+   "atl": 17.5,
+   "tsb": 8.9
+  },
+  {
+   "date": "2026-10-22",
+   "ctl": 26.1,
+   "atl": 16.4,
+   "tsb": 9.7
+  },
+  {
+   "date": "2026-10-23",
+   "ctl": 25.6,
+   "atl": 15.2,
+   "tsb": 10.5
+  },
+  {
+   "date": "2026-10-24",
+   "ctl": 30.6,
+   "atl": 44.7,
+   "tsb": -14.1
+  },
+  {
+   "date": "2026-10-25",
+   "ctl": 29.9,
+   "atl": 38.7,
+   "tsb": -8.9
+  },
+  {
+   "date": "2026-10-26",
+   "ctl": 29.2,
+   "atl": 33.6,
+   "tsb": -4.4
+  },
+  {
+   "date": "2026-10-27",
+   "ctl": 28.5,
+   "atl": 29.1,
+   "tsb": -0.6
+  },
+  {
+   "date": "2026-10-28",
+   "ctl": 28.0,
+   "atl": 26.3,
+   "tsb": 1.7
+  },
+  {
+   "date": "2026-10-29",
+   "ctl": 27.5,
+   "atl": 23.9,
+   "tsb": 3.7
+  },
+  {
+   "date": "2026-10-30",
+   "ctl": 26.9,
+   "atl": 20.7,
+   "tsb": 6.2
+  },
+  {
+   "date": "2026-10-31",
+   "ctl": 26.6,
+   "atl": 19.8,
+   "tsb": 6.8
+  },
+  {
+   "date": "2026-11-01",
+   "ctl": 26.3,
+   "atl": 19.0,
+   "tsb": 7.2
+  }
+ ],
+ "guardrails": {
+  "wow": 1.25,
+  "acwr": 1.3,
+  "vert_floor": 300,
+  "big_week_h": 8.0,
+  "km": 100.0
+ }
+}

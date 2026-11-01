@@ -5,3 +5,6 @@ data/*.csv.bak*
 __pycache__/
 .amp/portals/
 .venv/
+
+web/node_modules/
+web/dist/

@@ -1,0 +1,54 @@
+// The shape `uv run tl site` writes (tl/export.py web_payload).
+import raw from './payload.json';
+
+export type Flag = { code: string; msg: string };
+export type Act = {
+  sport: string; group: string; type: string | null; name: string | null; note: string | null;
+  mins: number; km: number; vert: number; feel: number | null;
+};
+export type Day = { day: string; date: string; acts: Act[] };
+export type WeekPlan = {
+  index: number; phase: string; phase_name: string; run_h: number; bike_h: number; gym_h: number;
+  total_h: number; run_km: number; run_vert: number; weekend: string; race: string | null; to_race: number;
+};
+export type DiaryWeek = {
+  label: string; start: string; end: string; partial: boolean; current: boolean;
+  run_h: number; run_km: number; run_vert: number; density: number;
+  bike_h: number; gym_h: number; total_h: number; run_days: number; rest_days: number;
+  longest: number; longest_km: number; longest_vert: number; back_to_back: boolean;
+  wow: number | null; acwr: number | null; feel: number | null; monotony: number | null;
+  ctl: number | null; atl: number | null; tsb: number | null;
+  flags: Flag[]; notes: string[]; plan: WeekPlan | null; days: Day[];
+};
+export type LedgerWeek = {
+  label: string; start: string; run_h: number; km: number; vert: number; density: number;
+  bike_h: number; gym_h: number; total_h: number; wow: number | null; acwr: number | null;
+  flags: string[]; current: boolean;
+};
+export type Period = {
+  label: string; run_h: number; run_km: number; run_vert: number; density: number;
+  bike_h: number; gym_h: number; total_h: number; run_days: number; quality: number;
+  feel: number | null; hr: number | null; pace: number | null; longest: number;
+};
+export type PlanWeek = {
+  index: number; phase: string; phase_name: string; start: string; total_h: number;
+  run_h: number; bike_h: number; gym_h: number; km: number; vert: number;
+  weekend: string; race: string | null; committed: boolean;
+};
+export type Provisional = {
+  phase: string; name: string; weeks: number; start: string; end: string;
+  run_h: [number, number]; bike_h: [number, number]; gym_h: [number, number];
+  km: [number, number]; vert: [number, number]; total_km: number; total_vert: number;
+};
+export type Fit = { date: string; ctl: number; atl: number; tsb: number };
+export type Payload = {
+  generated: string; today: string;
+  race: { name: string; date: string; weeks_to_go: number };
+  cache: { first: string; last: string; n: number; stale: number };
+  seasons: Period[]; months: Period[]; weeks: LedgerWeek[];
+  horizon: { weeks: number; date: string; committed: number };
+  plan: PlanWeek[]; provisional: Provisional[]; diary: DiaryWeek[]; fitness: Fit[];
+  guardrails: { wow: number; acwr: number; vert_floor: number; big_week_h: number; km: number };
+};
+
+export const DATA = raw as unknown as Payload;

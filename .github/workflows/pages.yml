@@ -1,11 +1,11 @@
 name: Pages
 
-# The CSVs are never pushed, so CI cannot build the page; the committed
-# web/diary.html is the source and pushing it is what publishes it.
+# The CSVs are never pushed, so CI cannot run tl; it builds the React app from
+# the committed web/src/payload.json, and pushing web/ is what publishes it.
 on:
   push:
     branches: [master]
-    paths: [web/diary.html]
+    paths: [web/**, .github/workflows/pages.yml]
   workflow_dispatch:
 
 permissions:
@@ -31,7 +31,13 @@ jobs:
         with:
           persist-credentials: false
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # v6.0.0
-      - run: mkdir _site && cp web/diary.html _site/index.html
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6  # v2.2.0
+      - run: bun install --frozen-lockfile
+        working-directory: web
+      - run: bun run build
+        working-directory: web
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
+        with:
+          path: web/dist
       - id: deploy
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346  # v5.0.1

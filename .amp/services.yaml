@@ -1,8 +1,8 @@
 services:
   diary:
-    command: uv run python -m http.server "$PORT" --bind 0.0.0.0 --directory web
-    health: /diary.html
+    command: cd web && bun install --frozen-lockfile && exec bun run dev --host 0.0.0.0 --port "$PORT" --strictPort
+    health: /
     portal:
-      url: /diary.html
+      url: /
       title: Chianti logbook
-      description: Static diary page; rebuild with `uv run tl site` and reload.
+      description: Vite dev server for web/; `uv run tl site` rewrites the payload and the page hot-reloads.
