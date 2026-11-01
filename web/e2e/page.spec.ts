@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 
-/* CI builds the page from the synthetic cache in .github/workflows/ci.yml: a race week
+/* CI builds the page from scripts/synthetic_cache.sh: a race week
    (31 Aug – 6 Sep 2026, 240 min RACE_Run) and a ride-only week after it. Nothing here
    depends on today's date, which moves the current week and the countdown. */
 
