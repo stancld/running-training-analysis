@@ -85,10 +85,14 @@ the app from the committed payload instead. To work on the page:
 2. Session notes worth keeping go in `data/notes.csv` (`date,name,note`);
    rows for one day are matched to that day's activities runs-first, then by
    duration.
-3. After an uphill session, extend `hills.csv` and `segments.csv` — Strava
+3. `uv run python scripts/fetch_zones.py` appends HR-zone seconds for new
+   plan-period runs to `zones.csv` from their Strava HR streams (needs
+   `STRAVA_CLIENT_ID`, `STRAVA_CLIENT_SECRET` and a refresh token with
+   `activity:read_all`). Runs without a row fall back to their average HR.
+4. After an uphill session, extend `hills.csv` and `segments.csv` — Strava
    `get_activity_performance` returns laps and segment efforts with per-rep HR
    and watts in one call.
-4. `uv run tl status` to check, `uv run tl site` to rebuild the payload, then
+5. `uv run tl status` to check, `uv run tl site` to rebuild the payload, then
    commit and push `web/src/payload.json`. The Pages workflow builds the app
    with Bun and publishes it to
    https://stancld.github.io/running-training-analysis/ — readable by link,

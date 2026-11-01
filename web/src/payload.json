@@ -1,5 +1,5 @@
 {
- "generated": "01 November 2026, 15:34",
+ "generated": "01 November 2026, 16:01",
  "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
@@ -4734,6 +4734,7 @@
      0,
      0
     ],
+    "stream": 0,
     "measured": 2696,
     "modelled": 183,
     "no_hr": 0
@@ -4751,6 +4752,7 @@
      0,
      0
     ],
+    "stream": 0,
     "measured": 565,
     "modelled": 0,
     "no_hr": 0

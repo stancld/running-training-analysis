@@ -123,6 +123,7 @@ def _zones(ds: Dataset) -> dict[str, Any]:
                 "end": end.isoformat(),
                 "current": start <= config.TODAY <= end,
                 "minutes": [round(m) for m in z["minutes"]],
+                "stream": round(z["stream"]),
                 "measured": round(z["measured"]),
                 "modelled": round(z["modelled"]),
                 "no_hr": round(z["no_hr"]),

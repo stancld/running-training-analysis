@@ -44,7 +44,7 @@ export type Fit = { date: string; ctl: number; atl: number; tsb: number };
 export type ZoneBand = { code: string; name: string; lo: number; hi: number | null };
 export type PhaseZones = {
   phase: string; name: string; start: string; end: string; current: boolean;
-  minutes: number[]; measured: number; modelled: number; no_hr: number;
+  minutes: number[]; stream: number; measured: number; modelled: number; no_hr: number;
 };
 export type Payload = {
   generated: string; today: string;

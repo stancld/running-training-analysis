@@ -6,11 +6,13 @@ const range = (lo: number, hi: number | null) => (lo === 0 ? `≤ ${hi}` : hi ==
 export function Zones() {
   const { bands, phases } = DATA.zones;
   if (!phases.length) return null;
+  const run = phases.reduce((s, p) => s + p.stream + p.measured + p.modelled, 0);
+  const share = run ? Math.round((phases.reduce((s, p) => s + p.stream, 0) / run) * 100) : 0;
   return (
     <section className="card zones" aria-labelledby="zones-h">
       <div className="ch">
         <h2 id="zones-h">Heart-rate zones by phase</h2>
-        <span className="meta push">running time · by session average HR</span>
+        <span className="meta push">running time · {share ? `${share}% from HR streams` : 'by session average HR'}</span>
       </div>
       <ul className="zone-key">
         {bands.map((b, i) => (
@@ -25,6 +27,7 @@ export function Zones() {
               <b>{p.phase}</b>{p.current && <span className="now-pill">now</span>}
               <span>{p.name}</span>
               <small>{day(p.start)} – {day(p.end)} · {hm(total / 60)} h{p.current ? ' so far' : ''}</small>
+              {p.stream > 0 && <small>{Math.round((p.stream / total) * 100)}% from HR streams</small>}
             </div>
             <div>
               <div className="zone-bar" role="img"
@@ -43,8 +46,9 @@ export function Zones() {
         );
       })}
       <p className="caption">
-        Each run counts whole in the zone of its average heart rate (COROS, else modelled from relative effort),
-        so hard reps inside an easy session are not separated. Zones are Dan's Strava running zones.
+        Runs with a fetched HR stream are split second by second; any other run counts whole in the zone of its
+        average heart rate (COROS, else modelled from relative effort), which hides hard reps inside an easy
+        session. Zones are Dan's Strava running zones.
         {phases.some(p => p.no_hr) ? ' Runs without any heart rate are left out.' : ''}
       </p>
     </section>

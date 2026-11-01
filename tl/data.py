@@ -75,6 +75,7 @@ class Activity:
         "sport",
         "type",
         "vert",
+        "zones",
     )
     date: dt.date
     sport: str
@@ -89,12 +90,14 @@ class Activity:
     hr: float | None
     name: str | None
     note: str | None
+    # Seconds per HR zone from the run's HR stream (zones.csv), when fetched.
+    zones: list[float] | None
 
     def __init__(self, date: dt.date, sport: str, km: float, mins: float, vert: float) -> None:
         self.date, self.sport = date, sport
         self.group = config.group_of(sport)
         self.km, self.mins, self.vert = km, mins, vert
-        self.type = self.feel = self.re = self.hr = None
+        self.type = self.feel = self.re = self.hr = self.zones = None
         self.name = self.note = None
 
     @property
@@ -160,6 +163,10 @@ class Dataset:
         )
         re_ = _by_day("re.csv", lambda r: float(r["re"]))
         hr = _by_day("hr.csv", lambda r: (float(r["min"]), float(r["hr"])))
+        zones = _by_day(
+            "zones.csv",
+            lambda r: (float(r["min"]), [float(r[f"z{i}"]) for i in range(1, 6)]),
+        )
 
         notes = defaultdict(list)
         for d, r in _rows("notes.csv"):
@@ -177,6 +184,8 @@ class Dataset:
             # hr.csv carries minutes, so rows match runs by duration.
             for a, (_, v) in _pair(day, hr.get(d, []), lambda a, r: abs(a.mins - r[0])):
                 a.hr = v
+            for a, (_, z) in _pair(day, zones.get(d, []), lambda a, r: abs(a.mins - r[0])):
+                a.zones = z
 
         for d, items in notes.items():
             same_day = runs_first(a for a in acts if a.date == d)

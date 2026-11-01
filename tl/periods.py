@@ -87,16 +87,23 @@ class Period:
     def zone_minutes(self) -> dict[str, Any]:
         """Running minutes per HR zone.
 
-        The cache keeps one HR per run, not a stream, so each run counts whole in the
-        zone of its average (measured, else modelled).
+        A run with a fetched HR stream (zones.csv) splits its moving time by the stream's
+        shares; any other run counts whole in the zone of its average (measured, else
+        modelled), which hides hard reps inside an easy session.
         """
         out: dict[str, Any] = {
             "minutes": [0.0] * len(config.HR_ZONES),
+            "stream": 0.0,
             "measured": 0.0,
             "modelled": 0.0,
             "no_hr": 0.0,
         }
         for a in self.runs:
+            if a.zones and (secs := sum(a.zones)):
+                out["stream"] += a.mins
+                for i, s in enumerate(a.zones):
+                    out["minutes"][i] += a.mins * s / secs
+                continue
             hr = a.est_hr()
             if hr is None:
                 out["no_hr"] += a.mins

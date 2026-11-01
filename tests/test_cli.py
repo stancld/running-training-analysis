@@ -49,10 +49,11 @@ def test_payload_carries_the_cache(tmp_path: Path, site: Callable[[], dict[str, 
         {k: a[k] for k in ("type", "mins", "km")} for a in acts
     ]
 
-    # All three runs average 139-163 bpm, so Z2: the race measured at 162, the others
-    # modelled from relative effort (146 and 156 bpm).
+    # The race splits by its stream (2 h Z2, 1 h Z3, 30 min each Z4 and Z5), not its 162 bpm
+    # average; the other runs count whole in Z2, modelled from relative effort (146, 156 bpm).
     p1 = p["zones"]["phases"][0]
-    assert (p1["minutes"], p1["measured"], p1["modelled"]) == ([0, 365, 0, 0, 0], 240, 125)
+    assert p1["minutes"] == [0, 245, 60, 30, 30]
+    assert (p1["stream"], p1["measured"], p1["modelled"]) == (240, 0, 125)
 
 
 def test_guardrails_fire_past_the_limit_not_at_it(
