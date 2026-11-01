@@ -31,8 +31,10 @@ class Entry:
         if not w.acts:
             return "No training recorded."
         bits = [
-            f"{hmm(w.total_h)} total · {hmm(w.run_h)} run "
-            f"({w.run_km:.0f} km, {w.run_vert:.0f} m, {w.density:.0f} m/h)"
+            (
+                f"{hmm(w.total_h)} total · {hmm(w.run_h)} run "
+                f"({w.run_km:.0f} km, {w.run_vert:.0f} m, {w.density:.0f} m/h)"
+            )
         ]
         if w.bike_h >= 0.5:
             bits.append(f"{hmm(w.bike_h)} bike")
@@ -40,7 +42,8 @@ class Entry:
             bits.append(f"{hmm(w.gym_h)} gym")
         return " · ".join(bits)
 
-    def notes(self):
+    def _plan_notes(self):
+        """How the finished week read against its plan targets."""
         out, w, c = [], self.week, self.cmp
         if c and not w.partial:
             r = c["run_h"][2]
@@ -63,7 +66,10 @@ class Entry:
                 )
             if c["gym_h"][1] and w.gym_h < 0.4:
                 out.append(f"No gym logged against a {c['gym_h'][1]:.1f} h target (R5).")
+        return out
 
+    def notes(self):
+        out, w = self._plan_notes(), self.week
         lr = w.longest_run
         if lr:
             out.append(

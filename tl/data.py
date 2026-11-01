@@ -29,8 +29,11 @@ def _by_day(name, parse):
 
 
 def _pair(runs, rows, cost=None):
-    """With one row per run, rows pair in file order, or by the lowest total `cost`
-    when given; otherwise the day's last row describes its longest run."""
+    """Pair a day's runs with that day's rows from one CSV.
+
+    With one row per run, rows pair in file order, or by the lowest total `cost`
+    when given; otherwise the day's last row describes its longest run.
+    """
     if len(rows) == len(runs):
         if cost:
             runs = min(
@@ -112,17 +115,16 @@ class Dataset:
 
     @classmethod
     def load(cls):
-        acts = []
-        for r in _rows("activities.csv"):
-            acts.append(
-                Activity(
-                    _date(r["date"]),
-                    r["sport"],
-                    float(r["km"] or 0),
-                    float(r["min"] or 0),
-                    float(r["vert"] or 0),
-                )
+        acts = [
+            Activity(
+                _date(r["date"]),
+                r["sport"],
+                float(r["km"] or 0),
+                float(r["min"] or 0),
+                float(r["vert"] or 0),
             )
+            for r in _rows("activities.csv")
+        ]
         if not acts:
             # The cache is personal data kept out of git, so a fresh checkout has none.
             raise SystemExit(
@@ -161,7 +163,7 @@ class Dataset:
         return cls(acts, list(_rows("hills.csv")), list(_rows("segments.csv")))
 
     def daily_load(self):
-        """date -> load units. RE where Strava has it, else a scaled minute."""
+        """Load units per date: RE where Strava has it, else a scaled minute."""
         runs = [a for a in self.activities if a.is_run and a.re and a.mins > 5]
         rate = (sorted(a.re / a.mins for a in runs)[len(runs) // 2]) if runs else 0.35
         out = defaultdict(float)

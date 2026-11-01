@@ -7,19 +7,19 @@ from tl import config
 
 
 def hill_sessions(ds):
-    S = defaultdict(list)
+    sessions = defaultdict(list)
     for r in ds.hills:
-        S[(r["date"], r["session"])].append(r)
+        sessions[(r["date"], r["session"])].append(r)
     out = []
-    for (date, name), reps in sorted(S.items()):
+    for (date, name), reps in sorted(sessions.items()):
         reps.sort(key=lambda x: int(x["rep"]))
         rows, vam, whr = [], [], []
         for x in reps:
             dur, dist = float(x["dur_s"]), float(x["dist_m"])
             v, hr = float(x["vert_m"]), float(x["hr"])
             w = float(x["watts"]) if x["watts"] else None
-            V = v / dur * 3600
-            vam.append(V)
+            rate = v / dur * 3600
+            vam.append(rate)
             ratio = w / hr if w else None
             if ratio:
                 whr.append(ratio)
@@ -30,7 +30,7 @@ def hill_sessions(ds):
                     "dist": dist,
                     "vert": v,
                     "grade": float(x["grade_pct"]),
-                    "vam": V,
+                    "vam": rate,
                     "hr": hr,
                     "watts": w,
                     "w_per_hr": ratio,
@@ -54,11 +54,11 @@ def hill_sessions(ds):
 
 
 def segment_history(ds):
-    S = defaultdict(list)
+    rows_by_segment = defaultdict(list)
     for r in ds.segments:
-        S[r["segment"]].append(r)
+        rows_by_segment[r["segment"]].append(r)
     out = []
-    for seg, rows in S.items():
+    for seg, rows in rows_by_segment.items():
         d0 = rows[0]
         efforts = []
         for r in sorted(rows, key=lambda x: (x["date"], int(x["rep"]))):

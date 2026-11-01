@@ -107,8 +107,10 @@ PHASE_WEEKS = {c: [w for w in WEEKS if w.phase == c] for c, *_ in PHASES}
 
 
 def _bands():
-    """Each phase's range, read off its own weeks — a band the plan already implies
-    rather than a new set of invented numbers."""
+    """Each phase's range, read off its own weeks.
+
+    A band the plan already implies rather than a new set of invented numbers.
+    """
     out = {}
     for code, block in PHASE_WEEKS.items():
         out[code] = {

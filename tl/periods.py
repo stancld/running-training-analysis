@@ -80,8 +80,11 @@ class Period:
         return self.end > config.TODAY
 
     def zone_minutes(self):
-        """Running minutes per HR zone. The cache keeps one HR per run, not a stream,
-        so each run counts whole in the zone of its average (measured, else modelled)."""
+        """Running minutes per HR zone.
+
+        The cache keeps one HR per run, not a stream, so each run counts whole in the
+        zone of its average (measured, else modelled).
+        """
         out = {
             "minutes": [0.0] * len(config.HR_ZONES),
             "measured": 0.0,

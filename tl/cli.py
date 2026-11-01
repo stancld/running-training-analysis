@@ -45,7 +45,7 @@ def _tail(seq, arg, default):
         return seq[-default:]
 
 
-def cmd_status(lab, arg=None):
+def cmd_status(lab, _arg=None):
     ds, out = lab.ds, []
     done = [w for w in lab.weeks if not w.partial]
     cur = next((w for w in lab.weeks if w.current), None)
@@ -116,11 +116,11 @@ def cmd_months(lab, arg=None):
     return render.months_table(_tail(lab.months, arg, len(lab.months)))
 
 
-def cmd_seasons(lab, arg=None):
+def cmd_seasons(lab, _arg=None):
     return render.seasons_table(lab.seasons)
 
 
-def cmd_plan(lab, arg=None):
+def cmd_plan(lab, _arg=None):
     return render.plan_table(lab.by_start)
 
 
@@ -140,15 +140,15 @@ def cmd_diary(lab, arg=None):
     return head + "\n" + "\n".join(body)
 
 
-def cmd_hills(lab, arg=None):
+def cmd_hills(lab, _arg=None):
     return render.hills_block(quality.hill_sessions(lab.ds))
 
 
-def cmd_segments(lab, arg=None):
+def cmd_segments(lab, _arg=None):
     return render.segments_block(quality.segment_history(lab.ds))
 
 
-def cmd_reps(lab, arg=None):
+def cmd_reps(_lab, _arg=None):
     return render.reps_block(quality.rep_sessions())
 
 
