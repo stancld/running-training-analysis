@@ -46,62 +46,105 @@
 body{
   background:var(--ground); color:var(--ink); margin:0;
   font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:1080px; margin:0 auto; padding:0 24px 96px}
+.wrap{max-width:1200px; margin:0 auto; padding:0 24px 80px}
 h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif; text-wrap:balance; margin:0}
-h1{font-size:clamp(36px,5.6vw,58px); font-weight:600; line-height:1.03; letter-spacing:-.02em}
-h2{font-size:clamp(22px,3vw,30px); font-weight:600; line-height:1.16; letter-spacing:-.01em}
-h3{font-size:18px; font-weight:600; line-height:1.3}
+h1{font-size:clamp(34px,5vw,50px); font-weight:600; line-height:1.03; letter-spacing:-.02em}
+h2{font-size:clamp(22px,2.6vw,28px); font-weight:600; line-height:1.15; letter-spacing:-.01em}
 p{margin:0}
 a{color:var(--teal)}
 .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:500;
-  letter-spacing:.15em; text-transform:uppercase; color:var(--muted)}
+  letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
 .mono,.n{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
 :focus-visible{outline:2px solid var(--garnet); outline-offset:2px}
 
 /* ---------- masthead ---------- */
-header{padding:64px 0 32px}
-.lede{font-size:18px; color:var(--ink-2); max-width:62ch; margin-top:18px}
-.status{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
-  margin-top:36px; border:1px solid var(--line); border-radius:2px;
-  background:var(--surface); overflow:hidden}
-.status > div{padding:14px 18px; border-right:1px solid var(--line)}
-.status > div:last-child{border-right:0}
-.status dt{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.13em;
-  text-transform:uppercase; color:var(--muted); margin-bottom:5px}
-.status dd{margin:0; font-family:"IBM Plex Mono",monospace; font-size:20px;
-  font-weight:500; font-variant-numeric:tabular-nums; line-height:1.15}
-.status dd small{font-size:12px; color:var(--muted); font-weight:400; display:block;
-  letter-spacing:.02em; margin-top:3px}
-.status dd.warn{color:var(--garnet)}
-.status dd.good{color:var(--teal)}
+header{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between;
+  gap:12px 32px; padding:44px 0 26px}
+.sub{color:var(--ink-2); margin-top:8px; font-size:15.5px}
+.countdown{text-align:right}
+@media (max-width:720px){ .countdown{text-align:left} }
+.countdown b{display:block; font-family:Fraunces,Georgia,serif; font-size:30px; font-weight:600;
+  line-height:1.1; color:var(--teal)}
 
-section{padding-top:60px; border-top:1px solid var(--line); margin-top:52px}
-section:first-of-type{border-top:0; margin-top:0}
-.sec-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap}
-.sec-intro{color:var(--ink-2); max-width:66ch; margin-top:12px; font-size:15.5px}
-
-/* ---------- charts ---------- */
-.panel{background:var(--surface); border:1px solid var(--line); border-radius:2px;
-  padding:22px 20px 16px; box-shadow:var(--shadow); margin-top:26px}
+/* ---------- cards ---------- */
+.card{background:var(--surface); border:1px solid var(--line); border-radius:6px;
+  box-shadow:var(--shadow); padding:24px 26px; margin-top:20px; min-width:0}
+.ch{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 16px}
+.ch .meta{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted);
+  font-variant-numeric:tabular-nums}
+.ch .intro{color:var(--ink-2); font-size:14.5px; max-width:70ch; flex:1 1 320px}
+.pill{margin-left:auto; font-size:13px; color:var(--teal); background:var(--teal-wash);
+  border-radius:999px; padding:3px 12px; white-space:nowrap}
+.pill b{font-family:"IBM Plex Mono",monospace; font-weight:600; margin-right:6px}
+.top{display:grid; grid-template-columns:minmax(0,1.75fr) minmax(0,1fr); gap:20px}
+.top > .card{margin-top:0}
+@media (max-width:960px){ .top{grid-template-columns:1fr} }
 .scroll{overflow-x:auto}
-.legend{display:flex; gap:18px; flex-wrap:wrap; align-items:center; margin-bottom:16px;
-  font-size:12.5px; color:var(--ink-2)}
-.legend span{display:flex; gap:7px; align-items:center}
-.swatch{width:11px; height:11px; border-radius:2px; flex:0 0 auto}
-figcaption{font-size:13px; color:var(--muted); margin-top:14px; max-width:70ch}
+.legend{display:flex; gap:8px 22px; flex-wrap:wrap; align-items:center;
+  font-size:13px; color:var(--ink-2)}
+.legend span{display:flex; gap:8px; align-items:center}
+.swatch{width:13px; height:13px; border-radius:2px; flex:0 0 auto}
+.caption{font-size:13px; color:var(--muted); margin-top:14px; max-width:80ch}
 svg{display:block}
 svg text{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
 
+/* ---------- this week ---------- */
+.tw-main{display:grid; grid-template-columns:172px 1fr; gap:28px; align-items:center; margin-top:22px}
+.ring{position:relative; width:172px; height:172px}
+.ring svg{width:172px; height:172px; transform:rotate(-90deg)}
+.ring .c{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center;
+  justify-content:center; text-align:center}
+.ring .c b{font-family:"IBM Plex Mono",monospace; font-size:17px; font-weight:600; line-height:1.15}
+.ring .c span{font-size:12.5px; color:var(--muted)}
+.ring .c i{font-style:normal; font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--ink-2)}
+.stats{display:grid; grid-template-columns:repeat(4,minmax(0,1fr))}
+.stats > div{padding:2px 16px; border-left:1px solid var(--line)}
+.stats > div:first-child{border-left:0; padding-left:0}
+.stats b{display:block; font-family:Fraunces,Georgia,serif; font-size:28px; font-weight:600;
+  line-height:1.1; font-variant-numeric:tabular-nums}
+.stats b.warn{color:var(--amber)}
+.stats b.txt{font-size:22px; line-height:1.27}
+.stats span{display:block; font-size:13px; color:var(--ink-2)}
+.stats small{display:block; font-size:12.5px; color:var(--muted)}
+.rails{border-top:1px solid var(--line); margin-top:24px; padding-top:16px}
+.pills{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin-top:10px}
+.rail{display:flex; gap:10px; align-items:flex-start; border:1px solid var(--line); border-radius:6px;
+  padding:10px 12px; background:var(--teal-wash)}
+.rail i{flex:0 0 20px; height:20px; border-radius:50%; display:grid; place-items:center;
+  font-style:normal; font-size:12px; font-weight:700; color:var(--surface); background:var(--teal);
+  margin-top:1px}
+.rail b{display:block; font-family:"IBM Plex Mono",monospace; font-size:15px; font-weight:600;
+  color:var(--teal); line-height:1.3}
+.rail span{display:block; font-size:12px; color:var(--ink-2); line-height:1.35}
+.rail.watch{background:var(--amber-wash)} .rail.watch i{background:var(--amber)} .rail.watch b{color:var(--amber)}
+.rail.bad{background:var(--garnet-wash)} .rail.bad i{background:var(--garnet)} .rail.bad b{color:var(--garnet)}
+@media (max-width:720px){
+  .tw-main{grid-template-columns:1fr; justify-items:center}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 0; width:100%}
+  .stats > div:nth-child(3){border-left:0; padding-left:0}
+  .pills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pill{margin-left:0}
+}
+
+/* ---------- fitness ---------- */
+.fit-nums{display:grid; grid-template-columns:repeat(3,1fr); margin-top:20px}
+.fit-nums > div{padding:0 14px; border-left:1px solid var(--line)}
+.fit-nums > div:first-child{padding-left:0; border-left:0}
+.fit-nums dt{font-size:12.5px; color:var(--ink-2)}
+.fit-nums dd{margin:0; font-family:Fraunces,Georgia,serif; font-size:30px; font-weight:600; line-height:1.15}
+.fit-nums small{display:block; font-size:12.5px; color:var(--muted)}
+#fit .legend{margin:20px 0 6px}
+
 /* ---------- month map ---------- */
 .mapgrid{display:grid; grid-template-columns:52px repeat(12,minmax(46px,1fr));
-  gap:3px; min-width:660px}
-.mapgrid .hd{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em;
+  gap:3px; min-width:660px; margin-top:20px}
+.mapgrid .hd{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); text-align:center; padding-bottom:2px}
 .mapgrid .yr{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-2);
   display:flex; align-items:center; font-variant-numeric:tabular-nums}
-.cell{position:relative; border-radius:2px; aspect-ratio:1.5/1; display:flex;
+.cell{position:relative; border-radius:3px; aspect-ratio:1.7/1; display:flex;
   flex-direction:column; align-items:center; justify-content:center; cursor:default;
   font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
   border:1px solid transparent}
@@ -109,87 +152,108 @@ svg text{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-num
 .cell i{font-size:9.5px; font-style:normal; opacity:.75; margin-top:2px}
 .cell.now{border-color:var(--garnet)}
 .ramp{display:flex; gap:3px; align-items:center; margin-top:16px; font-size:11.5px;
-  color:var(--muted); font-family:"IBM Plex Mono",monospace}
+  color:var(--muted); font-family:"IBM Plex Mono",monospace; flex-wrap:wrap}
 .ramp i{width:26px; height:11px; border-radius:2px; display:block}
 
 /* ---------- tables ---------- */
-.tw{overflow-x:auto; margin-top:22px; border:1px solid var(--line); border-radius:2px;
-  background:var(--surface)}
+.tw{overflow-x:auto; margin-top:22px; border:1px solid var(--line); border-radius:6px}
 table{border-collapse:collapse; width:100%; font-size:14px; min-width:640px}
 th,td{text-align:left; padding:9px 14px; border-bottom:1px solid var(--line)}
-thead th{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.11em;
+thead th{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.11em;
   text-transform:uppercase; color:var(--muted); font-weight:500; background:var(--sunk);
-  border-bottom:1px solid var(--line-2); position:sticky; top:0}
+  border-bottom:1px solid var(--line-2)}
 tbody tr:last-child td{border-bottom:0}
-td.n,th.n{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
-  text-align:right}
+td.n,th.n{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; text-align:right}
 tbody tr.now td{background:var(--teal-wash)}
 tbody tr.flagged td{background:var(--garnet-wash)}
 
 /* ---------- chips ---------- */
 .chip{display:inline-flex; align-items:center; gap:5px; font-family:"IBM Plex Mono",monospace;
-  font-size:10.5px; letter-spacing:.06em; padding:2px 7px; border-radius:2px;
+  font-size:10.5px; letter-spacing:.06em; padding:2px 7px; border-radius:3px;
   border:1px solid var(--line-2); color:var(--ink-2); background:var(--sunk)}
 .chip.bad{border-color:var(--garnet); color:var(--garnet); background:var(--garnet-wash)}
-.chip.warn{border-color:var(--amber); color:var(--amber); background:var(--amber-wash)}
 .chip.ok{border-color:var(--teal-2); color:var(--teal); background:var(--teal-wash)}
 
-/* ---------- diary ---------- */
-.entry{background:var(--surface); border:1px solid var(--line); border-radius:2px;
-  margin-top:22px; box-shadow:var(--shadow); overflow:hidden}
-.entry > .top{display:flex; flex-wrap:wrap; gap:10px 16px; align-items:baseline;
-  padding:18px 22px; background:var(--sunk); border-bottom:1px solid var(--line)}
-.entry .wk{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--garnet);
-  letter-spacing:.09em}
-.entry .dates{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted);
-  margin-left:auto; font-variant-numeric:tabular-nums}
-.entry .body{padding:20px 22px 24px}
-.pva{display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr)); gap:1px;
-  background:var(--line); border:1px solid var(--line); border-radius:2px;
-  overflow:hidden; margin-bottom:22px}
-.pva > div{background:var(--surface); padding:11px 13px}
-.pva dt{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--muted)}
-.pva dd{margin:3px 0 0; font-family:"IBM Plex Mono",monospace; font-size:15px;
-  font-weight:500; font-variant-numeric:tabular-nums}
-.pva dd s{text-decoration:none; color:var(--muted); font-size:12px; font-weight:400}
-.bar{height:3px; background:var(--sunk-2); border-radius:2px; margin-top:8px; overflow:hidden}
-.bar i{display:block; height:100%; background:var(--teal); border-radius:2px}
+/* ---------- weekly diary ---------- */
+.wlist{margin-top:18px}
+.wgrid{display:grid; align-items:center; gap:0 16px;
+  grid-template-columns:22px 44px minmax(150px,1.3fr) minmax(150px,1.3fr) 64px 72px minmax(220px,2.4fr)}
+.whead{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--muted); padding:0 0 8px; border-bottom:1px solid var(--line-2)}
+.wrow{border-bottom:1px solid var(--line)}
+.wrow > summary{list-style:none; cursor:pointer; padding:14px 0}
+.wrow > summary::-webkit-details-marker{display:none}
+.wrow > summary:hover{background:var(--sunk)}
+.chev{width:9px; height:9px; border-right:2px solid var(--ink-2); border-bottom:2px solid var(--ink-2);
+  transform:rotate(-45deg); margin-left:5px; transition:transform .15s}
+.wrow[open] .chev{transform:rotate(45deg)}
+.wk{font-family:Fraunces,Georgia,serif; font-size:30px; font-weight:600; line-height:1}
+.wd b{display:block; font-weight:400; font-size:14.5px; font-variant-numeric:tabular-nums}
+.wd span{display:block; font-size:13px; color:var(--muted)}
+.wd .race{color:var(--garnet)}
+.wh b{font-family:"IBM Plex Mono",monospace; font-size:15px; font-weight:600}
+.wh .barrow{display:flex; align-items:center; gap:10px; margin-top:5px}
+.wh .bar{flex:1; height:7px; max-width:150px}
+.wh .barrow span{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted)}
+.bar{background:var(--sunk-2); border-radius:4px; overflow:hidden}
+.bar i{display:block; height:100%; background:var(--teal); border-radius:4px}
 .bar i.over{background:var(--amber)}
-.log{width:100%; border-collapse:collapse; font-size:13.5px; min-width:420px}
-.log td{padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:baseline}
+.wn b{display:block; font-family:"IBM Plex Mono",monospace; font-size:15px; font-weight:600}
+.wn span{font-size:12.5px; color:var(--muted)}
+.wv{display:grid; grid-template-columns:10px 1fr; gap:0 10px; align-items:baseline}
+.wv .dot{width:9px; height:9px; border-radius:50%; background:var(--teal); transform:translateY(-1px)}
+.wv .dot.watch{background:var(--amber)} .wv .dot.bad{background:var(--garnet)}
+.wv b{font-weight:500; font-size:14.5px}
+.wv span{grid-column:2; font-size:13px; color:var(--muted)}
+.wbody{padding:4px 0 22px 82px}
+.log{width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px}
+.log td{padding:7px 10px; border-bottom:1px solid var(--line); vertical-align:baseline}
 .log tr:last-child td{border-bottom:0}
-.log td.day{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em;
-  text-transform:uppercase; color:var(--muted); width:74px; white-space:nowrap}
+.log td.day{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.06em;
+  color:var(--ink-2); width:96px; white-space:nowrap}
 .log tr.rest td{color:var(--muted)}
-.log td.t{width:30px}
+.log td.t{width:34px}
 .log .type{font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600;
-  color:var(--teal); border:1px solid var(--teal-2); border-radius:2px; padding:0 4px}
+  color:var(--teal); border:1px solid var(--teal-2); border-radius:3px; padding:0 4px}
 .log .type.q{color:var(--garnet); border-color:var(--garnet)}
-.log td.num{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+.log td.num{width:92px; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
   text-align:right; white-space:nowrap; color:var(--ink-2); font-size:12.5px}
-.verdict{list-style:none; margin:22px 0 0; padding:0; display:grid; gap:7px}
-.verdict li{font-size:14.5px; color:var(--ink-2); padding-left:16px; position:relative}
+.wcols{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:8px 32px; margin-top:16px}
+.verdict{list-style:none; margin:0; padding:0; display:grid; gap:6px}
+.verdict li{font-size:14px; color:var(--ink-2); padding-left:16px; position:relative}
 .verdict li::before{content:"—"; position:absolute; left:0; color:var(--line-2)}
 .verdict li.flag{color:var(--garnet)}
-.quote{border-left:2px solid var(--teal-2); padding:2px 0 2px 14px; margin-top:18px;
-  font-size:14.5px; color:var(--ink-2)}
+.quote{border-left:2px solid var(--teal-2); padding:2px 0 2px 14px; margin-bottom:12px;
+  font-size:14px; color:var(--ink-2)}
 .quote cite{display:block; font-style:normal; font-size:12px; color:var(--muted);
-  font-family:"IBM Plex Mono",monospace; margin-top:4px}
-.tail{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:20px; padding-top:14px;
+  font-family:"IBM Plex Mono",monospace; margin-top:3px}
+.tail{display:flex; flex-wrap:wrap; gap:6px 20px; margin-top:16px; padding-top:12px;
   border-top:1px solid var(--line); font-family:"IBM Plex Mono",monospace;
   font-size:11.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+@media (max-width:820px){
+  .whead{display:none}
+  .wgrid{grid-template-columns:22px 44px 1fr 1fr; gap:10px 14px;
+    grid-template-areas:"c w d d" ". h h h" ". k v v" ". r r r"}
+  .wgrid > :nth-child(1){grid-area:c} .wgrid > :nth-child(2){grid-area:w}
+  .wgrid > :nth-child(3){grid-area:d} .wgrid > :nth-child(4){grid-area:h}
+  .wgrid > :nth-child(5){grid-area:k} .wgrid > :nth-child(6){grid-area:v}
+  .wgrid > :nth-child(7){grid-area:r}
+  .wn{display:flex; gap:6px; align-items:baseline} .wn b{display:inline}
+  .wbody{padding-left:0}
+  .log{min-width:0; font-size:13px} .log td{padding:7px 6px} .log td.day{width:auto} .log .dd{display:none}
+  .card{padding:20px 16px}
+}
 
 .note{background:var(--amber-wash); border:1px solid var(--line); border-left:3px solid var(--amber);
-  border-radius:2px; padding:16px 18px; margin-top:24px; font-size:14.5px; color:var(--ink-2)}
+  border-radius:6px; padding:14px 18px; margin-top:20px; font-size:14px; color:var(--ink-2)}
 .note b{color:var(--ink)}
 code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--sunk);
-  padding:1px 5px; border-radius:2px; border:1px solid var(--line)}
-footer{margin-top:64px; padding-top:22px; border-top:1px solid var(--line);
+  padding:1px 5px; border-radius:3px; border:1px solid var(--line)}
+footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
   font-size:13px; color:var(--muted)}
 .tip{position:fixed; z-index:20; pointer-events:none; opacity:0; transition:opacity .1s;
   background:var(--ink); color:var(--ground); font-family:"IBM Plex Mono",monospace;
-  font-size:11.5px; line-height:1.5; padding:8px 10px; border-radius:2px;
+  font-size:11.5px; line-height:1.5; padding:8px 10px; border-radius:4px;
   white-space:pre; box-shadow:var(--shadow)}
 .tip.on{opacity:1}
 @media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
@@ -197,49 +261,90 @@ footer{margin-top:64px; padding-top:22px; border-top:1px solid var(--line);
 
 <div class="wrap">
 <header>
-  <p class="eyebrow" id="eyebrow">Training logbook</p>
-  <h1>Chianti Logbook</h1>
-  <p class="lede" id="lede"></p>
-  <dl class="status" id="status"></dl>
+  <div>
+    <h1>Chianti Logbook</h1>
+    <p class="sub" id="sub"></p>
+  </div>
+  <div class="countdown" id="countdown"></div>
 </header>
 
-<section>
-  <div class="sec-head"><h2>The 29 weeks</h2></div>
-  <p class="sec-intro">Running hours against what actually happened. The plan is written week by week only inside an <strong id="hz-text">eight-week horizon</strong>; beyond it each phase carries a band rather than a number, because a specific hour target four months out is precision the evidence cannot support — and scoring compliance against it would be worse than useless. The bands narrow into real weeks as each block comes inside the horizon.</p>
-  <figure class="panel" style="margin:26px 0 0">
-    <div class="legend">
-      <span><i class="swatch" style="background:var(--ghost)"></i>Weekly target — written</span>
-      <span><i class="swatch" style="background:var(--teal)"></i>Actual</span>
-      <span><i class="swatch" style="background:var(--garnet)"></i>Race week</span>
-      <span><i class="swatch" style="background:var(--sunk-2);border:1px dashed var(--line-2)"></i>Phase band — provisional</span>
+<div class="top">
+  <section class="card" id="now" aria-labelledby="now-h">
+    <div class="ch">
+      <h2 id="now-h">This week</h2>
+      <span class="meta" id="now-meta"></span>
+      <span class="pill" id="now-phase"></span>
     </div>
-    <div class="scroll"><svg id="macro" role="img" aria-label="Planned versus actual weekly running hours across the 29-week macrocycle"></svg></div>
-    <figcaption id="macro-cap"></figcaption>
-  </figure>
+    <div class="tw-main">
+      <div class="ring" id="ring"></div>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="rails">
+      <p class="eyebrow">Training guardrails</p>
+      <div class="pills" id="pills"></div>
+    </div>
+  </section>
+
+  <section class="card" id="fit" aria-labelledby="fit-h">
+    <div class="ch">
+      <h2 id="fit-h">Fitness &amp; form</h2>
+      <span class="meta" style="margin-left:auto">last 12 weeks</span>
+    </div>
+    <dl class="fit-nums" id="fit-nums"></dl>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--teal);border-radius:50%"></i>CTL</span>
+      <span><i class="swatch" style="background:var(--line-2);border-radius:50%"></i>ATL</span>
+      <span><i class="swatch" style="background:var(--garnet);border-radius:50%"></i>Form</span>
+    </div>
+    <svg id="fitchart" role="img" aria-label="Daily fitness, fatigue and form over the last 12 weeks"></svg>
+    <p class="caption">Daily load units from the HR model. The shape carries the information; the absolute numbers depend on the load model.</p>
+  </section>
+</div>
+
+<section class="card" aria-labelledby="plan-h">
+  <div class="ch">
+    <h2 id="plan-h">The 29-week plan</h2>
+    <p class="intro">Running hours against what actually happened. The plan is written week by week only inside an <strong id="hz-text">eight-week horizon</strong>; beyond it each phase carries a band rather than a number, and the bands narrow into real weeks as each block comes inside the horizon.</p>
+  </div>
+  <div class="scroll" style="margin-top:18px"><svg id="macro" role="img" aria-label="Planned versus actual weekly running hours across the 29-week macrocycle"></svg></div>
+  <div class="legend" style="margin-top:14px">
+    <span><i class="swatch" style="background:var(--teal)"></i>Actual</span>
+    <span><i class="swatch" style="background:var(--ghost)"></i>Weekly target</span>
+    <span><i class="swatch" style="background:var(--garnet)"></i>Race week</span>
+    <span><i class="swatch" style="background:var(--sunk-2);border:1px dashed var(--line-2)"></i>Phase band (provisional)</span>
+    <span id="lastrace" style="margin-left:auto; display:block"></span>
+  </div>
+  <p class="caption" id="macro-cap"></p>
 </section>
 
-<section>
-  <div class="sec-head"><h2>Every month since 2023</h2></div>
-  <p class="sec-intro">Running hours per calendar month, shaded by volume. The gaps are the injuries: February–March 2024, April 2025, and the two months the January 2026 calf cost. Seasons are calendar years, the way Dan counts them.</p>
-  <figure class="panel">
-    <div class="scroll"><div class="mapgrid" id="map"></div></div>
-    <div class="ramp" id="ramp"></div>
-    <figcaption>Each cell is one month: running hours on top, kilometres below. Hover for climb, density and the month's aerobic read. A garnet outline marks the current month.</figcaption>
-  </figure>
+<section class="card" aria-labelledby="diary-h">
+  <div class="ch">
+    <h2 id="diary-h">Weekly diary</h2>
+    <p class="intro">One row per week from the start of the macrocycle; open a week for its sessions. Every line is derived from the cache, so an entry stays true as sessions are added. The quotes are Dan's own session notes.</p>
+  </div>
+  <div class="wlist">
+    <div class="wgrid whead"><span></span><span>Week</span><span>Dates</span><span>Run hours</span><span>km</span><span>Vert</span><span>Verdict</span></div>
+    <div id="diary"></div>
+  </div>
+</section>
+
+<section class="card" aria-labelledby="map-h">
+  <div class="ch">
+    <h2 id="map-h">Every month since 2023</h2>
+    <p class="intro">Running hours per calendar month. The gaps are the injuries: February–March 2024, April 2025, and the two months the January 2026 calf cost. Hover a month for climb, density and the aerobic read.</p>
+  </div>
+  <div class="scroll"><div class="mapgrid" id="map"></div></div>
+  <div class="ramp" id="ramp"></div>
   <div class="tw" id="monthtable"></div>
 </section>
 
-<section>
-  <div class="sec-head"><h2>Week ledger</h2></div>
-  <p class="sec-intro">Every week, scored against the seven guardrails. Week-over-week ratio and ACWR are running hours only — the bike carries load the tendons never see, which is the whole reason it is in the plan.</p>
+<section class="card" aria-labelledby="ledger-h">
+  <div class="ch">
+    <h2 id="ledger-h">Week ledger</h2>
+    <p class="intro">Every week, scored against the guardrails. Week-over-week ratio and ACWR are running hours only — the bike carries load the tendons never see, which is the whole reason it is in the plan.</p>
+  </div>
   <div class="tw" id="weektable"></div>
   <div class="note"><b>How to read the flags.</b> <span class="chip bad">R1</span> a week-over-week jump above 1.25×, the single strongest injury predictor in the record. <span class="chip bad">R2</span> acute:chronic above 1.30. <span class="chip bad">R3</span> more than 8 h of running below 300 m of climb per hour — flat volume, the mechanism behind the calf and shin failures. <span class="chip bad">R6</span> over the 100 km ceiling. R4 fires only for <em>flat</em> interval or repetition work; uphill reps carry the intent of the rule and are not flagged.</div>
-</section>
-
-<section>
-  <div class="sec-head"><h2>Diary</h2></div>
-  <p class="sec-intro">One entry per week from the start of the macrocycle. Every line below is derived from the cache — the day log, the plan comparison, the verdicts and the flags — so the entry stays true when new sessions are added rather than drifting from what was actually run. The quotes are Dan's own session notes.</p>
-  <div id="diary"></div>
 </section>
 
 <footer id="foot"></footer>
@@ -252,6 +357,14 @@ const $ = (id) => document.getElementById(id);
 const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const hm = (h) => { const m = Math.round(h * 60); return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`; };
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const day = (iso, year) => new Date(iso).toLocaleDateString('en-GB',
+  year ? { day: 'numeric', month: 'short', year: 'numeric' } : { day: 'numeric', month: 'short' });
+const span = (a, b) => `${day(a)} – ${day(b, true)}`;
+const phaseShort = (name) => name.split('—')[0].trim();
+const signed = (v) => `${v > 0 ? '+' : ''}${v.toFixed(0)}`;
+// Mirrors tl/diary.py: within ±15% of the target counts as on target.
+const offTarget = (w) => w.plan && w.plan.run_h && Math.abs(w.run_h / w.plan.run_h - 1) > 0.15;
+const raceOf = (w) => w.days.flatMap(d => d.acts.filter(a => a.type === 'RACE').map(a => ({ ...a, date: d.date })))[0];
 
 /* ---------------- tooltip ---------------- */
 const tip = $('tip');
@@ -265,59 +378,116 @@ function bindTip(el, text) {
 }
 
 /* ---------------- masthead ---------------- */
-const done = DATA.weeks.filter(w => !w.current);
-const last4 = done.slice(-4), prev4 = done.slice(-8, -4);
-const mean = (a, k) => a.reduce((s, x) => s + x[k], 0) / (a.length || 1);
-const l4 = mean(last4, 'run_h'), p4 = mean(prev4, 'run_h');
-const dens4 = last4.reduce((s, w) => s + w.vert, 0) / last4.reduce((s, w) => s + w.run_h, 0);
-const cur = DATA.weeks.find(w => w.current);
-const curPlan = DATA.plan.find(p => p.start === (cur && cur.start));
-const season = DATA.seasons[DATA.seasons.length - 1];
+$('sub').textContent = `Training for the ${DATA.race.name} · ${day(DATA.race.date, true)} · updated ${DATA.generated}`;
+$('countdown').innerHTML = `<span class="eyebrow">To the start line</span><b>${Math.floor(DATA.race.weeks_to_go)} weeks</b>`;
 
-$('eyebrow').textContent = `Training logbook · updated ${DATA.generated}`;
-$('lede').innerHTML = `Everything actually run, mapped against the ${esc(DATA.race.name)} macrocycle. `
-  + `${DATA.cache.n.toLocaleString()} activities from ${DATA.cache.first} to ${DATA.cache.last}, `
-  + `rebuilt from the cache every time it is topped up.`;
+/* ---------------- this week ---------------- */
+(function thisWeek() {
+  const w = DATA.diary.find(x => x.current) || DATA.diary[DATA.diary.length - 1];
+  if (!w) { $('now').hidden = true; return; }
+  const p = w.plan, G = DATA.guardrails;
+  $('now-meta').textContent = `${p ? `Week ${p.index} of ${DATA.plan.length} · ` : ''}${span(w.start, w.end)}`;
+  $('now-phase').innerHTML = p ? `<b>${p.phase}</b>${esc(phaseShort(p.phase_name))}` : 'Lead-in';
 
-const tiles = [
-  ['To the start line', `${Math.floor(DATA.race.weeks_to_go)} wk`, `${DATA.race.name}, ${new Date(DATA.race.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`, ''],
-  ['Plan week', curPlan ? `${curPlan.index} / 29` : '—', curPlan ? `${curPlan.phase} · ${curPlan.phase_name}` : 'outside the macrocycle', ''],
-  ['4-week run load', `${l4.toFixed(1)} h`, prev4.length ? `${(l4 / p4).toFixed(2)}× the four before` : 'per week', (l4 / p4) > 1.25 ? 'warn' : 'good'],
-  ['4-week density', `${Math.round(dens4)} m/h`, dens4 >= 300 ? 'above the 300 m/h floor' : 'below the 300 m/h floor', dens4 >= 300 ? 'good' : 'warn'],
-  ['Season to date', `${Math.round(season.run_km).toLocaleString()} km`, `${Math.round(season.run_vert).toLocaleString()} m climbed in ${season.label}`, ''],
-];
-$('status').innerHTML = tiles.map(([k, v, s, cls]) =>
-  `<div><dt>${esc(k)}</dt><dd class="${cls}">${esc(v)}<small>${esc(s)}</small></dd></div>`).join('');
+  const r = p && p.run_h ? w.run_h / p.run_h : null;
+  const R = 74, C = 2 * Math.PI * R;
+  $('ring').innerHTML = `<svg viewBox="0 0 172 172" aria-hidden="true">
+      <circle cx="86" cy="86" r="${R}" fill="none" stroke="var(--sunk-2)" stroke-width="15"/>
+      <circle cx="86" cy="86" r="${R}" fill="none" stroke="${r > 1.15 ? 'var(--amber)' : 'var(--teal)'}" stroke-width="15"
+        stroke-linecap="round" stroke-dasharray="${C * Math.min(1, r ?? 0)} ${C}"/></svg>
+    <div class="c"><b>${w.run_h.toFixed(1)}${p ? ` / ${p.run_h.toFixed(1)}` : ''} h</b>
+      ${r !== null ? `<i>${Math.round(r * 100)}%</i>` : ''}<span>run hours</span></div>`;
+
+  const stats = [
+    [Math.round(w.run_km), 'km', p ? `of ${Math.round(p.run_km)} planned` : 'this week', ''],
+    [w.run_vert.toLocaleString(), 'm vert', p ? `of ${p.run_vert.toLocaleString()} planned` : 'this week', ''],
+    [w.density, 'm/h density', `floor ${G.vert_floor} m/h`, w.density < G.vert_floor ? 'warn' : ''],
+    [p ? esc(p.weekend) : '—', 'weekend', 'planned', 'txt'],
+  ];
+  $('stats').innerHTML = stats.map(([v, u, s, cls]) =>
+    `<div><b class="${cls}">${v}</b><span>${u}</span><small>${s}</small></div>`).join('');
+
+  /* Status comes from tl's own flags; "watch" marks a value past the line on a
+     week the rule does not cover (R3 only binds above the big-week threshold). */
+  const flag = Object.fromEntries(w.flags.map(f => [f.code, f.msg]));
+  const rails = [
+    ['R1', w.wow != null ? `${w.wow.toFixed(2)}×` : '—', `WoW ≤ ${G.wow}×`],
+    ['R2', w.acwr != null ? w.acwr.toFixed(2) : '—', `ACWR ≤ ${G.acwr.toFixed(2)}`],
+    ['R3', `${w.density} m/h`, `≥ ${G.vert_floor} m/h over ${G.big_week_h} h`,
+      w.density < G.vert_floor ? `${w.run_h.toFixed(1)} h week — the floor binds above ${G.big_week_h} h` : ''],
+    ['R4', flag.R4 ? 'Yes' : 'None', 'flat I/R work'],
+    ['R6', `${Math.round(w.run_km)} km`, `≤ ${G.km} km`],
+  ];
+  $('pills').innerHTML = rails.map(([code, v, rule, watch]) => {
+    const st = flag[code] ? 'bad' : watch ? 'watch' : 'ok';
+    return `<div class="rail ${st}" title="${esc(`${code}: ${flag[code] || watch || 'within the guardrail'}`)}">`
+      + `<i>${st === 'ok' ? '✓' : st === 'bad' ? '✕' : '!'}</i><div><b>${v}</b><span>${rule}</span></div></div>`;
+  }).join('');
+})();
+
+/* ---------------- fitness & form ---------------- */
+(function fitness() {
+  const F = DATA.fitness, f = F[F.length - 1];
+  $('fit-nums').innerHTML = [
+    ['CTL', f.ctl.toFixed(0), 'chronic load'], ['ATL', f.atl.toFixed(0), 'acute load'],
+    ['Form', signed(f.tsb), 'CTL − ATL'],
+  ].map(([k, v, s], i) => `<div><dt>${k}</dt><dd style="${i === 2 ? `color:var(${f.tsb >= 0 ? '--teal' : '--garnet'})` : ''}">${v}</dd><small>${s}</small></div>`).join('');
+
+  const W = 380, H = 190, m = { t: 8, r: 6, b: 22, l: 30 };
+  const lo = Math.floor(Math.min(0, ...F.map(d => d.tsb)) / 10) * 10;
+  const hi = Math.ceil(Math.max(...F.map(d => Math.max(d.ctl, d.atl))) / 10) * 10;
+  const x = (i) => m.l + i / (F.length - 1) * (W - m.l - m.r);
+  const y = (v) => m.t + (hi - v) / (hi - lo) * (H - m.t - m.b);
+  const step = hi - lo > 60 ? 20 : 10;
+  let s = '';
+  for (let g = lo; g <= hi; g += step) {
+    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(g)}" y2="${y(g)}" stroke="var(${g === 0 ? '--line-2' : '--line'})"/>`
+       + `<text x="${m.l - 6}" y="${y(g) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${g}</text>`;
+  }
+  F.forEach((d, i) => {
+    if (d.date.endsWith('-01')) s += `<text x="${x(i)}" y="${H - 5}" text-anchor="${i > F.length - 6 ? 'end' : 'middle'}" font-size="11" fill="var(--muted)">${MON[+d.date.slice(5, 7) - 1]}</text>`;
+  });
+  const line = (k, color, wd) => `<polyline fill="none" stroke="${color}" stroke-width="${wd}" stroke-linejoin="round" `
+    + `points="${F.map((d, i) => `${x(i).toFixed(1)},${y(d[k]).toFixed(1)}`).join(' ')}"/>`;
+  s += line('atl', 'var(--line-2)', 1.6) + line('tsb', 'var(--garnet)', 1.8) + line('ctl', 'var(--teal)', 2.4);
+  const svg = $('fitchart');
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  svg.style.width = '100%';
+  svg.innerHTML = s;
+})();
 
 /* ---------------- macrocycle chart ---------------- */
 (function macro() {
   const P = DATA.plan, PROV = DATA.provisional || [];
   const actual = Object.fromEntries(DATA.weeks.map(w => [w.start, w]));
-  const W = Math.max(720, P.length * 26), H = 260;
-  const m = { t: 12, r: 12, b: 52, l: 34 };
+  const cur = DATA.weeks.find(w => w.current);
+  const W = 1140, H = 380;
+  const m = { t: 30, r: 10, b: 84, l: 56 };
   const iw = W - m.l - m.r, ih = H - m.t - m.b;
-  const MAXH = 10, slot = iw / P.length;
+  const top = Math.max(...P.map(p => p.run_h), ...PROV.map(q => q.run_h[1]), ...DATA.weeks.map(w => w.run_h));
+  const MAXH = Math.ceil(top / 2) * 2, slot = iw / P.length;
   const x = (i) => m.l + (i + .5) * slot;
   const y = (v) => m.t + ih - (v / MAXH) * ih;
-  const bw = Math.min(18, slot - 5);
+  const bw = Math.min(26, slot - 10);
   const idx = Object.fromEntries(P.map((p, i) => [p.start, i]));
-  let s = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">`;
+  let s = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;min-width:760px;height:auto">`;
   for (let g = 0; g <= MAXH; g += 2) {
     s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(g)}" y2="${y(g)}" stroke="var(--line)" stroke-width="1"/>`
-       + `<text x="${m.l - 7}" y="${y(g) + 4}" text-anchor="end" font-size="10" fill="var(--muted)">${g}h</text>`;
+       + `<text x="${m.l - 9}" y="${y(g) + 4}" text-anchor="end" font-size="12.5" fill="var(--muted)">${g}h</text>`;
   }
+  s += `<text transform="translate(14 ${m.t + ih / 2}) rotate(-90)" text-anchor="middle" font-size="12.5" fill="var(--ink-2)">Run hours</text>`;
 
   /* provisional phases: a band, not bars */
   PROV.forEach(q => {
     const a = idx[q.start];
     const last = P.reduce((acc, p, i) => (p.phase === q.phase ? i : acc), a);
-    const x0 = x(a) - slot / 2 + 2, x1 = x(last) + slot / 2 - 2;
+    const x0 = x(a) - slot / 2 + 3, x1 = x(last) + slot / 2 - 3;
     const [lo, hi] = q.run_h, mid = (lo + hi) / 2;
-    s += `<rect x="${x0}" y="${y(hi)}" width="${x1 - x0}" height="${y(lo) - y(hi)}" rx="2" `
+    s += `<rect x="${x0}" y="${y(hi)}" width="${x1 - x0}" height="${y(lo) - y(hi)}" rx="3" `
        + `fill="var(--sunk-2)" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 3"/>`
        + `<line x1="${x0}" x2="${x1}" y1="${y(mid)}" y2="${y(mid)}" stroke="var(--line-2)" `
        + `stroke-width="1.5" stroke-dasharray="5 4"/>`
-       + `<text x="${(x0 + x1) / 2}" y="${y(hi) - 7}" text-anchor="middle" font-size="10" `
+       + `<text x="${(x0 + x1) / 2}" y="${y(hi) - 7}" text-anchor="middle" font-size="11.5" `
        + `fill="var(--muted)">${lo.toFixed(1)}–${hi.toFixed(1)} h</text>`;
   });
 
@@ -325,10 +495,10 @@ $('status').innerHTML = tiles.map(([k, v, s, cls]) =>
   const firstProv = P.findIndex(p => !p.committed);
   if (firstProv > 0) {
     const hx = x(firstProv) - slot / 2;
-    s += `<line x1="${hx}" x2="${hx}" y1="${m.t - 4}" y2="${m.t + ih + 6}" stroke="var(--garnet)" `
+    s += `<line x1="${hx}" x2="${hx}" y1="${m.t - 12}" y2="${m.t + ih}" stroke="var(--ink-2)" `
        + `stroke-width="1" stroke-dasharray="4 3"/>`
-       + `<text x="${hx - 6}" y="${m.t + 8}" text-anchor="end" font-size="9.5" `
-       + `fill="var(--garnet)">written to here</text>`;
+       + `<text x="${hx - 6}" y="${m.t - 4}" text-anchor="end" font-size="11.5" `
+       + `fill="var(--ink-2)">written to here</text>`;
   }
 
   /* committed weeks: real targets, with actuals */
@@ -339,34 +509,50 @@ $('status').innerHTML = tiles.map(([k, v, s, cls]) =>
        + `fill="${p.race ? 'var(--garnet-wash)' : 'var(--ghost)'}"/>`;
     if (a) {
       const v = Math.min(a.run_h, MAXH);
-      s += `<rect x="${cx - bw / 2 + 2}" y="${y(v)}" width="${bw - 4}" height="${ih * (v / MAXH)}" `
+      s += `<rect x="${cx - bw / 2 + 3}" y="${y(v)}" width="${bw - 6}" height="${ih * (v / MAXH)}" `
          + `rx="2.5" fill="${p.race ? 'var(--garnet)' : 'var(--teal)'}"/>`;
     }
   });
 
-  /* axis labels + hit targets */
+  /* race weeks: a garnet flag down to the bar or band */
   P.forEach((p, i) => {
-    if (p.index % 4 === 1 || p.race) {
-      const d = new Date(p.start);
-      s += `<text x="${x(i)}" y="${H - m.b + 15}" text-anchor="middle" font-size="9.5" `
-         + `fill="var(--muted)">${d.getDate()} ${MON[d.getMonth()]}</text>`;
-    }
-    s += `<rect class="hit" data-i="${i}" x="${x(i) - slot / 2}" y="${m.t}" `
+    if (!p.race) return;
+    const band = PROV.find(q => q.phase === p.phase);
+    const tip = p.committed ? Math.max(p.run_h, actual[p.start] ? actual[p.start].run_h : 0) : band ? band.run_h[1] : p.run_h;
+    const end = i > P.length / 2;
+    s += `<line x1="${x(i)}" x2="${x(i)}" y1="${m.t - 12}" y2="${y(tip) - 4}" stroke="var(--garnet)" stroke-width="1.5"/>`
+       + `<circle cx="${x(i)}" cy="${m.t - 12}" r="3.5" fill="var(--garnet)"/>`
+       + `<text x="${x(i) + (end ? -8 : 8)}" y="${m.t - 8}" text-anchor="${end ? 'end' : 'start'}" font-size="11.5" `
+       + `font-weight="600" fill="var(--garnet)">${esc(p.race)}</text>`;
+  });
+
+  /* week numbers + hit targets */
+  P.forEach((p, i) => {
+    const now = cur && cur.start === p.start;
+    s += `<text x="${x(i)}" y="${m.t + ih + 18}" text-anchor="middle" font-size="12.5" `
+       + `font-weight="${now ? 700 : 400}" fill="var(${now ? '--ink' : '--muted'})">${p.index}</text>`
+       + `<rect class="hit" data-i="${i}" x="${x(i) - slot / 2}" y="${m.t}" `
        + `width="${slot}" height="${ih}" fill="transparent"/>`;
   });
 
-  /* phase lane */
+  /* phase bands under the axis */
   const bounds = [];
   P.forEach((p, i) => {
     const b = bounds[bounds.length - 1];
     if (!b || b.phase !== p.phase) bounds.push({ phase: p.phase, name: p.phase_name, a: i, b: i });
     else b.b = i;
   });
+  const by = m.t + ih + 30;
   bounds.forEach(b => {
-    const x0 = x(b.a) - bw / 2 - 2, x1 = x(b.b) + bw / 2 + 2;
-    s += `<line x1="${x0}" x2="${x1}" y1="${H - 24}" y2="${H - 24}" stroke="var(--teal-2)" stroke-width="2"/>`
-       + `<text x="${(x0 + x1) / 2}" y="${H - 9}" text-anchor="middle" font-size="9.5" `
-       + `letter-spacing=".08em" fill="var(--muted)">${b.phase} ${b.name.split('—')[0].trim().toUpperCase()}</text>`;
+    const x0 = x(b.a) - slot / 2 + 1, x1 = x(b.b) + slot / 2 - 1;
+    const now = cur && P.slice(b.a, b.b + 1).some(p => p.start === cur.start);
+    const name = phaseShort(b.name), fit = name.length * 7.2 + 30 < x1 - x0;
+    s += `<rect x="${x0}" y="${by}" width="${x1 - x0}" height="44" rx="3" `
+       + `fill="var(${now ? '--teal-wash' : '--sunk'})" stroke="var(${now ? '--teal-2' : '--line'})"/>`
+       + `<text x="${(x0 + x1) / 2}" y="${by + 18}" text-anchor="middle" font-size="12" fill="var(--ink)">`
+       + `<tspan font-weight="600">${b.phase}</tspan>${fit ? ' ' + esc(name) : ''}</text>`
+       + `<text x="${(x0 + x1) / 2}" y="${by + 35}" text-anchor="middle" font-size="11.5" fill="var(--muted)">`
+       + `wk ${P[b.a].index}–${P[b.b].index}</text>`;
   });
   s += '</svg>';
   $('macro').outerHTML = s;
@@ -376,39 +562,99 @@ $('status').innerHTML = tiles.map(([k, v, s, cls]) =>
     const p = P[+h.dataset.i], a = actual[p.start];
     let lines;
     if (p.committed) {
-      lines = [`Week ${p.index} · ${p.start} · ${p.phase}`,
+      lines = [`Week ${p.index} · ${p.start} · ${p.phase} ${phaseShort(p.phase_name)}`,
         `plan  ${p.run_h.toFixed(1)} h run · ${p.bike_h.toFixed(1)} h bike` + (p.gym_h ? ` · ${p.gym_h} h gym` : ''),
         `      ${p.km} km · ${p.vert.toLocaleString()} m`,
         a ? `run   ${a.run_h.toFixed(1)} h · ${a.km} km · ${a.vert.toLocaleString()} m · ${a.density} m/h` : 'run   —',
         p.race ? p.race : `weekend ${p.weekend}`];
     } else {
       const q = provBy[p.phase] || {};
-      lines = [`Week ${p.index} · ${p.start} · ${p.phase} ${p.phase_name}`,
+      lines = [`Week ${p.index} · ${p.start} · ${p.phase} ${phaseShort(p.phase_name)}`,
         'PROVISIONAL — the phase carries a band, not a weekly number',
         q.run_h ? `run   ${q.run_h[0].toFixed(1)}–${q.run_h[1].toFixed(1)} h/wk` : '',
         q.bike_h ? `bike  ${q.bike_h[0].toFixed(1)}–${q.bike_h[1].toFixed(1)} h/wk` : '',
         q.km ? `      ${q.km[0]}–${q.km[1]} km · ${q.vert[0].toLocaleString()}–${q.vert[1].toLocaleString()} m` : '',
-        q.total_km ? `phase ${q.total_km.toLocaleString()} km · ${q.total_vert.toLocaleString()} m over ${q.weeks} wk` : ''].filter(Boolean);
+        q.total_km ? `phase ${q.total_km.toLocaleString()} km · ${q.total_vert.toLocaleString()} m over ${q.weeks} wk` : '',
+        p.race || ''].filter(Boolean);
     }
     bindTip(h, lines.join('\n'));
   });
+
+  const race = DATA.diary.map(raceOf).filter(Boolean).pop();
+  if (race) $('lastrace').innerHTML = `Last race: <strong>${esc(race.name)}</strong> · ${day(race.date, true)}`;
 
   const ran = P.filter(p => actual[p.start] && !actual[p.start].current);
   const hit = ran.length ? ran.reduce((s2, p) => s2 + actual[p.start].run_h / p.run_h, 0) / ran.length : 0;
   const hz = DATA.horizon;
   $('hz-text').textContent = `${hz.weeks}-week horizon`;
   $('macro-cap').textContent =
-    `Written week by week through ${new Date(hz.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} `
-    + `— ${hz.committed} of ${P.length} weeks. `
+    `Written week by week through ${day(hz.date, true)} — ${hz.committed} of ${P.length} weeks. `
     + (ran.length
-      ? `${ran.length} completed so far, averaging ${(hit * 100).toFixed(0)}% of planned running hours.`
+      ? `${ran.length} completed so far, averaging ${(hit * 100).toFixed(0)}% of planned running hours. Hover a week for its targets.`
       : 'Actuals appear here as weeks are completed.');
+})();
+
+/* ---------------- weekly diary ---------------- */
+(function diary() {
+  const QUAL = new Set(['T', 'I', 'R', 'M', 'F', 'RACE']);
+  const html = DATA.diary.slice().reverse().map(w => {
+    const p = w.plan, race = raceOf(w);
+    const r = p && p.run_h ? w.run_h / p.run_h : null;
+    const tone = w.flags.some(f => f.code !== '--') ? 'bad' : (w.flags.length || offTarget(w)) ? 'watch' : '';
+    const headline = p ? w.notes[0] : 'Lead-in — the week before the macrocycle';
+    const sub = race ? `Race: ${race.name}`
+      : w.longest ? `Longest run ${hm(w.longest / 60)} · ${w.longest_km} km · ${w.longest_vert.toLocaleString()} m` : 'No runs';
+    const log = w.days.map(d => {
+      if (!d.acts.length) return `<tr class="rest"><td class="day">${d.day}<span class="dd"> ${day(d.date)}</span></td>
+        <td class="t"></td><td>Rest</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>`;
+      return d.acts.map((a, i) => `<tr>
+        <td class="day">${i === 0 ? `${d.day}<span class="dd"> ${day(d.date)}</span>` : ''}</td>
+        <td class="t">${a.type ? `<span class="type${QUAL.has(a.type) ? ' q' : ''}">${a.type}</span>` : ''}</td>
+        <td>${esc(a.name || a.sport)}${a.feel !== null && a.feel !== undefined ? ` <span style="color:var(--muted);font-size:12px">feel ${a.feel > 0 ? '+' : ''}${a.feel}</span>` : ''}</td>
+        <td class="num">${hm(a.mins / 60)} h</td>
+        <td class="num">${a.km ? `${a.km.toFixed(1)} km` : ''}</td>
+        <td class="num">${a.vert ? `${a.vert.toLocaleString()} m` : ''}</td></tr>`).join('');
+    }).join('');
+    const quotes = w.days.flatMap(d => d.acts.filter(a => a.note)
+      .map(a => `<div class="quote">${esc(a.note)}<cite>${esc(a.name)} · ${day(d.date)}</cite></div>`)).join('');
+    const tail = [
+      p ? `plan ${p.run_h} h run · ${p.bike_h} h bike · ${p.gym_h} h gym · weekend ${p.weekend}` : '',
+      `bike ${w.bike_h.toFixed(1)} h · gym ${w.gym_h.toFixed(1)} h`,
+      w.ctl !== null ? `CTL ${w.ctl.toFixed(0)} · ATL ${w.atl.toFixed(0)} · form ${signed(w.tsb)}` : '',
+      w.monotony ? `monotony ${w.monotony.toFixed(2)}` : '',
+      w.wow != null ? `WoW ${w.wow.toFixed(2)}×` : '', w.acwr != null ? `ACWR ${w.acwr.toFixed(2)}` : '',
+      `${w.run_days} run days · ${w.rest_days} full rest`,
+    ].filter(Boolean).map(t => `<span>${t}</span>`).join('');
+    return `<details class="wrow"${w.current ? ' open' : ''}>
+      <summary class="wgrid">
+        <span class="chev" aria-hidden="true"></span>
+        <span class="wk">${p ? p.index : 0}</span>
+        <span class="wd"><b>${span(w.start, w.end)}</b>
+          ${race ? `<span class="race">Race week · ${esc(race.name).replace(/ (\S+)$/, '&nbsp;$1')}</span>`
+            : `<span>${p ? `${p.phase} ${esc(phaseShort(p.phase_name))}` : 'Lead-in'}</span>`}</span>
+        <span class="wh"><b>${w.run_h.toFixed(1)}${p ? ` / ${p.run_h.toFixed(1)}` : ''} h</b>
+          ${r !== null ? `<span class="barrow"><span class="bar"><i class="${r > 1.15 ? 'over' : ''}" style="width:${Math.min(100, r * 100)}%"></i></span><span>${Math.round(r * 100)}%</span></span>` : ''}</span>
+        <span class="wn"><b>${Math.round(w.run_km)}</b><span>km</span></span>
+        <span class="wn"><b>${w.run_vert.toLocaleString()}</b><span>m</span></span>
+        <span class="wv"><i class="dot ${tone}"></i><b>${esc(headline)}</b><span>${esc(sub)}</span></span>
+      </summary>
+      <div class="wbody">
+        <div class="scroll"><table class="log"><tbody>${log}</tbody></table></div>
+        <div class="wcols">
+          <ul class="verdict">${w.notes.map(n => `<li class="${/^\[/.test(n) ? 'flag' : ''}">${esc(n)}</li>`).join('')}
+            ${w.flags.map(f => `<li class="flag">${f.code} ${esc(f.msg)}</li>`).join('')}</ul>
+          <div>${quotes}</div>
+        </div>
+        <div class="tail">${tail}</div>
+      </div></details>`;
+  }).join('');
+  $('diary').innerHTML = html || '<p class="caption">No weeks in the macrocycle yet.</p>';
 })();
 
 /* ---------------- month map ---------------- */
 (function map() {
   const byKey = Object.fromEntries(DATA.months.map(m => [m.label, m]));
-  const years = [...new Set(DATA.months.map(m => +m.label.slice(0, 4)))];
+  const years = [...new Set(DATA.months.map(m => +m.label.slice(0, 4)))].reverse();
   const step = (h) => h === 0 ? 0 : h < 10 ? 1 : h < 18 ? 2 : h < 26 ? 3 : h < 33 ? 4 : 5;
   const nowKey = DATA.today.slice(0, 7);
   let html = '<div></div>' + MON.map(m => `<div class="hd">${m}</div>`).join('');
@@ -433,7 +679,8 @@ $('status').innerHTML = tiles.map(([k, v, s, cls]) =>
       m.hr ? `easy/long HR ${m.hr.toFixed(0)} bpm at ${hm(m.pace)} /km` : ''].filter(Boolean).join('\n'));
   });
   $('ramp').innerHTML = 'run hours &nbsp;' + [['0', 0], ['<10', 1], ['10–18', 2], ['18–26', 3], ['26–33', 4], ['33+', 5]]
-    .map(([l, k]) => `<i style="background:var(--s${k})"></i><span style="margin:0 10px 0 4px">${l}</span>`).join('');
+    .map(([l, k]) => `<i style="background:var(--s${k})"></i><span style="margin:0 10px 0 4px">${l}</span>`).join('')
+    + '<span style="margin-left:6px">· top: hours, below: km · garnet outline: this month</span>';
 
   const rows = DATA.months.slice(-18).reverse().map(m => `<tr>
     <td class="mono">${m.label}</td><td class="n">${m.run_h.toFixed(1)}</td>
@@ -475,64 +722,7 @@ $('status').innerHTML = tiles.map(([k, v, s, cls]) =>
     <tbody>${rows}</tbody></table>`;
 })();
 
-/* ---------------- diary ---------------- */
-(function diary() {
-  const QUAL = new Set(['T', 'I', 'R', 'M', 'F', 'RACE']);
-  const fmt = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-  const html = DATA.diary.slice().reverse().map(w => {
-    const p = w.plan;
-    const pv = (label, a, plan, unit, digits = 1) => {
-      const pct = plan ? Math.min(140, a / plan * 100) : null;
-      return `<div><dt>${label}</dt><dd>${a.toFixed(digits)}<s> / ${plan ? plan.toFixed(digits) : '—'} ${unit}</s></dd>`
-        + (plan ? `<div class="bar"><i class="${pct > 115 ? 'over' : ''}" style="width:${Math.min(100, pct)}%"></i></div>` : '')
-        + '</div>';
-    };
-    const log = w.days.map(d => {
-      if (!d.acts.length) return `<tr class="rest"><td class="day">${d.day} ${fmt(d.date)}</td>
-        <td class="t"></td><td colspan="2">rest</td><td class="num"></td></tr>`;
-      return d.acts.map((a, i) => `<tr>
-        <td class="day">${i === 0 ? d.day + ' ' + fmt(d.date) : ''}</td>
-        <td class="t">${a.type ? `<span class="type${QUAL.has(a.type) ? ' q' : ''}">${a.type}</span>` : ''}</td>
-        <td>${esc(a.name || a.sport)}${a.feel !== null && a.feel !== undefined ? ` <span style="color:var(--muted);font-size:12px">feel ${a.feel > 0 ? '+' : ''}${a.feel}</span>` : ''}</td>
-        <td class="num">${a.mins}′</td>
-        <td class="num">${a.km ? a.km.toFixed(1) + ' km' : ''}${a.vert ? ' · ' + a.vert.toLocaleString() + ' m' : ''}</td></tr>`).join('');
-    }).join('');
-    const quotes = w.days.flatMap(d => d.acts.filter(a => a.note)
-      .map(a => `<div class="quote">${esc(a.note)}<cite>${esc(a.name)} · ${fmt(d.date)}</cite></div>`)).join('');
-    const tail = [
-      w.ctl !== null ? `fitness ${w.ctl.toFixed(0)}` : '',
-      w.atl !== null ? `fatigue ${w.atl.toFixed(0)}` : '',
-      w.tsb !== null ? `form ${w.tsb > 0 ? '+' : ''}${w.tsb.toFixed(0)}` : '',
-      w.monotony ? `monotony ${w.monotony.toFixed(2)}` : '',
-      w.wow != null ? `WoW ${w.wow.toFixed(2)}×` : '', w.acwr != null ? `ACWR ${w.acwr.toFixed(2)}` : '',
-      `${w.run_days} run days`, `${w.rest_days} full rest`,
-    ].filter(Boolean).map(t => `<span>${t}</span>`).join('');
-    return `<article class="entry">
-      <div class="top">
-        <span class="wk">${p ? 'WEEK ' + p.index + ' / 29' : 'WEEK 0'}</span>
-        <h3>${p ? esc(p.phase + ' · ' + p.phase_name) : 'Lead-in — the week before the macrocycle'}</h3>
-        <span class="dates">${fmt(w.start)} – ${fmt(w.end)}${p ? ' · ' + p.to_race + ' wk to race' : ''}</span>
-      </div>
-      <div class="body">
-        <div class="pva">
-          ${pv('Run', w.run_h, p && p.run_h, 'h')}
-          ${pv('Bike', w.bike_h, p && p.bike_h, 'h')}
-          ${pv('Gym', w.gym_h, p && p.gym_h, 'h')}
-          ${pv('Distance', w.run_km, p && p.run_km, 'km', 0)}
-          ${pv('Climb', w.run_vert, p && p.run_vert, 'm', 0)}
-          <div><dt>Density</dt><dd>${w.density}<s> m/h</s></dd>
-            <div class="bar"><i class="${w.density < 300 ? 'over' : ''}" style="width:${Math.min(100, w.density / 500 * 100)}%"></i></div></div>
-        </div>
-        <div class="scroll"><table class="log"><tbody>${log}</tbody></table></div>
-        <ul class="verdict">${w.notes.map(n => `<li class="${/^\[/.test(n) ? 'flag' : ''}">${esc(n)}</li>`).join('')}</ul>
-        ${quotes}
-        <div class="tail">${tail}</div>
-      </div></article>`;
-  }).join('');
-  $('diary').innerHTML = html || '<p class="sec-intro">No weeks in the macrocycle yet.</p>';
-})();
-
-$('foot').innerHTML = `Generated by <code>python3 -m tl site</code> on ${esc(DATA.generated)} from `
+$('foot').innerHTML = `Generated by <code>uv run tl site</code> on ${esc(DATA.generated)} from `
   + `${DATA.cache.n.toLocaleString()} cached activities (${DATA.cache.first} – ${DATA.cache.last}, `
   + `${DATA.cache.stale} day${DATA.cache.stale === 1 ? '' : 's'} behind today). `
   + `Weekly hours are moving time across all sports; heart rate is COROS-measured where available, `
