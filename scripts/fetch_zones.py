@@ -33,7 +33,11 @@ def _call(url: str, token: str | None = None, data: dict[str, str] | None = None
 
 
 def _access_token() -> str:
-    refresh = TOKEN_FILE.read_text().strip() if TOKEN_FILE.exists() else os.environ["STRAVA_REFRESH_TOKEN"]
+    refresh = (
+        TOKEN_FILE.read_text().strip()
+        if TOKEN_FILE.exists()
+        else os.environ["STRAVA_REFRESH_TOKEN"]
+    )
     tok = _call(
         "https://www.strava.com/oauth/token",
         data={
@@ -69,7 +73,11 @@ def main() -> int:
     have: set[tuple[str, int]] = set()
     if path.exists():
         with path.open() as fh:
-            have = {(r["date"], round(float(r["min"]))) for r in csv.DictReader(fh) if r["date"] != "date"}
+            have = {
+                (r["date"], round(float(r["min"])))
+                for r in csv.DictReader(fh)
+                if r["date"] != "date"
+            }
     token = _access_token()
 
     after = int(dt.datetime.combine(plan.PLAN_START, dt.time(), tzinfo=dt.UTC).timestamp())
@@ -95,7 +103,9 @@ def main() -> int:
         if new:
             w.writerow(["date", "min", "z1", "z2", "z3", "z4", "z5"])
         w.writerows(rows)
-    sys.stdout.write(f"appended {len(rows)} runs to {path} ({len(runs) - len(rows)} already there)\n")
+    sys.stdout.write(
+        f"appended {len(rows)} runs to {path} ({len(runs) - len(rows)} already there)\n"
+    )
     return 0
 
 
