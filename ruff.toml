@@ -1,33 +1,81 @@
-# A trimmed version of cogni's ruff.toml: the same formatter settings, a smaller rule set.
+# Modelled on cogni's ruff.toml: the same formatter settings and every stable rule, with
+# cogni's ignores cut to those that apply to a small stdlib-only CLI.
 line-length = 100
 target-version = "py314"
 # pre-commit hands ruff explicit filenames, and an explicit path defeats `exclude` unless forced.
 force-exclude = true
 
 [lint]
-select = ["E", "W", "F", "I", "B", "UP", "C4", "SIM", "PIE", "RET", "PL", "RUF", "TID", "ICN"]
+# Every stable rule; each ignore below opts out with its reason.
+select = ["ALL"]
 ignore = [
+    # The formatter owns trailing commas (Ruff's docs list both as conflicting). COM812 also wants
+    # one where the formatter keeps a split argument list on one indented line, and that comma is
+    # then magic, so the next format explodes the call one argument per line.
+    "COM812",
+    "COM819",
+    # The repo is personal and no file carries a licence header; the rule would only ask for one.
+    "CPY",
+    # AGENTS.md wants a docstring only where the name and signature don't already say it; requiring
+    # one on every public module, class and function would mostly restate names.
+    "D10",
     "E501",     # leave line length to the formatter
+    # EM's remedy (`msg = "..."; raise X(msg)`) moves the message off the raise line, which is
+    # exactly where the TRY003 ignore below keeps it.
+    "EM",
     "RUF001",   # en dashes and minus signs are deliberate in rendered text
+    "TRY003",   # the message belongs at the raise site, where the context is
+    # `open()` has taken Path objects since 3.6, so this buys nothing where the argument already
+    # is one and costs a `Path(...)` wrapper where it is a plain str from argv.
+    "PTH123",
+    # The formatter owns quoting (Ruff's docs list Q000-Q003 as conflicting with it).
+    "Q",
     # `try: fh = open(...)` then `with fh:` keeps the except clause to the open call alone.
     "SIM115",
     # Training thresholds are domain numbers; the named ones already live in config.py.
     "PLR2004",
-    # The CLI dispatcher and the renderers are long by nature; the guardrail logic is not.
+    # The CLI dispatcher and the renderers are long by nature; the guardrail logic is not, and
+    # C901's complexity budget below covers the same ground.
     "PLR0911",
     "PLR0912",
     "PLR0913",
     "PLR0915",
     "PLR0917",
+    # `print` is the CLI's output: every call writes a command's result to stdout.
+    "T20",
+    # Standard-library modules are loaded anyway, so guarding them buys neither import time nor a
+    # broken cycle; it would only add an `if TYPE_CHECKING:` block to most files.
+    "TC003",
 ]
+
+[lint.per-file-ignores]
+"tests/**" = [
+    "INP001",   # `tests` holds pytest modules, not an importable package.
+    "S101",     # `assert` is how pytest checks.
+    "S603",     # the tests run the repo's own scripts with arguments they build themselves.
+]
+
+[lint.mccabe]
+max-complexity = 12
+
+[lint.pydocstyle]
+# Picks one side of each conflicting pair (D203/D211, D212/D213) and drops the numpy/PEP 257 checks
+# (trailing period, dashed section underlines) that Google-style docstrings skip.
+convention = "google"
 
 [lint.flake8-tidy-imports]
 # `tl` is an installed package: `from tl import config`, never `from . import config`.
 ban-relative-imports = "all"
 
+[lint.flake8-import-conventions]
+# `datetime.datetime` and `datetime.date` shadow their module, so `from datetime import datetime`
+# makes `datetime` mean the class in one file and the module in the next. One alias removes that.
+banned-from = ["datetime"]
+
 # Package modules keep their real names (`config.WOW_CAP`, not `C.WOW_CAP`). ICN001 flags
 # any other alias, and `import tl.config` too; add new modules here.
 [lint.flake8-import-conventions.extend-aliases]
+"datetime" = "dt"
 "tl.cli" = "cli"
 "tl.config" = "config"
 "tl.data" = "data"
