@@ -232,10 +232,8 @@ def web_payload(
     months: list[Month],
     seasons: list[Season],
     fitness: dict[dt.date, dict[str, float]],
-    diary_from: dt.date | None = None,
 ) -> dict[str, Any]:
     """Trimmed payload for the diary page: enough to draw, not the whole cache."""
-    diary_from = diary_from or plan.DIARY_START
     return {
         "generated": dt.datetime.now().astimezone().strftime("%d %B %Y, %H:%M"),
         "today": config.TODAY.isoformat(),
@@ -311,7 +309,7 @@ def web_payload(
             for q in plan.provisional_phases()
         ],
         "quality": _quality(),
-        "diary": [_week(e) for e in entries if e.week.start >= diary_from],
+        "diary": [_week(e) for e in entries if e.week.start >= plan.DIARY_START],
         # Daily, not weekly: a 7-day ATL swings too much within a week to read from week ends.
         "fitness": [
             {"date": d.isoformat(), **{k: round(v, 1) for k, v in f.items()}}

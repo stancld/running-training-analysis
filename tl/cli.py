@@ -156,20 +156,11 @@ def cmd_site(lab: Lab, arg: str | None = None) -> str:
     """Write the diary page's payload to web/src/payload.json.
 
     Pages cannot run tl (the CSVs never leave this machine), so the React app
-    builds from this committed file. The optional argument is either an output
-    path or a date — the Monday the diary should start from. It defaults to the
-    week before the macrocycle opens, so the entries lead in with week 1's setup.
+    builds from this committed file. The diary starts the week before the
+    macrocycle opens, so the entries lead in with week 1's setup.
     """
-    since = None
-    out = config.DATA.parent / "web" / "src" / "payload.json"
-    if arg:
-        try:
-            since = dt.date.fromisoformat(arg)
-        except ValueError:
-            out = arg
-    obj = export.web_payload(
-        lab.ds, lab.weeks, lab.entries, lab.months, lab.seasons, lab.fitness, diary_from=since
-    )
+    out = arg or config.DATA.parent / "web" / "src" / "payload.json"
+    obj = export.web_payload(lab.ds, lab.weeks, lab.entries, lab.months, lab.seasons, lab.fitness)
     with open(out, "w") as fh:
         json.dump(obj, fh, ensure_ascii=False, indent=1)
         fh.write("\n")
