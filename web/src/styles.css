@@ -119,6 +119,11 @@ button {
   cursor: pointer;
   text-align: inherit;
 }
+/* Toggle groups are fieldsets; .mode sets their padding and border. */
+fieldset {
+  margin: 0;
+  min-width: 0;
+}
 :focus-visible {
   outline: 2px solid var(--garnet);
   outline-offset: 2px;
@@ -617,7 +622,7 @@ svg text {
   display: flex;
   gap: 6px;
 }
-/* A dot is an <i> on the laptop and a tappable <button> on the phone. */
+/* A dot is a <button>: its card opens on hover or focus on the laptop, on tap on the phone. */
 .dots > * {
   position: relative;
   width: 9px;
@@ -648,8 +653,8 @@ svg text {
   inset: -10px -6px;
 }
 
-/* Cards: per-week values on the dots, the rule's meaning on its text. Hover shows them
-   on the laptop; on the phone they are popovers placed by Week.tsx. */
+/* Cards: per-week values on the dots, the rule's meaning on its text. Hover or keyboard
+   focus shows them on the laptop; on the phone they are popovers placed by Week.tsx. */
 .tip {
   z-index: 5;
   width: max-content;
@@ -689,6 +694,7 @@ svg text {
 }
 .rule {
   position: relative;
+  display: block;
 }
 .rule .tip {
   left: -12px;
@@ -702,12 +708,12 @@ svg text {
   margin: 0 0 -4px;
   border-width: 1px 0 0 1px;
 }
-.dots i:hover {
+.rail-list .dots > :hover {
   outline: 2px solid var(--ink-2);
   outline-offset: 2px;
 }
-.dots i:hover .tip,
-.rule:hover .tip {
+.rail-list .dots > :is(:hover, :focus-visible) .tip,
+.rule:is(:hover, :focus-visible) .tip {
   display: block;
 }
 .tip[popover] {

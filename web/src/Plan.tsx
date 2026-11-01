@@ -114,9 +114,10 @@ export function PlanChart() {
         </p>
       </div>
       <div className="chart">
+        {/* biome-ignore lint/a11y/useSemanticElements: SVG has no <fieldset>; the group exposes the week buttons. */}
         <svg
           viewBox={`0 0 ${W} ${H}`}
-          role="img"
+          role="group"
           aria-label="Planned versus actual weekly running hours across the macrocycle"
         >
           {grid.map(g => (
@@ -257,6 +258,7 @@ export function PlanChart() {
               >
                 {wide || i % 2 === 0 || i === curIdx ? p.index : ''}
               </text>
+              {/* biome-ignore lint/a11y/useSemanticElements: SVG has no <button>; focus selects the week. */}
               <rect
                 x={x(i) - slot / 2}
                 y={m.t}
@@ -264,7 +266,11 @@ export function PlanChart() {
                 height={ih + 24}
                 fill="transparent"
                 className="hit"
+                role="button"
+                tabIndex={0}
+                aria-label={`Week ${p.index}, ${day(p.start)}${p.race ? `, ${p.race}` : ''}`}
                 onPointerEnter={e => e.pointerType === 'mouse' && setSel(i)}
+                onFocus={() => setSel(i)}
                 onClick={() => setSel(i)}
               />
             </g>

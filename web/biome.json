@@ -8,12 +8,6 @@
   "assist": { "enabled": false },
   "linter": {
     "rules": {
-      "a11y": {
-        "noStaticElementInteractions": "off",
-        "useAriaPropsSupportedByRole": "off",
-        "useButtonType": "off",
-        "useSemanticElements": "off"
-      },
       "style": { "noNonNullAssertion": "off" },
       "suspicious": { "noArrayIndexKey": "off" }
     }

@@ -87,7 +87,7 @@ function WeekRow({ w }: { w: DiaryWeek }) {
   ].filter(Boolean);
   return (
     <li className={`wrow${open ? ' open' : ''}${w.current ? ' cur' : ''}`}>
-      <button className="wsum" aria-expanded={open} onClick={() => setOpen(!open)}>
+      <button type="button" className="wsum" aria-expanded={open} onClick={() => setOpen(!open)}>
         <span className="wk">{p ? `W${p.index}` : 'W0'}</span>
         <span className="wd">
           <b>{span(w.start, w.end)}</b>
@@ -110,6 +110,7 @@ function WeekRow({ w }: { w: DiaryWeek }) {
         <span className="wn">{n(w.run_vert)} m</span>
         <span className="wn ws">{sessions} sessions</span>
         <i
+          role="img"
           className={`dot ${t}`}
           aria-label={t === 'ok' ? 'on target' : t === 'bad' ? 'guardrail flag' : 'off target'}
         />

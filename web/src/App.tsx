@@ -18,7 +18,7 @@ function Track() {
     else phases.push({ code: p.phase, name: p.phase_name, a: i, b: i });
   });
   return (
-    <div className="track" aria-label={curIdx >= 0 ? `Week ${curIdx + 1} of ${P.length}` : `${P.length}-week plan`}>
+    <div className="track">
       <p className="eyebrow">{curIdx >= 0 ? `Week ${curIdx + 1} of ${P.length}` : `${P.length}-week plan`}</p>
       <div className="track-row" style={{ gridTemplateColumns: `repeat(${P.length}, 1fr)` }}>
         {P.map((p, i) => (
@@ -181,6 +181,7 @@ export default function App() {
         {TABS.map(([key, label, d]) => (
           <button
             key={key}
+            type="button"
             className={tab === key ? 'on' : ''}
             aria-current={tab === key ? 'page' : undefined}
             onClick={() => go(key)}

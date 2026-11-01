@@ -145,21 +145,22 @@ export function place(e: React.MouseEvent<HTMLButtonElement>, id: string) {
   });
 }
 
-/* Hover cards on the laptop; on the phone each dot is a button opening a popover, which
-   sits in the top layer so the scrolling chip row cannot clip it. */
+/* Each dot is a button. On the laptop its card shows on hover or keyboard focus; on the
+   phone a tap opens it as a popover, in the top layer so the scrolling chip row cannot
+   clip it. */
 function Dots({ rail, tap = false }: { rail: Rail; tap?: boolean }) {
-  const label = `last ${rail.history.length} weeks: ${rail.history.map(h => `${h.week} ${h.value}`).join(', ')}`;
   const id = (h: RailWeek) => `tip-${rail.code}-${h.week}`;
+  const label = (h: RailWeek) => `${rail.code} ${h.week}${h.current ? ', this week' : ''}: ${h.value}`;
   if (tap)
     return (
       <>
-        <span className="dots" role="group" aria-label={label}>
+        <span className="dots">
           {rail.history.map(h => (
             <button
               key={h.week}
               type="button"
               className={h.status}
-              aria-label={`${h.week}: ${h.value}`}
+              aria-label={label(h)}
               popoverTarget={id(h)}
               onClick={e => place(e, id(h))}
             />
@@ -174,13 +175,13 @@ function Dots({ rail, tap = false }: { rail: Rail; tap?: boolean }) {
     );
   return (
     // The empty title stops the row's native tooltip from covering the hover card.
-    <span className="dots" title="" aria-label={label}>
+    <span className="dots" title="">
       {rail.history.map(h => (
-        <i key={h.week} className={h.status}>
-          <span className={`tip ${h.status}`} aria-hidden="true">
+        <button key={h.week} type="button" className={h.status} aria-label={label(h)} aria-describedby={id(h)}>
+          <span id={id(h)} className={`tip ${h.status}`} aria-hidden="true">
             <TipBody h={h} />
           </span>
-        </i>
+        </button>
       ))}
     </span>
   );
@@ -199,15 +200,15 @@ export function Guardrails() {
           <li key={r.code} className={r.status} title={r.why}>
             <i className="mark">{MARK[r.status]}</i>
             {/* The empty title keeps the row's native tooltip off the explanation card. */}
-            <div className="rule" title="">
+            <button type="button" className="rule" title="" aria-describedby={`about-${r.code}`}>
               <b>{r.value}</b>
               <span>
                 {r.code} · {r.rule}
               </span>
-              <span className="tip about" aria-hidden="true">
+              <span id={`about-${r.code}`} className="tip about" aria-hidden="true">
                 <About code={r.code} />
               </span>
-            </div>
+            </button>
             <Dots rail={r} />
           </li>
         ))}
@@ -231,9 +232,9 @@ export function RailChips() {
           {off.length > 0 && ` · check ${off.join(', ')}`}
         </span>
       </div>
-      <div className="chips" role="list">
+      <ul className="chips">
         {list.map(r => (
-          <div key={r.code} role="listitem" className={`rchip ${r.status}`} title={r.why}>
+          <li key={r.code} className={`rchip ${r.status}`} title={r.why}>
             <i className="mark">{MARK[r.status]}</i>
             <button
               type="button"
@@ -250,9 +251,9 @@ export function RailChips() {
               <About code={r.code} />
             </span>
             <Dots rail={r} tap />
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

@@ -152,6 +152,7 @@ function Trend({ metric, sel, setSel }: { metric: Metric; sel: string; setSel: (
         </>
       )}
       {months.map((p, i) => (
+        // biome-ignore lint/a11y/noStaticElementInteractions: a pointer shortcut; keyboard users pick months with the heatmap's buttons.
         <rect
           key={p.label}
           className="hit"
@@ -286,10 +287,11 @@ export function Heatmap() {
     <section className="card heat" aria-labelledby="map-h">
       <div className="ch">
         <h2 id="map-h">Every month since {years[years.length - 1]}</h2>
-        <div className="mode push" role="group" aria-label="Metric">
+        <fieldset className="mode push" aria-label="Metric">
           {(['h', 't', 'mh'] as const).map(k => (
             <button
               key={k}
+              type="button"
               aria-pressed={metric === k}
               className={metric === k ? 'on' : ''}
               onClick={() => setMetric(k)}
@@ -297,7 +299,7 @@ export function Heatmap() {
               {METRIC[k].label}
             </button>
           ))}
-        </div>
+        </fieldset>
       </div>
       <p className="intro">
         The gaps are the injuries: February–March 2024, April 2025, and the two months the January 2026 calf cost.
@@ -328,6 +330,7 @@ export function Heatmap() {
               return (
                 <button
                   key={key}
+                  type="button"
                   className={`cell${key === nowKey ? ' now' : ''}${key === sel ? ' sel' : ''}${HURT.has(key) ? ' hurt' : ''}`}
                   style={{ backgroundColor: `var(--s${s2})`, color: `var(--on-s${s2})` }}
                   aria-label={`${key}${HURT.has(key) ? ', injury' : ''}${key === nowKey ? ', to date' : ''}`}

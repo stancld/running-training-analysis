@@ -160,7 +160,7 @@ function PhaseRow({ p, mode }: { p: PhaseZones; mode: Mode }) {
         </div>
       </div>
       {p.weeks.length > 0 && (
-        <button className="zone-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
+        <button type="button" className="zone-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
           <span className="chev" aria-hidden="true" />
           {open ? 'Hide' : 'Show'} {p.weeks.length} week{p.weeks.length > 1 ? 's' : ''}
         </button>
@@ -181,13 +181,19 @@ export function Zones() {
     <section className="card zones" aria-labelledby="zones-h">
       <div className="ch">
         <h2 id="zones-h">Heart-rate zones by phase</h2>
-        <div className="mode" role="group" aria-label="Sports">
+        <fieldset className="mode" aria-label="Sports">
           {(['run', 'total'] as const).map(m => (
-            <button key={m} aria-pressed={mode === m} className={mode === m ? 'on' : ''} onClick={() => setMode(m)}>
+            <button
+              key={m}
+              type="button"
+              aria-pressed={mode === m}
+              className={mode === m ? 'on' : ''}
+              onClick={() => setMode(m)}
+            >
               {m === 'run' ? 'Running' : 'Total'}
             </button>
           ))}
-        </div>
+        </fieldset>
         <span className="meta push">
           {mode === 'run' ? 'running time' : 'running + riding'} ·{' '}
           {share ? `${share}% from HR streams` : 'by session average HR'}
