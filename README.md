@@ -94,7 +94,15 @@ the app from the committed payload instead. To work on the page:
 
 ## Guardrails encoded
 
-R1 week-over-week running hours ≤ 1.25×. R2 ACWR ≤ 1.30. R3 ≥ 300 m/h of climb
-on weeks over 8 h. R4 no *flat* interval or repetition work (uphill reps carry
-the intent of the rule and are not flagged). R6 ≤ 100 km per week. Dec–Apr big
-weeks are called out separately — six of nine overuse onsets fall in that window.
+Every threshold is a constant in `tl/config.py`; change it there and the CLI,
+the flags and the page all follow. They come from Dan's own injury history, not
+textbook defaults.
+
+| rule | limit | `tl/config.py` | why, from Dan's record |
+|---|---|---|---|
+| R1 | week-over-week running hours ≤ 1.25× | `WOW_CAP` | the single strongest injury predictor in the record |
+| R2 | acute:chronic running hours (1 wk : 4 wk) ≤ 1.30 | `ACWR_CAP` | |
+| R3 | ≥ 300 m of climb per running hour on weeks over 8 h | `VERT_FLOOR`, `BIG_WEEK_H` | flat volume is the mechanism behind the calf and shin failures |
+| R4 | no *flat* interval or repetition work | `BANNED_TYPES` | uphill reps carry the intent of the rule and are not flagged |
+| R6 | ≤ 100 km of running per week | `KM_CEILING` | |
+| Dec–Apr | big weeks in these months are called out | `RISK_MONTHS` | six of nine overuse onsets fall in that window |
