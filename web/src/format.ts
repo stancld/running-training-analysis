@@ -14,7 +14,9 @@ export const day = (iso: string, year = false) =>
     'en-GB',
     year ? { day: 'numeric', month: 'short', year: 'numeric' } : { day: 'numeric', month: 'short' },
   );
-export const span = (a: string, b: string) => `${day(a)} – ${day(b, true)}`;
+// A range wraps after its dash, never inside a date, when its column is narrow.
+const nb = (s: string) => s.replaceAll(' ', '\u00a0');
+export const span = (a: string, b: string) => `${nb(day(a))}\u00a0– ${nb(day(b, true))}`;
 export const phaseShort = (name: string) => name.split('—')[0].trim();
 export const signed = (v: number) => `${v > 0 ? '+' : ''}${v.toFixed(0)}`;
 export const n = (v: number) => v.toLocaleString('en-GB');

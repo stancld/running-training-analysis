@@ -24,7 +24,7 @@ test('laptop: diary weeks expand into sessions with ratios and durations', async
   await page.setViewportSize({ width: 1440, height: 900 });
   const errors = await open(page);
 
-  const race = page.locator('.wrow', { has: page.getByText(/^31 Aug – /) });
+  const race = page.locator('.wrow', { has: page.getByText(/^31\sAug\s– /) });
   await race.getByRole('button').click();
   await expect(race.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
   await expect(race.locator('.sessions')).toContainText('RACE_Run');
@@ -33,7 +33,7 @@ test('laptop: diary weeks expand into sessions with ratios and durations', async
   // No running the week before: WoW is undefined, so it is left out rather than shown as 0.
   await expect(race.locator('.tail')).not.toContainText('WoW');
 
-  const ride = page.locator('.wrow', { has: page.getByText(/^7 Sept? – /) });
+  const ride = page.locator('.wrow', { has: page.getByText(/^7\sSept?\s– /) });
   await ride.getByRole('button').click();
   await expect(ride.locator('.tail')).toContainText('WoW 0.00×');
   await expect(ride.locator('.tail')).toContainText('ACWR 0.00');

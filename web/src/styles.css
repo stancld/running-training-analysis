@@ -893,7 +893,6 @@ svg text {
   font-weight: 500;
   font-size: 14px;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 .wd span {
   display: block;
