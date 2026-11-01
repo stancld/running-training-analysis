@@ -27,23 +27,16 @@ def iso_label(d: dt.date) -> str:
 class Period:
     """Shared aggregation over a list of activities."""
 
-    # Set per sport group in __init__; declared so the type checker knows them.
-    run_h: float
-    run_km: float
-    run_vert: float
-    bike_h: float
-    gym_h: float
     label: str
 
     def __init__(self, start: dt.date, end: dt.date, acts: list[Activity]) -> None:
         self.start, self.end, self.acts = start, end, acts
-        for name, _ in config.GROUPS:
-            sel = [a for a in acts if a.group == name]
-            setattr(self, name + "_h", sum(a.mins for a in sel) / 60)
-            setattr(self, name + "_km", sum(a.km for a in sel))
-            setattr(self, name + "_vert", sum(a.vert for a in sel))
-            setattr(self, name + "_n", len(sel))
         self.runs = [a for a in acts if a.is_run]
+        self.run_h = sum(a.mins for a in self.runs) / 60
+        self.run_km = sum(a.km for a in self.runs)
+        self.run_vert = sum(a.vert for a in self.runs)
+        self.bike_h = sum(a.mins for a in acts if a.group == "bike") / 60
+        self.gym_h = sum(a.mins for a in acts if a.group == "gym") / 60
         self.total_h = sum(a.mins for a in acts) / 60
 
     @property
