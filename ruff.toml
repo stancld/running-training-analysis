@@ -49,6 +49,9 @@ ignore = [
 ]
 
 [lint.per-file-ignores]
+"scripts/**" = [
+    "INP001",   # `scripts` holds standalone scripts run by path, not an importable package.
+]
 "tests/**" = [
     "INP001",   # `tests` holds pytest modules, not an importable package.
     "S101",     # `assert` is how pytest checks.
