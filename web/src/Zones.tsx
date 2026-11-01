@@ -51,7 +51,8 @@ function PhaseRow({ p, bands }: { p: PhaseZones; bands: ZoneBand[] }) {
                 <span className="zw-label"><b>W{w.index}</b>{day(w.start)} – {day(w.end)}</span>
                 {wt ? <Bar minutes={w.minutes} bands={bands} thin /> : <span className="zw-none">no running</span>}
                 <span className="zw-vals">
-                  {wt ? <>{hm(wt / 60)} h · {w.minutes.map((m, i) => `${bands[i].code} ${pct(m, wt)}%`).filter((_, i) => w.minutes[i]).join(' · ')}</> : ''}
+                  {wt > 0 && <span>{hm(wt / 60)} h</span>}
+                  {wt > 0 && w.minutes.map((m, i) => pct(m, wt) > 0 && <span key={i}>{bands[i].code} {pct(m, wt)}%</span>)}
                 </span>
               </li>
             );
