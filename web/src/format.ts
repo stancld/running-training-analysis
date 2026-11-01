@@ -9,11 +9,15 @@ export const hm = (h: number) => {
   const m = Math.round(h * 60);
   return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`;
 };
+// A bare 'YYYY-MM-DD' parses as UTC midnight; format it in UTC too, or viewers west of
+// Greenwich see the day before.
 export const day = (iso: string, year = false) =>
-  new Date(iso).toLocaleDateString(
-    'en-GB',
-    year ? { day: 'numeric', month: 'short', year: 'numeric' } : { day: 'numeric', month: 'short' },
-  );
+  new Date(iso).toLocaleDateString('en-GB', {
+    timeZone: 'UTC',
+    day: 'numeric',
+    month: 'short',
+    ...(year && { year: 'numeric' }),
+  });
 // A range wraps after its dash, never inside a date, when its column is narrow.
 const nb = (s: string) => s.replaceAll(' ', '\u00a0');
 export const span = (a: string, b: string) => `${nb(day(a))}\u00a0– ${nb(day(b, true))}`;
