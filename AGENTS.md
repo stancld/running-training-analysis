@@ -24,7 +24,8 @@ settings live in `ruff.toml`.
   put new behaviour in the module that already owns it.
 - `tl/config.py` holds every threshold and model constant. Change numbers there, not inline.
 - `tl/plan.py` holds the macrocycle as data — week-level targets only.
-- `data/*.csv` is the cache and the source of truth. `data/diary.json` and
+- `data/*.csv` is the cache and the source of truth. It is personal data, gitignored and
+  kept on Dan's machine only — never commit it. `data/diary.json` and
   `web/diary.html` are generated: regenerate them, never hand-edit them.
 - `data/*.py` and `data/progress.py` are earlier one-off analyses superseded by `tl`.
   Do not extend or cite them as patterns; several hardcode the old
