@@ -1,5 +1,5 @@
 {
- "generated": "01 November 2026, 17:56",
+ "generated": "01 November 2026, 18:02",
  "today": "2026-11-01",
  "race": {
   "name": "Chianti 120K",
@@ -4933,11 +4933,11 @@
     "current": false,
     "run": {
      "minutes": [
-      756,
-      2123,
-      0,
-      0,
-      0
+      1113,
+      1448,
+      199,
+      115,
+      4
      ],
      "power": [
       0,
@@ -4948,32 +4948,32 @@
       0,
       0
      ],
-     "stream": 0,
-     "measured": 2696,
-     "modelled": 183,
+     "stream": 2879,
+     "measured": 0,
+     "modelled": 0,
      "no_hr": 0
     },
     "bike": {
      "minutes": [
-      0,
-      0,
-      0,
-      0,
-      0
+      613,
+      324,
+      23,
+      1,
+      1
      ],
      "power": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      557,
+      256,
+      138,
+      66,
+      28,
+      19,
+      8
      ],
-     "stream": 0,
+     "stream": 961,
      "measured": 0,
      "modelled": 0,
-     "no_hr": 1072
+     "no_hr": 111
     },
     "weeks": [
      {
@@ -4983,10 +4983,10 @@
       "current": false,
       "run": {
        "minutes": [
-        81,
-        341,
-        0,
-        0,
+        176,
+        209,
+        18,
+        19,
         0
        ],
        "power": [
@@ -4998,32 +4998,32 @@
         0,
         0
        ],
-       "stream": 0,
-       "measured": 381,
-       "modelled": 41,
+       "stream": 422,
+       "measured": 0,
+       "modelled": 0,
        "no_hr": 0
       },
       "bike": {
        "minutes": [
-        0,
-        0,
-        0,
+        140,
+        129,
+        10,
         0,
         0
        ],
        "power": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        140,
+        89,
+        51,
+        24,
+        9,
+        5,
+        2
        ],
-       "stream": 0,
+       "stream": 279,
        "measured": 0,
        "modelled": 0,
-       "no_hr": 321
+       "no_hr": 42
       }
      },
      {
@@ -5033,11 +5033,11 @@
       "current": false,
       "run": {
        "minutes": [
-        143,
-        271,
-        0,
-        0,
-        0
+        190,
+        185,
+        20,
+        16,
+        2
        ],
        "power": [
         0,
@@ -5048,32 +5048,32 @@
         0,
         0
        ],
-       "stream": 0,
-       "measured": 371,
-       "modelled": 43,
+       "stream": 414,
+       "measured": 0,
+       "modelled": 0,
        "no_hr": 0
       },
       "bike": {
        "minutes": [
-        0,
-        0,
-        0,
+        113,
+        57,
+        3,
         0,
         0
        ],
        "power": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        92,
+        52,
+        25,
+        10,
+        5,
+        4,
+        1
        ],
-       "stream": 0,
+       "stream": 173,
        "measured": 0,
        "modelled": 0,
-       "no_hr": 189
+       "no_hr": 16
       }
      },
      {
@@ -5083,10 +5083,10 @@
       "current": false,
       "run": {
        "minutes": [
-        99,
-        367,
-        0,
-        0,
+        150,
+        270,
+        27,
+        18,
         0
        ],
        "power": [
@@ -5098,32 +5098,32 @@
         0,
         0
        ],
-       "stream": 0,
-       "measured": 367,
-       "modelled": 99,
+       "stream": 466,
+       "measured": 0,
+       "modelled": 0,
        "no_hr": 0
       },
       "bike": {
        "minutes": [
-        0,
-        0,
-        0,
-        0,
-        0
+        137,
+        108,
+        10,
+        1,
+        1
        ],
        "power": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        125,
+        70,
+        40,
+        19,
+        8,
+        5,
+        3
        ],
-       "stream": 0,
+       "stream": 256,
        "measured": 0,
        "modelled": 0,
-       "no_hr": 271
+       "no_hr": 15
       }
      },
      {
@@ -5133,11 +5133,11 @@
       "current": false,
       "run": {
        "minutes": [
-        130,
-        306,
-        0,
-        0,
-        0
+        205,
+        180,
+        27,
+        22,
+        1
        ],
        "power": [
         0,
@@ -5148,8 +5148,8 @@
         0,
         0
        ],
-       "stream": 0,
-       "measured": 436,
+       "stream": 436,
+       "measured": 0,
        "modelled": 0,
        "no_hr": 0
       },
@@ -5183,10 +5183,10 @@
       "current": false,
       "run": {
        "minutes": [
-        169,
-        270,
-        0,
-        0,
+        180,
+        223,
+        16,
+        20,
         0
        ],
        "power": [
@@ -5198,32 +5198,32 @@
         0,
         0
        ],
-       "stream": 0,
-       "measured": 439,
+       "stream": 439,
+       "measured": 0,
        "modelled": 0,
        "no_hr": 0
       },
       "bike": {
        "minutes": [
-        0,
-        0,
+        223,
+        30,
         0,
         0,
         0
        ],
        "power": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        199,
+        45,
+        21,
+        12,
+        7,
+        5,
+        1
        ],
-       "stream": 0,
+       "stream": 253,
        "measured": 0,
        "modelled": 0,
-       "no_hr": 291
+       "no_hr": 38
       }
      },
      {
@@ -5233,10 +5233,10 @@
       "current": false,
       "run": {
        "minutes": [
-        52,
-        354,
-        0,
-        0,
+        111,
+        221,
+        61,
+        13,
         0
        ],
        "power": [
@@ -5248,8 +5248,8 @@
         0,
         0
        ],
-       "stream": 0,
-       "measured": 406,
+       "stream": 406,
+       "measured": 0,
        "modelled": 0,
        "no_hr": 0
       },
@@ -5283,11 +5283,11 @@
       "current": false,
       "run": {
        "minutes": [
-        82,
-        214,
-        0,
-        0,
-        0
+        100,
+        159,
+        29,
+        7,
+        1
        ],
        "power": [
         0,
@@ -5298,8 +5298,8 @@
         0,
         0
        ],
-       "stream": 0,
-       "measured": 296,
+       "stream": 296,
+       "measured": 0,
        "modelled": 0,
        "no_hr": 0
       },
@@ -5336,10 +5336,10 @@
     "current": true,
     "run": {
      "minutes": [
-      254,
-      311,
-      0,
-      0,
+      221,
+      229,
+      112,
+      3,
       0
      ],
      "power": [
@@ -5351,8 +5351,8 @@
       0,
       0
      ],
-     "stream": 0,
-     "measured": 565,
+     "stream": 565,
+     "measured": 0,
      "modelled": 0,
      "no_hr": 0
     },
@@ -5386,10 +5386,10 @@
       "current": false,
       "run": {
        "minutes": [
-        40,
-        311,
-        0,
-        0,
+        51,
+        185,
+        112,
+        3,
         0
        ],
        "power": [
@@ -5401,8 +5401,8 @@
         0,
         0
        ],
-       "stream": 0,
-       "measured": 351,
+       "stream": 351,
+       "measured": 0,
        "modelled": 0,
        "no_hr": 0
       },
@@ -5436,8 +5436,8 @@
       "current": true,
       "run": {
        "minutes": [
-        214,
-        0,
+        170,
+        44,
         0,
         0,
         0
@@ -5451,8 +5451,8 @@
         0,
         0
        ],
-       "stream": 0,
-       "measured": 214,
+       "stream": 214,
+       "measured": 0,
        "modelled": 0,
        "no_hr": 0
       },
