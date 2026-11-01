@@ -74,6 +74,7 @@ _KILIAN_UPHILL = ("Kilian · uphill training", "https://mtnath.com/training-for-
 _KILIAN_2022 = ("Kilian · 2022 season", "https://mtnath.com/training2022/")
 _KILIAN_2024 = ("Kilian · 2024 training", "https://mtnath.com/training2024")
 _KILIAN_WSER = ("Kilian · Western States 2025", "https://mtnath.com/wsertraining")
+_KILIAN_BACK = ("Kilian · coming back", "https://mtnath.com/coming-back-from-injury/")
 _UA_TRAIL = (
     "Uphill Athlete · trail running",
     "https://uphillathlete.com/trail-running/training-for-trail-running/",
@@ -100,21 +101,18 @@ QUALITY: dict[str, tuple[list[tuple[str, str]], list[str], list[tuple[str, str]]
             "No intervals in the two weeks after Slapy: Kilian's order is get healthy, get aerobic, get ready.",
             "Keep jump height near 80 % at first; calves and shins are the history to respect.",
         ],
-        [
-            ("Kilian · coming back", "https://mtnath.com/coming-back-from-injury/"),
-            _UA_GYM,
-            _UA_TRAIL,
-        ],
+        [_KILIAN_BACK, _UA_GYM, _UA_TRAIL],
     ),
     "P3": (
         [
-            ("Uphill threshold", "3×8′ → 2×12′ → 2×15′ · 8–15 % · HR 172–178"),
             ("Strength-endurance hill", "400–600 m at Z3 on Petřín 15 % · +3–6 kg from week 4"),
             ("Hill sprints", "6–8×10″ · ≥ 20 % · 2–3′ walk down"),
+            ("Bike", "the plan's 2–2.5 h at Z2 · takes any hours R1 or R2 cut from running"),
         ],
         [
-            "Weeks 1–4: the hill session is the only quality; from week 5 alternate it with uphill threshold.",
-            "One key session a week, hill sprints aside. From week 5 flat T may replace the uphill threshold at most every other week: ≤ 20′ at T (2×4k, 6×1.5k), never in or right after a week flagged R1 or R2. No R or I (R4).",
+            "A base block: Z1–Z2 volume around one hill session. Kilian's base runs Dec–Mar at ~30 h a week, mostly Z2 skimo, with one progressive run to touch Z4–Z5; his uphill threshold belongs to the specific block (P4).",
+            "The bike is the skimo here: before Western States Kilian alternated run and bike days to let his knee recover.",
+            "One key session a week, hill sprints aside. From week 5 flat T may replace the hill session at most every other week: ≤ 20′ at T (2×4k, 6×1.5k), never in or right after a week flagged R1 or R2. No R or I (R4).",
             "The Feb–Mar 2024 and Jan 2026 injuries each followed 3+ straight weeks of two flat T/R/I/M sessions plus an R1 jump; Apr 2025 followed weeks of I and T, half of them uphill, with repeated R1 jumps. Aug–Sep 2026, one session a week alternating flat T and uphill 5×5′, stayed clean.",
             "Kilian keeps one short flat threshold a week (10×400 m) because more flat speed injures him. His TFL tendonitis before Chianti 2025 came from weekly speed on a thin running base, kept up through the pain: stop a session type at the first localised pain.",
             "Add weight or vertical each week, never both; three easy days after a weighted session.",
@@ -123,6 +121,7 @@ QUALITY: dict[str, tuple[list[tuple[str, str]], list[str], list[tuple[str, str]]
     ),
     "P4": (
         [
+            ("Uphill threshold", "3×8′ → 2×12′ → 2×15′ · 8–15 % · HR 172–178 · weeks 1, 3, 5"),
             (
                 "Uphill + rolling",
                 "20–30′ uphill threshold, then 30–40′ rolling Z2–Z3 · run the descents",
@@ -131,10 +130,12 @@ QUALITY: dict[str, tuple[list[tuple[str, str]], list[str], list[tuple[str, str]]
             ("Hill sprints", "6–8×10″ · keep weekly"),
         ],
         [
+            "One key session a week: uphill threshold in weeks 1, 3 and 5, one progression step each; uphill + rolling in weeks 2, 4 and 6.",
+            "Kilian's specific block is 6 weeks, with 2×15–16′ uphill at 10–15 % at threshold (2024); he puts getting race-ready at 6–8 weeks once the base is there.",
             "Drop the strength-endurance sessions; back-to-backs carry the neuromuscular load.",
             "Flat T at most every other week, and only while the legs are quiet.",
         ],
-        [_KILIAN_2022, _KILIAN_2024, _UA_TRAIL],
+        [_KILIAN_2022, _KILIAN_2024, _KILIAN_BACK, _UA_TRAIL],
     ),
     "P5": (
         [
