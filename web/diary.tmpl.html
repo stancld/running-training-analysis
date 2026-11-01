@@ -250,7 +250,7 @@ footer{margin-top:64px; padding-top:22px; border-top:1px solid var(--line);
 const DATA = /*DATA*/;
 const $ = (id) => document.getElementById(id);
 const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const hm = (h) => `${Math.floor(h)}:${String(Math.round((h % 1) * 60)).padStart(2, '0')}`;
+const hm = (h) => { const m = Math.round(h * 60); return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`; };
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 /* ---------------- tooltip ---------------- */
@@ -465,7 +465,7 @@ $('status').innerHTML = tiles.map(([k, v, s, cls]) =>
       <td class="n">${w.km.toFixed(0)}</td><td class="n">${w.vert.toLocaleString()}</td>
       <td class="n">${w.density}</td><td class="n">${w.bike_h.toFixed(1)}</td>
       <td class="n">${w.gym_h.toFixed(1)}</td><td class="n">${w.total_h.toFixed(1)}</td>
-      <td class="n">${w.wow ? w.wow.toFixed(2) : '—'}</td><td class="n">${w.acwr ? w.acwr.toFixed(2) : '—'}</td>
+      <td class="n">${w.wow != null ? w.wow.toFixed(2) : '—'}</td><td class="n">${w.acwr != null ? w.acwr.toFixed(2) : '—'}</td>
       <td>${chips}</td></tr>`;
   }).join('');
   $('weektable').innerHTML = `<table><thead><tr><th>Week</th><th>Monday</th>
@@ -504,7 +504,7 @@ $('status').innerHTML = tiles.map(([k, v, s, cls]) =>
       w.atl !== null ? `fatigue ${w.atl.toFixed(0)}` : '',
       w.tsb !== null ? `form ${w.tsb > 0 ? '+' : ''}${w.tsb.toFixed(0)}` : '',
       w.monotony ? `monotony ${w.monotony.toFixed(2)}` : '',
-      w.wow ? `WoW ${w.wow.toFixed(2)}×` : '', w.acwr ? `ACWR ${w.acwr.toFixed(2)}` : '',
+      w.wow != null ? `WoW ${w.wow.toFixed(2)}×` : '', w.acwr != null ? `ACWR ${w.acwr.toFixed(2)}` : '',
       `${w.run_days} run days`, `${w.rest_days} full rest`,
     ].filter(Boolean).map(t => `<span>${t}</span>`).join('');
     return `<article class="entry">
