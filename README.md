@@ -17,7 +17,7 @@ Set up once with `uv sync`, which installs Python 3.14 and the dev tools.
     uv run tl diary 4 | all | DATE
     uv run tl hills | segments | reps
     uv run tl export [path]       full JSON dump (data/diary.json)
-    uv run tl site                render web/diary.html, then publish it
+    uv run tl site                render web/diary.html; pushing it publishes it
 
 ## Layout
 
@@ -45,8 +45,10 @@ Set up once with `uv sync`, which installs Python 3.14 and the dev tools.
 3. After an uphill session, extend `hills.csv` and `segments.csv` — Strava
    `get_activity_performance` returns laps and segment efforts with per-rep HR
    and watts in one call.
-4. `uv run tl     status` to check, `uv run tl site` to rebuild the page,
-   then republish `web/diary.html` to the same artifact URL.
+4. `uv run tl status` to check, `uv run tl site` to rebuild the page, then
+   commit and push `web/diary.html`. The Pages workflow publishes it to
+   https://stancld.github.io/running-training-analysis/ — readable by link,
+   `noindex` for search engines.
 
 ## Guardrails encoded
 
