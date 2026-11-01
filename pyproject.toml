@@ -19,5 +19,6 @@ module-root = ""
 [dependency-groups]
 dev = [
     "pre-commit",
+    "pytest>=9.2.0",
     "ty>=0.0.95",
 ]

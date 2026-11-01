@@ -18,9 +18,10 @@ macrocycle and renders the diary page in `web/`. Read `README.md` before changin
 | Type-check | `uv run ty check` (also a pre-commit hook) |
 
 There are no unit tests. CI (`.github/workflows/ci.yml`) runs pre-commit, smoke-tests
-every command on a synthetic cache, and runs the e2e tests in `web/e2e/` (Playwright:
-that cache through `tl site` into the built page, at laptop and phone widths). It
-catches crashes and broken layouts, not wrong numbers. Verify a
+every command on a synthetic cache, and runs two e2e suites: `tests/` (pytest: a
+cache through `tl site` into the payload, checking hand-worked numbers and guardrail
+boundaries) and `web/e2e/` (Playwright: the synthetic cache into the built page, at
+laptop and phone widths). Run `uv run pytest` after changing `tl`. Verify a
 change by running the commands it affects and checking that the numbers make sense
 against the data. Run pre-commit before every commit; Ruff settings live in `ruff.toml`.
 Code must pass ty; declare attributes the checker cannot infer instead of silencing it.

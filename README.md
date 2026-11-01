@@ -51,6 +51,7 @@ Set up once with `uv sync`, which installs Python 3.14 and the dev tools
     uv run tl hills | segments | reps
     uv run tl export [path]       full JSON dump (data/diary.json)
     uv run tl site                write web/src/payload.json; pushing it publishes the page
+    uv run pytest                 e2e: a temp cache through `tl site` (never touches data/)
 
 ### Layout
 
