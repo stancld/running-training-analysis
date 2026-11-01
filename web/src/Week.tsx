@@ -1,5 +1,6 @@
 import { DATA, type Fit } from './data';
-import { MON, current as w, day, n, phaseShort, rails, signed, span, type Rail } from './format';
+import { MON, current as w, day, n, phaseShort, rails, signed, span, type Rail, type RailWeek } from './format';
+import { useEffect } from 'react';
 
 const MARK = { ok: '✓', watch: '!', bad: '✕' };
 
@@ -91,24 +92,81 @@ export function ThisWeek({ children, toPlan }: { children?: React.ReactNode; toP
   );
 }
 
-function Dots({ rail }: { rail: Rail }) {
+function TipBody({ h }: { h: RailWeek }) {
+  return (
+    <>
+      <small>
+        {h.week}
+        {h.current ? ' · this week' : ''}
+      </small>
+      <em>{h.dates}</em>
+      <b>{h.value}</b>
+      <span>{h.note}</span>
+    </>
+  );
+}
+
+function About({ rail }: { rail: Rail }) {
+  return (
+    <>
+      <small>{rail.code} · guardrail</small>
+      <strong>{rail.name}</strong>
+      <span>{rail.about}</span>
+    </>
+  );
+}
+
+/* The card goes above its trigger, or below it near the top of the screen, clamped to the
+   viewport. It is measured after the popover opens, in the frame before it paints. */
+function place(e: React.MouseEvent<HTMLButtonElement>, id: string) {
+  const d = e.currentTarget.getBoundingClientRect();
+  requestAnimationFrame(() => {
+    const p = document.getElementById(id);
+    if (!p?.matches(':popover-open')) return;
+    const cx = d.left + d.width / 2;
+    const left = Math.min(Math.max(8, cx - p.offsetWidth / 2), innerWidth - p.offsetWidth - 8);
+    const below = d.top - p.offsetHeight - 12 < 8;
+    p.style.left = `${left}px`;
+    p.style.top = `${below ? d.bottom + 12 : d.top - p.offsetHeight - 12}px`;
+    p.style.setProperty('--ax', `${cx - left}px`);
+    p.classList.toggle('below', below);
+  });
+}
+
+/* Hover cards on the laptop; on the phone each dot is a button opening a popover, which
+   sits in the top layer so the scrolling chip row cannot clip it. */
+function Dots({ rail, tap = false }: { rail: Rail; tap?: boolean }) {
+  const label = `last ${rail.history.length} weeks: ${rail.history.map(h => `${h.week} ${h.value}`).join(', ')}`;
+  const id = (h: RailWeek) => `tip-${rail.code}-${h.week}`;
+  if (tap)
+    return (
+      <>
+        <span className="dots" role="group" aria-label={label}>
+          {rail.history.map(h => (
+            <button
+              key={h.week}
+              type="button"
+              className={h.status}
+              aria-label={`${h.week}: ${h.value}`}
+              popoverTarget={id(h)}
+              onClick={e => place(e, id(h))}
+            />
+          ))}
+        </span>
+        {rail.history.map(h => (
+          <span key={h.week} id={id(h)} popover="auto" className={`tip ${h.status}`}>
+            <TipBody h={h} />
+          </span>
+        ))}
+      </>
+    );
   return (
     // The empty title stops the row's native tooltip from covering the hover card.
-    <span
-      className="dots"
-      title=""
-      aria-label={`last ${rail.history.length} weeks: ${rail.history.map(h => `${h.week} ${h.value}`).join(', ')}`}
-    >
+    <span className="dots" title="" aria-label={label}>
       {rail.history.map(h => (
         <i key={h.week} className={h.status}>
-          <span className="tip" aria-hidden="true">
-            <small>
-              {h.week}
-              {h.current ? ' · this week' : ''}
-            </small>
-            <em>{h.dates}</em>
-            <b>{h.value}</b>
-            <span>{h.note}</span>
+          <span className={`tip ${h.status}`} aria-hidden="true">
+            <TipBody h={h} />
           </span>
         </i>
       ))}
@@ -128,10 +186,14 @@ export function Guardrails() {
         {list.map(r => (
           <li key={r.code} className={r.status} title={r.why}>
             <i className="mark">{MARK[r.status]}</i>
-            <div>
+            {/* The empty title keeps the row's native tooltip off the explanation card. */}
+            <div className="rule" title="">
               <b>{r.value}</b>
               <span>
                 {r.code} · {r.rule}
+              </span>
+              <span className="tip about" aria-hidden="true">
+                <About rail={r} />
               </span>
             </div>
             <Dots rail={r} />
@@ -145,6 +207,14 @@ export function Guardrails() {
 /* Phone: one swipeable row of chips inside the this-week card. */
 export function RailChips() {
   const list = rails();
+  // A fixed popover would drift off its trigger, so any scroll closes it.
+  useEffect(() => {
+    const close = () => {
+      for (const p of document.querySelectorAll<HTMLElement>('.tip:popover-open')) p.hidePopover();
+    };
+    addEventListener('scroll', close, { capture: true, passive: true });
+    return () => removeEventListener('scroll', close, { capture: true });
+  }, []);
   const ok = list.filter(r => r.status === 'ok').length;
   return (
     <div className="chips-wrap">
@@ -158,13 +228,21 @@ export function RailChips() {
         {list.map(r => (
           <div key={r.code} role="listitem" className={`rchip ${r.status}`} title={r.why}>
             <i className="mark">{MARK[r.status]}</i>
-            <div>
+            <button
+              type="button"
+              className="rule"
+              popoverTarget={`about-${r.code}`}
+              onClick={e => place(e, `about-${r.code}`)}
+            >
               <b>{r.value}</b>
               <span>
                 {r.code} · {r.rule}
               </span>
-            </div>
-            <Dots rail={r} />
+            </button>
+            <span id={`about-${r.code}`} popover="auto" className="tip about">
+              <About rail={r} />
+            </span>
+            <Dots rail={r} tap />
           </div>
         ))}
       </div>

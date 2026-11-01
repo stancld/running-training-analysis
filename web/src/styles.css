@@ -617,50 +617,53 @@ svg text {
   display: flex;
   gap: 6px;
 }
-.dots i {
+/* A dot is an <i> on the laptop and a tappable <button> on the phone. */
+.dots > * {
+  position: relative;
   width: 9px;
   height: 9px;
   border-radius: 50%;
   background: var(--teal);
 }
-.dots i.watch {
+.dots > .watch {
   background: var(--amber);
 }
-.dots i.bad {
+.dots > .bad {
   background: var(--garnet);
 }
-.dots i:last-child {
+.dots > :last-child {
   box-shadow:
     0 0 0 2px var(--surface),
     0 0 0 3px var(--line-2);
 }
-/* Per-week hover card; anchored right because the dots sit at the card's right edge. */
-.dots i {
-  position: relative;
-}
-.dots i::after {
+.dots > ::after {
   content: "";
   position: absolute;
   inset: -4px;
 }
-.dots .tip {
-  display: none;
-  position: absolute;
+.rchip .dots {
+  gap: 12px;
+}
+.rchip .dots > ::after {
+  inset: -10px -6px;
+}
+
+/* Cards: per-week values on the dots, the rule's meaning on its text. Hover shows them
+   on the laptop; on the phone they are popovers placed by Week.tsx. */
+.tip {
   z-index: 5;
-  right: -12px;
-  bottom: calc(100% + 12px);
   width: max-content;
   min-width: 150px;
   padding: 9px 12px 10px;
   border: 1px solid var(--line-2);
   border-radius: 8px;
   background: var(--surface);
+  color: var(--ink);
   box-shadow: var(--shadow);
-  pointer-events: none;
   text-align: left;
   font-style: normal;
 }
-.dots .tip::after {
+.tip::after {
   content: "";
   position: absolute;
   right: 14px;
@@ -673,48 +676,101 @@ svg text {
   border-width: 0 1px 1px 0;
   transform: rotate(45deg);
 }
+.dots .tip,
+.rule .tip {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+}
+.dots .tip {
+  right: -12px;
+  bottom: calc(100% + 12px);
+}
+.rule {
+  position: relative;
+}
+.rule .tip {
+  left: -12px;
+  top: calc(100% + 10px);
+}
+.rule .tip::after {
+  right: auto;
+  left: 22px;
+  top: auto;
+  bottom: 100%;
+  margin: 0 0 -4px;
+  border-width: 1px 0 0 1px;
+}
 .dots i:hover {
   outline: 2px solid var(--ink-2);
   outline-offset: 2px;
 }
-.dots i:hover .tip {
+.dots i:hover .tip,
+.rule:hover .tip {
   display: block;
 }
-.phone .dots i:hover {
-  outline: 0;
+.tip[popover] {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  overflow: visible;
 }
-.phone .dots i:hover .tip {
+/* .rchip span would otherwise override the UA rule that hides closed popovers. */
+.tip[popover]:not(:popover-open) {
   display: none;
 }
-.dots .tip small {
+.tip[popover]::after {
+  right: auto;
+  left: calc(var(--ax, 50%) - 5px);
+}
+.tip[popover].below::after {
+  top: auto;
+  bottom: 100%;
+  margin: 0 0 -4px;
+  border-width: 1px 0 0 1px;
+}
+.tip.about {
+  width: 260px;
+}
+.tip small {
   display: block;
   font-family: var(--mono);
   font-size: 11px;
   color: var(--muted);
   letter-spacing: 0.02em;
 }
-.dots .tip em {
+.tip em {
   display: block;
   font-style: normal;
   font-size: 12.5px;
   color: var(--ink);
 }
-.rail-list .dots .tip b,
-.rchip .dots .tip b {
+.tip strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.tip b {
   margin-top: 6px;
   font-size: 16px;
   color: var(--teal);
 }
-.dots i.watch .tip b {
+.tip.watch b {
   color: var(--amber);
 }
-.dots i.bad .tip b {
+.tip.bad b {
   color: var(--garnet);
 }
-.rail-list .dots .tip span,
-.rchip .dots .tip span {
+.tip span {
   font-size: 12px;
+  line-height: 1.45;
   color: var(--ink-2);
+}
+.tip.about span {
+  margin-top: 4px;
+  font-size: 12.5px;
 }
 .chips-wrap {
   border-top: 1px solid var(--line);

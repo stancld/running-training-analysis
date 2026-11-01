@@ -32,7 +32,16 @@ export const current = DATA.diary.find(w => w.current) ?? DATA.diary[DATA.diary.
 
 export type Status = 'ok' | 'watch' | 'bad';
 export type RailWeek = { status: Status; week: string; dates: string; value: string; note: string; current: boolean };
-export type Rail = { code: string; value: string; rule: string; status: Status; why: string; history: RailWeek[] };
+export type Rail = {
+  code: string;
+  value: string;
+  rule: string;
+  name: string;
+  about: string;
+  status: Status;
+  why: string;
+  history: RailWeek[];
+};
 
 /* Status comes from tl's own flags; "watch" marks a value past the line on a week the
    rule does not cover (R3 binds only above the big-week threshold). */
@@ -63,6 +72,26 @@ export function rails(): Rail[] {
         current: x.current,
       };
     });
+  // What each rule is and why it exists, after the README's guardrails table.
+  const ABOUT: Record<string, [string, string]> = {
+    R1: [
+      'Week-over-week load',
+      `This week's running hours over last week's, kept at or under ${G.wow}×. Sudden jumps are the strongest injury predictor in the record.`,
+    ],
+    R2: [
+      'Acute:chronic load',
+      `This week's running hours over the mean of the four weeks before it, kept at or under ${G.acwr.toFixed(2)}. The base built so far caps how fast load can rise.`,
+    ],
+    R3: [
+      'Climb density',
+      `Metres of climb per running hour, at least ${G.vert_floor} m/h on weeks over ${G.big_week_h} h. Flat volume is what drove the calf and shin injuries.`,
+    ],
+    R4: [
+      'No flat intervals',
+      'No flat interval or repetition sessions this season, so hard running stays off flat ground. Uphill reps are fine and are not flagged.',
+    ],
+    R6: ['Weekly distance cap', `At most ${G.km} km of running in a week, however the hours add up.`],
+  };
   const low = w.density < G.vert_floor;
   const rows: [string, string, string, string, RailWeek[]][] = [
     ['R1', ratio(w.wow, 2, '×'), `WoW ≤ ${G.wow}×`, '', past('R1', x => ratio(x.wow, 2, '×'))],
@@ -86,6 +115,8 @@ export function rails(): Rail[] {
     value,
     rule,
     history,
+    name: ABOUT[code][0],
+    about: ABOUT[code][1],
     status: flag[code] ? 'bad' : watch ? 'watch' : 'ok',
     why: `${code}: ${flag[code] || watch || 'within the guardrail'}`,
   }));
