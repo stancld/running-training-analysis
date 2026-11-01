@@ -1,3 +1,5 @@
 # Personal training data stays on this machine; see AGENTS.md.
 data/*.csv
 data/*.csv.bak*
+
+__pycache__/
