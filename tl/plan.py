@@ -65,12 +65,12 @@ PHASES = [
     # Was 427 km / 12,500 m: the off-season weeks now carry 40 km and no vert, and the
     # other P2 weeks keep their targets.
     ("P2", "Recovery & gym on-ramp", 6, 372, 8550),
-    ("P3", "Base — the Kilian block", 8, 703, 28400),
+    ("P3", "Base", 8, 703, 28400),
     ("P4", "Specific build", 6, 544, 23900),
     ("P5", "Taper", 2, 97, 2550),
 ]
 
-_KILIAN_UPHILL = ("Kilian · uphill training", "https://mtnath.com/training-for-uphill-running/")
+_MTNATH_UPHILL = ("mtnath · uphill running 2019", "https://mtnath.com/training-for-uphill-running/")
 _KILIAN_2022 = ("Kilian · 2022 season", "https://mtnath.com/training2022/")
 _KILIAN_2024 = ("Kilian · 2024 training", "https://mtnath.com/training2024")
 _KILIAN_WSER = ("Kilian · Western States 2025", "https://mtnath.com/wsertraining")
@@ -83,57 +83,73 @@ _UA_GYM = (
     "Uphill Athlete · gym ME",
     "https://uphillathlete.com/strength-training/at-home-muscular-endurance-workout-with-progression/",
 )
+_UA_CARRY = (
+    "Uphill Athlete · weighted ME",
+    "https://uphillathlete.com/aerobic-training/vertical-beast-mode-what-is-muscular-endurance-why-it-is-important-for-any-alpinist-or-mountaineer-and-how-do-you-train-it/",
+)
 
-# Quality sessions per phase in Kilian Jornet's style: threshold mostly uphill, flat speed
-# rationed in the Dec-Apr injury window. Advice beside the targets, not a target itself.
+# Quality sessions per phase: threshold mostly uphill, flat speed rationed in the Dec-Apr
+# injury window. Drawn from Kilian Jornet's posts and Uphill Athlete, adapted to Dan's
+# record; each note opens with whose claim it is. Advice beside the targets, not a target.
 # name, prescription; then notes; then (label, url) sources.
 QUALITY: dict[str, tuple[list[tuple[str, str]], list[str], list[tuple[str, str]]]] = {
     "P2": (
         [
-            ("Uphill tempo", "3×10′ · 6–8 % · HR 164–172 · from 9 Nov"),
+            ("Uphill tempo", "3×10′ · 6–8 % · HR 164–172, Dan's Z3 · from 9 Nov"),
             (
                 "Gym strength-endurance",
-                "step-ups, lunges, jump squats 4×10 · +10 % BW from session 4",
+                "step-ups, lunges, jump squats 4×10 · +10 % BW from session 4 · after Uphill Athlete",
             ),
-            ("Hill sprints", "6–8×10″ · ≥ 20 % · 2–3′ walk down"),
+            ("Hill sprints", "6–8×10″ · ≥ 20 % · 2–3′ walk down · Uphill Athlete"),
         ],
         [
-            "No intervals in the two weeks after Slapy: Kilian's order is get healthy, get aerobic, get ready.",
-            "Keep jump height near 80 % at first; calves and shins are the history to respect.",
+            "Our rule: no intervals in the two weeks after Slapy. Kilian (2022) plans nothing specific for the week after a race and comes back by muscle soreness, how tired he feels when he starts running, and the desire to train.",
+            "Uphill Athlete: body weight only for the first 2–3 gym sessions, then no more than 10 % BW from session 4; once a week is enough, with 2–3 easy days after. Start jumps at about 80 % of height and range.",
+            "Dan's record: calves and shins are the injury history to respect.",
         ],
-        [_KILIAN_BACK, _UA_GYM, _UA_TRAIL],
+        [_KILIAN_2022, _UA_GYM, _UA_TRAIL],
     ),
     "P3": (
         [
-            ("Strength-endurance hill", "400–600 m at Z3 on Petřín 15 % · +3–6 kg from week 4"),
-            ("Hill sprints", "6–8×10″ · ≥ 20 % · 2–3′ walk down"),
+            (
+                "Strength-endurance hill",
+                "400–600 m of climb at Z3 on Petřín 15 % · +3–6 kg from week 4 · our version of Uphill Athlete's weighted carry",
+            ),
+            ("Hill sprints", "6–8×10″ · ≥ 20 % · 2–3′ walk down · Uphill Athlete"),
             ("Bike", "the plan's 2–2.5 h at Z2 · takes any hours R1 or R2 cut from running"),
         ],
         [
-            "A base block: Z1–Z2 volume around one hill session. Kilian's base runs Dec–Mar at ~30 h a week, mostly Z2 skimo, with one progressive run to touch Z4–Z5; his uphill threshold belongs to the specific block (P4).",
-            "The bike is the skimo here: before Western States Kilian alternated run and bike days to let his knee recover.",
-            "One key session a week, hill sprints aside. From week 5 flat T may replace the hill session at most every other week: ≤ 20′ at T (2×4k, 6×1.5k), never in or right after a week flagged R1 or R2. No R or I (R4).",
-            "The Feb–Mar 2024 and Jan 2026 injuries each followed 3+ straight weeks of two flat T/R/I/M sessions plus an R1 jump; Apr 2025 followed weeks of I and T, half of them uphill, with repeated R1 jumps. Aug–Sep 2026, one session a week alternating flat T and uphill 5×5′, stayed clean.",
-            "Kilian keeps one short flat threshold a week (10×400 m) because more flat speed injures him. His TFL tendonitis before Chianti 2025 came from weekly speed on a thin running base, kept up through the pain: stop a session type at the first localised pain.",
-            "Add weight or vertical each week, never both; three easy days after a weighted session.",
+            "Our plan: a base block of Z1–Z2 volume around one hill session. Kilian (2024): his base runs Dec–Mar at ~30 h a week, mostly Z2 skimo with 40–70 km of running and one progressive run to touch Z4–Z5; his uphill threshold belongs to the specific block (P4).",
+            "Scale: Dan logged 490 h of running, riding and gym in 2025, about 9.4 h a week. Kilian asks readers to plan to their own needs, not to copy other athletes (Western States 2025).",
+            "Our adaptation: the hill session. mtnath (2019) climbs 500–750 m on 25–35 %, 2–3 reps, with no weight mentioned. Uphill Athlete adds 5–10 % of body weight to start, on 30–100 % slopes, and warns HR reads below Z3 under weight: the legs set the limit. Petřín's 15 % is under both ranges. +3–6 kg assumes ~67 kg, inferred from a ride's W/kg, not weighed.",
+            "Our adaptation: the bike stands in for Kilian's skimo. In his Western States build he alternated run days with 2 h heat-training bike days, which also let his knee recover.",
+            "Our rule: one key session a week, hill sprints aside. From week 5 flat T may replace the hill session at most every other week: ≤ 20′ at T (2×4k, 6×1.5k), never in or right after a week flagged R1 or R2. No R or I (R4).",
+            "Dan's record, a correlation (the cache logs injury months, not causes): the Feb–Mar 2024 and Jan 2026 injuries each followed 3+ straight weeks of two flat T/R/I/M sessions plus an R1 jump; Apr 2025 followed weeks of I and T, half of them uphill, with repeated R1 jumps. Aug–Sep 2026, one session a week alternating flat T and uphill 5×5′, stayed clean.",
+            "Kilian (2024) always struggled with small injuries when running a lot of high speed on the flat, so he kept one short flat threshold a week (10×400 m). Before Chianti 2025 he ran a few times a week on top of his usual ski base, with one speed session a week; he blames those sessions for a TFL tendonitis and calls training on through the growing pain a mistake (Western States 2025). Our rule: stop a session type at the first localised pain.",
+            "Uphill Athlete: add weight or vertical, never both at once; at least three easy days after each weighted session at first.",
         ],
-        [_KILIAN_UPHILL, _KILIAN_2024, _KILIAN_WSER, _UA_TRAIL],
+        [_MTNATH_UPHILL, _KILIAN_2024, _KILIAN_WSER, _UA_CARRY, _UA_TRAIL],
     ),
     "P4": (
         [
-            ("Uphill threshold", "3×8′ → 2×12′ → 2×15′ · 8–15 % · HR 172–178 · weeks 1, 3, 5"),
+            (
+                "Uphill threshold",
+                "3×8′ → 2×12′ → 2×15′ · 8–15 % · HR 172–178, Dan's Z3–Z4 · weeks 1, 3, 5",
+            ),
             (
                 "Uphill + rolling",
                 "20–30′ uphill threshold, then 30–40′ rolling Z2–Z3 · run the descents",
             ),
             ("Race simulation", "C weekends: 2:00 high Z2, then race effort and race fuelling"),
-            ("Hill sprints", "6–8×10″ · keep weekly"),
+            ("Hill sprints", "6–8×10″ · keep weekly · Uphill Athlete"),
         ],
         [
-            "One key session a week: uphill threshold in weeks 1, 3 and 5, one progression step each; uphill + rolling in weeks 2, 4 and 6.",
-            "Kilian's specific block is 6 weeks, with 2×15–16′ uphill at 10–15 % at threshold (2024); he puts getting race-ready at 6–8 weeks once the base is there.",
-            "Drop the strength-endurance sessions; back-to-backs carry the neuromuscular load.",
-            "Flat T at most every other week, and only while the legs are quiet.",
+            "Our plan: one key session a week, uphill threshold in weeks 1, 3 and 5, one progression step each; uphill + rolling in weeks 2, 4 and 6.",
+            "Kilian (2024): his specific block is 6 weeks, with two uphill thresholds a week, one of them 2×15–16′ at 10–15 %; he puts getting race-ready at 6–8 weeks once the base is there (Coming back from injury). The 3×8′ and 2×12′ steps and the 8 % floor are ours.",
+            "Dan's record: HR 172–178 is his band around an LTHR of 176 taken from his session notes; Kilian goes by feel and tracks progress on repeat uphill routes.",
+            "Kilian (2022) runs race simulations at high Z2 until as tired as at the race's key moment, then at race effort; the 2:00 is ours.",
+            "Uphill Athlete: in the specific phase, swap the strength-endurance work for back-to-back long runs and one Z3 or Z4 interval session, and keep the hill sprints.",
+            "Our rule: flat T at most every other week, and only while the legs are quiet.",
         ],
         [_KILIAN_2022, _KILIAN_2024, _KILIAN_BACK, _UA_TRAIL],
     ),
@@ -142,7 +158,10 @@ QUALITY: dict[str, tuple[list[tuple[str, str]], list[str], list[tuple[str, str]]
             ("Uphill threshold", "3×6′ · 8–15 % · week 28 only"),
             ("Activation", "3×1′ T → VO2max two days out · otherwise 30–60′ Z1"),
         ],
-        ["Keep the intensity, cut the volume about 25 % a week."],
+        [
+            "Uphill Athlete: cut total hours about 25 % a week and keep speed work, trimming it about half as much as the volume. The plan's own rows cut total hours more: 11 → 8, then 4 in race week.",
+            "Dan's record: 3×1′ T → VO2max is his Slapy opener, run the day before the race; two days out and the 3×6′ are ours. Kilian (2022): his Zegama race week was very easy, 30′ to 1 h at Z1 except one 3 h day at Z2.",
+        ],
         [_KILIAN_2022, _UA_TRAIL],
     ),
 }
