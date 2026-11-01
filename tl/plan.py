@@ -3,7 +3,7 @@
 Source: the plan artifact of 28 Aug 2026. Weekly targets are hours by discipline;
 vert targets are derived from each phase's published total divided across that
 phase's running hours, so they stay consistent with the plan rather than being
-invented per week.
+invented per week. Dan's later changes, with the reasons, are in LOG.md.
 """
 
 import datetime as dt
@@ -34,8 +34,9 @@ _W: list[_Row] = [
     ("2026-10-05", 10, 7.0, 3.0, 0, "Long 2:30", None),
     ("2026-10-12", 7, 5.5, 1.5, 0, "Easy 90'", None),
     ("2026-10-19", 7, 4.5, 2.5, 0, "Race", "Slapy Trailmaniacs 47K · 24 Oct"),
-    ("2026-10-26", 9, 5.5, 2.5, 1.0, "Long 2:00", None),
-    ("2026-11-02", 11, 6.5, 2.5, 2.0, "Long 2:30", None),
+    # Off-season after Slapy: ~40 km of easy running, no bike or gym.
+    ("2026-10-26", 3.5, 3.5, 0, 0, "Off-season · easy", None),
+    ("2026-11-02", 3.5, 3.5, 0, 0, "Off-season · easy", None),
     ("2026-11-09", 11, 7.0, 2.0, 2.0, "A · 2:30+2:00", None),
     ("2026-11-16", 12, 7.5, 2.5, 2.0, "A · 3:00+2:15", None),
     ("2026-11-23", 11, 7.0, 2.0, 2.0, "Long 2:45", None),
@@ -60,7 +61,9 @@ _W: list[_Row] = [
 # name, weeks, published km total, published vert total
 PHASES = [
     ("P1", "Slapy build", 7, 569, 21000),
-    ("P2", "Recovery & gym on-ramp", 6, 427, 12500),
+    # Cut from 427 km / 12,500 m with the off-season hours, at the phase's own km/h and m/h,
+    # so the other P2 weeks keep their targets.
+    ("P2", "Recovery & gym on-ramp", 6, 371, 10850),
     ("P3", "Base — the Kilian block", 8, 703, 28400),
     ("P4", "Specific build", 6, 544, 23900),
     ("P5", "Taper", 2, 97, 2550),

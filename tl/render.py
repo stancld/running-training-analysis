@@ -192,7 +192,7 @@ def diary_entry(e: Entry) -> str:
     lines.append("  " + e.headline())
     if e.plan:
         lines.append(
-            f"  Planned: {e.plan.total_h}:00 total · {e.plan.run_h:.1f} h run · "
+            f"  Planned: {hmm(e.plan.total_h)} total · {e.plan.run_h:.1f} h run · "
             f"{e.plan.bike_h:.1f} h bike · {e.plan.gym_h:.1f} h gym · "
             f"weekend {e.plan.weekend}"
         )
