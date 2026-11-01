@@ -1127,11 +1127,21 @@ svg text {
   background: var(--garnet-wash);
   border: 1px solid var(--garnet);
 }
+.month-stack {
+  display: grid;
+}
+.month-stack > .month-detail {
+  grid-area: 1 / 1;
+}
+.month-stack > [aria-hidden="true"] {
+  visibility: hidden;
+}
 .month-detail {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 8px 18px;
   align-items: start;
+  align-content: start;
 }
 .month-detail > b {
   grid-column: 1 / -1;

@@ -223,16 +223,65 @@ function SameMonth({ sel, metric }: { sel: string; metric: Metric }) {
   );
 }
 
+function MonthDetail({ k, on, metric }: { k: string; on: boolean; metric: Metric }) {
+  const m = byKey[k];
+  const i = months.findIndex(p => p.label === k);
+  const prev = i > 0 ? months[i - 1] : null;
+  const ramp = m && prev && prev.run_h > 0 && k !== nowKey ? m.run_h / prev.run_h : null;
+  const sy = +k.slice(0, 4),
+    yc = yoy(sy, metric === 't' ? METRIC.t.of : METRIC.h.of);
+  return (
+    <div className="month-detail" aria-hidden={!on}>
+      <b>
+        {k}
+        {HURT.has(k) && <em className="tag">injury</em>}
+        {RISK.has(+k.slice(5, 7)) && <em className="tag">Dec–Apr</em>}
+        {k === nowKey && <em className="tag">to date</em>}
+      </b>
+      {m ? (
+        <>
+          <div className="md-text">
+            <span>
+              {m.run_h.toFixed(1)} h run · {m.run_km.toFixed(0)} km · {n(m.run_vert)} m · {m.density} m/h
+            </span>
+            {ramp !== null && prev && (
+              <span className={ramp > DATA.guardrails.wow ? 'up' : ''}>
+                {ratio(ramp)}× {MON[+prev.label.slice(5, 7) - 1]}'s running hours
+              </span>
+            )}
+            <span>
+              {m.run_days} run days · longest {hm(m.longest / 60)} · {m.quality} quality · feel{' '}
+              {m.feel === null ? '—' : `${m.feel > 0 ? '+' : ''}${m.feel.toFixed(1)}`}
+            </span>
+            {m.hr !== null && m.pace !== null && (
+              <span>
+                easy/long HR {m.hr.toFixed(0)} bpm at {hm(m.pace)} /km
+              </span>
+            )}
+            {seasons[sy] && (
+              <span>
+                {sy}
+                {yc?.span ? ' to date' : ''}: {seasons[sy].run_h.toFixed(0)} h run · {seasons[sy].total_h.toFixed(0)} h
+                total
+                {yc &&
+                  ` · ${pctText(yc.pct)} ${metric === 't' ? 'total' : 'run'} vs ${sy - 1}${yc.span ? ` (${yc.span})` : ''}`}
+              </span>
+            )}
+            <Split p={m} />
+          </div>
+          <SameMonth sel={k} metric={metric} />
+        </>
+      ) : (
+        <span>nothing recorded</span>
+      )}
+    </div>
+  );
+}
+
 export function Heatmap() {
   const [sel, setSel] = useState(nowKey);
   const [metric, setMetric] = useState<Metric>('h');
   const M = METRIC[metric];
-  const m = byKey[sel];
-  const i = months.findIndex(p => p.label === sel);
-  const prev = i > 0 ? months[i - 1] : null;
-  const ramp = m && prev && prev.run_h > 0 && sel !== nowKey ? m.run_h / prev.run_h : null;
-  const sy = +sel.slice(0, 4),
-    yc = yoy(sy, metric === 't' ? M.of : METRIC.h.of);
   return (
     <section className="card heat" aria-labelledby="map-h">
       <div className="ch">
@@ -341,48 +390,11 @@ export function Heatmap() {
           {metric === 'mh' && ' · small: thousand metres climbed'}
         </span>
       </div>
-      <div className="week-detail month-detail" aria-live="polite">
-        <b>
-          {sel}
-          {HURT.has(sel) && <em className="tag">injury</em>}
-          {RISK.has(+sel.slice(5, 7)) && <em className="tag">Dec–Apr</em>}
-          {sel === nowKey && <em className="tag">to date</em>}
-        </b>
-        {m ? (
-          <>
-            <div className="md-text">
-              <span>
-                {m.run_h.toFixed(1)} h run · {m.run_km.toFixed(0)} km · {n(m.run_vert)} m · {m.density} m/h
-              </span>
-              {ramp !== null && prev && (
-                <span className={ramp > DATA.guardrails.wow ? 'up' : ''}>
-                  {ratio(ramp)}× {MON[+prev.label.slice(5, 7) - 1]}'s running hours
-                </span>
-              )}
-              <span>
-                {m.run_days} run days · longest {hm(m.longest / 60)} · {m.quality} quality · feel{' '}
-                {m.feel === null ? '—' : `${m.feel > 0 ? '+' : ''}${m.feel.toFixed(1)}`}
-              </span>
-              {m.hr !== null && m.pace !== null && (
-                <span>
-                  easy/long HR {m.hr.toFixed(0)} bpm at {hm(m.pace)} /km
-                </span>
-              )}
-              {seasons[sy] && (
-                <span>
-                  {sy}
-                  {yc?.span ? ' to date' : ''}: {seasons[sy].run_h.toFixed(0)} h run · {seasons[sy].total_h.toFixed(0)}{' '}
-                  h total
-                  {yc &&
-                    ` · ${pctText(yc.pct)} ${metric === 't' ? 'total' : 'run'} vs ${sy - 1}${yc.span ? ` (${yc.span})` : ''}`}
-                </span>
-              )}
-              <Split p={m} />
-            </div>
-            <SameMonth sel={sel} metric={metric} />
-          </>
-        ) : (
-          <span>nothing recorded</span>
+      {/* Every month's detail sits in one grid cell and only the selected one is visible,
+          so the box keeps the tallest month's height and hovering never shifts the page. */}
+      <div className="week-detail month-stack" aria-live="polite">
+        {years.flatMap(y =>
+          MON.map((_, k) => <MonthDetail key={keyOf(y, k)} k={keyOf(y, k)} on={keyOf(y, k) === sel} metric={metric} />),
         )}
       </div>
     </section>
