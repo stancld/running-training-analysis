@@ -69,6 +69,18 @@ long." That covers wk 9 (26 Oct) and wk 10 (2 Nov).
 - P2 published totals 427 km / 12,500 m → 372 km / 8,550 m, so wk 8 and wk 11–13 keep
   their km and vert targets (the off-season weeks carry 80 km and no vert).
 
+**Chianti goal (set 2026-11-02):** UTMB index ≥ 700, 720+ if the back half holds. Dan
+first put it at 720–750 and Slapy 47K at ~780; the utmb.world data says otherwise. His
+record there is 100K index 665 (Lavaredo 80K, 10:20:23), and Slapy 2026 is not yet
+scored: fitting the 2025 Slapy finishers maps 3:59:57 to ~700–725. A log-time fit of
+UTCC 2026 finishers whose only indexed 100M result is that race (n = 81, residual sd
+3–4 pts), scaled 1.029× for the 2027 course (123 km / 5200 m), gives: 650 ≈ 14:20,
+665 ≈ 14:00, 700 ≈ 13:20, 720 ≈ 12:57, 750 ≈ 12:25. The formula is private, so these
+are estimates, ±10 min. 720–750 means 10–15 % faster than his Lavaredo-level decay
+over 123 km, so it hangs on the back half: 4–5 h longs with 350–450 m/h, back-to-back
+weekends, one 60–75 km rehearsal at 80–90 g/h, pre-dawn kit runs for the 04:00 start.
+Workings in [this thread](https://ampcode.com/threads/T-01a19750-5309-73cb-bc24-fc9dd100d866).
+
 **Open:**
 - How Dan returns from the off-season in wk 11–13 (currently 7.0 / 7.5 / 7.0 h running
   with 2 h bike and 2 h gym), given the R1 and R2 checks above. Ramps suggested while
