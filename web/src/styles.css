@@ -1755,13 +1755,13 @@ footer {
 }
 /* Today on a phone: a small ring beside the numbers, so the guardrails make the first screen. */
 .phone .tw-main {
-  grid-template-columns: 112px minmax(0, 1fr);
+  grid-template-columns: 148px minmax(0, 1fr);
   gap: 16px;
   margin-top: 14px;
 }
 .phone .ring {
-  width: 112px;
-  height: 112px;
+  width: 148px;
+  height: 148px;
 }
 .phone .ring .c b {
   font-size: 15px;
