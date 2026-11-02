@@ -258,7 +258,7 @@ function MonthDetail({ k, on, metric }: { k: string; on: boolean; metric: Metric
         {month(k)}
         {HURT.has(k) && <em className="tag">injury</em>}
         {RISK.has(+k.slice(5, 7)) && <em className="tag">Dec–Apr</em>}
-        {k === nowKey && <em className="tag">to date</em>}
+        {k === nowKey && <em className="tag now">to date</em>}
       </b>
       {m ? (
         <>
