@@ -48,6 +48,11 @@ test('laptop: diary weeks expand into sessions with ratios and durations', async
   await expect(row.getByRole('rowheader')).toHaveText('W3 · 14–20 SepISO W38');
   await expect(row.locator('.chip')).toHaveText(['✕R2', '✕R6']);
 
+  // The goal ladder closes the page: the goal rung carries its time and place, in index order.
+  const goal = page.locator('#goal');
+  await expect(goal.locator('.rung.goal')).toContainText(/700[\s\S]*13:19[\s\S]*~25th/);
+  await expect(goal.locator('.rung > b')).toHaveText(['600', '650', '665', '700', '720', '750', '780']);
+
   await noOverflow(page);
   expect(errors).toEqual([]);
 });
@@ -74,6 +79,12 @@ test.describe('phone', () => {
       await noOverflow(page);
     }
     await expect(page.getByRole('heading', { name: 'Week ledger' })).toHaveCount(0);
+    // On the phone the goal is a table at the end of History, below the ledger.
+    await tabs.getByRole('link', { name: 'History' }).tap();
+    await expect(page.locator('#goal .ladder-table tr.now')).toContainText(/665[\s\S]*14:01/);
+    await expect(page.locator('#goal .ladder')).toHaveCount(0);
+    await noOverflow(page);
+    await tabs.getByRole('link', { name: 'Today' }).tap();
 
     // The tab lives in the URL: Back returns to the previous tab and a reload keeps it.
     await page.goBack();

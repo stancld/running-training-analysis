@@ -1,16 +1,72 @@
 {
- "generated": "01 November 2026, 18:02",
- "today": "2026-11-01",
+ "generated": "02 November 2026, 08:21",
+ "today": "2026-11-02",
  "race": {
   "name": "Chianti 120K",
   "date": "2027-03-20",
-  "weeks_to_go": 19.9
+  "weeks_to_go": 19.7,
+  "course": "123 km / 5200 m",
+  "goal": {
+   "now": 665,
+   "goal": 700,
+   "stretch": 720,
+   "fade": [
+    650,
+    700
+   ],
+   "field": 539,
+   "note": "Estimates from a log-time fit of UTCC 2026 finishers (n = 81, ±10 min), scaled to the 2027 course; the UTMB formula is private. Lavaredo 80K 10:20 = 665.",
+   "ladder": [
+    {
+     "index": 600,
+     "time": "15:33",
+     "place": 85,
+     "lavaredo": "11:27"
+    },
+    {
+     "index": 650,
+     "time": "14:21",
+     "place": 43,
+     "lavaredo": "10:35"
+    },
+    {
+     "index": 665,
+     "time": "14:01",
+     "place": 36,
+     "lavaredo": "10:20"
+    },
+    {
+     "index": 700,
+     "time": "13:19",
+     "place": 25,
+     "lavaredo": "9:36"
+    },
+    {
+     "index": 720,
+     "time": "12:57",
+     "place": 20,
+     "lavaredo": "9:16"
+    },
+    {
+     "index": 750,
+     "time": "12:25",
+     "place": 16,
+     "lavaredo": "8:47"
+    },
+    {
+     "index": 780,
+     "time": "11:57",
+     "place": 14,
+     "lavaredo": "8:20"
+    }
+   ]
+  }
  },
  "cache": {
   "first": "2023-01-04",
   "last": "2026-11-01",
   "n": 1684,
-  "stale": 0
+  "stale": 1
  },
  "seasons": [
   {
@@ -1777,13 +1833,13 @@
    "wow": 0.61,
    "acwr": 0.57,
    "flags": [],
-   "current": true
+   "current": false
   }
  ],
  "horizon": {
   "weeks": 8,
-  "date": "2026-12-27",
-  "committed": 17
+  "date": "2026-12-28",
+  "committed": 18
  },
  "plan": [
   {
@@ -2054,7 +2110,7 @@
    "vert": 3658,
    "weekend": "B · two-phase",
    "race": null,
-   "committed": false
+   "committed": true
   },
   {
    "index": 19,
@@ -2226,8 +2282,8 @@
   {
    "phase": "P3",
    "name": "Base",
-   "weeks": 4,
-   "start": "2026-12-28",
+   "weeks": 3,
+   "start": "2027-01-04",
    "end": "2027-01-24",
    "run_h": [
     7.5,
@@ -4197,7 +4253,7 @@
    "start": "2026-10-26",
    "end": "2026-11-01",
    "partial": false,
-   "current": true,
+   "current": false,
    "run_h": 3.57,
    "run_km": 38.9,
    "run_vert": 653,
@@ -4217,12 +4273,12 @@
    "monotony": 1.07,
    "ctl": 26.3,
    "atl": 19.0,
-   "tsb": 6.8,
+   "tsb": 7.2,
    "flags": [],
    "notes": [
     "Running on target (3.6 vs 4.0 h).",
     "Longest run 1:10 / 12.4 km / 267 m on Sat.",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": {
     "index": 9,
@@ -4337,12 +4393,6 @@
   }
  ],
  "fitness": [
-  {
-   "date": "2026-08-10",
-   "ctl": 26.2,
-   "atl": 32.5,
-   "tsb": -8.0
-  },
   {
    "date": "2026-08-11",
    "ctl": 25.9,
@@ -4840,6 +4890,12 @@
    "ctl": 26.3,
    "atl": 19.0,
    "tsb": 6.8
+  },
+  {
+   "date": "2026-11-02",
+   "ctl": 25.7,
+   "atl": 16.5,
+   "tsb": 7.2
   }
  ],
  "zones": {
@@ -5460,7 +5516,7 @@
       "index": 9,
       "start": "2026-10-26",
       "end": "2026-11-01",
-      "current": true,
+      "current": false,
       "run": {
        "minutes": [
         170,
@@ -5479,6 +5535,56 @@
         0
        ],
        "stream": 214,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      },
+      "bike": {
+       "minutes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 0,
+       "measured": 0,
+       "modelled": 0,
+       "no_hr": 0
+      }
+     },
+     {
+      "index": 10,
+      "start": "2026-11-02",
+      "end": "2026-11-08",
+      "current": true,
+      "run": {
+       "minutes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "power": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "stream": 0,
        "measured": 0,
        "modelled": 0,
        "no_hr": 0

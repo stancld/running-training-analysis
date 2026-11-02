@@ -241,6 +241,14 @@ def web_payload(
             "name": plan.RACE_NAME,
             "date": plan.RACE.isoformat(),
             "weeks_to_go": round(plan.weeks_to_race(), 1),
+            "course": plan.RACE_COURSE,
+            "goal": {
+                **{k: v for k, v in plan.GOAL.items() if k != "ladder"},
+                "ladder": [
+                    {"index": i, "time": t, "place": r, "lavaredo": lav}
+                    for i, t, r, lav in plan.GOAL["ladder"]
+                ],
+            },
         },
         "cache": {
             "first": ds.first.isoformat(),

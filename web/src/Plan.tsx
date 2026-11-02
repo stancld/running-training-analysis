@@ -356,3 +356,89 @@ export function PlanChart() {
     </section>
   );
 }
+
+const ord = (p: number) => {
+  const teens = p % 100 >= 11 && p % 100 <= 13;
+  return `${p}${['th', 'st', 'nd', 'rd'][teens ? 0 : p % 10] ?? 'th'}`;
+};
+
+/* The UTMB-index goal against what each index means on the course. On a wide screen the
+   ladder is a scale, so the fade band reads as the short distance it is; on a phone the
+   same rungs are a table, since the labels would collide on a 650–665 gap. */
+export function Goal() {
+  const R = DATA.race,
+    g = R.goal,
+    wide = useWide();
+  const lo = g.ladder[0].index,
+    hi = g.ladder[g.ladder.length - 1].index;
+  const x = (i: number) => `${((i - lo) / (hi - lo)) * 100}%`;
+  const kind = (i: number) => (i === g.now ? 'now' : i === g.goal ? 'goal' : i === g.stretch ? 'stretch' : '');
+  const tag = { now: 'Now · 100K index', goal: 'Goal', stretch: `${g.stretch}+ if the back half holds` };
+  return (
+    <section className="card goal" id="goal" aria-labelledby="goal-h">
+      <div className="ch">
+        <h2 id="goal-h">{R.name} goal</h2>
+        <span className="eyebrow">UTMB index → finish time</span>
+        <span className="meta push">
+          {R.course} · {day(R.date, true)} · places in the {n(g.field)}-strong 2026 field
+        </span>
+      </div>
+      {wide ? (
+        <div className="ladder">
+          <i className="fade" style={{ left: x(g.fade[0]), width: `calc(${x(g.fade[1])} - ${x(g.fade[0])})` }}>
+            <small>fade band</small>
+          </i>
+          {g.ladder.map(r => {
+            const k = kind(r.index);
+            return (
+              <div key={r.index} className={`rung ${k}`} style={{ left: x(r.index) }}>
+                {(k === 'now' || k === 'goal') && <small className="rung-note">{tag[k]}</small>}
+                <b>{r.index}</b>
+                <button type="button" aria-label={`Index ${r.index}: ${r.time}, about ${ord(r.place)}`}>
+                  <span className="tip" aria-hidden="true">
+                    <small>index {r.index}</small>
+                    <strong>{r.time}</strong>
+                    <span>
+                      ~{ord(r.place)} of {n(g.field)} in 2026 · Lavaredo 80K {r.lavaredo}
+                    </span>
+                  </span>
+                </button>
+                <strong>{r.time}</strong>
+                <small>~{ord(r.place)}</small>
+                {k === 'stretch' && <small className="rung-note">{tag[k]}</small>}
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <table className="ladder-table">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th className="n">Finish</th>
+              <th className="n">Place</th>
+              <th className="n">Lavaredo 80K</th>
+            </tr>
+          </thead>
+          <tbody>
+            {g.ladder.map(r => {
+              const k = kind(r.index);
+              return (
+                <tr key={r.index} className={k}>
+                  <th scope="row">
+                    {r.index}
+                    {k && <small>{tag[k]}</small>}
+                  </th>
+                  <td className="n">{r.time}</td>
+                  <td className="n">~{ord(r.place)}</td>
+                  <td className="n">{r.lavaredo}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
+      <p className="caption">{g.note}</p>
+    </section>
+  );
+}

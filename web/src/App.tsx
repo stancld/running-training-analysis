@@ -3,7 +3,7 @@ import { DATA } from './data';
 import { Diary } from './Diary';
 import { MON, current, curIdx, day, hm, lastRace, n, phaseShort, phaseSpans, plural, useWide } from './format';
 import { Heatmap, Ledger } from './History';
-import { PlanChart } from './Plan';
+import { Goal, PlanChart } from './Plan';
 import { Fitness, Guardrails, ThisWeek } from './Week';
 import { Zones } from './Zones';
 
@@ -137,6 +137,7 @@ const HOME: Record<string, Tab> = {
   history: 'history',
   months: 'history',
   ledger: 'history',
+  goal: 'history',
 };
 const JUMP = [
   ['today', 'This week'],
@@ -147,6 +148,7 @@ const JUMP = [
   ['diary', 'Diary'],
   ['months', 'Months'],
   ['ledger', 'Ledger'],
+  ['goal', 'Goal'],
 ] as const;
 
 /* Every hashchange counts, even to the same hash, so a repeated link still scrolls. */
@@ -218,6 +220,7 @@ export default function App() {
           <Heatmap />
           <Ledger />
         </div>
+        <Goal />
         <Footer />
       </div>
     );
@@ -249,6 +252,7 @@ export default function App() {
           <>
             <Heatmap />
             <Ledger />
+            <Goal />
             <Footer />
           </>
         )}

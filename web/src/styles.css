@@ -1744,6 +1744,194 @@ footer {
 .race-week span {
   color: var(--garnet);
 }
+
+/* ---------- Chianti goal ---------- */
+/* Rungs sit on an index scale; the dot row is the axis, drawn by the ladder's own border. */
+.ladder {
+  position: relative;
+  height: 168px;
+  margin: 20px 28px 0;
+}
+.ladder::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 65px;
+  border-top: 1px solid var(--line-2);
+}
+.ladder .fade {
+  position: absolute;
+  top: 55px;
+  height: 21px;
+  border-radius: 10px;
+  background: var(--teal-wash);
+}
+.ladder .fade small {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin-top: 4px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.rung {
+  position: absolute;
+  top: 0;
+  width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+}
+.rung > b {
+  margin-top: 28px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.rung > button {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin: 10px 0 8px;
+  padding: 0;
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+  background: var(--surface);
+  cursor: default;
+}
+.rung > strong {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.rung > small {
+  margin-top: 2px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.rung .rung-note {
+  position: absolute;
+  top: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.rung.stretch .rung-note {
+  position: static;
+  margin-top: 4px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: var(--garnet);
+}
+.rung.now > button {
+  border-color: var(--teal);
+  background: var(--teal);
+}
+.rung.now .rung-note,
+.rung.now > b,
+.rung.now > strong {
+  color: var(--teal);
+}
+.rung.goal > button {
+  border-color: var(--garnet);
+  background: var(--garnet);
+}
+.rung.stretch > button {
+  border-color: var(--garnet);
+}
+.rung.goal .rung-note,
+.rung.goal > b,
+.rung.goal > strong,
+.rung.stretch > strong {
+  color: var(--garnet);
+}
+.rung .tip {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.rung .tip::after {
+  right: auto;
+  left: calc(50% - 4px);
+}
+.rung > button:is(:hover, :focus-visible) {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+.rung > button:is(:hover, :focus-visible) .tip {
+  display: block;
+}
+/* Fixed columns so the phone's width wins over the row marks, which wrap instead. */
+.ladder-table {
+  width: 100%;
+  margin-top: 14px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+}
+.ladder-table thead th:first-child {
+  width: 38%;
+}
+.ladder-table th,
+.ladder-table td {
+  padding: 7px 4px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: normal;
+}
+.ladder-table thead th {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ladder-table .n {
+  text-align: right;
+}
+.ladder-table tbody th {
+  font-family: var(--mono);
+  font-weight: 500;
+}
+.ladder-table tbody th small {
+  display: block;
+  font-size: 10.5px;
+  color: var(--muted);
+}
+.ladder-table tr.now {
+  background: var(--teal-wash);
+}
+.ladder-table tr.now th {
+  color: var(--teal);
+}
+.ladder-table tr.goal {
+  background: var(--garnet-wash);
+}
+.ladder-table tr.goal th,
+.ladder-table tr.stretch th,
+.ladder-table tr.goal th small,
+.ladder-table tr.stretch th small {
+  color: var(--garnet);
+}
 .phone .card {
   padding: 16px;
 }

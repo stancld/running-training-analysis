@@ -16,6 +16,32 @@ HORIZON_WEEKS = 8
 
 RACE = dt.date(2027, 3, 20)
 RACE_NAME = "Chianti 120K"
+RACE_COURSE = "123 km / 5200 m"
+
+# The UTMB-index goal Dan set on 2 Nov 2026 (LOG.md) and what each index means on the
+# course. Times are estimates: a log-time fit of 81 UTCC 2026 finishers whose only indexed
+# 100M result is that race, scaled by 1.029 for the 2027 course; the formula itself is private.
+GOAL: dict[str, Any] = {
+    "now": 665,  # Dan's 100K index from Lavaredo 80K 2026, 10:20:23
+    "goal": 700,
+    "stretch": 720,  # if the back half holds
+    "fade": (650, 700),
+    "field": 539,  # UTCC 2026 finishers, for the places
+    # index, finish time (±10 min), place in the 2026 field, Lavaredo 80K equivalent
+    "ladder": [
+        (600, "15:33", 85, "11:27"),
+        (650, "14:21", 43, "10:35"),
+        (665, "14:01", 36, "10:20"),
+        (700, "13:19", 25, "9:36"),
+        (720, "12:57", 20, "9:16"),
+        (750, "12:25", 16, "8:47"),
+        (780, "11:57", 14, "8:20"),
+    ],
+    "note": (
+        "Estimates from a log-time fit of UTCC 2026 finishers (n = 81, ±10 min), scaled to "
+        "the 2027 course; the UTMB formula is private. Lavaredo 80K 10:20 = 665."
+    ),
+}
 PLAN_START = dt.date(2026, 8, 31)
 # The diary leads in one week early: week 1 only reads against the week before it.
 DIARY_START = PLAN_START - dt.timedelta(days=7)

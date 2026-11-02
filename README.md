@@ -24,6 +24,7 @@ it is derived from the cache except Dan's own session notes.
 | Weekly diary | one entry per week since the plan started: sessions, notes, plan comparison and verdicts |
 | Every month since 2023 | monthly running hours or climb density (m/h) as a trend line and a heatmap, with injury months, Dec–Apr risk months and yearly totals; each month opens into its stats, sport split and the same month in other years |
 | Week ledger | the last 26 weeks with the same ok / watch / flag status, ratios and volumes |
+| Chianti 120K goal | Dan's UTMB-index goal (`plan.GOAL`) on a scale of what each index means on the course: an estimated finish time, a place in the 2026 field and the Lavaredo 80K equivalent, with his current index, the goal, the stretch and the fade band marked |
 
 ## Running tl
 

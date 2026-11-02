@@ -152,10 +152,20 @@ export type PhaseZones = {
   bike: ZoneSplit;
   weeks: WeekZones[];
 };
+export type Rung = { index: number; time: string; place: number; lavaredo: string };
+export type Goal = {
+  now: number;
+  goal: number;
+  stretch: number;
+  fade: [number, number];
+  field: number;
+  ladder: Rung[];
+  note: string;
+};
 export type Payload = {
   generated: string;
   today: string;
-  race: { name: string; date: string; weeks_to_go: number };
+  race: { name: string; date: string; weeks_to_go: number; course: string; goal: Goal };
   cache: { first: string; last: string; n: number; stale: number };
   seasons: Period[];
   months: Period[];
