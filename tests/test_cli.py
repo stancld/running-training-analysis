@@ -152,6 +152,8 @@ def test_private_checkpoint_encrypts_and_rejects_stale_writes(
     def github(args: list[str], payload: dict | None = None) -> bytes:
         nonlocal head
         if payload is None:
+            if "Accept: application/vnd.github.raw+json" in args:
+                raise subprocess.CalledProcessError(1, "gh", stderr=b"invalid UTF-8 string")
             assert f"?ref={head}" in args[0]
             name = args[0].split("/contents/")[1].split("?")[0]
             return remote[name]

@@ -173,7 +173,7 @@ def _restore() -> None:
                     [
                         f"repos/{STATE_REPO}/contents/{name}.gpg?ref={head['target']['oid']}",
                         "-H",
-                        "Accept: application/vnd.github.raw+json",
+                        "Accept: application/vnd.github.raw",
                     ]
                 )
             )
