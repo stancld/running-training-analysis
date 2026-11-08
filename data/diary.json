@@ -1,16 +1,16 @@
 {
- "generated": "2026-11-01T17:56:37",
- "today": "2026-11-01",
+ "generated": "2026-11-08T08:16:34",
+ "today": "2026-11-08",
  "race": {
   "name": "Chianti 120K",
   "date": "2027-03-20",
-  "weeks_to_go": 19.9
+  "weeks_to_go": 18.9
  },
  "cache": {
   "first": "2023-01-04",
-  "last": "2026-11-01",
-  "activities": 1684,
-  "stale_days": 0
+  "last": "2026-11-07",
+  "activities": 1688,
+  "stale_days": 1
  },
  "phases": [
   {
@@ -24,12 +24,12 @@
    "code": "P2",
    "name": "Recovery & gym on-ramp",
    "weeks": 6,
-   "km": 372,
-   "vert": 8550
+   "km": 353.4,
+   "vert": 6248
   },
   {
    "code": "P3",
-   "name": "Base \u2014 the Kilian block",
+   "name": "Base",
    "weeks": 8,
    "km": 703,
    "vert": 28400
@@ -184,13 +184,13 @@
    "index": 11,
    "phase": "P2",
    "start": "2026-11-09",
-   "total_h": 11,
-   "run_h": 7.0,
+   "total_h": 9.25,
+   "run_h": 5.25,
    "bike_h": 2.0,
    "gym_h": 2.0,
-   "run_km": 78.6,
-   "run_vert": 2302,
-   "weekend": "A \u00b7 2:30+2:00",
+   "run_km": 60.0,
+   "run_vert": null,
+   "weekend": "Z1/Z2 \u00b7 1\u00d7 strides \u00b7 1 weekend long \u00b7 2\u00d7 gym \u00b7 2\u00d71 h easy bike",
    "race": null
   },
   {
@@ -1108,7 +1108,7 @@
    "notes": [
     "Longest run 1:28 / 16.1 km / 485 m on Tue.",
     "Quality: F on Fri",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R1] week-over-week 3.51x > 1.25",
     "[R2] ACWR 1.55 > 1.44"
    ],
@@ -1375,7 +1375,7 @@
    "notes": [
     "Longest run 1:28 / 18.1 km / 292 m on Sat.",
     "Quality: T on Sun",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -1819,7 +1819,7 @@
    "notes": [
     "Longest run 1:00 / 12.0 km / 208 m on Tue.",
     "Quality: R on Wed",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R4] flat R session this season"
    ],
    "plan": null,
@@ -1969,7 +1969,7 @@
     "Longest run 1:44 / 20.1 km / 588 m on Sat.",
     "Quality: T on Tue",
     "Vert density 239 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel -2.0 over 1 scored runs.",
+    "Self-reported feel -2.0 over 1 scored run.",
     "[R1] week-over-week 2.16x > 1.25"
    ],
    "plan": null,
@@ -2101,7 +2101,7 @@
    "notes": [
     "Longest run 0:50 / 9.5 km / 176 m on Mon.",
     "Quality: M on Tue",
-    "Self-reported feel +2.0 over 1 scored runs."
+    "Self-reported feel +2.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -2472,7 +2472,7 @@
    "notes": [
     "Longest run 1:30 / 18.1 km / 581 m on Sat.",
     "Quality: I on Wed",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R1] week-over-week 1.67x > 1.25"
    ],
    "plan": null,
@@ -2820,7 +2820,7 @@
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: I on Fri, T on Sat",
     "Vert density 407 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +2.0 over 1 scored runs.",
+    "Self-reported feel +2.0 over 1 scored run.",
     "[R1] week-over-week 1.57x > 1.25",
     "[R2] ACWR 2.17 > 1.44"
    ],
@@ -3657,7 +3657,7 @@
     "Longest run 3:02 / 29.9 km / 1841 m on Sat.",
     "Quality: T on Mon, RACE on Sat",
     "Vert density 444 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R1] week-over-week 1.49x > 1.25"
    ],
    "plan": null,
@@ -3988,7 +3988,7 @@
    ],
    "notes": [
     "Longest run 1:53 / 21.2 km / 620 m on Sat.",
-    "Self-reported feel +1.0 over 1 scored runs.",
+    "Self-reported feel +1.0 over 1 scored run.",
     "[R1] week-over-week 2.33x > 1.25"
    ],
    "plan": null,
@@ -5055,7 +5055,7 @@
     "Longest run 1:25 / 17.4 km / 51 m on Tue.",
     "Quality: T on Tue, F on Sat",
     "Vert density 56 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -5435,7 +5435,7 @@
     "Longest run 1:55 / 22.0 km / 598 m on Sat.",
     "Quality: R on Tue, T on Wed",
     "Vert density 223 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +2.0 over 1 scored runs.",
+    "Self-reported feel +2.0 over 1 scored run.",
     "[R1] week-over-week 1.28x > 1.25",
     "[R4] flat R session this season"
    ],
@@ -6804,7 +6804,7 @@
     "Longest run 0:54 / 10.0 km / 181 m on Thu.",
     "Quality: T on Tue, I on Thu, F on Sun",
     "Vert density 146 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +0.0 over 1 scored runs.",
+    "Self-reported feel +0.0 over 1 scored run.",
     "[R4] flat I session this season"
    ],
    "plan": null,
@@ -7003,7 +7003,7 @@
    "notes": [
     "Longest run 0:55 / 12.5 km / 38 m on Wed.",
     "Quality: F on Wed, T on Thu, F on Sun",
-    "Self-reported feel -1.0 over 1 scored runs."
+    "Self-reported feel -1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -7465,7 +7465,7 @@
     "Longest run 1:00 / 11.7 km / 280 m on Sun.",
     "Quality: T on Thu, F on Sat",
     "Vert density 186 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel -1.0 over 1 scored runs."
+    "Self-reported feel -1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -8259,7 +8259,7 @@
    "notes": [
     "Longest run 1:15 / 14.3 km / 373 m on Sat.",
     "Vert density 212 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +0.0 over 1 scored runs.",
+    "Self-reported feel +0.0 over 1 scored run.",
     "[R1] week-over-week 1.48x > 1.25",
     "[R2] ACWR 4.96 > 1.44"
    ],
@@ -8529,7 +8529,7 @@
    ],
    "notes": [
     "Longest run 1:05 / 13.0 km / 224 m on Tue.",
-    "Self-reported feel +1.0 over 1 scored runs.",
+    "Self-reported feel +1.0 over 1 scored run.",
     "[R1] week-over-week 1.41x > 1.25",
     "[R2] ACWR 1.57 > 1.44"
    ],
@@ -8884,7 +8884,7 @@
     "Longest run 1:30 / 18.5 km / 320 m on Sat.",
     "Quality: T on Wed",
     "Vert density 247 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +0.0 over 1 scored runs."
+    "Self-reported feel +0.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -9027,7 +9027,7 @@
    "notes": [
     "Longest run 1:40 / 19.4 km / 443 m on Sat.",
     "Vert density 248 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +2.0 over 1 scored runs."
+    "Self-reported feel +2.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -9342,7 +9342,7 @@
     "Longest run 1:51 / 21.1 km / 681 m on Sat.",
     "Quality: R on Tue, T on Fri",
     "Vert density 232 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +0.0 over 1 scored runs.",
+    "Self-reported feel +0.0 over 1 scored run.",
     "[R4] flat R session this season"
    ],
    "plan": null,
@@ -9492,7 +9492,7 @@
     "Longest run 2:05 / 21.8 km / 1016 m on Sat.",
     "Quality: R on Tue, M on Thu",
     "Vert density 237 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R4] flat R session this season"
    ],
    "plan": null,
@@ -9889,7 +9889,7 @@
     "Longest run 1:07 / 12.0 km / 458 m on Fri.",
     "Quality: F on Sat",
     "Vert density 241 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -10406,7 +10406,7 @@
    "flags": [],
    "notes": [
     "Longest run 0:25 / 4.9 km / 78 m on Sun.",
-    "Self-reported feel +0.0 over 1 scored runs."
+    "Self-reported feel +0.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -11094,7 +11094,7 @@
     "Longest run 2:26 / 22.0 km / 1439 m on Sat.",
     "Quality: T on Tue, R on Fri, RACE on Sat",
     "Vert density 388 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel -2.0 over 1 scored runs.",
+    "Self-reported feel -2.0 over 1 scored run.",
     "[R2] ACWR 2.77 > 1.44",
     "[R4] flat R session this season"
    ],
@@ -12279,7 +12279,7 @@
     "Longest run 1:36 / 17.8 km / 652 m on Sun.",
     "Quality: F on Wed, F on Thu",
     "Vert density 373 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +2.0 over 1 scored runs.",
+    "Self-reported feel +2.0 over 1 scored run.",
     "[R1] week-over-week 2.11x > 1.25"
    ],
    "plan": null,
@@ -12418,7 +12418,7 @@
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: F on Tue",
     "Vert density 375 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R1] week-over-week 1.37x > 1.25"
    ],
    "plan": null,
@@ -12552,7 +12552,7 @@
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Thu",
     "Vert density 368 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -14864,7 +14864,7 @@
     "Longest run 2:10 / 24.6 km / 695 m on Sun.",
     "Quality: T on Tue",
     "Vert density 359 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +0.0 over 1 scored runs.",
+    "Self-reported feel +0.0 over 1 scored run.",
     "[R1] week-over-week 1.33x > 1.25",
     "[R2] ACWR 2.00 > 1.44"
    ],
@@ -15350,7 +15350,7 @@
    "flags": [],
    "notes": [
     "Longest run 1:55 / 24.9 km / 645 m on Sun.",
-    "Self-reported feel -1.0 over 1 scored runs."
+    "Self-reported feel -1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -15744,7 +15744,7 @@
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Tue",
     "Vert density 330 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R1] week-over-week 2.44x > 1.25",
     "[R2] ACWR 1.65 > 1.44"
    ],
@@ -16391,7 +16391,7 @@
     "Longest run 3:28 / 42.9 km / 1492 m on Sat.",
     "Quality: F on Mon, RACE on Sat",
     "Vert density 346 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +2.0 over 1 scored runs.",
+    "Self-reported feel +2.0 over 1 scored run.",
     "[R1] week-over-week 2.03x > 1.25"
    ],
    "plan": null,
@@ -17551,7 +17551,7 @@
     "Longest run 1:02 / 9.9 km / 496 m on Sun.",
     "Vert density 290 m/h \u2014 below the 300 m/h floor.",
     "Monotony 3.2 \u2014 the week was too evenly hard; Foster's threshold for trouble is 2.0.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R1] week-over-week 2.26x > 1.25",
     "[R2] ACWR 2.35 > 1.44"
    ],
@@ -18147,7 +18147,7 @@
     "Longest run 2:29 / 25.1 km / 1127 m on Sun.",
     "Quality: R on Wed",
     "Vert density 316 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R2] ACWR 1.46 > 1.44",
     "[R4] flat R session this season"
    ],
@@ -18338,7 +18338,7 @@
     "Longest run 2:31 / 30.2 km / 564 m on Sun.",
     "Quality: R on Wed",
     "Vert density 264 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +0.0 over 1 scored runs.",
+    "Self-reported feel +0.0 over 1 scored run.",
     "[R1] week-over-week 1.29x > 1.25",
     "[R2] ACWR 1.50 > 1.44",
     "[R4] flat R session this season"
@@ -18824,7 +18824,7 @@
     "Longest run 2:25 / 27.2 km / 1113 m on Sat.",
     "Quality: M on Wed",
     "Vert density 295 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -19002,7 +19002,7 @@
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Thu",
     "Vert density 277 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +0.0 over 1 scored runs."
+    "Self-reported feel +0.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -20612,7 +20612,7 @@
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Tue",
     "Vert density 305 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +2.0 over 1 scored runs.",
+    "Self-reported feel +2.0 over 1 scored run.",
     "[R1] week-over-week 2.11x > 1.25",
     "[--] big week inside the Dec-Apr injury window"
    ],
@@ -21321,7 +21321,7 @@
    "notes": [
     "Longest run 1:08 / 12.9 km / 178 m on Fri.",
     "Quality: F on Wed",
-    "Self-reported feel +2.0 over 1 scored runs."
+    "Self-reported feel +2.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -21496,7 +21496,7 @@
     "Longest run 2:00 / 24.2 km / 677 m on Sun.",
     "Quality: T on Tue, T on Sat",
     "Vert density 417 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +2.0 over 1 scored runs.",
+    "Self-reported feel +2.0 over 1 scored run.",
     "[R1] week-over-week 2.77x > 1.25",
     "[R2] ACWR 2.43 > 1.44"
    ],
@@ -22073,7 +22073,7 @@
     "Longest run 1:00 / 13.1 km / 262 m on Sun.",
     "Quality: I on Fri, F on Sun",
     "Monotony 2.6 \u2014 the week was too evenly hard; Foster's threshold for trouble is 2.0.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R4] flat I session this season"
    ],
    "plan": null,
@@ -22279,7 +22279,7 @@
     "Longest run 4:05 / 34.7 km / 2299 m on Sat.",
     "Quality: F on Tue, RACE on Sat",
     "Vert density 449 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R1] week-over-week 1.58x > 1.25"
    ],
    "plan": null,
@@ -22408,7 +22408,7 @@
    "flags": [],
    "notes": [
     "Longest run 0:40 / 7.7 km / 144 m on Thu.",
-    "Self-reported feel -2.0 over 1 scored runs."
+    "Self-reported feel -2.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -23626,7 +23626,7 @@
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: F on Wed, RACE on Sat",
     "Vert density 555 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +1.0 over 1 scored runs.",
+    "Self-reported feel +1.0 over 1 scored run.",
     "[R1] week-over-week 2.40x > 1.25"
    ],
    "plan": null,
@@ -23783,7 +23783,7 @@
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Quality: T on Fri, T on Sun",
     "Vert density 321 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +0.0 over 1 scored runs."
+    "Self-reported feel +0.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -24271,7 +24271,7 @@
    "flags": [],
    "notes": [
     "Longest run 0:40 / 8.3 km / 101 m on Thu.",
-    "Self-reported feel +0.0 over 1 scored runs."
+    "Self-reported feel +0.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -27373,7 +27373,7 @@
    "notes": [
     "Longest run 1:30 / 13.2 km / 648 m on Sat.",
     "Vert density 246 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -27698,7 +27698,7 @@
    "flags": [],
    "notes": [
     "Longest run 0:31 / 5.6 km / 133 m on Mon.",
-    "Self-reported feel -2.0 over 1 scored runs."
+    "Self-reported feel -2.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -27952,7 +27952,7 @@
    "notes": [
     "Longest run 1:02 / 14.6 km / 231 m on Tue.",
     "Quality: T on Tue",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -28070,7 +28070,7 @@
    "flags": [],
    "notes": [
     "Longest run 0:40 / 8.2 km / 101 m on Sun.",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -29224,7 +29224,7 @@
     "Quality: F on Tue, T on Wed",
     "Vert density 190 m/h \u2014 below the 300 m/h floor.",
     "Monotony 2.4 \u2014 the week was too evenly hard; Foster's threshold for trouble is 2.0.",
-    "Self-reported feel -1.0 over 1 scored runs."
+    "Self-reported feel -1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -31338,7 +31338,7 @@
     "Longest run 3:11 / 34.7 km / 1915 m on Fri.",
     "Back-to-back long days achieved \u2014 the Chianti-specific stimulus.",
     "Vert density 587 m/h \u2014 above the 300 m/h floor.",
-    "Self-reported feel +2.0 over 1 scored runs."
+    "Self-reported feel +2.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -31960,7 +31960,7 @@
    "flags": [],
    "notes": [
     "Longest run 0:52 / 8.7 km / 161 m on Tue.",
-    "Self-reported feel -1.0 over 1 scored runs."
+    "Self-reported feel -1.0 over 1 scored run."
    ],
    "plan": null,
    "days": [
@@ -32153,7 +32153,7 @@
     "Longest run 1:21 / 15.5 km / 384 m on Sun.",
     "Quality: T on Sun",
     "Vert density 187 m/h \u2014 below the 300 m/h floor.",
-    "Self-reported feel -1.0 over 1 scored runs.",
+    "Self-reported feel -1.0 over 1 scored run.",
     "[R1] week-over-week 2.96x > 1.25"
    ],
    "plan": null,
@@ -35079,7 +35079,7 @@
    "start": "2026-10-26",
    "end": "2026-11-01",
    "partial": false,
-   "current": true,
+   "current": false,
    "run_h": 3.57,
    "run_km": 38.9,
    "run_vert": 653,
@@ -35099,12 +35099,12 @@
    "monotony": 1.07,
    "ctl": 26.3,
    "atl": 19.0,
-   "tsb": 6.8,
+   "tsb": 7.2,
    "flags": [],
    "notes": [
     "Running on target (3.6 vs 4.0 h).",
     "Longest run 1:10 / 12.4 km / 267 m on Sat.",
-    "Self-reported feel +1.0 over 1 scored runs."
+    "Self-reported feel +1.0 over 1 scored run."
    ],
    "plan": {
     "index": 9,
@@ -35214,6 +35214,136 @@
        "feel": null
       }
      ]
+    }
+   ]
+  },
+  {
+   "label": "2026-W45",
+   "start": "2026-11-02",
+   "end": "2026-11-08",
+   "partial": false,
+   "current": true,
+   "run_h": 2.79,
+   "run_km": 32.2,
+   "run_vert": 412,
+   "density": 148,
+   "bike_h": 0.0,
+   "gym_h": 0.97,
+   "total_h": 3.76,
+   "run_days": 3,
+   "rest_days": 4,
+   "longest": 90,
+   "longest_km": 16.6,
+   "longest_vert": 278,
+   "back_to_back": false,
+   "wow": 0.78,
+   "acwr": 0.53,
+   "feel": null,
+   "monotony": 0.73,
+   "ctl": 23.3,
+   "atl": 11.8,
+   "tsb": 10.3,
+   "flags": [],
+   "notes": [
+    "Running 30% under the 4.0 h target.",
+    "Longest run 1:30 / 16.6 km / 278 m on Sat."
+   ],
+   "plan": {
+    "index": 10,
+    "phase": "P2",
+    "phase_name": "Recovery & gym on-ramp",
+    "run_h": 4.0,
+    "bike_h": 0,
+    "gym_h": 0,
+    "total_h": 4,
+    "run_km": 40.0,
+    "run_vert": null,
+    "weekend": "Off-season \u00b7 no long run",
+    "race": null,
+    "to_race": 19
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-11-02",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-11-03",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 36,
+       "km": 7.9,
+       "vert": 22,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-11-04",
+     "acts": []
+    },
+    {
+     "day": "Thu",
+     "date": "2026-11-05",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 41,
+       "km": 7.7,
+       "vert": 112,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-11-06",
+     "acts": []
+    },
+    {
+     "day": "Sat",
+     "date": "2026-11-07",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 90,
+       "km": 16.6,
+       "vert": 278,
+       "feel": null
+      },
+      {
+       "sport": "Workout",
+       "group": "gym",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 58,
+       "km": 0.0,
+       "vert": 0,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-11-08",
+     "acts": []
     }
    ]
   }
@@ -35957,19 +36087,19 @@
   },
   {
    "label": "2026-11",
-   "run_h": 1.1,
-   "run_km": 11.7,
-   "run_vert": 300,
-   "density": 277,
+   "run_h": 3.9,
+   "run_km": 43.9,
+   "run_vert": 712,
+   "density": 184,
    "bike_h": 0.0,
-   "gym_h": 0.0,
-   "total_h": 1.1,
-   "run_days": 1,
+   "gym_h": 1.0,
+   "total_h": 4.8,
+   "run_days": 4,
    "quality": 0,
    "feel": null,
    "hr": 135.0,
    "pace": 5.556,
-   "longest": 65
+   "longest": 90
   }
  ],
  "seasons": [
@@ -36023,14 +36153,14 @@
   },
   {
    "label": "2026",
-   "run_h": 241.3,
-   "run_km": 2660.1,
-   "run_vert": 76171,
-   "density": 316,
+   "run_h": 244.1,
+   "run_km": 2692.3,
+   "run_vert": 76583,
+   "density": 314,
    "bike_h": 134.3,
-   "gym_h": 22.0,
-   "total_h": 420.2,
-   "run_days": 204,
+   "gym_h": 23.0,
+   "total_h": 424.0,
+   "run_days": 207,
    "quality": 39,
    "feel": 0.11,
    "hr": 140.6,

@@ -60,7 +60,15 @@ _W: list[_Row] = [
     # Off-season after Slapy: easy running only, km fixed in OWN_KM.
     ("2026-10-26", 4, 4.0, 0, 0, "Off-season · no long run", None),
     ("2026-11-02", 4, 4.0, 0, 0, "Off-season · no long run", None),
-    ("2026-11-09", 11, 7.0, 2.0, 2.0, "A · 2:30+2:00", None),
+    (
+        "2026-11-09",
+        9.25,
+        5.25,
+        2.0,
+        2.0,
+        "Z1/Z2 · 1× strides · 1 weekend long · 2× gym · 2×1 h easy bike",
+        None,
+    ),
     ("2026-11-16", 12, 7.5, 2.5, 2.0, "A · 3:00+2:15", None),
     ("2026-11-23", 11, 7.0, 2.0, 2.0, "Long 2:45", None),
     ("2026-11-30", 12, 7.5, 2.5, 2.0, "A · 3:00+2:15", None),
@@ -83,14 +91,18 @@ _W: list[_Row] = [
 
 # Weeks with Dan's own km target and no vert target; the rest of their phase's totals
 # is split over the other weeks.
-OWN_KM = {dt.date(2026, 10, 26): 40.0, dt.date(2026, 11, 2): 40.0}
+OWN_KM = {
+    dt.date(2026, 10, 26): 40.0,
+    dt.date(2026, 11, 2): 40.0,
+    dt.date(2026, 11, 9): 60.0,
+}
 
 # name, weeks, published km total, published vert total
 PHASES = [
     ("P1", "Slapy build", 7, 569, 21000),
-    # Was 427 km / 12,500 m: the off-season weeks now carry 40 km and no vert, and the
-    # other P2 weeks keep their targets.
-    ("P2", "Recovery & gym on-ramp", 6, 372, 8550),
+    # W9-10 carry 40 km each; W11 now carries 60 km and no vert quota.
+    # Remove its former 78.6 km / 2,302 m, keeping other P2 targets at display precision.
+    ("P2", "Recovery & gym on-ramp", 6, 353.4, 6248),
     ("P3", "Base", 8, 703, 28400),
     ("P4", "Specific build", 6, 544, 23900),
     ("P5", "Taper", 2, 97, 2550),
@@ -121,14 +133,15 @@ _UA_CARRY = (
 QUALITY: dict[str, tuple[list[tuple[str, str]], list[str], list[tuple[str, str]]]] = {
     "P2": (
         [
-            ("Uphill tempo", "3×10′ · 6–8 % · HR 164–172, Dan's Z3 · from 9 Nov"),
+            ("Uphill tempo", "3×10′ · 6–8 % · HR 164–172, Dan's Z3 · from 9 Nov, except W11"),
             (
                 "Gym strength-endurance",
                 "step-ups, lunges, jump squats 4×10 · +10 % BW from session 4 · after Uphill Athlete",
             ),
-            ("Hill sprints", "6–8×10″ · ≥ 20 % · 2–3′ walk down · Uphill Athlete"),
+            ("Hill sprints", "6–8×10″ · ≥ 20 % · 2–3′ walk down · Uphill Athlete · except W11"),
         ],
         [
+            "Dan's W11 override: 60 km mainly Z1/Z2, one strides session and one weekend long; no uphill tempo or hill-sprint session. Two gym sessions and two 1 h easy aerobic rides. The 5.25 running hours are a planning estimate, not a pace prescription; long-run duration and strides details remain open. This exceeds the projected R1 ramp after the off-season; the guardrail is unchanged.",
             "Our rule: no intervals in the two weeks after Slapy. Kilian (2022) plans nothing specific for the week after a race and comes back by muscle soreness, how tired he feels when he starts running, and the desire to train.",
             "Uphill Athlete: body weight only for the first 2–3 gym sessions, then no more than 10 % BW from session 4; once a week is enough, with 2–3 easy days after. Start jumps at about 80 % of height and range.",
             "Dan's record: calves and shins are the injury history to respect.",

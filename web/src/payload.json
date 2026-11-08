@@ -1,10 +1,10 @@
 {
- "generated": "02 November 2026, 08:21",
- "today": "2026-11-02",
+ "generated": "08 November 2026, 08:16",
+ "today": "2026-11-08",
  "race": {
   "name": "Chianti 120K",
   "date": "2027-03-20",
-  "weeks_to_go": 19.7,
+  "weeks_to_go": 18.9,
   "course": "123 km / 5200 m",
   "goal": {
    "now": 665,
@@ -64,8 +64,8 @@
  },
  "cache": {
   "first": "2023-01-04",
-  "last": "2026-11-01",
-  "n": 1684,
+  "last": "2026-11-07",
+  "n": 1688,
   "stale": 1
  },
  "seasons": [
@@ -119,14 +119,14 @@
   },
   {
    "label": "2026",
-   "run_h": 241.3,
-   "run_km": 2660.1,
-   "run_vert": 76171,
-   "density": 316,
+   "run_h": 244.1,
+   "run_km": 2692.3,
+   "run_vert": 76583,
+   "density": 314,
    "bike_h": 134.3,
-   "gym_h": 22.0,
-   "total_h": 420.2,
-   "run_days": 204,
+   "gym_h": 23.0,
+   "total_h": 424.0,
+   "run_days": 207,
    "quality": 39,
    "feel": 0.11,
    "hr": 140.6,
@@ -873,40 +873,22 @@
   },
   {
    "label": "2026-11",
-   "run_h": 1.1,
-   "run_km": 11.7,
-   "run_vert": 300,
-   "density": 277,
+   "run_h": 3.9,
+   "run_km": 43.9,
+   "run_vert": 712,
+   "density": 184,
    "bike_h": 0.0,
-   "gym_h": 0.0,
-   "total_h": 1.1,
-   "run_days": 1,
+   "gym_h": 1.0,
+   "total_h": 4.8,
+   "run_days": 4,
    "quality": 0,
    "feel": null,
    "hr": 135.0,
    "pace": 5.556,
-   "longest": 65
+   "longest": 90
   }
  ],
  "weeks": [
-  {
-   "label": "2025-W37",
-   "start": "2025-09-08",
-   "run_h": 7.6,
-   "km": 89.5,
-   "vert": 2435,
-   "density": 320,
-   "bike_h": 1.0,
-   "gym_h": 0.0,
-   "total_h": 8.6,
-   "wow": 1.02,
-   "acwr": 2.0,
-   "flags": [
-    "R2",
-    "R4"
-   ],
-   "current": false
-  },
   {
    "label": "2025-W38",
    "start": "2025-09-15",
@@ -1834,11 +1816,26 @@
    "acwr": 0.57,
    "flags": [],
    "current": false
+  },
+  {
+   "label": "2026-W45",
+   "start": "2026-11-02",
+   "run_h": 2.79,
+   "km": 32.2,
+   "vert": 412,
+   "density": 148,
+   "bike_h": 0.0,
+   "gym_h": 0.97,
+   "total_h": 3.76,
+   "wow": 0.78,
+   "acwr": 0.53,
+   "flags": [],
+   "current": true
   }
  ],
  "horizon": {
   "weeks": 8,
-  "date": "2026-12-28",
+  "date": "2027-01-03",
   "committed": 18
  },
  "plan": [
@@ -1997,13 +1994,13 @@
    "phase": "P2",
    "phase_name": "Recovery & gym on-ramp",
    "start": "2026-11-09",
-   "total_h": 11,
-   "run_h": 7.0,
+   "total_h": 9.25,
+   "run_h": 5.25,
    "bike_h": 2.0,
    "gym_h": 2.0,
-   "km": 79,
-   "vert": 2302,
-   "weekend": "A · 2:30+2:00",
+   "km": 60,
+   "vert": null,
+   "weekend": "Z1/Z2 · 1× strides · 1 weekend long · 2× gym · 2×1 h easy bike",
    "race": null,
    "committed": true
   },
@@ -2372,7 +2369,7 @@
    "sessions": [
     {
      "name": "Uphill tempo",
-     "detail": "3×10′ · 6–8 % · HR 164–172, Dan's Z3 · from 9 Nov"
+     "detail": "3×10′ · 6–8 % · HR 164–172, Dan's Z3 · from 9 Nov, except W11"
     },
     {
      "name": "Gym strength-endurance",
@@ -2380,10 +2377,11 @@
     },
     {
      "name": "Hill sprints",
-     "detail": "6–8×10″ · ≥ 20 % · 2–3′ walk down · Uphill Athlete"
+     "detail": "6–8×10″ · ≥ 20 % · 2–3′ walk down · Uphill Athlete · except W11"
     }
    ],
    "notes": [
+    "Dan's W11 override: 60 km mainly Z1/Z2, one strides session and one weekend long; no uphill tempo or hill-sprint session. Two gym sessions and two 1 h easy aerobic rides. The 5.25 running hours are a planning estimate, not a pace prescription; long-run duration and strides details remain open. This exceeds the projected R1 ramp after the off-season; the guardrail is unchanged.",
     "Our rule: no intervals in the two weeks after Slapy. Kilian (2022) plans nothing specific for the week after a race and comes back by muscle soreness, how tired he feels when he starts running, and the desire to train.",
     "Uphill Athlete: body weight only for the first 2–3 gym sessions, then no more than 10 % BW from session 4; once a week is enough, with 2–3 easy days after. Start jumps at about 80 % of height and range.",
     "Dan's record: calves and shins are the injury history to respect."
@@ -4390,45 +4388,139 @@
      ]
     }
    ]
+  },
+  {
+   "label": "2026-W45",
+   "start": "2026-11-02",
+   "end": "2026-11-08",
+   "partial": false,
+   "current": true,
+   "run_h": 2.79,
+   "run_km": 32.2,
+   "run_vert": 412,
+   "density": 148,
+   "bike_h": 0.0,
+   "gym_h": 0.97,
+   "total_h": 3.76,
+   "run_days": 3,
+   "rest_days": 4,
+   "longest": 90,
+   "longest_km": 16.6,
+   "longest_vert": 278,
+   "back_to_back": false,
+   "wow": 0.78,
+   "acwr": 0.53,
+   "feel": null,
+   "monotony": 0.73,
+   "ctl": 23.3,
+   "atl": 11.8,
+   "tsb": 10.3,
+   "flags": [],
+   "notes": [
+    "Running 30% under the 4.0 h target.",
+    "Longest run 1:30 / 16.6 km / 278 m on Sat."
+   ],
+   "plan": {
+    "index": 10,
+    "phase": "P2",
+    "phase_name": "Recovery & gym on-ramp",
+    "run_h": 4.0,
+    "bike_h": 0,
+    "gym_h": 0,
+    "total_h": 4,
+    "run_km": 40.0,
+    "run_vert": null,
+    "weekend": "Off-season · no long run",
+    "race": null,
+    "to_race": 19
+   },
+   "days": [
+    {
+     "day": "Mon",
+     "date": "2026-11-02",
+     "acts": []
+    },
+    {
+     "day": "Tue",
+     "date": "2026-11-03",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 36,
+       "km": 7.9,
+       "vert": 22,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Wed",
+     "date": "2026-11-04",
+     "acts": []
+    },
+    {
+     "day": "Thu",
+     "date": "2026-11-05",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 41,
+       "km": 7.7,
+       "vert": 112,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Fri",
+     "date": "2026-11-06",
+     "acts": []
+    },
+    {
+     "day": "Sat",
+     "date": "2026-11-07",
+     "acts": [
+      {
+       "sport": "Run",
+       "group": "run",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 90,
+       "km": 16.6,
+       "vert": 278,
+       "feel": null
+      },
+      {
+       "sport": "Workout",
+       "group": "gym",
+       "type": null,
+       "name": null,
+       "note": null,
+       "mins": 58,
+       "km": 0.0,
+       "vert": 0,
+       "feel": null
+      }
+     ]
+    },
+    {
+     "day": "Sun",
+     "date": "2026-11-08",
+     "acts": []
+    }
+   ]
   }
  ],
  "fitness": [
-  {
-   "date": "2026-08-11",
-   "ctl": 25.9,
-   "atl": 29.9,
-   "tsb": -6.3
-  },
-  {
-   "date": "2026-08-12",
-   "ctl": 25.8,
-   "atl": 28.4,
-   "tsb": -4.0
-  },
-  {
-   "date": "2026-08-13",
-   "ctl": 25.7,
-   "atl": 27.7,
-   "tsb": -2.7
-  },
-  {
-   "date": "2026-08-14",
-   "ctl": 26.3,
-   "atl": 30.7,
-   "tsb": -2.0
-  },
-  {
-   "date": "2026-08-15",
-   "ctl": 26.8,
-   "atl": 32.9,
-   "tsb": -4.4
-  },
-  {
-   "date": "2026-08-16",
-   "ctl": 27.1,
-   "atl": 34.1,
-   "tsb": -6.1
-  },
   {
    "date": "2026-08-17",
    "ctl": 26.5,
@@ -4896,6 +4988,42 @@
    "ctl": 25.7,
    "atl": 16.5,
    "tsb": 7.2
+  },
+  {
+   "date": "2026-11-03",
+   "ctl": 25.4,
+   "atl": 16.0,
+   "tsb": 9.2
+  },
+  {
+   "date": "2026-11-04",
+   "ctl": 24.8,
+   "atl": 13.9,
+   "tsb": 9.3
+  },
+  {
+   "date": "2026-11-05",
+   "ctl": 24.4,
+   "atl": 13.2,
+   "tsb": 10.9
+  },
+  {
+   "date": "2026-11-06",
+   "ctl": 23.8,
+   "atl": 11.5,
+   "tsb": 11.1
+  },
+  {
+   "date": "2026-11-07",
+   "ctl": 23.9,
+   "atl": 13.6,
+   "tsb": 12.3
+  },
+  {
+   "date": "2026-11-08",
+   "ctl": 23.3,
+   "atl": 11.8,
+   "tsb": 10.3
   }
  ],
  "zones": {
@@ -5419,9 +5547,9 @@
     "current": true,
     "run": {
      "minutes": [
-      221,
-      229,
-      112,
+      326,
+      289,
+      115,
       3,
       0
      ],
@@ -5434,7 +5562,7 @@
       0,
       0
      ],
-     "stream": 565,
+     "stream": 732,
      "measured": 0,
      "modelled": 0,
      "no_hr": 0
@@ -5569,9 +5697,9 @@
       "current": true,
       "run": {
        "minutes": [
-        0,
-        0,
-        0,
+        105,
+        60,
+        3,
         0,
         0
        ],
@@ -5584,7 +5712,7 @@
         0,
         0
        ],
-       "stream": 0,
+       "stream": 168,
        "measured": 0,
        "modelled": 0,
        "no_hr": 0

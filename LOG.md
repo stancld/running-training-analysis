@@ -43,6 +43,43 @@ flags, and how Dan felt about it.
 **Open:** what Dan hasn't decided yet.
 ```
 
+## Week of 2026-11-09 · plan wk 11 (P2)
+
+**Close week (2026-11-02), checked 8 Nov before Sunday's run:** fresh incremental
+Strava pull found 2 h 47 min 30 sec running / 32.20 km / 412 m climb, plus 58 min
+22 sec gym. Longest run 90 min. Dan plans another ~8 km to finish around 40 km;
+that run is not yet recorded, so the final weekly hours remain open.
+
+**Dan's plan:** "60k mainly Z1/Z2, 1 strides + 1 weekend long; 2 gym sessions;
+2 cycling training." No uphill tempo. Cycling remains the agreed 2×1 h easy
+aerobic. Keep the existing 2 h gym budget across two sessions. Running is 60 km;
+5.25 h is only a planning estimate (5:15/km), not a pace prescription or time cap.
+No day-by-day schedule or fixed long-run duration has been chosen.
+
+**Checks:**
+- R1: if Sunday's run takes 40–45 min, W10 ends at 3.46–3.54 h. W11's estimated
+  5.25 h gives 1.48–1.52×, above 1.25×; the passing ceiling would be 4 h 19–25 min.
+  Dan chose 60 km after this warning; the threshold is not relaxed and the plan
+  is not being described as medically safe.
+- R2: approximately 1.17–1.18, below 1.44, using W7–9's exported 4.93 / 5.85 /
+  3.57 h and W10's projected finish (the baseline is W7–10). Final checks require
+  Sunday's actual duration and next week's actual running hours.
+- R3 does not bind at the estimated 5.25 h; no vert quota is adopted. R6: 60 km
+  is below 100 km. November is outside the Dec–Apr risk window.
+- R4 remains unchanged: no flat I/R workout. Strides are not prescribed as an
+  interval session; duration, repetitions and effort remain to be settled.
+
+**Plan changes:** W11 7.0 → 5.25 estimated run h; derived 78.6 → fixed 60 km;
+2,302 m → no vert target; back-to-back 2:30+2:00 → one weekend long. Bike and gym
+remain 2 h each, in two sessions each; total 11 → 9.25 h. W11 explicitly skips
+P2's uphill tempo and hill-sprint suggestions in favour of one strides session.
+P2 totals 372 km / 8,550 m → 353.4 km / 6,248 m, removing W11's old allocation
+without increasing the other weeks' targets at display precision.
+
+**Open:** Sunday's actual run; long-run and strides details; gym-session duration
+split and content. W12's unchanged 7.5 h would be 1.43× after a 5.25 h W11, so it
+still needs review rather than automatic adoption.
+
 ## Week of 2026-11-02 · plan wk 10 (P2)
 
 **Close week (2026-10-26):** 3.6 h running, 38.9 km, 653 m vert (183 m/h); no bike or
