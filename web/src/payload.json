@@ -1,5 +1,5 @@
 {
- "generated": "08 November 2026, 08:16",
+ "generated": "08 November 2026, 08:27",
  "today": "2026-11-08",
  "race": {
   "name": "Chianti 120K",
@@ -2009,12 +2009,12 @@
    "phase": "P2",
    "phase_name": "Recovery & gym on-ramp",
    "start": "2026-11-16",
-   "total_h": 12,
-   "run_h": 7.5,
+   "total_h": 11,
+   "run_h": 6.5,
    "bike_h": 2.5,
    "gym_h": 2.0,
-   "km": 84,
-   "vert": 2466,
+   "km": 70,
+   "vert": null,
    "weekend": "A · 3:00+2:15",
    "race": null,
    "committed": true

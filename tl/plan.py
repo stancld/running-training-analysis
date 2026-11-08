@@ -69,7 +69,7 @@ _W: list[_Row] = [
         "Z1/Z2 · 1× strides · 1 weekend long · 2× gym · 2×1 h easy bike",
         None,
     ),
-    ("2026-11-16", 12, 7.5, 2.5, 2.0, "A · 3:00+2:15", None),
+    ("2026-11-16", 11, 6.5, 2.5, 2.0, "A · 3:00+2:15", None),
     ("2026-11-23", 11, 7.0, 2.0, 2.0, "Long 2:45", None),
     ("2026-11-30", 12, 7.5, 2.5, 2.0, "A · 3:00+2:15", None),
     ("2026-12-07", 12, 8.0, 2.0, 2.0, "A · 3:00+2:30", None),
@@ -95,14 +95,15 @@ OWN_KM = {
     dt.date(2026, 10, 26): 40.0,
     dt.date(2026, 11, 2): 40.0,
     dt.date(2026, 11, 9): 60.0,
+    dt.date(2026, 11, 16): 70.0,
 }
 
 # name, weeks, published km total, published vert total
 PHASES = [
     ("P1", "Slapy build", 7, 569, 21000),
-    # W9-10 carry 40 km each; W11 now carries 60 km and no vert quota.
-    # Remove its former 78.6 km / 2,302 m, keeping other P2 targets at display precision.
-    ("P2", "Recovery & gym on-ramp", 6, 353.4, 6248),
+    # W9-12 have fixed km; W12 is reduced to 6.5 h (LOG.md).
+    # Remove each reduction rather than redistribute it into the other weeks.
+    ("P2", "Recovery & gym on-ramp", 6, 339.16, 3782),
     ("P3", "Base", 8, 703, 28400),
     ("P4", "Specific build", 6, 544, 23900),
     ("P5", "Taper", 2, 97, 2550),

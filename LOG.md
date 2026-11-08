@@ -43,6 +43,37 @@ flags, and how Dan felt about it.
 **Open:** what Dan hasn't decided yet.
 ```
 
+## Week of 2026-11-16 · plan wk 12 (P2)
+
+**Planning ahead, 8 Nov:** W11 has not started; its 60 km / estimated 5.25 h is
+a plan, not an actual baseline. W10's final Sunday run is still outstanding.
+
+**Dan's plan:** initially "7h of running", revised to "6.5h, something like 70k".
+Adopt 6.5 h with an explicit 70 km aim, without a mandatory vert target as in
+W11. Hours and easy effort take priority over distance; 70 km within 6.5 h
+implies about 5:34/km, not a prescribed pace. Leave the existing 2.5 h bike,
+2 h gym and weekend format unchanged pending the next review.
+
+**Checks:**
+- R1: 6.5 / 5.25 = 1.24, within 1.25. W11 would need at least 5.2 h for a
+  6.5 h W12 to pass; do not add running in W11 just to earn that baseline.
+- R2: approximately 1.43, within 1.44 but with little margin, using W8's
+  5.85 h, W9's 3.57 h, projected W10 3.46–3.54 h and planned W11 5.25 h.
+  R1/R2 together allow about 6.53–6.56 h under those assumptions. The earlier
+  7 h suggestion would fail both checks. Recalculate from actual weeks before
+  treating 6.5 h as appropriate; passing is not a guarantee against injury.
+- R3 does not bind at 6.5 h; R6's 100 km cap exceeds the 70 km aim. R4 remains
+  unchanged, and November is outside the Dec–Apr risk window.
+
+**Plan changes:** W12 run_h 7.5 → 6.5; derived 84.2 → fixed 70 km; 2,466 m → no
+vert quota. Total 12 → 11 h. P2 totals 353.4 km / 6,248 m → 339.16 km / 3,782 m,
+preserving all other weekly targets at display precision rather than moving
+W12's removed volume into them.
+
+**Open:** confirm after W11's actual hours and recovery. The unchanged 3:00+2:15
+weekend would concentrate 5.25 of 6.5 running hours into two days; it is not a
+newly endorsed session prescription and needs reviewing before execution.
+
 ## Week of 2026-11-09 · plan wk 11 (P2)
 
 **Close week (2026-11-02), checked 8 Nov before Sunday's run:** fresh incremental
