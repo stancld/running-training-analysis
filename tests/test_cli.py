@@ -4,8 +4,10 @@ Each test points tl at its own cache in a temp dir, so Dan's real data/ is never
 Expected values are worked out by hand from the rows, not read back from tl.
 """
 
+import base64
 import datetime as dt
 import json
+import secrets
 import subprocess
 from collections.abc import Callable
 from pathlib import Path
@@ -13,9 +15,216 @@ from typing import Any
 
 import pytest
 
+from scripts import fetch_zones
 from tl import cli, config
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_refresh_appends_completed_days_once(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    today = dt.datetime.now(fetch_zones.ZoneInfo("Europe/Prague")).date()
+    seed = today - dt.timedelta(days=10)
+    original = f"date,sport,km,min,vert\n{seed},Run,9.1,51,240\n"
+    (tmp_path / "activities.csv").write_text(original)
+    monkeypatch.setattr(config, "DATA", tmp_path)
+    monkeypatch.setattr(fetch_zones, "TOKEN_FILE", tmp_path / "token")
+    monkeypatch.setattr(fetch_zones.sys, "argv", ["fetch_zones.py", "--refresh"])
+    monkeypatch.setenv("STRAVA_CLIENT_ID", "client")
+    monkeypatch.setenv("STRAVA_CLIENT_SECRET", "secret")
+    monkeypatch.setenv("STRAVA_REFRESH_TOKEN", "initial")
+    monkeypatch.delenv("TRAINING_STATE_KEY", raising=False)
+
+    def activity(ident: int, ago: int, minutes: int) -> dict[str, Any]:
+        return {
+            "id": ident,
+            "start_date_local": f"{today - dt.timedelta(days=ago)}T12:00:00Z",
+            "sport_type": "Run",
+            "distance": 12345,
+            "moving_time": minutes * 60,
+            "total_elevation_gain": 321,
+            "average_heartrate": 147,
+            "has_heartrate": True,
+        }
+
+    activities = [
+        activity(1, 10, 51),
+        activity(2, 8, 64),
+        activity(3, 1, 37),
+        activity(4, 0, 22),
+        activity(6, 1, 29),
+    ]
+
+    def request(url: str, token: str | None = None, data: dict | None = None) -> Any:  # noqa: ANN401, ARG001
+        if url.endswith("/oauth/token"):
+            return {"access_token": "access", "refresh_token": "rotated"}
+        if "/streams?" in url:
+            ident = int(url.split("/activities/")[1].split("/", maxsplit=1)[0])
+            minutes = next(a["moving_time"] for a in activities if a["id"] == ident)
+            return {
+                "time": {"data": [0, minutes]},
+                "heartrate": {"data": [147, 147]},
+            }
+        query = fetch_zones.urllib.parse.parse_qs(fetch_zones.urllib.parse.urlparse(url).query)
+        after = int(query["after"][0])
+        # An implementation that fetches plan-period or full history fails here.
+        assert after >= int(dt.datetime.combine(seed, dt.time(), dt.UTC).timestamp())
+        if query["page"] == ["1"]:
+            return activities
+        # A new upload can shift an activity across two page boundaries.
+        return [activities[1]] if query["page"] == ["2"] else []
+
+    monkeypatch.setattr(fetch_zones, "_call", request)
+    assert fetch_zones.main() == 0
+    activities.append(activity(5, 4, 42))  # late upload inside the overlap
+    assert fetch_zones.main() == 0
+    snapshot = (tmp_path / "activities.csv").read_bytes()
+    assert fetch_zones.main() == 0
+    assert (tmp_path / "activities.csv").read_bytes() == snapshot
+    assert snapshot.decode().startswith(original)
+    dataset = fetch_zones.data.Dataset.load()
+    assert sorted(a.mins for a in dataset.activities) == [29, 37, 42, 51, 64]
+    for a in dataset.activities:
+        if a.date != seed:
+            assert a.zones is not None
+            assert sum(a.zones) == a.mins * 60
+    assert [(a.km, a.vert, a.hr) for a in dataset.activities if a.mins == 42] == [
+        (12.345, 321, 147)
+    ]
+    assert (tmp_path / "token").read_text() == "rotated"
+    assert (tmp_path / "token").stat().st_mode & 0o777 == 0o600
+
+
+def test_refresh_stops_when_rotated_token_cannot_be_checkpointed(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    original = "date,sport,km,min,vert\n2026-09-01,Run,10,60,300\n"
+    (tmp_path / "activities.csv").write_text(original)
+    monkeypatch.setattr(config, "DATA", tmp_path)
+    monkeypatch.setattr(fetch_zones, "TOKEN_FILE", tmp_path / "token")
+    monkeypatch.setattr(fetch_zones.sys, "argv", ["fetch_zones.py", "--refresh"])
+    monkeypatch.setenv("STRAVA_CLIENT_ID", "client")
+    monkeypatch.setenv("STRAVA_CLIENT_SECRET", "secret")
+    monkeypatch.setenv("STRAVA_REFRESH_TOKEN", "initial")
+    monkeypatch.setenv("TRAINING_STATE_KEY", secrets.token_hex(32))
+    monkeypatch.setenv("GNUPGHOME", str(tmp_path / "gnupg"))
+    (tmp_path / "gnupg").mkdir(mode=0o700)
+    monkeypatch.setattr(fetch_zones, "STATE_HEAD", tmp_path / "head.json")
+    (tmp_path / "head.json").write_text('{"name":"main","target":{"oid":"seed"}}')
+    monkeypatch.setattr(
+        fetch_zones,
+        "_call",
+        lambda *_args, **_kwargs: {"access_token": "access", "refresh_token": "rotated"},
+    )
+
+    def denied(*args: Any, **kwargs: Any) -> None:  # noqa: ANN401, ARG001
+        raise subprocess.CalledProcessError(1, "gh")
+
+    monkeypatch.setattr(fetch_zones, "_github", denied)
+    with pytest.raises(subprocess.CalledProcessError):
+        fetch_zones.main()
+    assert (tmp_path / "activities.csv").read_text() == original
+    assert not (tmp_path / "strava_sync.json").exists()
+    assert (tmp_path / "token").read_text() == "rotated"
+
+
+def test_private_checkpoint_encrypts_and_rejects_stale_writes(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    cache = tmp_path / "seed"
+    cache.mkdir()
+    original = b"date,sport,km,min,vert\n2026-09-01,Run,10,60,300\n"
+    (cache / "activities.csv").write_bytes(original)
+    token = tmp_path / "token"
+    token.write_text("private-refresh-token")
+    monkeypatch.setattr(config, "DATA", cache)
+    monkeypatch.setattr(fetch_zones, "TOKEN_FILE", token)
+    monkeypatch.setattr(fetch_zones, "STATE_HEAD", tmp_path / "head.json")
+    key = secrets.token_hex(32)
+    monkeypatch.setenv("TRAINING_STATE_KEY", key)
+    monkeypatch.setenv("GNUPGHOME", str(tmp_path / "gnupg"))
+    (tmp_path / "gnupg").mkdir(mode=0o700)
+    remote: dict[str, bytes] = {}
+    head = "initial"
+    private = False
+
+    def github(args: list[str], payload: dict | None = None) -> bytes:
+        nonlocal head
+        if payload is None:
+            assert f"?ref={head}" in args[0]
+            name = args[0].split("/contents/")[1].split("?")[0]
+            return remote[name]
+        if "variables" not in payload:
+            return json.dumps(
+                {
+                    "data": {
+                        "repository": {
+                            "isPrivate": private,
+                            "defaultBranchRef": {"name": "main", "target": {"oid": head}},
+                            "cache": {"oid": head} if remote else None,
+                            "token": {"oid": head} if remote else None,
+                        }
+                    }
+                }
+            ).encode()
+        mutation = payload["variables"]["input"]
+        if mutation["expectedHeadOid"] != head:
+            raise subprocess.CalledProcessError(1, "gh")
+        remote.update(
+            {
+                f["path"]: base64.b64decode(f["contents"])
+                for f in mutation["fileChanges"]["additions"]
+            }
+        )
+        head += "-next"
+        return json.dumps(
+            {
+                "data": {
+                    "createCommitOnBranch": {
+                        "commit": {
+                            "oid": head,
+                            "signature": {"isValid": True},
+                        }
+                    }
+                }
+            }
+        ).encode()
+
+    monkeypatch.setattr(fetch_zones, "_github", github)
+    monkeypatch.setattr(fetch_zones.sys, "argv", ["fetch_zones.py", "--seed"])
+    with pytest.raises(SystemExit, match="must be private"):
+        fetch_zones.main()
+    assert not remote
+    private = True
+    assert fetch_zones.main() == 0
+    assert set(remote) == {"cache.tar.gz.gpg", "refresh-token.gpg"}
+    assert all(original not in blob and token.read_bytes() not in blob for blob in remote.values())
+    with pytest.raises(SystemExit, match="already seeded"):
+        fetch_zones.main()
+
+    restored = tmp_path / "restored"
+    monkeypatch.setattr(config, "DATA", restored)
+    monkeypatch.setattr(fetch_zones.sys, "argv", ["fetch_zones.py", "--restore"])
+    monkeypatch.setenv("TRAINING_STATE_KEY", secrets.token_hex(32))
+    with pytest.raises(subprocess.CalledProcessError):
+        fetch_zones.main()
+    assert not list(restored.iterdir())
+    monkeypatch.setenv("TRAINING_STATE_KEY", key)
+    assert fetch_zones.main() == 0
+    assert (restored / "activities.csv").read_bytes() == original
+    assert token.read_text() == "private-refresh-token"
+    with pytest.raises(SystemExit, match="empty raw-cache"):
+        fetch_zones.main()
+
+    monkeypatch.setattr(fetch_zones.sys, "argv", ["fetch_zones.py", "--save"])
+    assert fetch_zones.main() == 0
+    previous = remote.copy()
+    head += "-concurrent-write"
+    (restored / "notes.csv").write_text("date,name,note\n2026-09-01,Run,local note\n")
+    with pytest.raises(subprocess.CalledProcessError):
+        fetch_zones.main()
+    assert remote == previous
 
 
 @pytest.fixture

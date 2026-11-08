@@ -77,8 +77,8 @@ that the laptop's jump bar uses.
 
 ### From an Amp orb
 
-GitHub Actions cannot recalculate the page because the cache never leaves Dan's
-machine. An Amp orb can run the same workflow on a copy of the cache:
+Without the optional private refresh setup below, GitHub Actions only builds the
+committed payload. An Amp orb can run the same workflow on a copy of the cache:
 
 1. Append the session to the CSVs locally (steps 1–2 above) and upload the whole
    cache into the orb's `data/`. A fresh orb has no CSVs.
@@ -89,7 +89,102 @@ machine. An Amp orb can run the same workflow on a copy of the cache:
 3. `uv run tl status`, `uv run tl site`, `uv run pytest`, then commit and push
    only `web/src/payload.json`; the CSVs stay gitignored.
 4. Download the updated `zones.csv` and `ride_zones.csv` back to Dan's machine;
-   the orb's copy of the cache is not kept anywhere else.
+   the orb's copy is disposable, not a durable checkpoint.
+
+### Free daily refresh (GitHub-only, requires private setup)
+
+`Refresh training data` (`.github/workflows/refresh.yml`) supports a daily run at
+06:23 UTC (07:23 Prague in winter, 08:23 in summer) and **Run workflow** on master.
+It stays disabled until `TRAINING_REFRESH_ENABLED=true` is configured. Standard
+Linux runners in this public repository are free; the state repository does not
+run Actions or use billed artifacts. GitHub can delay scheduled runs;
+inactive public repositories may have schedules disabled after 60 days.
+
+The private `stancld/training-data-state` repository holds only
+`cache.tar.gz.gpg` (CSV cache plus ID ledger) and `refresh-token.gpg`, encrypted
+with GnuPG AES-256 and integrity protection. Raw CSVs and plaintext tokens are
+**never committed**, even to the private repository. No AWS account, paid service,
+Actions cache or raw-data workflow artifact is needed. Both private repositories
+and standard public-repository Actions runners are included in GitHub Free.
+
+Setup:
+
+1. Create `stancld/training-data-state` as **private**, initialized with a README.
+   Keep it private and do not add workflows. The script verifies its visibility
+   and uses its default branch. GitHub keeps old encrypted checkpoints in Git
+   history; budget for gradual repository growth and retain the encryption key
+   in a password manager. Key rotation does not erase old ciphertext/history.
+2. Create a fine-grained GitHub token restricted to **that state repository**,
+   with Contents read/write (and required Metadata read). Store it as the
+   `TRAINING_STATE_TOKEN` Actions secret on `running-training-analysis`.
+   Its normal `GITHUB_TOKEN` cannot access another private repository. Set a
+   suitable expiry and replace the token before it expires.
+3. Generate a strong random single-line encryption key (at least 32 characters)
+   in a password manager. Store it as `TRAINING_STATE_KEY`, alongside
+   `STRAVA_CLIENT_ID` and `STRAVA_CLIENT_SECRET`, in GitHub's private Actions
+   secret settings. Never enter these in chat, tracked files or command-line
+   arguments. Existing Amp secrets are not automatically GitHub secrets.
+   Restrict the **github-pages environment** to master; never run secret-bearing
+   refresh code from untrusted branches or PRs.
+4. On the machine holding the **authoritative raw cache**, privately configure
+   `GH_TOKEN` and `TRAINING_STATE_KEY` using secure environment input. Put the
+   current Strava refresh token in `~/.config/tl/strava_refresh_token` (mode 600),
+   then run `uv run python scripts/fetch_zones.py --seed`. This encrypts and
+   uploads the full seed plus token in one GitHub-signed commit; it refuses to
+   overwrite an existing seed. The cache must be complete through its last
+   activity day, including every session that day. Never reconstruct it from
+   rounded `data/diary.json`. All curated CSVs are preserved.
+5. Set the Actions variable `TRAINING_REFRESH_ENABLED=true` and run the workflow
+   manually first (choose master).
+   Missing seed/token or denied storage access fails closed: no history re-pull,
+   fallback to an old token, or partial page deployment. Verify the private checkpoint
+   and Pages result before relying on the schedule.
+
+`uv run python scripts/fetch_zones.py --refresh` appends activities (distance,
+moving minutes, climb, race sport marker), measured run HR and plan-period zone
+streams. The first run starts **after the seed's last complete day**. Subsequent
+runs re-query a seven-day overlap by Strava ID; IDs and the scan watermark live
+in private `data/strava_sync.json`. Only completed Europe/Prague calendar days are
+ingested, so a manual run and the daily run cannot split today's sessions.
+Delayed uploads older than that overlap, edits/deletions on Strava, COROS-only
+activities and historical omissions require a deliberate manual cache update.
+No existing rows are rewritten. Labels, feel, notes, relative effort, hill and
+segment annotations remain manual; new activities without RE use the existing
+load fallback, rather than inventing effort or workout labels.
+
+Every CI run uses `--restore` to download the archive and token from one exact
+private-repository commit. It saves Strava's returned encrypted refresh token
+**before** using the access token; only a successfully fetched
+and rendered cache replaces the archive. A later build/deployment failure can
+therefore retry without duplicating activities or losing a rotated token. There
+is still an unavoidable failure window between Strava issuing a token and GitHub
+acknowledging its write; recover via private OAuth reauthorization if that happens.
+Writes use GitHub's `createCommitOnBranch` API (GitHub-signed commits, checked for
+a valid signature), with `expectedHeadOid` compare-and-swap. A stale writer fails
+instead of overwriting newer state. An ambiguous API failure is not retried
+blindly: restore remote state first. No signing key is stored in the workflow.
+Do not refresh the same Strava grant simultaneously from another orb/machine:
+GitHub's concurrency lock cannot serialize external OAuth clients.
+
+Refresh and existing manual Pages deployments share one non-cancelling lock.
+GitHub may replace an older *pending* run with a newer pending run; it never runs
+two holders concurrently. A refresh refuses to publish if master advanced while
+it ran. It builds/deploys the generated page directly, **without committing the
+payload** or requiring a bot signing key. The usual manual payload-push workflow
+remains available; a later refresh will regenerate from the private checkpoint.
+Only `web/dist` is published. Committed payload freshness is independent of the
+daily deployed page.
+
+Before manually extending the cache, disable refresh and wait for the active run
+to finish. On a fresh disposable checkout, configure the private secrets and run
+`uv run python scripts/fetch_zones.py --restore` (it refuses to overwrite raw
+CSVs). Preserve its ID ledger while adding manual rows; render with `uv run tl site`,
+then upload with `uv run python scripts/fetch_zones.py --save`. Do not manually
+add Strava activities the next refresh will ingest, or upload a stale local cache
+over the checkpoint. Re-enable only after uploading a complete archive. For a local
+`--refresh`, retain the disposable copy only on full success; CI never persists
+partially appended files. Keep raw CSVs, the ledger and tokens out of commits,
+logs and public artifacts throughout.
 
 ## Guardrails encoded
 

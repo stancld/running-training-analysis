@@ -1,6 +1,9 @@
 # Personal training data stays on this machine; see AGENTS.md.
 data/*.csv
 data/*.csv.bak*
+data/strava_sync.json
+data/*.tar.gz
+data/*.gpg
 
 __pycache__/
 .amp/portals/
