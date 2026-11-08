@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-08T08:27:53",
+ "generated": "2026-11-08T19:18:33",
  "today": "2026-11-08",
  "race": {
   "name": "Chianti 120K",
@@ -24,7 +24,7 @@
    "code": "P2",
    "name": "Recovery & gym on-ramp",
    "weeks": 6,
-   "km": 339.16,
+   "km": 349.16,
    "vert": 3782
   },
   {
@@ -184,13 +184,13 @@
    "index": 11,
    "phase": "P2",
    "start": "2026-11-09",
-   "total_h": 9.25,
-   "run_h": 5.25,
+   "total_h": 10.25,
+   "run_h": 6.25,
    "bike_h": 2.0,
    "gym_h": 2.0,
-   "run_km": 60.0,
+   "run_km": 70.0,
    "run_vert": null,
-   "weekend": "Z1/Z2 \u00b7 1\u00d7 strides \u00b7 1 weekend long \u00b7 2\u00d7 gym \u00b7 2\u00d71 h easy bike",
+   "weekend": "Easy Z1/Z2 \u00b7 1\u00d7 strides \u00b7 1 weekend long \u00b7 2\u00d7 gym \u00b7 2\u00d71 h easy bike",
    "race": null
   },
   {

@@ -1,5 +1,5 @@
 {
- "generated": "08 November 2026, 08:27",
+ "generated": "08 November 2026, 19:18",
  "today": "2026-11-08",
  "race": {
   "name": "Chianti 120K",
@@ -1994,13 +1994,13 @@
    "phase": "P2",
    "phase_name": "Recovery & gym on-ramp",
    "start": "2026-11-09",
-   "total_h": 9.25,
-   "run_h": 5.25,
+   "total_h": 10.25,
+   "run_h": 6.25,
    "bike_h": 2.0,
    "gym_h": 2.0,
-   "km": 60,
+   "km": 70,
    "vert": null,
-   "weekend": "Z1/Z2 · 1× strides · 1 weekend long · 2× gym · 2×1 h easy bike",
+   "weekend": "Easy Z1/Z2 · 1× strides · 1 weekend long · 2× gym · 2×1 h easy bike",
    "race": null,
    "committed": true
   },
@@ -2381,7 +2381,7 @@
     }
    ],
    "notes": [
-    "Dan's W11 override: 60 km mainly Z1/Z2, one strides session and one weekend long; no uphill tempo or hill-sprint session. Two gym sessions and two 1 h easy aerobic rides. The 5.25 running hours are a planning estimate, not a pace prescription; long-run duration and strides details remain open. This exceeds the projected R1 ramp after the off-season; the guardrail is unchanged.",
+    "Dan's W11 override, revised 8 Nov: 70 km easy Z1/Z2 apart from one strides session, one weekend long; no uphill tempo or hill sprints. Two gym sessions and two 1 h easy aerobic rides. The 6.25 running hours are a planning estimate, not a pace prescription; long-run duration remains open. His history includes six consecutive 79.7-85.4 km weeks before the taper, but this still exceeds the projected R1 ramp after the off-season; the guardrail is unchanged.",
     "Our rule: no intervals in the two weeks after Slapy. Kilian (2022) plans nothing specific for the week after a race and comes back by muscle soreness, how tired he feels when he starts running, and the desire to train.",
     "Uphill Athlete: body weight only for the first 2–3 gym sessions, then no more than 10 % BW from session 4; once a week is enough, with 2–3 easy days after. Start jumps at about 80 % of height and range.",
     "Dan's record: calves and shins are the injury history to respect."

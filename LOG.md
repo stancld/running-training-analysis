@@ -45,6 +45,11 @@ flags, and how Dan felt about it.
 
 ## Week of 2026-11-16 · plan wk 12 (P2)
 
+**8 Nov evening amendment:** W11 is now aimed at 70 km / estimated 6.25 h,
+all easy (see its amendment below). W12 remains 6.5 h / 70 km. Its projected
+R1 is now 1.04; R2 approximately 1.35–1.36 if W10 finishes at 3.46–3.54 h.
+These replace the earlier projections below, not the requirement to check actuals.
+
 **Planning ahead, 8 Nov:** W11 has not started; its 60 km / estimated 5.25 h is
 a plan, not an actual baseline. W10's final Sunday run is still outstanding.
 
@@ -75,6 +80,29 @@ weekend would concentrate 5.25 of 6.5 running hours into two days; it is not a
 newly endorsed session prescription and needs reviewing before execution.
 
 ## Week of 2026-11-09 · plan wk 11 (P2)
+
+**8 Nov evening amendment — current decision:** Dan: "Let's be more aggressive
+next week and put 70k of running. My history supports this, I just skip any
+intensity." Then clarified: "1x strides will be there." W11 60 → 70 km; estimated
+running 5.25 → 6.25 h; total 9.25 → 10.25 h. Easy Z1/Z2 apart from one strides
+session, no uphill tempo or hill sprints; retain one weekend long with duration
+open, two gym sessions and 2×1 h easy cycling. The 6.25 h is
+a planning estimate, not a required pace or proof of safety. No vert quota.
+
+The history supports prior volume capacity: W1–6 actuals were 79.7 / 80.6 / 80.2 /
+84.8 / 85.4 / 84.2 km, over 6.77–7.77 running hours, without recorded guardrail
+flags. It does not establish that this post-off-season ramp is safe. If Sunday's
+planned run takes 40–45 min, W10 ends at 3.46–3.54 h: W11 at 6.25 h gives R1
+1.76–1.81 (fails 1.25) and R2 approximately 1.40 (passes 1.44). Without that run,
+the latest recorded 2.79 h baseline gives R1 approximately 2.24 and R2 1.46,
+both flags. Final checks require Sunday's actuals. Removing tempo and hill sprints does not
+remove the volume flag; thresholds stay unchanged. R3 does not bind below 8 h,
+R6 passes at 70 km, and no flat I/R is planned. Gym content and symptoms still
+matter; two gym sessions are not an instruction to add two hard leg workouts.
+
+P2 km total 339.16 → 349.16; vert unchanged at 3,782 m. Other weekly targets
+are unchanged. The earlier decision and checks below are retained as history;
+one strides session is retained explicitly. Long-run duration remains open.
 
 **Close week (2026-11-02), checked 8 Nov before Sunday's run:** fresh incremental
 Strava pull found 2 h 47 min 30 sec running / 32.20 km / 412 m climb, plus 58 min
