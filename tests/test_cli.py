@@ -169,7 +169,7 @@ def test_private_checkpoint_encrypts_and_rejects_stale_writes(
                 }
             ).encode()
         mutation = payload["variables"]["input"]
-        if mutation["expectedHeadOid"] != head:
+        if mutation["expectedHeadOid"] != head or mutation["branch"].get("branchName") != "main":
             raise subprocess.CalledProcessError(1, "gh")
         remote.update(
             {

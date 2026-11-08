@@ -117,7 +117,7 @@ def _checkpoint(files: dict[str, Path]) -> None:
                         "input": {
                             "branch": {
                                 "repositoryNameWithOwner": STATE_REPO,
-                                "refName": head["name"],
+                                "branchName": head["name"],
                             },
                             "expectedHeadOid": head["target"]["oid"],
                             "message": {"headline": "Update encrypted training checkpoint"},
