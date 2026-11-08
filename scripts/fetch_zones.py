@@ -61,6 +61,9 @@ def _state_repository() -> dict[str, Any]:
 
 
 def _crypt(source: Path, target: Path, *, decrypt: bool = False) -> None:
+    # With --no-options, decrypt-first on a fresh runner does not create this directory.
+    gnupg_home = Path(os.environ.get("GNUPGHOME", Path.home() / ".gnupg"))
+    gnupg_home.mkdir(mode=0o700, parents=True, exist_ok=True)
     # Pass the key through stdin, never command arguments or a tracked key file.
     subprocess.run(  # noqa: S603 - fixed gpg executable, no shell
         [  # noqa: S607 - GnuPG is provided by the runner

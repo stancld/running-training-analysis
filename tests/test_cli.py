@@ -213,6 +213,8 @@ def test_private_checkpoint_encrypts_and_rejects_stale_writes(
         fetch_zones.main()
     assert not list(restored.iterdir())
     monkeypatch.setenv("TRAINING_STATE_KEY", key)
+    # Hosted runners decrypt first, without a pre-existing GnuPG keyring directory.
+    monkeypatch.setenv("GNUPGHOME", str(tmp_path / "fresh-runner-gnupg"))
     assert fetch_zones.main() == 0
     assert (restored / "activities.csv").read_bytes() == original
     assert token.read_text() == "private-refresh-token"
