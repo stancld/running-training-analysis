@@ -65,13 +65,15 @@ def _crypt(source: Path, target: Path, *, decrypt: bool = False) -> None:
     gnupg_home = Path(os.environ.get("GNUPGHOME", Path.home() / ".gnupg"))
     gnupg_home.mkdir(mode=0o700, parents=True, exist_ok=True)
     # Pass the key through stdin, never command arguments or a tracked key file.
-    subprocess.run(  # noqa: S603 - fixed gpg executable, no shell
+    result = subprocess.run(  # noqa: S603 - fixed gpg executable, no shell
         [  # noqa: S607 - GnuPG is provided by the runner
             "gpg",
             "--no-options",
             "--batch",
             "--yes",
             "--no-tty",
+            "--status-fd",
+            "2",
             "--force-mdc",
             "--pinentry-mode",
             "loopback",
@@ -92,9 +94,40 @@ def _crypt(source: Path, target: Path, *, decrypt: bool = False) -> None:
             str(source),
         ],
         input=os.environ["TRAINING_STATE_KEY"].encode(),
-        check=True,
+        check=False,
         capture_output=True,
     )
+    if result.returncode:
+        # GPG's prose can contain filenames/plaintext metadata. Report only fixed
+        # status names and numeric error codes, never the captured output itself.
+        statuses = []
+        for line in result.stderr.decode(errors="replace").splitlines():
+            fields = line.split()
+            if (
+                len(fields) >= 2
+                and fields[0] == "[GNUPG:]"
+                and fields[1]
+                in {
+                    "BADMDC",
+                    "DECRYPTION_FAILED",
+                    "BAD_PASSPHRASE",
+                    "MISSING_PASSPHRASE",
+                    "NODATA",
+                    "FAILURE",
+                    "ERROR",
+                    "DECRYPTION_OKAY",
+                    "GOODMDC",
+                }
+            ):
+                code = (
+                    f" {fields[-1]}"
+                    if fields[1] in {"FAILURE", "ERROR"} and fields[-1].isdigit()
+                    else ""
+                )
+                statuses.append(fields[1] + code)
+        error = subprocess.CalledProcessError(result.returncode, result.args)
+        error.add_note(f"GPG status: {', '.join(statuses) or 'no recognized status'}")
+        raise error
 
 
 def _checkpoint(files: dict[str, Path]) -> None:

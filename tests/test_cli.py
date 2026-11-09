@@ -213,8 +213,12 @@ def test_private_checkpoint_encrypts_and_rejects_stale_writes(
     monkeypatch.setattr(config, "DATA", restored)
     monkeypatch.setattr(fetch_zones.sys, "argv", ["fetch_zones.py", "--restore"])
     monkeypatch.setenv("TRAINING_STATE_KEY", secrets.token_hex(32))
-    with pytest.raises(subprocess.CalledProcessError):
+    with pytest.raises(subprocess.CalledProcessError) as failure:
         fetch_zones.main()
+    diagnostic = " ".join(failure.value.__notes__)
+    assert "DECRYPTION_FAILED" in diagnostic
+    assert token.read_text() not in diagnostic
+    assert key not in diagnostic
     assert not list(restored.iterdir())
     monkeypatch.setenv("TRAINING_STATE_KEY", key)
     # Hosted runners decrypt first, without a pre-existing GnuPG keyring directory.
