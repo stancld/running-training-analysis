@@ -10,6 +10,7 @@ token, so the newest one is kept in ~/.config/tl/strava_refresh_token (mode 600)
 import base64
 import csv
 import datetime as dt
+import hashlib
 import json
 import os
 import subprocess
@@ -202,17 +203,29 @@ def _restore() -> None:
     TOKEN_FILE.parent.mkdir(parents=True, exist_ok=True)
     config.DATA.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as directory:
-        for name in ("cache.tar.gz", "refresh-token"):
-            encrypted, plain = Path(directory) / f"{name}.gpg", Path(directory) / name
-            encrypted.write_bytes(
-                _github(
-                    [
-                        f"repos/{STATE_REPO}/contents/{name}.gpg?ref={head['target']['oid']}",
-                        "-H",
-                        "Accept: application/vnd.github.raw",
-                    ]
-                )
+        for name, blob in (
+            ("cache.tar.gz", repository["cache"]),
+            ("refresh-token", repository["token"]),
+        ):
+            if not blob:
+                raise SystemExit("private checkpoint is not seeded")
+            # The contents API serves NUL-free blobs, such as a short ciphertext, as text
+            # and replaces invalid UTF-8; the blob API returns the committed bytes.
+            ciphertext = _github(
+                [
+                    f"repos/{STATE_REPO}/git/blobs/{blob['oid']}",
+                    "-H",
+                    "Accept: application/vnd.github.raw",
+                ]
             )
+            blob_header = f"blob {len(ciphertext)}\0".encode()
+            if (
+                hashlib.sha1(blob_header + ciphertext, usedforsecurity=False).hexdigest()
+                != blob["oid"]
+            ):
+                raise SystemExit(f"downloaded {name}.gpg does not match its committed blob")
+            encrypted, plain = Path(directory) / f"{name}.gpg", Path(directory) / name
+            encrypted.write_bytes(ciphertext)
             _crypt(encrypted, plain, decrypt=True)
         with tarfile.open(Path(directory) / "cache.tar.gz") as tar:
             for member in tar.getmembers():

@@ -6,6 +6,7 @@ Expected values are worked out by hand from the rows, not read back from tl.
 
 import base64
 import datetime as dt
+import hashlib
 import json
 import secrets
 import subprocess
@@ -153,14 +154,19 @@ def test_private_checkpoint_encrypts_and_rejects_stale_writes(
     head = "initial"
     private = False
 
+    def oid(blob: bytes) -> str:
+        return hashlib.sha1(b"blob %d\0" % len(blob) + blob, usedforsecurity=False).hexdigest()
+
     def github(args: list[str], payload: dict | None = None) -> bytes:
         nonlocal head
         if payload is None:
             if "Accept: application/vnd.github.raw+json" in args:
                 raise subprocess.CalledProcessError(1, "gh", stderr=b"invalid UTF-8 string")
-            assert f"?ref={head}" in args[0]
-            name = args[0].split("/contents/")[1].split("?")[0]
-            return remote[name]
+            if "/contents/" in args[0]:
+                # GitHub serves NUL-free blobs, like a short token ciphertext, as UTF-8 text.
+                name = args[0].split("/contents/")[1].split("?")[0]
+                return remote[name].decode(errors="replace").encode()
+            return next(blob for blob in remote.values() if oid(blob) in args[0])
         if "variables" not in payload:
             return json.dumps(
                 {
@@ -168,8 +174,8 @@ def test_private_checkpoint_encrypts_and_rejects_stale_writes(
                         "repository": {
                             "isPrivate": private,
                             "defaultBranchRef": {"name": "main", "target": {"oid": head}},
-                            "cache": {"oid": head} if remote else None,
-                            "token": {"oid": head} if remote else None,
+                            "cache": {"oid": oid(remote["cache.tar.gz.gpg"])} if remote else None,
+                            "token": {"oid": oid(remote["refresh-token.gpg"])} if remote else None,
                         }
                     }
                 }
