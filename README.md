@@ -52,7 +52,8 @@ GitHub Pages cannot run `tl`, so it builds the app from the committed payload.
     cd web && bunx playwright test          # e2e on the built page
 
 Weeks are named by plan week (W1–W29) and dates, with the ISO week as secondary
-text. On a phone each tab has its own URL hash (`#today`, `#plan`, `#diary`,
+text. The current calendar week is included even before its first activity.
+On a phone each tab has its own URL hash (`#today`, `#plan`, `#diary`,
 `#history`); every section also has an anchor (`#rails`, `#quality`, `#ledger`, …)
 that the laptop's jump bar uses.
 
@@ -144,8 +145,10 @@ Setup:
 moving minutes, climb, race sport marker), measured run HR and plan-period zone
 streams. The first run starts **after the seed's last complete day**. Subsequent
 runs re-query a seven-day overlap by Strava ID; IDs and the scan watermark live
-in private `data/strava_sync.json`. Only completed Europe/Prague calendar days are
-ingested, so a manual run and the daily run cannot split today's sessions.
+in private `data/strava_sync.json`. Uploaded activities dated today are included
+too; future local dates are excluded. The ID ledger prevents duplicates when
+another workout is uploaded later the same day. A refresh is a snapshot of what
+is already uploaded, not a live workout feed.
 Delayed uploads older than that overlap, edits/deletions on Strava, COROS-only
 activities and historical omissions require a deliberate manual cache update.
 No existing rows are rewritten. Labels, feel, notes, relative effort, hill and

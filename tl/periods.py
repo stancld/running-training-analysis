@@ -1,6 +1,6 @@
 """Weeks, months and seasons over the whole history, plus the fitness curve.
 
-Every Monday between the first and last activity gets a Week, trained or not.
+Every Monday through the current week gets a Week, trained or not.
 """
 
 import datetime as dt
@@ -202,7 +202,7 @@ class Season(Period):
 
 
 def build_weeks(ds: Dataset) -> list[Week]:
-    start, end = week_start(ds.first), week_start(ds.last)
+    start, end = week_start(ds.first), week_start(max(ds.last, config.TODAY))
     by_week = defaultdict(list)
     for a in ds.activities:
         by_week[week_start(a.date)].append(a)

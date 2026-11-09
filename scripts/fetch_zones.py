@@ -321,7 +321,7 @@ def _append(name: str, header: list[str], rows: list[list]) -> None:
 
 
 def _refresh() -> None:
-    """Append completed days; a private ID ledger makes overlap queries idempotent.
+    """Append uploaded activities, including today; IDs make overlap queries idempotent.
 
     The seed cache must be complete through its last day. We never infer missing
     historical sessions or overwrite manual COROS values, labels or notes.
@@ -352,7 +352,7 @@ def _refresh() -> None:
     acts = [
         a
         for a in _activities(token, after, before)
-        if start.isoformat() <= a["start_date_local"][:10] < today.isoformat()
+        if start.isoformat() <= a["start_date_local"][:10] <= today.isoformat()
     ]
     have = set(state["ids"])
     fresh = [a for a in acts if a["id"] not in have]
@@ -374,7 +374,7 @@ def _refresh() -> None:
     state["ids"] = sorted(have | {a["id"] for a in fresh})
     state["until"] = today.isoformat()
     state_path.write_text(json.dumps(state))
-    print(f"activities.csv: appended {len(fresh)} activities; completed days only")
+    print(f"activities.csv: appended {len(fresh)} activities; including today")
 
 
 def main() -> int:

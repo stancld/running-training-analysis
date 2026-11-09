@@ -21,7 +21,7 @@ from tl import cli, config
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_refresh_appends_completed_days_once(
+def test_refresh_appends_uploaded_activities_once(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     today = dt.datetime.now(fetch_zones.ZoneInfo("Europe/Prague")).date()
@@ -54,6 +54,7 @@ def test_refresh_appends_completed_days_once(
         activity(3, 1, 37),
         activity(4, 0, 22),
         activity(6, 1, 29),
+        activity(7, -1, 18),  # future-dated activities are not eligible
     ]
 
     def request(url: str, token: str | None = None, data: dict | None = None) -> Any:  # noqa: ANN401, ARG001
@@ -78,15 +79,18 @@ def test_refresh_appends_completed_days_once(
     monkeypatch.setattr(fetch_zones, "_call", request)
     assert fetch_zones.main() == 0
     activities.append(activity(5, 4, 42))  # late upload inside the overlap
+    activities.append(activity(8, 0, 17))  # another workout uploaded later today
+    activities[-1]["sport_type"] = "Workout"
     assert fetch_zones.main() == 0
     snapshot = (tmp_path / "activities.csv").read_bytes()
     assert fetch_zones.main() == 0
     assert (tmp_path / "activities.csv").read_bytes() == snapshot
     assert snapshot.decode().startswith(original)
     dataset = fetch_zones.data.Dataset.load()
-    assert sorted(a.mins for a in dataset.activities) == [29, 37, 42, 51, 64]
+    assert sorted(a.mins for a in dataset.activities) == [17, 22, 29, 37, 42, 51, 64]
+    assert [(a.date, a.group) for a in dataset.activities if a.mins == 17] == [(today, "gym")]
     for a in dataset.activities:
-        if a.date != seed:
+        if a.date != seed and a.is_run:
             assert a.zones is not None
             assert sum(a.zones) == a.mins * 60
     assert [(a.km, a.vert, a.hr) for a in dataset.activities if a.mins == 42] == [
@@ -244,12 +248,19 @@ def site(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Callable[[], dict[s
     return run
 
 
-def test_payload_carries_the_cache(tmp_path: Path, site: Callable[[], dict[str, Any]]) -> None:
+def test_payload_carries_the_cache(
+    tmp_path: Path, site: Callable[[], dict[str, Any]], monkeypatch: pytest.MonkeyPatch
+) -> None:
     # The cache CI and the Playwright tests use, plus a stray header from hand-appending.
     subprocess.run([ROOT / "scripts" / "synthetic_cache.sh", tmp_path], check=True)
     with (tmp_path / "activities.csv").open("a") as fh:
         fh.write("date,sport,km,min,vert\n")
+    monkeypatch.setattr(config, "TODAY", dt.date(2026, 9, 21))
     p = site()
+    current = [w for w in p["diary"] if w["current"]]
+    assert len(current) == 1
+    assert (current[0]["start"], current[0]["run_h"], current[0]["run_km"]) == ("2026-09-21", 0, 0)
+    assert p["weeks"][-1]["current"] is True
 
     week = {w["start"]: w for w in p["weeks"]}
     race, ride = week["2026-08-31"], week["2026-09-07"]
@@ -273,6 +284,12 @@ def test_payload_carries_the_cache(tmp_path: Path, site: Callable[[], dict[str, 
     # the 60-min ride has no stream and no HR fallback.
     assert (bike["minutes"], bike["power"]) == ([30, 45, 15, 0, 0], [0, 60, 20, 10, 0, 0, 0])
     assert (bike["stream"], bike["no_hr"]) == (90, 60)
+
+    with (tmp_path / "activities.csv").open("a") as fh:
+        fh.write("2026-09-21,Workout,0,25,0\n")
+    current = next(w for w in site()["diary"] if w["current"])
+    assert (current["start"], current["run_h"], current["gym_h"]) == ("2026-09-21", 0, 0.42)
+    assert current["days"][0]["acts"][0]["sport"] == "Workout"
 
 
 def test_guardrails_fire_past_the_limit_not_at_it(
