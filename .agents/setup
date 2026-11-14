@@ -11,3 +11,6 @@ uv run pre-commit install-hooks
 
 # The diary page is a Vite + React app; .amp/services.yaml runs its dev server.
 (cd web && bun install --frozen-lockfile)
+
+# web/e2e runs on Playwright's headless Chromium, which the base image lacks; a no-op once present.
+(cd web && bunx playwright install --only-shell chromium)
