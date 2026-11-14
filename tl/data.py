@@ -20,7 +20,7 @@ def _date(s: str | None) -> dt.date | None:
 
 def runs_first(acts: Iterable[Activity]) -> list[Activity]:
     """Runs before other sports, longest first."""
-    return sorted(acts, key=lambda a: (a.group != "run", -a.mins))
+    return sorted(acts, key=lambda a: (a.group != config.SportGroup.RUN, -a.mins))
 
 
 def _by_day[T](name: str, parse: Callable[[dict[str, str]], T]) -> dict[dt.date, list[T]]:
@@ -72,8 +72,8 @@ def _attach_streams(acts: list[Activity]) -> None:
         return abs(a.mins - r[0])
 
     files = (
-        ("run", "zones.csv", False),
-        ("bike", "ride_zones.csv", True),
+        (config.SportGroup.RUN, "zones.csv", False),
+        (config.SportGroup.BIKE, "ride_zones.csv", True),
     )
     for group, name, ride in files:
         rows: dict[dt.date, list[_ZoneRow]] = _by_day(
@@ -96,7 +96,7 @@ def _attach_streams(acts: list[Activity]) -> None:
 class Activity:
     date: dt.date
     sport: str
-    group: str
+    group: config.SportGroup
     km: float
     mins: float
     vert: float
@@ -130,7 +130,7 @@ class Activity:
 
     @property
     def is_run(self) -> bool:
-        return self.group == "run"
+        return self.group == config.SportGroup.RUN
 
     def est_hr(self) -> float | None:
         """Measured HR when COROS has it, else the relative-effort model."""

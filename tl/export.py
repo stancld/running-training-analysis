@@ -112,7 +112,7 @@ def _zone_split(period: periods.Period) -> dict[str, Any]:
             k: [round(m) for m in v] if isinstance(v, list) else round(v)
             for k, v in period.zone_minutes(group).items()
         }
-        for group in ("run", "bike")
+        for group in (config.SportGroup.RUN, config.SportGroup.BIKE)
     }
 
 

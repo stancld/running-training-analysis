@@ -74,5 +74,7 @@ Code must pass ty; declare attributes the checker cannot infer instead of silenc
 ## Commits
 
 One logical change per commit, committed and pushed straight to `master` — no branches
-or PRs. Commits in this repo need not be signed. Subject plus a short body carrying the why.
+or PRs. Subject plus a short body carrying the why.
 Commit as `stancld <daniel.stancl@gmail.com>` (set in the local git config).
+
+- Unsigned commits are explicitly approved for this repository, including Amp orbs, as an exception to global signing preferences. Use `git -c commit.gpgsign=false commit ...` when the environment enables signing; keep Git hooks enabled.

@@ -2,7 +2,8 @@
 
 import csv
 from collections import defaultdict
-from typing import TYPE_CHECKING, Any
+from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
 from tl import config
 
@@ -10,7 +11,67 @@ if TYPE_CHECKING:
     from tl.data import Dataset
 
 
-def hill_sessions(ds: Dataset) -> list[dict[str, Any]]:
+@dataclass(frozen=True)
+class HillRep:
+    rep: int
+    dur: float
+    dist: float
+    vert: float
+    grade: float
+    vam: float
+    hr: float
+    watts: float | None
+    w_per_hr: float | None
+    speed: float
+
+
+@dataclass(frozen=True)
+class HillSession:
+    date: str
+    name: str
+    reps: list[HillRep]
+    mean_vam: float
+    hr_drift: float
+    hr_peak: float
+    decoupling: float | None
+
+
+@dataclass(frozen=True)
+class SegmentEffort:
+    date: str
+    context: str
+    rep: int
+    secs: float
+    vam: float
+    hr: float
+    watts: float | None
+    m_per_beat: float
+
+
+@dataclass(frozen=True)
+class SegmentHistory:
+    segment: str
+    dist: float
+    vert: float
+    grade: float
+    efforts: list[SegmentEffort]
+    by_context: dict[str, float]
+
+
+@dataclass(frozen=True)
+class RepSession:
+    date: str
+    name: str
+    rest: str
+    secs: list[float]
+    n: int
+    avg: float
+    last3: float
+    best: float
+    fade: float
+
+
+def hill_sessions(ds: Dataset) -> list[HillSession]:
     sessions = defaultdict(list)
     for r in ds.hills:
         sessions[(r["date"], r["session"])].append(r)
@@ -28,36 +89,36 @@ def hill_sessions(ds: Dataset) -> list[dict[str, Any]]:
             if ratio:
                 whr.append(ratio)
             rows.append(
-                {
-                    "rep": int(x["rep"]),
-                    "dur": dur,
-                    "dist": dist,
-                    "vert": v,
-                    "grade": float(x["grade_pct"]),
-                    "vam": rate,
-                    "hr": hr,
-                    "watts": w,
-                    "w_per_hr": ratio,
-                    "speed": dist / dur * 3.6,
-                }
+                HillRep(
+                    rep=int(x["rep"]),
+                    dur=dur,
+                    dist=dist,
+                    vert=v,
+                    grade=float(x["grade_pct"]),
+                    vam=rate,
+                    hr=hr,
+                    watts=w,
+                    w_per_hr=ratio,
+                    speed=dist / dur * 3.6,
+                )
             )
-        hrs = [r["hr"] for r in rows]
+        hrs = [r.hr for r in rows]
         dec = ((whr[-1] - whr[0]) / whr[0] * 100) if len(whr) > 1 else None
         out.append(
-            {
-                "date": date,
-                "name": name,
-                "reps": rows,
-                "mean_vam": sum(vam) / len(vam),
-                "hr_drift": hrs[-1] - hrs[0],
-                "hr_peak": max(hrs),
-                "decoupling": dec,
-            }
+            HillSession(
+                date=date,
+                name=name,
+                reps=rows,
+                mean_vam=sum(vam) / len(vam),
+                hr_drift=hrs[-1] - hrs[0],
+                hr_peak=max(hrs),
+                decoupling=dec,
+            )
         )
     return out
 
 
-def segment_history(ds: Dataset) -> list[dict[str, Any]]:
+def segment_history(ds: Dataset) -> list[SegmentHistory]:
     rows_by_segment = defaultdict(list)
     for r in ds.segments:
         rows_by_segment[r["segment"]].append(r)
@@ -70,34 +131,34 @@ def segment_history(ds: Dataset) -> list[dict[str, Any]]:
             v, dist = float(r["vert_m"]), float(r["dist_m"])
             w = float(r["watts"]) if r["watts"] else None
             efforts.append(
-                {
-                    "date": r["date"],
-                    "context": r["context"],
-                    "rep": int(r["rep"]),
-                    "secs": t,
-                    "vam": v / t * 3600,
-                    "hr": hr,
-                    "watts": w,
-                    "m_per_beat": dist / (hr * t / 60),
-                }
+                SegmentEffort(
+                    date=r["date"],
+                    context=r["context"],
+                    rep=int(r["rep"]),
+                    secs=t,
+                    vam=v / t * 3600,
+                    hr=hr,
+                    watts=w,
+                    m_per_beat=dist / (hr * t / 60),
+                )
             )
         by = defaultdict(list)
         for e in efforts:
-            by[e["context"]].append(e["secs"])
+            by[e.context].append(e.secs)
         out.append(
-            {
-                "segment": seg,
-                "dist": float(d0["dist_m"]),
-                "vert": float(d0["vert_m"]),
-                "grade": float(d0["vert_m"]) / float(d0["dist_m"]) * 100,
-                "efforts": efforts,
-                "by_context": {k: sum(v) / len(v) for k, v in by.items()},
-            }
+            SegmentHistory(
+                segment=seg,
+                dist=float(d0["dist_m"]),
+                vert=float(d0["vert_m"]),
+                grade=float(d0["vert_m"]) / float(d0["dist_m"]) * 100,
+                efforts=efforts,
+                by_context={k: sum(v) / len(v) for k, v in by.items()},
+            )
         )
     return out
 
 
-def rep_sessions() -> list[dict[str, Any]]:
+def rep_sessions() -> list[RepSession]:
     """Flat 1k-rep sessions from reps.csv — the threshold-pace record."""
     out = []
     try:
@@ -108,17 +169,17 @@ def rep_sessions() -> list[dict[str, Any]]:
         for r in csv.DictReader(fh):
             s = [float(x) for x in r["secs"].split(",")]
             out.append(
-                {
-                    "date": r["date"],
-                    "name": r["session"],
-                    "rest": r["rest"],
-                    "secs": s,
-                    "n": len(s),
-                    "avg": sum(s) / len(s),
-                    "last3": sum(s[-3:]) / 3,
-                    "best": min(s),
-                    "fade": s[0] - s[-1],
-                }
+                RepSession(
+                    date=r["date"],
+                    name=r["session"],
+                    rest=r["rest"],
+                    secs=s,
+                    n=len(s),
+                    avg=sum(s) / len(s),
+                    last3=sum(s[-3:]) / 3,
+                    best=min(s),
+                    fade=s[0] - s[-1],
+                )
             )
-    out.sort(key=lambda x: x["date"])
+    out.sort(key=lambda x: x.date)
     return out

@@ -4,6 +4,7 @@ The thresholds come from Dan's own injury history, not textbook defaults.
 """
 
 import datetime as dt
+from enum import StrEnum
 from pathlib import Path
 
 DATA = Path(__file__).absolute().parent.parent / "data"
@@ -13,20 +14,33 @@ def path(name: str) -> Path:
     return DATA / name
 
 
+class SportGroup(StrEnum):
+    RUN = "run"
+    BIKE = "bike"
+    GYM = "gym"
+    HIKE = "hike"
+    OTHER = "other"
+
+
 RUN = {"Run", "TrailRun", "RACE_Run"}
 BIKE = {"Ride", "VirtualRide"}
 STRENGTH = {"Gym", "Workout", "Yoga"}
 HIKE = {"Hike", "Snowshoe", "Climb", "AlpineSki", "NordicSki"}
 
 # Anything else (walks, swims) groups as "other".
-GROUPS = [("run", RUN), ("bike", BIKE), ("gym", STRENGTH), ("hike", HIKE)]
+GROUPS = [
+    (SportGroup.RUN, RUN),
+    (SportGroup.BIKE, BIKE),
+    (SportGroup.GYM, STRENGTH),
+    (SportGroup.HIKE, HIKE),
+]
 
 
-def group_of(sport: str) -> str:
+def group_of(sport: str) -> SportGroup:
     for name, members in GROUPS:
         if sport in members:
             return name
-    return "other"
+    return SportGroup.OTHER
 
 
 # Daniels session types (E L T I R M F S RACE) as Dan writes them in his titles.
@@ -80,7 +94,13 @@ HR_A, HR_B = 81.2, 21.1
 # Load-unit model. Strava relative_effort is a TRIMP-like quantity and is the
 # anchor; sports without it are scored as a fraction of a running minute.
 # These ratios are estimates, not measurements — read trends, not levels.
-LOAD_RATIO = {"run": 1.00, "bike": 0.75, "gym": 0.50, "hike": 0.60, "other": 0.0}
+LOAD_RATIO = {
+    SportGroup.RUN: 1.00,
+    SportGroup.BIKE: 0.75,
+    SportGroup.GYM: 0.50,
+    SportGroup.HIKE: 0.60,
+    SportGroup.OTHER: 0.0,
+}
 CTL_TAU, ATL_TAU = 42, 7
 
 TODAY = dt.datetime.now().astimezone().date()

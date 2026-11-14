@@ -35,8 +35,8 @@ class Period:
         self.run_h = sum(a.mins for a in self.runs) / 60
         self.run_km = sum(a.km for a in self.runs)
         self.run_vert = sum(a.vert for a in self.runs)
-        self.bike_h = sum(a.mins for a in acts if a.group == "bike") / 60
-        self.gym_h = sum(a.mins for a in acts if a.group == "gym") / 60
+        self.bike_h = sum(a.mins for a in acts if a.group == config.SportGroup.BIKE) / 60
+        self.gym_h = sum(a.mins for a in acts if a.group == config.SportGroup.GYM) / 60
         self.total_h = sum(a.mins for a in acts) / 60
 
     @property
@@ -77,14 +77,14 @@ class Period:
     def partial(self) -> bool:
         return self.end > config.TODAY
 
-    def zone_minutes(self, group: str = "run") -> dict[str, Any]:
+    def zone_minutes(self, group: config.SportGroup = config.SportGroup.RUN) -> dict[str, Any]:
         """Minutes per HR zone for runs or rides, plus power-zone minutes for rides.
 
         An activity with a fetched stream splits its moving time by the stream's shares.
         A run without one counts whole in the zone of its average HR (measured, else
         modelled), which hides hard reps inside an easy session; rides have no fallback.
         """
-        zones = config.HR_ZONES if group == "run" else config.BIKE_HR_ZONES
+        zones = config.HR_ZONES if group == config.SportGroup.RUN else config.BIKE_HR_ZONES
         acts = [a for a in self.acts if a.group == group]
         out: dict[str, Any] = {
             "minutes": [0.0] * len(zones),

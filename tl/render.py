@@ -1,13 +1,14 @@
 """Terminal rendering. Plain ASCII tables, tabular numbers, no dependencies."""
 
 import datetime as dt
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 from tl import config, plan
 
 if TYPE_CHECKING:
     from tl.diary import Entry
     from tl.periods import Month, Season, Week
+    from tl.quality import HillSession, RepSession, SegmentHistory
 
 W = 100
 
@@ -220,50 +221,48 @@ def diary_entry(e: Entry) -> str:
     return "\n".join(lines)
 
 
-def hills_block(sessions: list[dict[str, Any]]) -> str:
+def hills_block(sessions: list[HillSession]) -> str:
     lines = [title("UPHILL QUALITY — vertical rate, HR drift and power:HR decoupling")]
     for s in sessions:
-        lines.append(f"\n  {s['date']}  {s['name']}")
+        lines.append(f"\n  {s.date}  {s.name}")
         lines.append(
             f"    {'rep':>3} {'dur':>6} {'dist':>7} {'vert':>6} {'grade':>6} "
             f"{'VAM':>7} {'speed':>7} {'HR':>6} {'W':>6} {'W/HR':>6}"
         )
         lines.extend(
-            f"    {r['rep']:3d} {mmss(r['dur']):>6} {r['dist']:7.0f} "
-            f"{r['vert']:6.0f} {r['grade']:5.1f}% {r['vam']:7.0f} "
-            f"{r['speed']:6.1f}k {r['hr']:6.1f} "
-            f"{_opt(r['watts'])} {_opt(r['w_per_hr'], '{:.3f}')}"
-            for r in s["reps"]
+            f"    {r.rep:3d} {mmss(r.dur):>6} {r.dist:7.0f} "
+            f"{r.vert:6.0f} {r.grade:5.1f}% {r.vam:7.0f} "
+            f"{r.speed:6.1f}k {r.hr:6.1f} "
+            f"{_opt(r.watts)} {_opt(r.w_per_hr, '{:.3f}')}"
+            for r in s.reps
         )
         lines.append(
-            f"    -> mean VAM {s['mean_vam']:.0f} m/h, HR drift "
-            f"{s['hr_drift']:+.1f} bpm across reps, peak {s['hr_peak']:.0f}"
+            f"    -> mean VAM {s.mean_vam:.0f} m/h, HR drift "
+            f"{s.hr_drift:+.1f} bpm across reps, peak {s.hr_peak:.0f}"
         )
-        if s["decoupling"] is not None:
-            d = abs(s["decoupling"])
+        if s.decoupling is not None:
+            d = abs(s.decoupling)
             g = "excellent" if d < 3 else "acceptable" if d < 5 else "large — too hard"
-            lines.append(f"    -> power:HR decoupling {s['decoupling']:+.1f}%  ({g})")
+            lines.append(f"    -> power:HR decoupling {s.decoupling:+.1f}%  ({g})")
     return "\n".join(lines)
 
 
-def segments_block(segs: list[dict[str, Any]]) -> str:
+def segments_block(segs: list[SegmentHistory]) -> str:
     lines = [title("SAME-SEGMENT BENCHMARKS — identical hill, different days")]
     for s in segs:
-        lines.append(
-            f"\n  {s['segment']}  ({s['dist']:.0f} m, {s['vert']:.0f} m up, {s['grade']:.1f}%)"
-        )
+        lines.append(f"\n  {s.segment}  ({s.dist:.0f} m, {s.vert:.0f} m up, {s.grade:.1f}%)")
         lines.append(
             f"    {'date':11} {'context':12} {'rep':>3} {'time':>7} {'VAM':>7} "
             f"{'HR':>6} {'W':>6} {'m/beat':>7}"
         )
         lines.extend(
-            f"    {e['date']:11} {e['context']:12} {e['rep']:3d} "
-            f"{mmss(e['secs']):>7} {e['vam']:7.0f} {e['hr']:6.1f} "
-            f"{_opt(e['watts'])} {e['m_per_beat']:7.2f}"
-            for e in s["efforts"]
+            f"    {e.date:11} {e.context:12} {e.rep:3d} "
+            f"{mmss(e.secs):>7} {e.vam:7.0f} {e.hr:6.1f} "
+            f"{_opt(e.watts)} {e.m_per_beat:7.2f}"
+            for e in s.efforts
         )
-        if len(s["by_context"]) > 1:
-            items = sorted(s["by_context"].items(), key=lambda kv: kv[1])
+        if len(s.by_context) > 1:
+            items = sorted(s.by_context.items(), key=lambda kv: kv[1])
             fast, slow = items[0], items[-1]
             lines.append(
                 f"    -> {fast[0]} is {(slow[1] - fast[1]) / slow[1] * 100:.0f}% "
@@ -272,16 +271,16 @@ def segments_block(segs: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-def reps_block(rows: list[dict[str, Any]]) -> str:
+def reps_block(rows: list[RepSession]) -> str:
     lines = [title("FLAT THRESHOLD PROGRESSION — every logged 1k-rep session")]
     lines.append(
         f"{'date':11} {'session':24} {'rest':6} {'n':>3} {'avg':>7} "
         f"{'last3':>7} {'best':>6} {'fade':>7}"
     )
     lines.extend(
-        f"{r['date']:11} {r['name'][:24]:24} {r['rest']:6} {r['n']:3d} "
-        f"{mmss(r['avg']):>7} {mmss(r['last3']):>7} {mmss(r['best']):>6} "
-        f"{r['fade']:+6.0f}s"
+        f"{r.date:11} {r.name[:24]:24} {r.rest:6} {r.n:3d} "
+        f"{mmss(r.avg):>7} {mmss(r.last3):>7} {mmss(r.best):>6} "
+        f"{r.fade:+6.0f}s"
         for r in rows
     )
     return "\n".join(lines)
