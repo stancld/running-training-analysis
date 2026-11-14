@@ -3,7 +3,7 @@
 import csv
 from collections import defaultdict
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Self
 
 from tl import config
 
@@ -23,6 +23,24 @@ class HillRep:
     watts: float | None
     w_per_hr: float | None
     speed: float
+
+    @classmethod
+    def from_row(cls, row: dict[str, str]) -> Self:
+        dur, dist = float(row["dur_s"]), float(row["dist_m"])
+        vert, hr = float(row["vert_m"]), float(row["hr"])
+        watts = float(row["watts"]) if row["watts"] else None
+        return cls(
+            rep=int(row["rep"]),
+            dur=dur,
+            dist=dist,
+            vert=vert,
+            grade=float(row["grade_pct"]),
+            vam=vert / dur * 3600,
+            hr=hr,
+            watts=watts,
+            w_per_hr=watts / hr if watts else None,
+            speed=dist / dur * 3.6,
+        )
 
 
 @dataclass(frozen=True)
@@ -47,6 +65,20 @@ class SegmentEffort:
     watts: float | None
     m_per_beat: float
 
+    @classmethod
+    def from_row(cls, row: dict[str, str]) -> Self:
+        secs, hr = float(row["secs"]), float(row["hr"])
+        return cls(
+            date=row["date"],
+            context=row["context"],
+            rep=int(row["rep"]),
+            secs=secs,
+            vam=float(row["vert_m"]) / secs * 3600,
+            hr=hr,
+            watts=float(row["watts"]) if row["watts"] else None,
+            m_per_beat=float(row["dist_m"]) / (hr * secs / 60),
+        )
+
 
 @dataclass(frozen=True)
 class SegmentHistory:
@@ -70,49 +102,44 @@ class RepSession:
     best: float
     fade: float
 
+    @classmethod
+    def from_row(cls, row: dict[str, str]) -> Self:
+        secs = [float(rep) for rep in row["secs"].split(",")]
+        return cls(
+            date=row["date"],
+            name=row["session"],
+            rest=row["rest"],
+            secs=secs,
+            n=len(secs),
+            avg=sum(secs) / len(secs),
+            last3=sum(secs[-3:]) / 3,
+            best=min(secs),
+            fade=secs[0] - secs[-1],
+        )
+
 
 def hill_sessions(ds: Dataset) -> list[HillSession]:
     sessions = defaultdict(list)
-    for r in ds.hills:
-        sessions[(r["date"], r["session"])].append(r)
+    for row in ds.hills:
+        sessions[(row["date"], row["session"])].append(row)
     out = []
-    for (date, name), reps in sorted(sessions.items()):
-        reps.sort(key=lambda x: int(x["rep"]))
-        rows, vam, whr = [], [], []
-        for x in reps:
-            dur, dist = float(x["dur_s"]), float(x["dist_m"])
-            v, hr = float(x["vert_m"]), float(x["hr"])
-            w = float(x["watts"]) if x["watts"] else None
-            rate = v / dur * 3600
-            vam.append(rate)
-            ratio = w / hr if w else None
-            if ratio:
-                whr.append(ratio)
-            rows.append(
-                HillRep(
-                    rep=int(x["rep"]),
-                    dur=dur,
-                    dist=dist,
-                    vert=v,
-                    grade=float(x["grade_pct"]),
-                    vam=rate,
-                    hr=hr,
-                    watts=w,
-                    w_per_hr=ratio,
-                    speed=dist / dur * 3.6,
-                )
-            )
-        hrs = [r.hr for r in rows]
-        dec = ((whr[-1] - whr[0]) / whr[0] * 100) if len(whr) > 1 else None
+    for (date, name), rows in sorted(sessions.items()):
+        reps = sorted((HillRep.from_row(row) for row in rows), key=lambda rep: rep.rep)
+        vams = [rep.vam for rep in reps]
+        w_per_hrs = [rep.w_per_hr for rep in reps if rep.w_per_hr]
+        hrs = [rep.hr for rep in reps]
+        decoupling = (
+            (w_per_hrs[-1] - w_per_hrs[0]) / w_per_hrs[0] * 100 if len(w_per_hrs) > 1 else None
+        )
         out.append(
             HillSession(
                 date=date,
                 name=name,
-                reps=rows,
-                mean_vam=sum(vam) / len(vam),
+                reps=reps,
+                mean_vam=sum(vams) / len(vams),
                 hr_drift=hrs[-1] - hrs[0],
                 hr_peak=max(hrs),
-                decoupling=dec,
+                decoupling=decoupling,
             )
         )
     return out
@@ -120,39 +147,28 @@ def hill_sessions(ds: Dataset) -> list[HillSession]:
 
 def segment_history(ds: Dataset) -> list[SegmentHistory]:
     rows_by_segment = defaultdict(list)
-    for r in ds.segments:
-        rows_by_segment[r["segment"]].append(r)
+    for row in ds.segments:
+        rows_by_segment[row["segment"]].append(row)
     out = []
     for seg, rows in rows_by_segment.items():
-        d0 = rows[0]
-        efforts = []
-        for r in sorted(rows, key=lambda x: (x["date"], int(x["rep"]))):
-            t, hr = float(r["secs"]), float(r["hr"])
-            v, dist = float(r["vert_m"]), float(r["dist_m"])
-            w = float(r["watts"]) if r["watts"] else None
-            efforts.append(
-                SegmentEffort(
-                    date=r["date"],
-                    context=r["context"],
-                    rep=int(r["rep"]),
-                    secs=t,
-                    vam=v / t * 3600,
-                    hr=hr,
-                    watts=w,
-                    m_per_beat=dist / (hr * t / 60),
-                )
-            )
-        by = defaultdict(list)
-        for e in efforts:
-            by[e.context].append(e.secs)
+        first = rows[0]
+        efforts = [
+            SegmentEffort.from_row(row)
+            for row in sorted(rows, key=lambda row: (row["date"], int(row["rep"])))
+        ]
+        secs_by_context = defaultdict(list)
+        for effort in efforts:
+            secs_by_context[effort.context].append(effort.secs)
         out.append(
             SegmentHistory(
                 segment=seg,
-                dist=float(d0["dist_m"]),
-                vert=float(d0["vert_m"]),
-                grade=float(d0["vert_m"]) / float(d0["dist_m"]) * 100,
+                dist=float(first["dist_m"]),
+                vert=float(first["vert_m"]),
+                grade=float(first["vert_m"]) / float(first["dist_m"]) * 100,
                 efforts=efforts,
-                by_context={k: sum(v) / len(v) for k, v in by.items()},
+                by_context={
+                    context: sum(secs) / len(secs) for context, secs in secs_by_context.items()
+                },
             )
         )
     return out
@@ -160,26 +176,10 @@ def segment_history(ds: Dataset) -> list[SegmentHistory]:
 
 def rep_sessions() -> list[RepSession]:
     """Flat 1k-rep sessions from reps.csv — the threshold-pace record."""
-    out = []
     try:
         fh = open(config.path("reps.csv"))
     except FileNotFoundError:
-        return out
+        return []
     with fh:
-        for r in csv.DictReader(fh):
-            s = [float(x) for x in r["secs"].split(",")]
-            out.append(
-                RepSession(
-                    date=r["date"],
-                    name=r["session"],
-                    rest=r["rest"],
-                    secs=s,
-                    n=len(s),
-                    avg=sum(s) / len(s),
-                    last3=sum(s[-3:]) / 3,
-                    best=min(s),
-                    fade=s[0] - s[-1],
-                )
-            )
-    out.sort(key=lambda x: x.date)
-    return out
+        sessions = [RepSession.from_row(row) for row in csv.DictReader(fh)]
+    return sorted(sessions, key=lambda session: session.date)
