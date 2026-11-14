@@ -8,9 +8,6 @@ macrocycle and renders the diary page in `web/`. Read `README.md` before changin
 
 | Task | Command |
 |---|---|
-| Status of the prep | `uv run tl status` |
-| Full report | `uv run tl` |
-| JSON dump | `uv run tl export` (writes `data/diary.json`) |
 | Rebuild the diary page | `uv run tl site` (writes `web/src/payload.json`) |
 | Preview / build the page | `cd web && bun run dev` / `bun run build` (Vite + React + TypeScript) |
 | Publish the diary page | commit and push `web/src/payload.json`; `.github/workflows/pages.yml` builds and deploys it |
@@ -39,8 +36,8 @@ Code must pass ty; declare attributes the checker cannot infer instead of silenc
   check. Before talking training, get today's date with `TZ=Europe/Prague date`, read
   `LOG.md`, and follow its rules.
 - `data/*.csv` is the cache and the source of truth. It is personal data, gitignored and
-  kept on Dan's machine only — never commit it. `data/diary.json` and
-  `web/src/payload.json` are generated: regenerate them, never hand-edit them.
+  kept on Dan's machine only — never commit it. `web/src/payload.json` is generated:
+  regenerate it with `uv run tl site`, never hand-edit it.
 
 ## Boundaries
 

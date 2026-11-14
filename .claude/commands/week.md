@@ -4,8 +4,7 @@ description: Top up the training cache from Strava/COROS, evaluate the week, reb
 
 Weekly training review for Dan. Work in `/Users/stancld/projects/running-training-analysis`.
 
-1. **Find the gap.** `tail -3 data/activities.csv` for the last cached date, and
-   `uv run tl status` for the staleness line.
+1. **Find the gap.** `tail -3 data/activities.csv` for the last cached date.
 2. **Fetch only what is missing.** `mcp__strava__list_activities` (per_page small —
    bulk pulls cost ~12k tokens per 100 activities). Append one row per activity to
    `data/activities.csv` (`date,sport,km,min,vert`; minutes = moving_time).
@@ -24,11 +23,14 @@ Weekly training review for Dan. Work in `/Users/stancld/projects/running-trainin
    it holds Dan's decisions for each week and his reasons for plan changes, while
    `tl/plan.py` carries week-level targets only. If Dan already planned the coming
    week there, check that plan rather than writing a new one.
-6. **Evaluate.** `uv run tl status`, `weeks 6`, `diary 1`, `plan`. Judge the week on:
+6. **Evaluate.** `uv run tl site`, then read `web/src/payload.json`: the last six
+   `weeks` (volumes, `wow`, `acwr`, flag codes), the close week's `diary` entry (its
+   `plan` row, `flags` with messages, `notes`, `monotony`, `ctl`/`atl`/`tsb`) and the
+   next `plan` rows. Judge the week on:
    plan vs actual (run h, vert, weekend long), the R1–R7 guardrails, CTL/ATL/form and
    monotony, the quality session's HR/power against LTHR 176, and what next week's plan
    row asks for. Flag anything that pushes the week-over-week running jump past 1.25×.
-7. **Publish.** `uv run tl site`, then commit and push `web/src/payload.json` to `master`.
+7. **Publish.** Commit and push `web/src/payload.json` to `master`.
    The Pages workflow deploys it to https://stancld.github.io/running-training-analysis/.
 8. **Report** in the terminal: what happened, what it means, and what next week's plan
    row would do to the guardrails. Dan decides the next week; ask him, don't prescribe.

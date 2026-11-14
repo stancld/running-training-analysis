@@ -144,14 +144,8 @@ class Activity:
 
 
 class Dataset:
-    def __init__(
-        self,
-        activities: list[Activity],
-        hills: list[dict[str, str]],
-        segments: list[dict[str, str]],
-    ) -> None:
+    def __init__(self, activities: list[Activity]) -> None:
         self.activities = sorted(activities, key=lambda a: (a.date, a.sport))
-        self.hills, self.segments = hills, segments
         self.first = self.activities[0].date
         self.last = self.activities[-1].date
 
@@ -202,9 +196,7 @@ class Dataset:
             for a, (name, note) in zip(same_day, items, strict=False):
                 a.name, a.note = name, note
 
-        return cls(
-            acts, [r for _, r in read_rows("hills.csv")], [r for _, r in read_rows("segments.csv")]
-        )
+        return cls(acts)
 
     def daily_load(self) -> dict[dt.date, float]:
         """Load units per date: RE where Strava has it, else a scaled minute."""

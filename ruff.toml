@@ -33,10 +33,8 @@ ignore = [
     "SIM115",
     # Training thresholds are domain numbers; the named ones already live in config.py.
     "PLR2004",
-    # The CLI dispatcher and the renderers are long by nature; the guardrail logic is not, and
+    # The payload builder takes each derived series and an e2e test is one long scenario;
     # C901's complexity budget below covers the same ground.
-    "PLR0911",
-    "PLR0912",
     "PLR0913",
     "PLR0915",
     "PLR0917",
@@ -85,8 +83,6 @@ banned-from = ["datetime"]
 "tl.export" = "export"
 "tl.periods" = "periods"
 "tl.plan" = "plan"
-"tl.quality" = "quality"
-"tl.render" = "render"
 
 [format]
 exclude = ["*.md"]

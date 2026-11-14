@@ -7,8 +7,8 @@ repos:
       - id: trailing-whitespace
         # Two trailing spaces are a Markdown line break.
         args: [--markdown-linebreak-ext=md]
-        # Generated outputs are rebuilt by `uv run tl export|site` or bun, never hand-fixed.
-        exclude: &generated '^(web/src/payload\.json|web/bun\.lock|data/diary\.json)$'
+        # Generated outputs are rebuilt by `uv run tl site` or bun, never hand-fixed.
+        exclude: &generated '^(web/src/payload\.json|web/bun\.lock)$'
       - id: end-of-file-fixer
         exclude: *generated
       - id: mixed-line-ending

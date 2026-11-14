@@ -6,13 +6,17 @@ from typing import TYPE_CHECKING
 from tl import config, plan
 from tl.data import runs_first
 from tl.periods import monotony
-from tl.render import hmm
 
 if TYPE_CHECKING:
     from tl.data import Activity
     from tl.periods import Week
 
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+
+def hmm(hours: float) -> str:
+    m = round(hours * 60)
+    return f"{m // 60}:{m % 60:02d}"
 
 
 class Entry:
@@ -36,22 +40,6 @@ class Entry:
             (DAYS[d.weekday()], d, runs_first(a for a in self.week.acts if a.date == d))
             for d in dates
         ]
-
-    def headline(self) -> str:
-        w = self.week
-        if not w.acts:
-            return "No training recorded."
-        bits = [
-            (
-                f"{hmm(w.total_h)} total · {hmm(w.run_h)} run "
-                f"({w.run_km:.0f} km, {w.run_vert:.0f} m, {w.density:.0f} m/h)"
-            )
-        ]
-        if w.bike_h >= 0.5:
-            bits.append(f"{hmm(w.bike_h)} bike")
-        if w.gym_h >= 0.4:
-            bits.append(f"{hmm(w.gym_h)} gym")
-        return " · ".join(bits)
 
     def _plan_notes(self) -> list[str]:
         """How the finished week read against its plan targets."""
@@ -112,9 +100,3 @@ class Entry:
         for code, msg in self.flags:
             out.append(f"[{code}] {msg}")
         return out
-
-    def highlights(self) -> list[tuple[dt.date, str | None, str]]:
-        """Dan's session notes for the week."""
-        return [
-            (a.date, a.name, a.note) for a in sorted(self.week.acts, key=lambda a: a.date) if a.note
-        ]

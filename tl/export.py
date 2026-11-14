@@ -1,8 +1,6 @@
 """JSON export — the shape the diary artifact reads."""
 
 import datetime as dt
-import json
-from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from tl import config, periods, plan
@@ -174,55 +172,6 @@ def _zones(ds: Dataset) -> dict[str, Any]:
         "power_bands": _bands(config.POWER_ZONES),
         "phases": out,
     }
-
-
-def payload(
-    ds: Dataset, entries: list[Entry], months: list[Month], seasons: list[Season]
-) -> dict[str, Any]:
-    return {
-        # Local wall time without an offset, as the export has always written it.
-        "generated": dt.datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S"),
-        "today": config.TODAY.isoformat(),
-        "race": {
-            "name": plan.RACE_NAME,
-            "date": plan.RACE.isoformat(),
-            "weeks_to_go": round(plan.weeks_to_race(), 1),
-        },
-        "cache": {
-            "first": ds.first.isoformat(),
-            "last": ds.last.isoformat(),
-            "activities": len(ds.activities),
-            "stale_days": (config.TODAY - ds.last).days,
-        },
-        "phases": [
-            {"code": c, "name": n, "weeks": k, "km": km, "vert": v}
-            for c, n, k, km, v in plan.PHASES
-        ],
-        "plan": [
-            {
-                "index": p.index,
-                "phase": p.phase,
-                "start": p.start.isoformat(),
-                "total_h": p.total_h,
-                "run_h": p.run_h,
-                "bike_h": p.bike_h,
-                "gym_h": p.gym_h,
-                "run_km": round(p.run_km, 1),
-                "run_vert": None if p.run_vert is None else round(p.run_vert),
-                "weekend": p.weekend,
-                "race": p.race,
-            }
-            for p in plan.WEEKS
-        ],
-        "weeks": [_week(e) for e in entries],
-        "months": [_period(m) for m in months],
-        "seasons": [_period(s) for s in seasons],
-    }
-
-
-def write(obj: dict[str, Any], path: str | Path) -> None:
-    with open(path, "w") as fh:
-        json.dump(obj, fh, indent=1)
 
 
 def web_payload(

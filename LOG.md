@@ -11,8 +11,8 @@ reasons for changing them and the days he settles on.
 - **Date first.** Run `TZ=Europe/Prague date`; orbs run on UTC. Weeks run Monday to
   Sunday. The *close week* is the one that ended last Sunday, or the current one when
   today is Sunday; the *next week* starts on the following Monday. Find their plan rows
-  in `tl/plan.py` and the actual numbers with `uv run tl status`, or in
-  `data/diary.json` (`today`, `weeks`, `plan`) when the cache is not on this machine.
+  in `tl/plan.py` and the actual numbers in `web/src/payload.json` (`today`, `cache`,
+  `weeks`, `diary`, `plan`); run `uv run tl site` first when the cache is on this machine.
 - **Dan decides, the agent checks.** Write down what Dan says he wants, in his words.
   Check it against R1 (week-over-week ≤ 1.25×), R2 (ACWR ≤ 1.44 against the 4 weeks before), R3, R4, R6 and the
   plan, and report the result with the numbers behind it. When something fails, say by

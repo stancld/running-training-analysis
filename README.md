@@ -31,15 +31,7 @@ it is derived from the cache except Dan's own session notes.
 The CSV cache in `data/` is personal and gitignored, so a fresh clone has no
 data. Set up once with `uv sync`.
 
-    uv run tl                     status + weeks + plan + diary
-    uv run tl status              where the prep stands today
-    uv run tl weeks 20 | all      week map
-    uv run tl months | seasons    month and season maps
-    uv run tl plan                29-week macrocycle vs what happened
-    uv run tl diary 4 | all | DATE
-    uv run tl hills | segments | reps
-    uv run tl export [path]       full JSON dump (data/diary.json)
-    uv run tl site                write web/src/payload.json
+    uv run tl site [path]         write web/src/payload.json (or path)
     uv run pytest                 e2e: a temp cache through `tl site` (never touches data/)
 
 ## Working on the page
@@ -71,10 +63,9 @@ that the laptop's jump bar uses.
    from their Strava streams (needs
    `STRAVA_CLIENT_ID`, `STRAVA_CLIENT_SECRET` and a refresh token with
    `activity:read_all`). Runs without a row fall back to their average HR.
-4. After an uphill session, extend `hills.csv` and `segments.csv`.
-5. `uv run tl status` to check, `uv run tl site` to rebuild the payload, then
-   commit and push `web/src/payload.json`; the Pages workflow publishes it.
-6. Once a week, review the close week with an agent in `LOG.md`: Dan plans the next
+4. `uv run tl site` to rebuild the payload, then commit and push
+   `web/src/payload.json`; the Pages workflow publishes it.
+5. Once a week, review the close week with an agent in `LOG.md`: Dan plans the next
    one, the agent checks it against the guardrails, and his volume changes go into
    `tl/plan.py`.
 
@@ -89,7 +80,7 @@ committed payload. An Amp orb can run the same workflow on a copy of the cache:
    `STRAVA_CLIENT_SECRET` and `STRAVA_REFRESH_TOKEN` from the orb's environment,
    set as Amp secrets. If Strava rotates the token, the new one lands only in
    the orb's `~/.config/tl/strava_refresh_token`, so update the secret with it.
-3. `uv run tl status`, `uv run tl site`, `uv run pytest`, then commit and push
+3. `uv run tl site`, `uv run pytest`, then commit and push
    only `web/src/payload.json`; the CSVs stay gitignored.
 4. Download the updated `zones.csv` and `ride_zones.csv` back to Dan's machine;
    the orb's copy is disposable, not a durable checkpoint.
@@ -136,7 +127,7 @@ Setup:
    uploads the full seed plus token in one GitHub-signed commit; it refuses to
    overwrite an existing seed. The cache must be complete through its last
    activity day, including every session that day. Never reconstruct it from
-   rounded `data/diary.json`. All curated CSVs are preserved.
+   rounded `web/src/payload.json`. All curated CSVs are preserved.
 5. Set the Actions variable `TRAINING_REFRESH_ENABLED=true` and run the workflow
    manually first (choose master).
    Missing seed/token or denied storage access fails closed: no history re-pull,
@@ -153,8 +144,8 @@ another workout is uploaded later the same day. A refresh is a snapshot of what
 is already uploaded, not a live workout feed.
 Delayed uploads older than that overlap, edits/deletions on Strava, COROS-only
 activities and historical omissions require a deliberate manual cache update.
-No existing rows are rewritten. Labels, feel, notes, relative effort, hill and
-segment annotations remain manual; new activities without RE use the existing
+No existing rows are rewritten. Labels, feel, notes and relative effort remain
+manual; new activities without RE use the existing
 load fallback, rather than inventing effort or workout labels.
 
 Every CI run uses `--restore` to download the archive and token from one exact

@@ -41,14 +41,7 @@ jobs:
       - run: uv sync --locked
       - run: uv run pytest
       - run: scripts/synthetic_cache.sh
-      - name: Run every command
-        run: |
-          uv run tl
-          uv run tl weeks all > /dev/null
-          uv run tl months all > /dev/null
-          for c in seasons hills segments reps; do uv run tl "$c" > /dev/null; done
-          uv run tl export "$RUNNER_TEMP/diary.json"
-          uv run tl site "$RUNNER_TEMP/payload.json"
+      - run: uv run tl site "$RUNNER_TEMP/payload.json"
       - run: uv build
 
   e2e:
