@@ -224,7 +224,7 @@ function Dots({ rail, tap }: { rail: Rail; tap: boolean }) {
   );
 }
 
-export function railSummary(list: Rail[]) {
+function railSummary(list: Rail[]) {
   const off = (s: Status) => list.filter(r => r.status === s).map(r => r.code);
   return [
     // A watch is not a breach, so it counts as within limits and is named after.

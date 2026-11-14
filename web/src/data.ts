@@ -26,7 +26,6 @@ export type WeekPlan = {
   run_vert: number | null;
   weekend: string;
   race: string | null;
-  to_race: number;
 };
 export type DiaryWeek = {
   label: string;
@@ -44,9 +43,6 @@ export type DiaryWeek = {
   run_days: number;
   rest_days: number;
   longest: number;
-  longest_km: number;
-  longest_vert: number;
-  back_to_back: boolean;
   wow: number | null;
   acwr: number | null;
   feel: number | null;
@@ -117,7 +113,6 @@ export type Provisional = {
   km: [number, number];
   vert: [number, number];
   total_km: number;
-  total_vert: number;
 };
 export type Quality = {
   sessions: { name: string; detail: string }[];

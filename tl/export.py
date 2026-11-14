@@ -29,9 +29,6 @@ def _week(e: Entry) -> dict[str, Any]:
         "run_days": w.run_days,
         "rest_days": w.rest_days,
         "longest": (round(w.longest_run.mins) if w.longest_run else 0),
-        "longest_km": (round(w.longest_run.km, 1) if w.longest_run else 0),
-        "longest_vert": (round(w.longest_run.vert) if w.longest_run else 0),
-        "back_to_back": w.back_to_back,
         "wow": (round(w.wow, 2) if w.wow is not None else None),
         "acwr": (round(w.acwr, 2) if w.acwr is not None else None),
         "feel": (round(w.mean_feel, 2) if w.mean_feel is not None else None),
@@ -54,7 +51,6 @@ def _week(e: Entry) -> dict[str, Any]:
                 "run_vert": None if p.run_vert is None else round(p.run_vert),
                 "weekend": p.weekend,
                 "race": p.race,
-                "to_race": p.to_race,
             }
             if p
             else None
@@ -261,7 +257,6 @@ def web_payload(
                 "km": [round(x) for x in q["bands"]["run_km"]],
                 "vert": [round(x) for x in q["bands"]["run_vert"]],
                 "total_km": q["km"],
-                "total_vert": q["vert"],
             }
             for q in plan.provisional_phases()
         ],

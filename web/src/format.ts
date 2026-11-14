@@ -49,7 +49,7 @@ export const weekTitle = (start: string) =>
   [planWeek(start), span(start, addDays(start, 6), true), isoWeek(start)].filter(Boolean).join(' · ');
 
 // Mirrors tl/diary.py: within ±15% of the target counts as on target.
-export const offTarget = (w: DiaryWeek) => !!w.plan?.run_h && Math.abs(w.run_h / w.plan.run_h - 1) > 0.15;
+const offTarget = (w: DiaryWeek) => !!w.plan?.run_h && Math.abs(w.run_h / w.plan.run_h - 1) > 0.15;
 export const raceOf = (w: DiaryWeek) =>
   w.days.flatMap(d => d.acts.filter(a => a.type === 'RACE').map(a => ({ ...a, date: d.date })))[0];
 /* A diary week's status and why: tl's flags, then the same watches the guardrail card and

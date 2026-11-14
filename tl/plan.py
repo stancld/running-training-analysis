@@ -223,10 +223,6 @@ class PlanWeek:
         self.phase = phase
 
     @property
-    def to_race(self) -> int:
-        return (RACE - self.start).days // 7
-
-    @property
     def committed(self) -> bool:
         """Inside the detail horizon — a real weekly target, not a placeholder."""
         return self.start <= horizon_date()
@@ -286,7 +282,7 @@ def provisional_phases() -> list[dict[str, Any]]:
     """Phases with any week beyond the horizon, with their bands."""
     h = horizon_date()
     out = []
-    for code, name, _n, km, vert in PHASES:
+    for code, name, _n, km, _vert in PHASES:
         block = [w for w in PHASE_WEEKS[code] if w.start > h]
         if block:
             out.append(
@@ -298,7 +294,6 @@ def provisional_phases() -> list[dict[str, Any]]:
                     "end": block[-1].end,
                     "bands": PHASE_BANDS[code],
                     "km": km,
-                    "vert": vert,
                 }
             )
     return out
