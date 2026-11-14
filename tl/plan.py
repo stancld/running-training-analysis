@@ -101,9 +101,11 @@ OWN_KM = {
 # name, weeks, published km total, published vert total
 PHASES = [
     ("P1", "Slapy build", 7, 569, 21000),
+    # Split W8 out of P2, keeping weekly km/vert targets at display precision.
+    ("S", "Slapy race", 1, 50.54, 1480),
     # W9-12 have fixed km; W12 is reduced to 6.5 h (LOG.md).
     # Remove each reduction rather than redistribute it into the other weeks.
-    ("P2", "Recovery & gym on-ramp", 6, 349.16, 3782),
+    ("P2", "Recovery & gym on-ramp", 5, 298.62, 2302),
     ("P3", "Base", 8, 703, 28400),
     ("P4", "Specific build", 6, 544, 23900),
     ("P5", "Taper", 2, 97, 2550),

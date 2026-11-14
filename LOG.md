@@ -165,6 +165,12 @@ long." That covers wk 9 (26 Oct) and wk 10 (2 Nov).
 - P2 published totals 427 km / 12,500 m → 372 km / 8,550 m, so wk 8 and wk 11–13 keep
   their km and vert targets (the off-season weeks carry 80 km and no vert).
 
+**14 Nov phase correction:** Dan asked to separate Slapy from P2. W8 (19–25 Oct)
+now has its own S · Slapy race block; P1 remains W1–7 and P2 becomes W9–13
+(26 Oct–29 Nov). Move W8's existing allocation, 50.54 km / 1,480 m, out of P2:
+349.16 km / 3,782 m → 298.62 km / 2,302 m. Weekly targets remain unchanged at
+display precision; hours, guardrails and later phase dates are unchanged.
+
 **Chianti goal (set 2026-11-02):** UTMB index ≥ 700, 720+ if the back half holds. Dan
 first put it at 720–750 and Slapy 47K at ~780; the utmb.world data says otherwise. His
 record there is 100K index 665 (Lavaredo 80K, 10:20:23), and Slapy 2026 is not yet

@@ -52,7 +52,9 @@ GitHub Pages cannot run `tl`, so it builds the app from the committed payload.
     cd web && bunx playwright test          # e2e on the built page
 
 Weeks are named by plan week (W1–W29) and dates, with the ISO week as secondary
-text. The current calendar week is included even before its first activity.
+text. Slapy race week (W8, 19–25 October) has its own block, S, between P1's
+build and P2's recovery; its HR-zone totals are kept out of both training blocks.
+The current calendar week is included even before its first activity.
 On a phone each tab has its own URL hash (`#today`, `#plan`, `#diary`,
 `#history`); every section also has an anchor (`#rails`, `#quality`, `#ledger`, …)
 that the laptop's jump bar uses.

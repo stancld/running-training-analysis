@@ -302,6 +302,66 @@ def test_payload_carries_the_cache(
     assert current["days"][0]["acts"][0]["sport"] == "Workout"
 
 
+def test_slapy_race_week_is_separate_from_recovery(
+    tmp_path: Path, site: Callable[[], dict[str, Any]], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    (tmp_path / "activities.csv").write_text(
+        "date,sport,km,min,vert\n"
+        "2026-10-18,Run,5,30,100\n"
+        "2026-10-24,RACE_Run,47,240,1900\n"
+        "2026-10-25,Ride,30,90,200\n"
+        "2026-10-26,Run,10,60,150\n"
+    )
+    (tmp_path / "hr.csv").write_text(
+        "date,min,hr\n2026-10-18,30,130\n2026-10-24,240,170\n2026-10-26,60,145\n"
+    )
+    (tmp_path / "ride_zones.csv").write_text(
+        "date,min,z1,z2,z3,z4,z5,p1,p2,p3,p4,p5,p6,p7\n"
+        "2026-10-25,90,1800,3600,0,0,0,0,5400,0,0,0,0,0\n"
+    )
+    monkeypatch.setattr(config, "TODAY", dt.date(2026, 10, 26))
+    p = site()
+    build, race, recovery = p["zones"]["phases"]
+    assert (build["start"], build["end"]) == ("2026-08-31", "2026-10-18")
+    assert (race["name"], race["start"], race["end"], race["current"]) == (
+        "Slapy race",
+        "2026-10-19",
+        "2026-10-25",
+        False,
+    )
+    assert (recovery["phase"], recovery["start"], recovery["end"], recovery["current"]) == (
+        "P2",
+        "2026-10-26",
+        "2026-11-29",
+        True,
+    )
+    assert [w["index"] for w in build["weeks"]] == list(range(1, 8))
+    assert [w["index"] for w in race["weeks"]] == [8]
+    assert [w["index"] for w in recovery["weeks"]] == [9]
+    assert [z["run"]["minutes"] for z in (build, race, recovery)] == [
+        [30, 0, 0, 0, 0],
+        [0, 0, 240, 0, 0],
+        [0, 60, 0, 0, 0],
+    ]
+    assert race["bike"]["minutes"] == [30, 60, 0, 0, 0]
+    assert race["bike"]["power"] == [0, 90, 0, 0, 0, 0, 0]
+    assert recovery["bike"]["minutes"] == [0] * 5
+    assert p["plan"][7]["phase"] == race["phase"]
+    assert (
+        next(w for w in p["diary"] if w["start"] == "2026-10-19")["plan"]["phase"] == race["phase"]
+    )
+    # Reclassification must not redistribute weekly targets or shift later phases.
+    assert [(w["km"], w["vert"]) for w in p["plan"][7:13]] == [
+        (51, 1480),
+        (40, None),
+        (40, None),
+        (70, None),
+        (70, None),
+        (79, 2302),
+    ]
+    assert (p["plan"][13]["phase"], p["plan"][13]["start"]) == ("P3", "2026-11-30")
+
+
 def test_guardrails_fire_past_the_limit_not_at_it(
     tmp_path: Path, site: Callable[[], dict[str, Any]]
 ) -> None:
