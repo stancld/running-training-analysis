@@ -53,6 +53,24 @@ class HillSession:
     hr_peak: float
     decoupling: float | None
 
+    @classmethod
+    def from_rows(cls, rows: list[dict[str, str]]) -> Self:
+        reps = sorted((HillRep.from_row(row) for row in rows), key=lambda rep: rep.rep)
+        vams = [rep.vam for rep in reps]
+        w_per_hrs = [rep.w_per_hr for rep in reps if rep.w_per_hr]
+        hrs = [rep.hr for rep in reps]
+        return cls(
+            date=rows[0]["date"],
+            name=rows[0]["session"],
+            reps=reps,
+            mean_vam=sum(vams) / len(vams),
+            hr_drift=hrs[-1] - hrs[0],
+            hr_peak=max(hrs),
+            decoupling=(
+                (w_per_hrs[-1] - w_per_hrs[0]) / w_per_hrs[0] * 100 if len(w_per_hrs) > 1 else None
+            ),
+        )
+
 
 @dataclass(frozen=True)
 class SegmentEffort:
@@ -89,6 +107,27 @@ class SegmentHistory:
     efforts: list[SegmentEffort]
     by_context: dict[str, float]
 
+    @classmethod
+    def from_rows(cls, rows: list[dict[str, str]]) -> Self:
+        first = rows[0]
+        efforts = [
+            SegmentEffort.from_row(row)
+            for row in sorted(rows, key=lambda row: (row["date"], int(row["rep"])))
+        ]
+        secs_by_context = defaultdict(list)
+        for effort in efforts:
+            secs_by_context[effort.context].append(effort.secs)
+        return cls(
+            segment=first["segment"],
+            dist=float(first["dist_m"]),
+            vert=float(first["vert_m"]),
+            grade=float(first["vert_m"]) / float(first["dist_m"]) * 100,
+            efforts=efforts,
+            by_context={
+                context: sum(secs) / len(secs) for context, secs in secs_by_context.items()
+            },
+        )
+
 
 @dataclass(frozen=True)
 class RepSession:
@@ -122,56 +161,14 @@ def hill_sessions(ds: Dataset) -> list[HillSession]:
     sessions = defaultdict(list)
     for row in ds.hills:
         sessions[(row["date"], row["session"])].append(row)
-    out = []
-    for (date, name), rows in sorted(sessions.items()):
-        reps = sorted((HillRep.from_row(row) for row in rows), key=lambda rep: rep.rep)
-        vams = [rep.vam for rep in reps]
-        w_per_hrs = [rep.w_per_hr for rep in reps if rep.w_per_hr]
-        hrs = [rep.hr for rep in reps]
-        decoupling = (
-            (w_per_hrs[-1] - w_per_hrs[0]) / w_per_hrs[0] * 100 if len(w_per_hrs) > 1 else None
-        )
-        out.append(
-            HillSession(
-                date=date,
-                name=name,
-                reps=reps,
-                mean_vam=sum(vams) / len(vams),
-                hr_drift=hrs[-1] - hrs[0],
-                hr_peak=max(hrs),
-                decoupling=decoupling,
-            )
-        )
-    return out
+    return [HillSession.from_rows(rows) for _, rows in sorted(sessions.items())]
 
 
 def segment_history(ds: Dataset) -> list[SegmentHistory]:
     rows_by_segment = defaultdict(list)
     for row in ds.segments:
         rows_by_segment[row["segment"]].append(row)
-    out = []
-    for seg, rows in rows_by_segment.items():
-        first = rows[0]
-        efforts = [
-            SegmentEffort.from_row(row)
-            for row in sorted(rows, key=lambda row: (row["date"], int(row["rep"])))
-        ]
-        secs_by_context = defaultdict(list)
-        for effort in efforts:
-            secs_by_context[effort.context].append(effort.secs)
-        out.append(
-            SegmentHistory(
-                segment=seg,
-                dist=float(first["dist_m"]),
-                vert=float(first["vert_m"]),
-                grade=float(first["vert_m"]) / float(first["dist_m"]) * 100,
-                efforts=efforts,
-                by_context={
-                    context: sum(secs) / len(secs) for context, secs in secs_by_context.items()
-                },
-            )
-        )
-    return out
+    return [SegmentHistory.from_rows(rows) for rows in rows_by_segment.values()]
 
 
 def rep_sessions() -> list[RepSession]:
